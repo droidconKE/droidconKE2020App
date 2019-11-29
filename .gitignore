@@ -12,3 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+/.idea/
+.idea/sonarlint/
+app/libs/
