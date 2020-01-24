@@ -17,23 +17,23 @@ To build the app, use the gradlew build command or use "Import Project" in Andro
 
 ### Architecture
 
-Modularizing .droidconKE
+#### Modularizing .droidconKE
 
-Proposed Architecture
+Proposed Architecture:
 
 We will be using libraries, modules and dynamic feature modules too.
 
-Modules To Be There:
+#### Modules To Be There:
 1. app -
 2. base/core - library
 3. data - for network requests
 4. features - represent app specific features for  example schedule, 
 
-Dynamic Feature Modules
+#### Dynamic Feature Modules
 1. Ticket - attendees can buy  tickets
 2
 
-Dependencies
+#### Dependencies
 1. Jetpack - Jetpack Libraries to use
 	- LiveData
 	- AndroidX
