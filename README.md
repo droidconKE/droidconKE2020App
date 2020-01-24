@@ -48,11 +48,11 @@ We will be using libraries, modules and dynamic feature modules too.
 	- Room
 	- ViewModel
 	- Lifecycle
-2. Coroutines
-3. Retrofit
-4. Koin
+2. Coroutines - For Concurrency and Asynchronous tasks
+3. Retrofit - For network requests
+4. Koin - For Dependency Injection
 5. Crashlytics
-6. Coil - For Image Loading
+6. Coil - For Image Loading and Caching
 7. Firebase Perf - For analyzing app perfomance
 8. Testing Dependencies -
 	- JUnit
@@ -61,7 +61,8 @@ We will be using libraries, modules and dynamic feature modules too.
 	- Mockk
 	- Roboelectric
 	- Kakao
-9. Link Checks - Consider adding a library for lint checks
+9. Lint Checks - Consider adding a library for lint checks
+	- Ktlint [https://ktlint.github.io/]
 
 On Feature Modules: Does each module have its own domain,data,and presentation or how do we approach this
 
