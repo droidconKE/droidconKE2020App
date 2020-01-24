@@ -10,6 +10,12 @@ The source code in this repository reflects the app as of droidconKE 2020.
 
 ### Features
 
+App will have the following features:
+- Schedule
+- Feed
+- About
+
+
 ### Development Environment
 The app is written fully in Kotlin and uses the Gradle build system.
 
@@ -47,18 +53,26 @@ We will be using libraries, modules and dynamic feature modules too.
 4. Koin
 5. Crashlytics
 6. Coil - For Image Loading
-7. Firebase Perf - For analyzing
+7. Firebase Perf - For analyzing app perfomance
 8. Testing Dependencies -
 	- JUnit
 	- AndroidX Test
 	- Espresso
-	- Mockito
+	- Mockk
 	- Roboelectric
+	- Kakao
 9. Link Checks - Consider adding a library for lint checks
 
 On Feature Modules: Does each module have its own domain,data,and presentation or how do we approach this
 
-References/Resources
+###  \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️ 🚧 \]
+
+- [ ] Finalize on the final App architecture.
+- [ ] Setup app modules
+- [ ] Work on Modules Specifics
+- [ ] Dependencies Setup - Gradle kts
+
+### References/Resources
 1.  https://github.com/igorwojda/android-showcase
 2.  https://github.com/VMadalin/kotlin-sample-app
 3.  https://github.com/DroidKaigi/conference-app-2020
