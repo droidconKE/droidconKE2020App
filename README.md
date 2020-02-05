@@ -6,8 +6,7 @@
   <p align="center">
     The official  <a href="https://droidcon.co.ke/">DroidconKE 2020 conference App</a>.
     <br>
-    <br>
-    [![Built in Android](https://forthebadge.com/images/badges/built-for-android.svg)](#)
+    <img src="https://forthebadge.com/images/badges/built-for-android.svg" alt="droidconKE2020 built for Android">
     <br>
     </p>
 </p>
@@ -153,7 +152,7 @@ You can improve on this and add further features:
 We would love to have your help in making  **droidconKE 2020 App** better.
 The project is still very incomplete, but if there's an issue you'd like to see addressed sooner rather than later, let us know.
 
-Before you contribute though read the contributing guide here: [CONTRIBUTING GUIDE](https://github.com/droidconKE/droidconKE2020App/contributing.md)
+Before you contribute though read the contributing guide here: [CONTRIBUTING GUIDE](https://github.com/tamzi/droidconKE2020App/blob/master/contributing.md)
 
 For any concerns kindly:
 - [Open an issue](https://github.com/droidconKE/droidconKE2020App/issues),
