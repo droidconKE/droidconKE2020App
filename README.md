@@ -61,7 +61,7 @@ c. download it from the playstore:
 [![Download it on Google Play](https://raw.githubusercontent.com/tamzi/ReadMe-MasterTemplates/master/android/images/gplay.png)](#)
 
 
-## 📋 Technical
+## Technical
 
 
 ### Running the project
@@ -126,7 +126,7 @@ Each module have its own domain,data,and presentation or how do we approach this
 #### Permissions
 
 
-## 🚧 Work in progress 👷‍ 🚧
+## Work in progress
 
 :construction: :construction:
 
@@ -141,7 +141,7 @@ You can improve on this and add further features:
 
 
 
-## 📖 Contributing
+## Contributing
 
 
 I would love to have your help in making  **useHover MultiSIM** better.
@@ -177,7 +177,7 @@ For any concerns, please open an [issue](https://github.com/tamzi/useHoverMultiS
 Version 1.0   TBR (To Be Released)
 
 
-## 🎉⛏ 🔧️  Contributers
+## Contributers
 
 Maintainers
 - [harun](https://github.com/wangerekaharun)
