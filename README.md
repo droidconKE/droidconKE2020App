@@ -2,9 +2,12 @@
   <a href="https://github.com/droidconKE/droidconKE2020App">
     <img src="https://raw.githubusercontent.com/droidconKE/iconPack/master/androidIcon/android-icon-144x144.png" alt="droidconKE2020">
   </a>
-  <h3 align="center">droidcon2020 COnference App</h3>
+  <h3 align="center">droidcon2020 Conference App</h3>
   <p align="center">
     The official  <a href="https://droidcon.co.ke/">DroidconKE 2020 conference App</a>.
+    <br>
+    <br>
+    [![Built in Android](https://forthebadge.com/images/badges/built-for-android.svg)](#)
     <br>
     </p>
 </p>
@@ -24,7 +27,7 @@
 
 
 ## About the App
-Android app for the third Android Developer conference-droidcon in Nairobi 2020
+Android app for the 3rd Android Developer conference- droidcon to be held in Nairobi from Auguts 6-8th 2020.
 
 This project is the Android app for the conference. The app supports devices running Android 5.0+, and is optimized for phones and tablets of all shapes and sizes.
 The source reflects teh app as at droidconKE 2020!
@@ -38,10 +41,9 @@ App will have the following features:
 
 To learn how it was buit, we put this series together:
 
-[(NOT YET OUT) -Coming soon! Building the droidconKE 2020 App](https://hashnode.com/series/building-the-droidconke-2020-app-ck6970eby04oakbs19u8bbru2)
+[(NOT YET OUT) - Coming soon! Building the droidconKE 2020 App](https://hashnode.com/series/building-the-droidconke-2020-app-ck6970eby04oakbs19u8bbru2)
 
 Like, share claps... :wink:
-
 
 ## General Preview
 #### Screenshots
@@ -53,8 +55,7 @@ Coming soon!
 
 a You can give it a spin [here on appetize](#)
 
-b. You can check out the already compiled from the version on the release apk folder.
-        Downoad it here: [Download App](https://github.com/tamzi/useHoverMultiSIM/blob/master/releaseAPK/zipped.zip)
+b.Compile the project on android studio and run it.
 
 c. download it from the playstore:
 
@@ -62,7 +63,6 @@ c. download it from the playstore:
 
 
 ## Technical
-
 
 ### Running the project
 **1. Required to run project:**
@@ -117,18 +117,25 @@ We will be using libraries, modules and dynamic feature modules too.
 	- Roboelectric
 	- Kakao
 9. Lint Checks - Consider adding a library for lint checks
-	- Ktlint [https://ktlint.github.io/]
+	- [Ktlint](https://ktlint.github.io/)
 
 ### Feature Modules:
 
 Each module have its own domain,data,and presentation or how do we approach this
 
 #### Permissions
+ TBA
 
-
+### References/Resources
+1.  [Android ShowCase](https://github.com/igorwojda/android-showcase)
+2.  [Kotlin Sample App](https://github.com/VMadalin/kotlin-sample-app)
+3.  [DroidKaigi Conference App 2020](https://github.com/DroidKaigi/conference-app-2020)
+4.  [Clean Architecture post on ProAndroid Dev](https://proandroiddev.com/multiple-ways-of-defining-clean-architecture-layers-bbb70afa5d4a)
+5.  [ReadME Master templates](https://github.com/tamzi/ReadMe-MasterTemplates)
+6.  [contributors-img](https://contributors-img.firebaseapp.com)
 ## Work in progress
 
-:construction: :construction:
+:construction: ⛏ 🔧️ :construction:
 
 - [ ] Finalize on the final App architecture.
 - [ ] Setup app modules
@@ -137,19 +144,23 @@ Each module have its own domain,data,and presentation or how do we approach this
 
 You can improve on this and add further features:
 
-- [ ] Your suggestion here
+- [Your suggestion as an issue here](https://github.com/droidconKE/droidconKE2020App/issues)
 
 
 
 ## Contributing
 
+We would love to have your help in making  **droidconKE 2020 App** better.
+The project is still very incomplete, but if there's an issue you'd like to see addressed sooner rather than later, let us know.
 
-I would love to have your help in making  **useHover MultiSIM** better.
-The project is still very incomplete, but if there's an issue you'd like to see addressed sooner rather than later, let me know.
+Before you contribute though read the contributing guide here: [CONTRIBUTING GUIDE](https://github.com/droidconKE/droidconKE2020App/contributing.md)
 
-Before you contribute though read the contributing guide here: [CONTRIBUTING GUIDE](https://github.com/tamzi/useHoverMultiSIM/blob/master/contributing.md)
+For any concerns kindly:
+- [Open an issue](https://github.com/droidconKE/droidconKE2020App/issues),
 
-For any concerns, please open an [issue](https://github.com/tamzi/useHoverMultiSIM/issues), or JUST, [fork the project and send a pull request](https://github.com/tamzi/useHoverMultiSIM/pulls).
+    or JUST,
+
+- [Fork the project and send a pull request](https://github.com/droidconKE/droidconKE2020App/pulls).
 
 
 
@@ -158,9 +169,9 @@ For any concerns, please open an [issue](https://github.com/tamzi/useHoverMultiS
 ### Assets
 
 **Credits:**
-- Logo is used from [droidconKE](https://www.usehover.com/)
+- Logo is used from [droidconKE](https://droidcon.co.ke/)
 
-- Follow them twitter: [@droidconKE](https://twitter.com/usehover?lang=en)
+- Follow them twitter: [@droidconKE](https://twitter.com/droidconke?lang=en)
 
 
 
@@ -168,7 +179,7 @@ For any concerns, please open an [issue](https://github.com/tamzi/useHoverMultiS
 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source-200x33.png?v=103)](#)
 
-[![Open Source Love](https://forthebadge.com/images/badges/built-for-android.svg)](#)
+
 
 
 
@@ -178,15 +189,12 @@ Version 1.0   TBR (To Be Released)
 
 
 ## Contributers
+Auto-populated from:
+[contributors-img](https://contributors-img.firebaseapp.com/image?repo=droidconke/droidconKE2020App)
 
-Maintainers
-- [harun](https://github.com/wangerekaharun)
-- [Jabez](https://github.com/JabezNzomo99)
-- [Michael](https://github.com/michaelbukachi)
-- [Tamre](https://github.com/tamzi)
-- [James](https://github.com/jamesnyakush)
-- [Evans](https://github.com/chepsi)
+<a href="https://github.com/droidconke/droidconKE2020App/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=droidconke/droidconKE2020App" />
+</a>
 
-<hr>
 
 :bowtie: :v: :tropical_drink:
