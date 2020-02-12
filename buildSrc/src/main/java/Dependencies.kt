@@ -10,9 +10,7 @@ object Versions {
     const val testRunner = "1.1.1"
     const val espresso = "3.2.0"
 }
-object Dependencies {
 
-}
 object BuildPlugins {
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.buildToolsVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
