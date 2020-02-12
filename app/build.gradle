@@ -25,8 +25,13 @@ android {
 }
 
 dependencies {
+    def nav_version = "2.3.0-alpha01"
+    
     api 'androidx.core:core-ktx:1.2.0'
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    api "androidx.navigation:navigation-ui-ktx:$nav_version"
+    api "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
