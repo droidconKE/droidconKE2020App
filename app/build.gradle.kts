@@ -29,7 +29,6 @@ dependencies {
     implementation (Libraries.ktxCore)
     implementation (Libraries.constraintLayout)
     implementation (Libraries.materialComponents)
-
     testImplementation (TestLibraries.junit4)
     androidTestImplementation (TestLibraries.testRunner)
     androidTestImplementation (TestLibraries.espresso)
