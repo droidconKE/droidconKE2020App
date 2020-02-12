@@ -145,13 +145,14 @@ With the above in mind, here are the actual modules in the droidconKE2020 app fo
 2. core (library)
 3. data (library)
 4. features - directory for grouping all the feature modules together. It has the following dynamic feature modules:
-            - about - has the details of the event,  team members and their details that is when each team member card is clicked
-            - auth - has the signup,signin, forgot password and reset password logic
-            - feed - has a #droidconKE newsfeed
-            - feedback - has session and event feedback logic
-            - home - shows sponsors,promoted stuff,organizers and changes according to time ie before and during the event
-            - sessions - shows each days sessions(day one,day two, day three) session details, and also has filter sessions logic and show a user's favorited sessions
-            - speaker  - shows speaker details
+
+    - about - has the details of the event,  team members and their details that is when each team member card is clicked
+    - auth - has the signup,signin, forgot password and reset password logic
+    - feed - has a #droidconKE newsfeed
+    - feedback - has session and event feedback logic
+    - home - shows sponsors,promoted stuff,organizers and changes according to time ie before and during the event
+    - sessions - shows each days sessions(day one,day two, day three) session details, and also has filter sessions logic and show a user's favorited sessions
+    - speaker  - shows speaker details
  5. repository(library)
  6. network(library)
 
