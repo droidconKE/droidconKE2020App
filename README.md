@@ -46,11 +46,15 @@ The source code in this repository reflects the app as of droidconKE 2020.
 ### Features
 
 App will have the following features:
-- Schedule
+- Sessions
 - Feed
 - About
+- Home
+- Speakers
+- Auth
+- Feedback
 
-To learn how it was buit, we put this series together:
+To learn how it was built, we put this series together:
 
 [(NOT YET OUT) - Coming soon! Building the droidconKE 2020 App](https://hashnode.com/series/building-the-droidconke-2020-app-ck6970eby04oakbs19u8bbru2)
 
@@ -91,17 +95,6 @@ check **"dependencies"** below
 
 **5. Incase of an error when building project, update your gradle version, Build Tools download**
 
-### Architecture
-
-MVVM?
-
-We will be using libraries, modules and dynamic feature modules too.
-
-#### Modules
-1. app -
-2. base/core - library
-3. data - for network requests
-4. features - represent app specific features for  example schedule, 
 
 =======
 ### Development Environment
@@ -111,17 +104,9 @@ To build the app, use the gradlew build command or use "Import Project" in Andro
 
 ### Architecture
 
-#### Modularizing .droidconKE
-
 Proposed Architecture:
 
 We will be using libraries, modules and dynamic feature modules too.
-
-#### Modules To Be There:
-1. app -
-2. base/core - library
-3. data - for network requests
-4. features - represent app specific features for  example schedule, 
 
 ### Architecture Introduction
 We took a modularisation approach to develop the application. There are immense benefits that come about with modularising an application; faster builds due to gradle caching and parallelism, benefit of dynamic features which can be delivered on demand therefore reducing initial apk size, clear separation of concerns and ease of maintaining and adding new features. An application can be modularised either by feature or by layer, we decided to take a hybrid approach that combines both approaches. 
@@ -153,6 +138,23 @@ Consists of classes and logic that is to be shared across the application. It co
 <p align="center">
   <img src="Droid Con Architectire.png" width="500" alt="App Architecture">
 </p>
+
+#### Modules To Be There:
+With the above in mind, here are the actual modules in the droidconKE2020 app following the guidelines laid above
+1. app 
+2. core (library)
+3. data (library)
+4. features - directory for grouping all the feature modules together. It has the following dynamic feature modules:
+
+    - about - has the details of the event,  team members and their details that is when each team member card is clicked
+    - auth - has the signup,signin, forgot password and reset password logic
+    - feed - has a #droidconKE newsfeed
+    - feedback - has session and event feedback logic
+    - home - shows sponsors,promoted stuff,organizers and changes according to time ie before and during the event
+    - sessions - shows each days sessions(day one,day two, day three) session details, and also has filter sessions logic and show a user's favorited sessions
+    - speaker  - shows speaker details
+ 5. repository(library)
+ 6. network(library)
 
 
 #### Dependencies
