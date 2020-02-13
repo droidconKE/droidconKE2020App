@@ -1,12 +1,14 @@
 package com.android254.droidconKE2020
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.content_home.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -14,6 +16,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
+        setUpBottomNavigation()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -30,5 +33,15 @@ class HomeActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    //Set up bottom navigation
+    private fun setUpBottomNavigation() {
+        //Retrieve fragment container view as nav host fragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.findNavController()
+        //Setup bottom navigation view with nav controller for dynamic navigation
+        bottomNavigation.setupWithNavController(navController = navController)
     }
 }
