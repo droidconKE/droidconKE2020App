@@ -155,6 +155,11 @@ With the above in mind, here are the actual modules in the droidconKE2020 app fo
     - speaker  - shows speaker details
  5. repository(library)
  6. network(library)
+ 
+ 
+ #### Navigation
+ The app uses Single Activity Architecture. And follows [Navigation Principles](https://developer.android.com/guide/navigation/navigation-principles) from Jetpack. And since features are all dynamic modules, we have taken advantage of the introduction of the support of dynamic features in the navigation component in the latest [release](https://developer.android.com/jetpack/androidx/releases/navigation#2.3.0-alpha01). How this works is we use fragments in the feature modules and add the fragments to the main nav graph which has the support for adding destinations from dynamic feature modules. More on this is in the [Navigate with dynamic feature modules
+](https://developer.android.com/guide/navigation/navigation-dynamic) tutorial. Note: Adding destinations might not work in AS version below 3.6 Release Candidate 3(RC3) and destination fragment name might be in red but no worries, app runs well as expected.
 
 
 #### Dependencies

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android254.droidconKE2020.home.ui.views.HomeFragment"
+        app:moduleName="home"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.android254.droidconKE2020.feed.ui.views.FeedFragment"
+        app:moduleName="feed"
+        android:label="FeedFragment"
+        tools:layout="@layout/fragment_feed"/>
+    <fragment
+        android:id="@+id/sessionsFragment"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.SessionsFragment"
+        app:moduleName="sessions"
+        android:label="SessionsFragment"
+        tools:layout="@layout/fragment_sessions"/>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.android254.droidconKE2020.about.ui.views.AboutFragment"
+        app:moduleName="about"
+        android:label="AboutFragment"
+        tools:layout="@layout/fragment_about"/>
+</navigation>
