@@ -15,4 +15,4 @@ before_script:
   - docker exec test touch droidconKE.jks
   - docker exec test chmod +x ./gradlew
 
-script: docker exec test ./gradlew -Pci --console=plain :app:testDebug
+script: docker exec test ./gradlew -Pci --console=plain testDebug
