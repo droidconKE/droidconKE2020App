@@ -1,29 +1,18 @@
 language: java
-jdk:
-  - openjdk8
 
-env:
-  - ANDROID_COMPILE_SDK="29" ANDROID_BUILD_TOOLS="29.0.2" ANDROID_SDK_TOOLS="4333796" ANDROID_SDK_ROOT=""
-
-install: true
+services:
+  - docker
 
 before_install:
-  - sudo apt-get --quiet update --yes
-  - sudo apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
-  - echo "org.gradle.daemon=false" >> gradle.properties
+  - docker pull alvrme/alpine-android:android-29
+  - docker run -it -d --name test alvrme/alpine-android:android-29 bash
+  - docker cp . test:/home/android
+  
+install: true
 
 before_script:
-  - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip
-  - unzip -d android-sdk-linux android-sdk.zip
-  - echo y | android-sdk-linux/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}"
-    >/dev/null
-  - echo y | android-sdk-linux/tools/bin/sdkmanager "platform-tools" >/dev/null
-  - echo y | android-sdk-linux/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}"
-    >/dev/null
-  - export ANDROID_HOME=$PWD/android-sdk-linux
-  - export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
-  - chmod +x ./gradlew
-  - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
+  - docker exec test echo "org.gradle.daemon=false" >> gradle.properties
+  - docker exec test touch droidconKE.jks
+  - docker exec test chmod +x ./gradlew
 
-
-script: "./gradlew -Pci --console=plain :app:testDebug"
+script: docker exec test ./gradlew -Pci --console=plain :app:testDebug
