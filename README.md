@@ -157,6 +157,28 @@ With the above in mind, here are the actual modules in the droidconKE2020 app fo
  6. network(library)
  
  
+#### Gradle
+ The App uses Kotlin DSL for its gradle due to the obvious advantages Kotlin affords as compared to Groovy. 
+ The Dependencies.kt file under buildSrc is where we store all our App Dependencies and contains the following objects;
+ 1.	Versions; 
+     The versions object contains all the Application’s version code and version name as well as all the variable library version codes. 
+ 2.	BuildPlugins;
+     This object contains all the plugins required for the build process.
+ 3.	Libraries;
+     This object contains all the required imported application libraries.
+ 4.	APIs
+     This object contains all the required APIs
+ 5.	AndroidSDK
+     This object contains the minSDK, targetSDK and compileSDK version codes
+ 6.	TestLibraries
+     This object contains all the required Libraries for testing.
+ 7.	BuildModules 
+     This object is split into Libraries and Features. The Libraries contain the APP module and the other core Modules which are to be reused in different Dynamic features while the Features contain specific functionality of different aspects of the app.
+ 
+ To add a Dependency go to the Dependencies.kt file add it in the required object. Then go to the target build.gradle.kts file and add the code. E.g.;
+  	Implementation(ObjectName.Example)
+
+
  #### Navigation
  The app uses Single Activity Architecture. And follows [Navigation Principles](https://developer.android.com/guide/navigation/navigation-principles) from Jetpack. And since features are all dynamic modules, we have taken advantage of the introduction of the support of dynamic features in the navigation component in the latest [release](https://developer.android.com/jetpack/androidx/releases/navigation#2.3.0-alpha01). How this works is we use fragments in the feature modules and add the fragments to the main nav graph which has the support for adding destinations from dynamic feature modules. More on this is in the [Navigate with dynamic feature modules
 ](https://developer.android.com/guide/navigation/navigation-dynamic) tutorial. Note: Adding destinations might not work in AS version below 3.6 Release Candidate 3(RC3) and destination fragment name might be in red but no worries, app runs well as expected.
