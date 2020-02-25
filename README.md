@@ -259,6 +259,28 @@ For any concerns kindly:
 - [Fork the project and send a pull request](https://github.com/droidconKE/droidconKE2020App/pulls).
 
 
+## Coding Convention
+
+- For any view id, ie. Buttons, Edit Texts etc., we will use camelCase ie. btnLogin, etName.
+
+- Classes name end with the name of the component e.g. MainActivity and MainViewModel
+
+- For layout xml files the name of the component comes first i.e. fragment_login
+
+- The parent layout container id is given a prefix layout_ e.g. layout_login
+
+- Value files should always be in plural ie. strings/colors/styles etc.
+
+- String values should be named as txt_login or err_failed and should not be in block and colors values should be in small ie. colorBlue
+
+- Recycler view layouts should start with the prefix item eg. item_sessions
+
+and xml attributes ie. background should be named as btn_login_bg.xml
+
+- Menu items should be named as activity_main it is repetitive to add the term menu since they are contained in the menu directory
+
+- Ideally, in the xml, the first attribute after the tag is id, then width, then height and then anything else android: followed by app and lastly tools:
+
 
 ## License
 
