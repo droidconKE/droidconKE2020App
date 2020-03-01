@@ -4,11 +4,12 @@ object Versions {
 
     const val kotlin = "1.3.61"
     const val coroutines = "1.3.3"
-    const val buildToolsVersion = "3.5.3"
+    const val buildToolsVersion = "3.6.0"
     const val jetPack = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val ktx = "1.1.0"
     const val material = "1.0.0"
+    const val coil = "0.9.5"
 
     const val junit4 = "4.12"
     const val testRunner = "1.1.1"
@@ -37,6 +38,7 @@ object Libraries {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val ktxCore          = "androidx.core:core-ktx:${Versions.ktx}"
     const val materialComponents = "com.google.android.material:material:${Versions.material}"
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
 }
 
 object APIs {

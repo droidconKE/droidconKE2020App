@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="feed_content_string">Feed👷🔧🚧</string>
+    <string name="dummy_text">We are pleased to have a team from Andela Kenya who will have a talk about Software Engineers to the Power of X from an Employer\'s perspective.</string>
+    <string name="feed_image">Feed image</string>
+    <string name="share_button">Share button</string>
+    <string name="time_icon">Time icon</string>
+    <string name="no_feeds_found">No feeds found</string>
 </resources>
