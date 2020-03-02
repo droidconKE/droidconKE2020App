@@ -24,13 +24,11 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val listener = object : Listener {
-            override fun onShareClicked(feed: Feed) {
-                // TODO Handle share logic
-                Toast.makeText(context!!, "Share button clicked.", Toast.LENGTH_SHORT).show()
-            }
+        val onSharedClicked: (Feed) -> Unit = {
+            // TODO Handle share logic
+            Toast.makeText(context!!, "Share button clicked.", Toast.LENGTH_SHORT).show()
         }
-        val adapter = FeedAdapter(listener)
+        val adapter = FeedAdapter(onSharedClicked)
         binding.feedsList.adapter = adapter
         adapter.updateData(createDummyData()) // TODO Remove use of dummy data
     }

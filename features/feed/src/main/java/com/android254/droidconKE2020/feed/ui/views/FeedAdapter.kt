@@ -12,7 +12,7 @@ import coil.transform.RoundedCornersTransformation
 import com.android254.droidconKE2020.feed.R
 import kotlinx.android.synthetic.main.item_feeds.view.*
 
-class FeedAdapter(private val listener: Listener) :
+class FeedAdapter(private val onSharedClicked: (Feed) -> Unit) :
     RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
 
     private val feeds = mutableListOf<Feed>()
@@ -49,13 +49,15 @@ class FeedAdapter(private val listener: Listener) :
         }
 
         fun bindFeed(feed: Feed) {
-            content.text = feed.content
-            image.load(feed.imageUrl) {
-                transformations(RoundedCornersTransformation(12f))
+            feed.let {
+                content.text = it.content
+                image.load(it.imageUrl) {
+                    transformations(RoundedCornersTransformation(12f))
+                }
+                time.text = it.time
             }
-            time.text = feed.time
             shareButton.setOnClickListener {
-                listener.onShareClicked(feed)
+                onSharedClicked.invoke(feed)
             }
         }
     }
