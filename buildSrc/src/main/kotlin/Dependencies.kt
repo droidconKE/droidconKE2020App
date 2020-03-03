@@ -9,6 +9,7 @@ object Versions {
     const val constraintLayout = "1.1.3"
     const val ktx = "1.1.0"
     const val material = "1.0.0"
+    const val hdodenhof = "3.0.1"
 
     const val junit4 = "4.12"
     const val testRunner = "1.1.1"
@@ -37,6 +38,7 @@ object Libraries {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val ktxCore          = "androidx.core:core-ktx:${Versions.ktx}"
     const val materialComponents = "com.google.android.material:material:${Versions.material}"
+    const val hdodenhof = "de.hdodenhof:circleimageview:${Versions.hdodenhof}"
 }
 
 object APIs {

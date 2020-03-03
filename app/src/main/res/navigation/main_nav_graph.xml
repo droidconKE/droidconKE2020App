@@ -29,4 +29,10 @@
         app:moduleName="about"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"/>
+    <fragment
+        android:id="@+id/speakerDetailsFragment"
+        android:name="com.android254.droidconKE2020.speaker.views.ui.SpeakerDetailsFragment"
+        app:moduleName="speaker"
+        android:label="SpeakerDetailsFragment"
+        tools:layout="@layout/fragment_speaker_details"/>
 </navigation>
