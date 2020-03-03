@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_content_string">About👷🔧🚧</string>
+    <string name="about_heading">About</string>
+    <string name="about_content">Droidcon is a global conference focused on the engineering of Android applications. Droidcon provides a forum for developers to network with other developers, share techniques, announce apps and products, and to learn and teach.
+        \n\nThis two-day developer focused gathering will be held in Nairobi Kenya on August 6th to 8th 2020 and will be the largest of its kind in Africa.
+        \n\nIt will have workshops and codelabs focused on the building of Android applications and will give participants an excellent chance to learn about the local Android development ecosystem, opportunities and services as well as meet the engineers and companies who work on them. </string>
+    <string name="organizing_team_heading">Organizing Team</string>
 </resources>

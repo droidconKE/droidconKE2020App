@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_horizontal_about_page">20dp</dimen>
+    <dimen name="margin_top_about_page_content">50dp</dimen>
+    <dimen name="margin_bottom_about_page_content">20dp</dimen>
+    <dimen name="about_heading_text_size">18sp</dimen>
+    <dimen name="about_content_text_size">16sp</dimen>
+
+</resources>

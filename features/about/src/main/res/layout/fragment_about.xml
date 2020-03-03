@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_content_string"
-        android:layout_centerInParent="true"
-        />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/about_page_image"
+            android:layout_width="match_parent"
+            android:layout_height="205dp"
+            android:background="@drawable/about_page_image"/>
+
+        <TextView
+            android:id="@+id/txt_about_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/about_page_image"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_top_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="@string/about_heading"
+            android:textColor="@color/colorPurpleHeading"
+            android:textSize="@dimen/about_heading_text_size" />
+
+        <TextView
+            android:id="@+id/txt_about_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_about_heading"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:fontFamily="@font/roboto_light"
+            android:text="@string/about_content"
+            android:textColor="@color/colorGreyContent"
+            android:textSize="@dimen/about_content_text_size" />
+
+        <TextView
+            android:id="@+id/txt_team_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_about_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_top_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="@string/organizing_team_heading"
+            android:textColor="@color/colorBlackTeamHeading"
+            android:textSize="@dimen/about_heading_text_size" />
+
+        <ImageView
+            android:id="@+id/img_frank"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:layout_below="@id/txt_team_heading"
+            android:padding="12dp"
+            android:background="@drawable/franktamre"/>
+
+    </RelativeLayout>
+</ScrollView>
