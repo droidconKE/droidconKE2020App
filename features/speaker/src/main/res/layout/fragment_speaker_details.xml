@@ -9,11 +9,11 @@
         android:id="@+id/imgSpeakerToolbar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="82dp"
         android:alpha="0.6"
         android:scaleType="centerCrop"
         android:src="@drawable/announcement"
-        app:layout_constraintBottom_toTopOf="@+id/tvSpeakerRole"
+        app:layout_constraintBottom_toTopOf="@+id/tvTopTwitterHandle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,10 +37,13 @@
         android:id="@+id/tvSpeakerBioLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="452dp"
         android:text="@string/text_speaker_bio_label"
         android:textSize="@dimen/textSizeSmall"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="258dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTopTwitterHandle" />
 
     <TextView
         android:id="@+id/tvSpeakerBio"
@@ -161,15 +164,14 @@
         android:layout_width="0dp"
         android:layout_height="25dp"
         android:layout_marginStart="124dp"
-        android:layout_marginTop="42dp"
         android:layout_marginEnd="6dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginTop="@dimen/fab_margin"
         android:src="@drawable/ic_twitter"
         app:layout_constraintBottom_toBottomOf="@+id/tvSpeakerBioLabel"
         app:layout_constraintEnd_toStartOf="@+id/tvTopTwitterHandle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+        app:layout_constraintTop_toBottomOf="@+id/tvSpeakerCompany"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -177,10 +179,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="6dp"
         android:text="@string/text_speaker_handle"
         android:textColor="@color/colorAquaMarine"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="233dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tvSpeakerBioLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgTwitter"
+        app:layout_constraintTop_toBottomOf="@+id/imgSpeakerToolbar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

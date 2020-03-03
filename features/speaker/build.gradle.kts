@@ -13,6 +13,10 @@ android {
         versionName = Versions.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+    viewBinding {
+        isEnabled = true
     }
 
 }

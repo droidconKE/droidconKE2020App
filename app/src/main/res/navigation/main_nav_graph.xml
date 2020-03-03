@@ -22,7 +22,11 @@
         android:name="com.android254.droidconKE2020.sessions.ui.views.SessionsFragment"
         app:moduleName="sessions"
         android:label="SessionsFragment"
-        tools:layout="@layout/fragment_sessions"/>
+        tools:layout="@layout/fragment_sessions">
+        <action
+            android:id="@+id/action_sessionsFragment_to_speakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.android254.droidconKE2020.about.ui.views.AboutFragment"
