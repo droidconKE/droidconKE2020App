@@ -1,204 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:id="@+id/constraintLayout"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:orientation="vertical">
-
-  <ImageView
-    android:id="@+id/imgSpeakerToolbar"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:alpha="0.6"
-    android:scaleType="centerCrop"
-    android:src="@drawable/announcement"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="@+id/guideline"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0" />
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgSpeakerToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:alpha="0.6"
+            android:contentDescription="@string/header_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_speaker_header"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/circleImageViewBg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/colorAquaMarineFaded"
+            app:layout_constraintBottom_toBottomOf="@+id/imgSpeakerToolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgSpeakerToolbar" />
 
 
-  <de.hdodenhof.circleimageview.CircleImageView
-    android:id="@+id/circleImageView"
-    android:layout_width="80dp"
-    android:layout_height="80dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="140dp"
-    android:layout_marginEnd="@dimen/screenMargin"
-    android:src="@drawable/greg"
-    app:layout_constraintBottom_toBottomOf="@+id/imgSpeakerToolbar"
-    app:layout_constraintEnd_toStartOf="@+id/guideline"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/imgSpeakerToolbar"
-    app:layout_constraintVertical_bias="0.357" />
+        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/greg"
+            app:layout_constraintBottom_toBottomOf="@id/circleImageViewBg"
+            app:layout_constraintEnd_toEndOf="@id/circleImageViewBg"
+            app:layout_constraintStart_toStartOf="@id/circleImageViewBg"
+            app:layout_constraintTop_toTopOf="@id/circleImageViewBg"
+            app:shape_mode="circle"
+            app:stroke_color="@color/colorAquaMarine"
+            app:stroke_width="2dp" />
 
-  <TextView
-      android:id="@+id/tvSpeakerName"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="123dp"
-      android:layout_marginEnd="@dimen/screenMargin"
-      android:text="@string/text_speaker_name"
-      android:textColor="@color/colorPurple"
-      android:textSize="@dimen/textSizeLarge"
-      android:textStyle="bold"
-      android:fontFamily="@font/roboto_slab_thin"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintStart_toStartOf="@+id/guideline"
-      app:layout_constraintTop_toTopOf="@+id/imgSpeakerToolbar" />
+        <TextView
+            android:id="@+id/tvSpeakerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="@string/text_speaker_name"
+            android:textColor="@color/colorPurple"
+            android:textSize="@dimen/textSizeLarge"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imgSpeakerToolbar"
+            app:layout_constraintStart_toEndOf="@id/circleImageViewBg" />
 
-  <TextView
-      android:id="@+id/tvSpeakerRole"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/mediumMargin"
-      android:text="@string/text_speaker_role"
-      android:textColor="@color/colorPurple"
-      android:textSize="@dimen/textSizeSmall"
-      android:fontFamily="@font/roboto"
-      app:layout_constraintStart_toStartOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/tvSpeakerName" />
+        <TextView
+            android:id="@+id/tvSpeakerRole"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_speaker_role"
+            android:textSize="@dimen/textSizeSmaller"
+            app:layout_constraintEnd_toEndOf="@+id/tvSpeakerBio"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/circleImageViewBg"
+            app:layout_constraintTop_toBottomOf="@+id/imgSpeakerToolbar" />
 
-  <TextView
-      android:id="@+id/tvSpeakerCompany"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/mediumMargin"
-      android:text="@string/text_speaker_company"
-      android:textColor="@color/colorPurple"
-      android:textSize="@dimen/textSizeSmall"
-      android:fontFamily="@font/roboto"
-      app:layout_constraintStart_toStartOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/tvSpeakerRole" />
+        <TextView
+            android:id="@+id/tvSpeakerCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_speaker_company"
+            android:textSize="@dimen/textSizeSmaller"
+            app:layout_constraintStart_toEndOf="@id/circleImageViewBg"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpeakerRole" />
 
 
-  <ImageView
-    android:id="@+id/imgTwitter"
-    android:layout_width="25dp"
-    android:layout_height="25dp"
-    android:layout_marginTop="@dimen/mediumMargin"
-    android:layout_marginBottom="@dimen/screenMargin"
-    android:src="@drawable/ic_twitter"
-    app:layout_constraintBottom_toTopOf="@+id/guideline3"
-    app:layout_constraintStart_toStartOf="@+id/guideline"
-    app:layout_constraintTop_toBottomOf="@+id/tvSpeakerCompany"
-    app:layout_constraintVertical_bias="0.0" />
+        <ImageView
+            android:id="@+id/imgTwitter"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/mediumMargin"
+            android:contentDescription="@string/twitter_icon"
+            android:src="@drawable/ic_twitter"
+            app:layout_constraintStart_toEndOf="@id/circleImageViewBg"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpeakerCompany" />
 
 
-  <TextView
-      android:id="@+id/tvTopTwitterHandle"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/mediumMargin"
-      android:layout_marginTop="@dimen/mediumMargin"
-      android:layout_marginBottom="@dimen/mediumMargin"
-      android:text="@string/text_speaker_handle"
-      android:textColor="@color/colorAquaMarine"
-      app:layout_constraintBottom_toBottomOf="@+id/imgTwitter"
-      app:layout_constraintStart_toEndOf="@+id/imgTwitter"
-      app:layout_constraintTop_toTopOf="@+id/imgTwitter"
-      app:layout_constraintVertical_bias="1.0"
-      android:fontFamily="@font/roboto"/>
+        <TextView
+            android:id="@+id/tvTopTwitterHandle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mediumMargin"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_speaker_handle"
+            android:textColor="@color/colorPurple"
+            app:layout_constraintBottom_toBottomOf="@+id/imgTwitter"
+            app:layout_constraintStart_toEndOf="@+id/imgTwitter"
+            app:layout_constraintTop_toTopOf="@+id/imgTwitter" />
 
-  <TextView
-      android:id="@+id/tvSpeakerBio"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="@dimen/screenMargin"
-      android:layout_marginEnd="10dp"
-      android:fontFamily="@font/roboto"
-      android:text="@string/text_speaker_bio"
-      android:textSize="@dimen/textSizeSmall"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="@+id/tvTwitterHandleLabel"
-      app:layout_constraintTop_toBottomOf="@+id/tvSpeakerBioLabel" />
+        <TextView
+            android:id="@+id/tvSpeakerBio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/screenMargin"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_speaker_bio"
+            android:textSize="@dimen/textSizeSmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpeakerBioLabel" />
 
-  <TextView
-      android:id="@+id/tvSpeakerBioLabel"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="28dp"
-      android:fontFamily="@font/roboto_slab_thin"
-      android:text="@string/text_speaker_bio_label"
-      android:textSize="@dimen/textSizeSmall"
-      app:layout_constraintStart_toStartOf="@+id/tvSpeakerBio"
-      app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        <TextView
+            android:id="@+id/tvSpeakerBioLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="@string/text_speaker_bio_label"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSizeSmall"
+            app:layout_constraintStart_toStartOf="@+id/tvSpeakerBio"
+            app:layout_constraintTop_toBottomOf="@+id/tvTopTwitterHandle" />
 
-  <TextView
-      android:id="@+id/tvTwitterHandleLabel"
-      android:fontFamily="@font/roboto"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/screenMargin"
-      android:layout_marginTop="32dp"
-      android:text="@string/text_twitter_handle_label"
-      android:textColor="@color/colorPurple"
-      android:textSize="@dimen/textSizeNormal"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tvSpeakerBio" />
-
-
-  <RelativeLayout
-    android:id="@+id/rlSpeakerHandle"
-    android:layout_width="180dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/btn_twitter_handle_bg"
-    android:padding="@dimen/mediumMargin"
-    app:layout_constraintBottom_toBottomOf="@+id/tvTwitterHandleLabel"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/tvTwitterHandleLabel"
-    app:layout_constraintTop_toTopOf="@+id/tvTwitterHandleLabel">
-
-    <TextView
-        android:id="@+id/tvSpeakerHandle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/fab_margin"
-        android:text="@string/text_speaker_handle"
-        android:fontFamily="@font/roboto"
-        android:textColor="@color/colorAquaMarine" />
-
-    <ImageView
-      android:layout_width="25dp"
-      android:layout_height="25dp"
-      android:layout_alignParentEnd="true"
-      android:layout_marginEnd="3dp"
-      android:src="@drawable/ic_copy_outline" />
-  </RelativeLayout>
+        <TextView
+            android:id="@+id/tvTwitterHandleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_twitter_handle_label"
+            android:textColor="@color/colorPurple"
+            android:textSize="@dimen/textSizeNormal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpeakerBio" />
 
 
-  <TextView
-      android:id="@+id/textView"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/text_copy_handle"
-      android:textSize="@dimen/textSizeExtraSmall"
-      android:textStyle="italic"
-      android:fontFamily="@font/roboto"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/rlSpeakerHandle"
-      app:layout_constraintTop_toBottomOf="@+id/rlSpeakerHandle"
-      app:layout_constraintVertical_bias="0.044" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rlSpeakerHandle"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/btn_twitter_handle_bg"
+            android:padding="@dimen/mediumMargin"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTwitterHandleLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvTwitterHandleLabel"
+            app:layout_constraintTop_toTopOf="@+id/tvTwitterHandleLabel">
 
-  <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/guideline"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintGuide_begin="106dp" />
+            <TextView
+                android:id="@+id/tvSpeakerHandle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:fontFamily="@font/roboto"
+                android:text="@string/text_speaker_handle"
+                android:textColor="@color/colorAquaMarine"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/copyIcon"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-  <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/guideline3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:layout_constraintGuide_begin="233dp" />
+            <ImageView
+                android:id="@+id/copyIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="3dp"
+                android:contentDescription="@string/copy_icon"
+                android:src="@drawable/ic_copy_outline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_copy_handle"
+            android:textSize="@dimen/textSizeExtraSmall"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/rlSpeakerHandle"
+            app:layout_constraintTop_toBottomOf="@+id/rlSpeakerHandle"
+            app:layout_constraintVertical_bias="0.044" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

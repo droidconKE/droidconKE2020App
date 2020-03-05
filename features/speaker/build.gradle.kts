@@ -22,5 +22,5 @@ dependencies {
     implementation (project(":app"))
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     testImplementation(TestLibraries.junit4)
-    implementation(Libraries.hdodenhof)
+    implementation(Libraries.shapedImageView)
 }
