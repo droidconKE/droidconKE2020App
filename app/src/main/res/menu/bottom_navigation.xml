@@ -15,8 +15,9 @@
         android:title="@string/title_sessions"
         android:icon="@drawable/ic_android_black_24dp"/>
 
+    <!-- TODO Remove speakerDetailsID after demo-->
     <item
-        android:id="@+id/aboutFragment"
+        android:id="@+id/speakerDetailsFragment"
         android:title="@string/title_about"
         android:icon="@drawable/ic_android_black_24dp"/>
 </menu>

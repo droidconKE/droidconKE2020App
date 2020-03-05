@@ -22,11 +22,21 @@
         android:name="com.android254.droidconKE2020.sessions.ui.views.SessionsFragment"
         app:moduleName="sessions"
         android:label="SessionsFragment"
-        tools:layout="@layout/fragment_sessions"/>
+        tools:layout="@layout/fragment_sessions">
+        <action
+            android:id="@+id/action_sessionsFragment_to_speakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.android254.droidconKE2020.about.ui.views.AboutFragment"
         app:moduleName="about"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"/>
+    <fragment
+        android:id="@+id/speakerDetailsFragment"
+        android:name="com.android254.droidconKE2020.speaker.views.ui.SpeakerDetailsFragment"
+        app:moduleName="speaker"
+        android:label="SpeakerDetailsFragment"
+        tools:layout="@layout/fragment_speaker_details"/>
 </navigation>
