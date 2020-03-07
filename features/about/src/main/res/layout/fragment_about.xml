@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -12,53 +14,1200 @@
             android:id="@+id/about_page_image"
             android:layout_width="match_parent"
             android:layout_height="205dp"
-            android:background="@drawable/about_page_image"/>
+            android:background="@drawable/team"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_about_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/about_page_image"
-            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginStart="@dimen/margin_horizontal_about_page"
             android:layout_marginTop="@dimen/margin_top_about_page_content"
-            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
             android:fontFamily="@font/roboto_slab_bold"
             android:text="@string/about_heading"
             android:textColor="@color/colorPurpleHeading"
-            android:textSize="@dimen/about_heading_text_size" />
+            android:textSize="@dimen/about_heading_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/txt_about_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/about_page_image" />
 
         <TextView
             android:id="@+id/txt_about_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_about_heading"
-            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
             android:fontFamily="@font/roboto_light"
             android:text="@string/about_content"
             android:textColor="@color/colorGreyContent"
-            android:textSize="@dimen/about_content_text_size" />
+            android:textSize="@dimen/about_content_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_about_heading"
+            app:layout_constraintTop_toBottomOf="@+id/txt_about_heading" />
 
         <TextView
             android:id="@+id/txt_team_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_about_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
             android:layout_marginTop="@dimen/margin_top_about_page_content"
             android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
             android:fontFamily="@font/roboto_slab_bold"
             android:text="@string/organizing_team_heading"
             android:textColor="@color/colorBlackTeamHeading"
-            android:textSize="@dimen/about_heading_text_size" />
+            android:textSize="@dimen/about_heading_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_about_content" />
 
-        <ImageView
-            android:id="@+id/img_frank"
-            android:layout_width="86dp"
-            android:layout_height="86dp"
-            android:layout_below="@id/txt_team_heading"
-            android:padding="12dp"
-            android:background="@drawable/franktamre"/>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_frank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_marvin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_team_heading">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/frank_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_frank"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/franktamre" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/frank_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/frank_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_frank_tamre"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/frank_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_marvin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_jacky"
+            app:layout_constraintStart_toEndOf="@id/rl_frank"
+            app:layout_constraintTop_toBottomOf="@id/txt_team_heading">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/marvin_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_marvin"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/marvin" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/marvin_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/marvin_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_marvin"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/marvin_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_jacky"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rl_marvin"
+            app:layout_constraintTop_toBottomOf="@id/txt_team_heading">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/jacky_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_jacky"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/jacky" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/jacky_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jacky_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_jacky"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jacky_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_nekesa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_lincoln"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_frank">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/nekesa_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_nekesa"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/nekesa" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/nekesa_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nekesa_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_nekesa_were"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nekesa_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_lincoln"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_manu"
+            app:layout_constraintStart_toEndOf="@id/rl_nekesa"
+            app:layout_constraintTop_toBottomOf="@id/rl_marvin">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/lincoln_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_lincoln"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/lincoln" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/lincoln_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lincoln_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_lincoln"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lincoln_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_manu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rl_lincoln"
+            app:layout_constraintTop_toBottomOf="@id/rl_jacky">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/manu_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_manu"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/manu" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/manu_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/manu_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_manuel_geek"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/manu_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_john"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_harun"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_nekesa">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/john_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_john"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/john" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/john_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/john_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_john"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/john_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_harun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_sombo"
+            app:layout_constraintStart_toEndOf="@id/rl_john"
+            app:layout_constraintTop_toBottomOf="@id/rl_lincoln">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/harun_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_harun"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/harun" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/harun_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/harun_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_harun"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/harun_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_sombo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rl_harun"
+            app:layout_constraintTop_toBottomOf="@id/rl_manu">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/sombo_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_sombo"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/sombo" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/sombo_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sombo_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_sombo"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sombo_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_kendi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_cynthia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_john">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/kendi_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_kendi"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/kendi" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/kendi_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/kendi_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_kendi"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/kendi_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_cynthia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_philomena"
+            app:layout_constraintStart_toEndOf="@id/rl_kendi"
+            app:layout_constraintTop_toBottomOf="@id/rl_harun">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cynthia_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_cynthia"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/cynthia" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/cynthia_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cynthia_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_cynthia"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cynthia_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_philomena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rl_cynthia"
+            app:layout_constraintTop_toBottomOf="@id/rl_sombo">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/philo_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_philo"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/philomena" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/philomena_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/philo_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_philomena"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/philomena_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_michael"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_beatrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_kendi">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/michael_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_michael"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/michael" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/michael_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/michael_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_michael"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/michael_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_beatrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_annie"
+            app:layout_constraintStart_toEndOf="@id/rl_michael"
+            app:layout_constraintTop_toBottomOf="@id/rl_cynthia">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/beatrice_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_beatrice"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/beatrice" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/beatrice_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/beatrice_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_beatrice"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/beatrice_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_annie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rl_beatrice"
+            app:layout_constraintTop_toBottomOf="@id/rl_philomena">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/annie_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_annie"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/annie" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/annie_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/annie_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_annie"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/annie_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_chepsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_monics"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_michael">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/chepsi_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_chepsi"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/chepsi" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/chepsi_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chepsi_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_chepsi"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chepsi_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_monics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_silali"
+            app:layout_constraintStart_toEndOf="@id/rl_chepsi"
+            app:layout_constraintTop_toBottomOf="@id/rl_beatrice">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/monics_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_monics"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/monics" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/monics_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/monics_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_monica"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/monics_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_silali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rl_monics"
+            app:layout_constraintTop_toBottomOf="@id/rl_annie">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/silali_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_silali"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/silali" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/silali_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/silali_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_silali"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/silali_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_danvick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_cindy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_chepsi">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/danvick_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_danvick"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/danvick" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/danvick_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/danvick_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_danvick"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/danvick_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_cindy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toStartOf="@id/rl_mcjayb"
+            app:layout_constraintStart_toEndOf="@id/rl_danvick"
+            app:layout_constraintTop_toBottomOf="@id/rl_monics">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cindy_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_cindy"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/cindy" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/cindy_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cindy_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_cindy"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cindy_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_mcjayb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rl_cindy"
+            app:layout_constraintTop_toBottomOf="@id/rl_silali">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcjayb_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_mcjayb"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/jb" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/mcjayb_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mcjayb_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/name_jabez"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mcjayb_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_zulfa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_danvick">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/zulfa_cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cv_margin_bottom"
+                app:cardBackgroundColor="@color/team_cardview_color"
+                app:cardCornerRadius="@dimen/cv_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    android:id="@+id/img_zulfa"
+                    android:layout_width="@dimen/team_icon_cardview_dimens"
+                    android:layout_height="@dimen/team_icon_cardview_dimens"
+                    android:layout_margin="@dimen/team_icon_cardview_margin"
+                    android:background="@drawable/zulfa" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/zulfa_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/zulfa_cardview"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="Zulfa"
+                android:textColor="@color/colorBlackTeamHeading"
+                android:textSize="@dimen/team_name_txt_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/zulfa_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:text="@string/frank_title"
+                android:textColor="@color/colorGreyContent"
+                android:textSize="@dimen/team_title_txt_size" />
+        </RelativeLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_organizers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_zulfa">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/rl_organizers_margin">
+
+                <TextView
+                    android:id="@+id/txt_organizers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    android:text="@string/organized_by_txt"
+                    android:textColor="@color/colorBlackTeamHeading"
+                    android:textSize="@dimen/organized_by_txt_size" />
+
+                <ImageView
+                    android:id="@+id/img_ihub"
+                    android:layout_width="46dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/txt_organizers"
+                    android:background="@drawable/ihub" />
+
+                <ImageView
+                    android:id="@+id/img_kotlin_kenya"
+                    android:layout_width="46dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/txt_organizers"
+                    android:layout_toRightOf="@id/img_ihub"
+                    android:background="@drawable/kotlin" />
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_organizers" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

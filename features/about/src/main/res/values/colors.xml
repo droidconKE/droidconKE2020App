@@ -7,6 +7,9 @@
     <color name="colorPurpleHeading">#843D95</color>
     <color name="colorGreyContent">#707070</color>
     <color name="colorBlackTeamHeading">#191D1D</color>
+    <color name="team_cardview_color">#1C68DEA4</color>
+
+
 
 
 </resources>

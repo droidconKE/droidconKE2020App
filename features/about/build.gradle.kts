@@ -1,3 +1,4 @@
+
 plugins {
     id(BuildPlugins.dynamicFeature)
     id(BuildPlugins.kotlinAndroid)
@@ -21,4 +22,6 @@ dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
     testImplementation(TestLibraries.junit4)
+    implementation (Libraries.constraintLayout)
+
 }

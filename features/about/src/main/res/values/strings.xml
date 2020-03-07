@@ -6,4 +6,27 @@
         \n\nThis two-day developer focused gathering will be held in Nairobi Kenya on August 6th to 8th 2020 and will be the largest of its kind in Africa.
         \n\nIt will have workshops and codelabs focused on the building of Android applications and will give participants an excellent chance to learn about the local Android development ecosystem, opportunities and services as well as meet the engineers and companies who work on them. </string>
     <string name="organizing_team_heading">Organizing Team</string>
+    <string name="name_frank_tamre">Frank Tamre</string>
+    <string name="frank_title">Developer</string>
+    <string name="name_marvin">Marvin Collins</string>
+    <string name="name_jacky">Jackline</string>
+    <string name="name_nekesa_were">Nekesa Were</string>
+    <string name="name_manuel_geek">Manuel Geek</string>
+    <string name="name_lincoln">Lincoln</string>
+    <string name="name_john">John Mwendwa</string>
+    <string name="name_harun">Harun Wangereka</string>
+    <string name="name_sombo">Sombo</string>
+    <string name="name_kendi">Kendi</string>
+    <string name="name_cynthia">Cynthia</string>
+    <string name="name_philomena">Philomena</string>
+    <string name="name_michael">Michael Bukachi</string>
+    <string name="name_annie">Annie Kobia</string>
+    <string name="name_chepsi">Chepsi</string>
+    <string name="name_beatrice">Beatrice</string>
+    <string name="name_monica">Monica</string>
+    <string name="name_silali">Silali</string>
+    <string name="name_danvick">Danvick</string>
+    <string name="name_cindy">Cindy</string>
+    <string name="name_jabez">Jabez</string>
+    <string name="organized_by_txt">Organized by;</string>
 </resources>
