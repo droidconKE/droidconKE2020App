@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeSmaller">14sp</dimen>
+    <dimen name="textSizeSmall">16sp</dimen>
+    <dimen name="textSizeNormal">18sp</dimen>
+    <dimen name="mediumMargin">6dp</dimen>
+    <dimen name="speakerHandleRadius">24dp</dimen>
+    <dimen name="textSizeExtraSmall">12sp</dimen>
+    <dimen name="smallMargin">3dp</dimen>
+    <dimen name="textSizeLarge">20sp</dimen>
+    <dimen name="screenMargin">10dp</dimen>
+</resources>
