@@ -29,6 +29,19 @@ android {
         BuildModules.Features.Speaker,
         BuildModules.Features.Feedback
     )
+
+    viewBinding {
+        isEnabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    (kotlinOptions as org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions).apply {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -41,8 +54,9 @@ dependencies {
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
     implementation (Libraries.ktxCore)
-    implementation (Libraries.constraintLayout)
+    api(Libraries.constraintLayout)
     implementation (Libraries.materialComponents)
+    api(Libraries.coil)
     testImplementation (TestLibraries.junit4)
     androidTestImplementation (TestLibraries.testRunner)
     androidTestImplementation (TestLibraries.espresso)

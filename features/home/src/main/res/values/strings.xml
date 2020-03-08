@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home_content_string">Home 👷🔧🚧</string>
+    <string name="promo_image">Promo image</string>
 </resources>

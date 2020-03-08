@@ -33,8 +33,5 @@ android {
 dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
-    implementation(project(":core"))
-    implementation(Libraries.constraintLayout)
-    implementation(Libraries.coil)
     testImplementation(TestLibraries.junit4)
 }
