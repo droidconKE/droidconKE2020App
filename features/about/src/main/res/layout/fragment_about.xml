@@ -60,7 +60,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_about_content" />
 
-
+        <!-- ToDo Change each profile to appropriate title  -->
         <RelativeLayout
             android:id="@+id/rl_frank"
             android:layout_width="wrap_content"
@@ -1163,51 +1163,82 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_organizers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rl_zulfa">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/rl_organizers_margin">
 
+                <!--                ToDo add other logos once available-->
                 <TextView
                     android:id="@+id/txt_organizers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
                     android:fontFamily="@font/roboto_slab_bold"
                     android:text="@string/organized_by_txt"
                     android:textColor="@color/colorBlackTeamHeading"
-                    android:textSize="@dimen/organized_by_txt_size" />
+                    android:textSize="@dimen/organized_by_txt_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/img_ihub"
                     android:layout_width="46dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@id/txt_organizers"
-                    android:background="@drawable/ihub" />
+                    android:layout_height="46dp"
+                    android:background="@drawable/ihub"
+                    app:layout_constraintEnd_toStartOf="@id/img_kotlin_kenya"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
 
                 <ImageView
                     android:id="@+id/img_kotlin_kenya"
+                    android:layout_width="62dp"
+                    android:layout_height="46dp"
+                    android:background="@drawable/kotlin"
+                    app:layout_constraintEnd_toStartOf="@id/img_k"
+                    app:layout_constraintStart_toEndOf="@id/img_ihub"
+                    app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
+
+                <ImageView
+                    android:id="@+id/img_k"
                     android:layout_width="46dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@id/txt_organizers"
-                    android:layout_toRightOf="@id/img_ihub"
-                    android:background="@drawable/kotlin" />
-            </RelativeLayout>
+                    android:layout_height="46dp"
+                    android:background="@drawable/unnamed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_kotlin_kenya"
+                    app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
+
+                <ImageView
+                    android:id="@+id/img_early_camp"
+                    android:layout_width="18dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/earlycamp"
+                    app:layout_constraintEnd_toStartOf="@id/img_kragt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_ihub" />
+
+
+                <ImageView
+                    android:id="@+id/img_kragt"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:background="@drawable/kragtdigital"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_early_camp"
+                    app:layout_constraintTop_toBottomOf="@id/img_ihub" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_organizers" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
