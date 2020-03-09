@@ -25,6 +25,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.promoImg.load(R.drawable.black_friday_twitter)
+        binding.cfpImage.load(R.drawable.cfp_image)
+        val onClicked: (Session) -> Unit = {
+
+        }
+        val adapter = SessionAdapter(onClicked)
+        binding.sessionsList.adapter = adapter
+        binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(20))
+        adapter.updateData(createDummyData())
     }
 
     override fun onDestroyView() {
@@ -32,4 +40,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onDestroyView()
     }
 
+    private fun createDummyData(): List<Session> {
+        val list = mutableListOf<Session>()
+        for (i in 0 until 10) {
+            list.add(
+                Session(
+                    description = "Some short description",
+                    room = "Room $i",
+                    time = "10:5$i",
+                    imageUrl = ""
+                )
+            )
+        }
+        return list
+    }
 }

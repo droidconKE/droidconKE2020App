@@ -57,6 +57,7 @@ dependencies {
     api(Libraries.constraintLayout)
     implementation (Libraries.materialComponents)
     api(Libraries.coil)
+    api(Libraries.shapedImageView)
     testImplementation (TestLibraries.junit4)
     androidTestImplementation (TestLibraries.testRunner)
     androidTestImplementation (TestLibraries.espresso)
