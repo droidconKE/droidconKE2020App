@@ -29,10 +29,27 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val onClicked: (Session) -> Unit = {
 
         }
-        val adapter = SessionAdapter(onClicked)
-        binding.sessionsList.adapter = adapter
+        val sessionsAdapter = SessionAdapter(onClicked)
+        binding.sessionsList.adapter = sessionsAdapter
         binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(20))
-        adapter.updateData(createDummyData())
+        sessionsAdapter.updateData(createDummyData())
+
+        val onSpeakerClicked: (Speaker) -> Unit = {
+
+        }
+        val speakersAdapter = SpeakerAdapter(onSpeakerClicked)
+        binding.speakersList.adapter = speakersAdapter
+        binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
+        speakersAdapter.updateData(createDummySpeakerData())
+
+        val organizerAdapter = OrganizerAdapter()
+        binding.organizersList.adapter = organizerAdapter
+        organizerAdapter.updateData(createDummyOrganizers())
+
+        binding.sponsor1Img.load(R.drawable.google)
+        binding.sponsor2Img.load(R.drawable.andela)
+        binding.sponsor3Img.load(R.drawable.hover)
+        binding.sponsor4Img.load(R.drawable.jetbrains)
     }
 
     override fun onDestroyView() {
@@ -50,6 +67,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     time = "10:5$i",
                     imageUrl = ""
                 )
+            )
+        }
+        return list
+    }
+
+    private fun createDummySpeakerData(): List<Speaker> {
+        val list = mutableListOf<Speaker>()
+        for (i in 0 until 10) {
+            list.add(
+                Speaker(name = "Person $i", imageUrl = "")
+            )
+        }
+        return list
+    }
+
+    private fun createDummyOrganizers(): List<Organizer> {
+        val list = mutableListOf<Organizer>()
+        for (i in 0 until 10) {
+            list.add(
+                Organizer(imageUrl = "")
             )
         }
         return list
