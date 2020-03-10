@@ -10,8 +10,9 @@
         android:title="@string/title_feed"
         android:icon="@drawable/ic_android_black_24dp"/>
 
+    <!-- ToDo Change fragment back to Sessions after demo-->
     <item
-        android:id="@+id/sessionsFragment"
+        android:id="@+id/organizerDetailsFragment"
         android:title="@string/title_sessions"
         android:icon="@drawable/ic_android_black_24dp"/>
 

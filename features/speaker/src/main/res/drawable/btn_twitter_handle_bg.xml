@@ -2,8 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="@color/colorWhite" />
-    <corners android:bottomRightRadius="@dimen/speakerHandleRadius"
-        android:bottomLeftRadius="@dimen/speakerHandleRadius"
-        android:topRightRadius="@dimen/speakerHandleRadius"
-        android:topLeftRadius="@dimen/speakerHandleRadius"/>
+    <corners android:bottomRightRadius="@dimen/twitter_handle"
+        android:bottomLeftRadius="@dimen/twitter_handle"
+        android:topRightRadius="@dimen/twitter_handle"
+        android:topLeftRadius="@dimen/twitter_handle"/>
 </shape>

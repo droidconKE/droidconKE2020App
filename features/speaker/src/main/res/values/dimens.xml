@@ -9,4 +9,6 @@
     <dimen name="smallMargin">3dp</dimen>
     <dimen name="textSizeLarge">20sp</dimen>
     <dimen name="screenMargin">10dp</dimen>
+    <dimen name="twitter_handle_bg">24dp</dimen>
+    <dimen name="twitter_handle">24dp</dimen>
 </resources>

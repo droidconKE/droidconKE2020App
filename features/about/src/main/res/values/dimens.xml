@@ -14,5 +14,8 @@
     <dimen name="card_elevation">0dp</dimen>
     <dimen name="organized_by_txt_size">16sp</dimen>
     <dimen name="rl_organizers_margin">10dp</dimen>
+    <dimen name="medium_textsize">14sp</dimen>
+    <dimen name="copy_handle_txt_size">9sp</dimen>
+    <dimen name="twitter_handle_bg">24dp</dimen>
 
 </resources>
