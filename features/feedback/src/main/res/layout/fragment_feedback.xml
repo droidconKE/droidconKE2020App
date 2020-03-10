@@ -51,7 +51,6 @@
             android:progressBackgroundTint="@color/gray"
             android:progressTint="@color/gold"
             android:textAlignment="center"
-            android:rating="1"
             android:stepSize="1"
             android:gravity="center_horizontal" />
 
@@ -65,6 +64,6 @@
         android:text="@string/submit_feedback"
         android:textColor="@color/white"
         android:paddingRight="@dimen/ten_dp"
-
+        android:drawableRight="@drawable/ic_send"
         />
 </LinearLayout>

@@ -31,6 +31,10 @@ class HomeActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
+            R.id.action_feedback -> {
+                feedback()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -43,5 +47,13 @@ class HomeActivity : AppCompatActivity() {
         val navController = navHostFragment.findNavController()
         //Setup bottom navigation view with nav controller for dynamic navigation
         bottomNavigation.setupWithNavController(navController = navController)
+    }
+
+    private fun feedback(){
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.findNavController()
+        navController.navigate(R.id.feedBackFragment)
+
     }
 }
