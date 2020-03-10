@@ -5,4 +5,5 @@ import com.android254.droidconKE2020.feedback.R
 
 
 class FeedbackFragment : Fragment(R.layout.fragment_feedback) {
+    
 }

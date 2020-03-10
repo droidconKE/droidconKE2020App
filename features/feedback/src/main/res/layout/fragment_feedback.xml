@@ -65,5 +65,6 @@
         android:text="@string/submit_feedback"
         android:textColor="@color/white"
         android:paddingRight="@dimen/ten_dp"
-        android:drawableRight="send-outline"/>
+
+        />
 </LinearLayout>
