@@ -18,6 +18,12 @@
         android:label="FeedFragment"
         tools:layout="@layout/fragment_feed"/>
     <fragment
+        android:id="@+id/feedBackFragment"
+        android:name="com.android254.droidconKE2020.feedback.ui.views.FeedbackFragment"
+        app:moduleName="feedback"
+        android:label="FeedbackFragment"
+        tools:layout="@layout/fragment_feedback"/>
+    <fragment
         android:id="@+id/sessionsFragment"
         android:name="com.android254.droidconKE2020.sessions.ui.views.SessionsFragment"
         app:moduleName="sessions"
