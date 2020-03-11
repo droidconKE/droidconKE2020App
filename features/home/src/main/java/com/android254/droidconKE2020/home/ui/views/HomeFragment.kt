@@ -9,6 +9,7 @@ import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 
+
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
