@@ -48,10 +48,12 @@
             android:layout_centerInParent="true"
             android:isIndicator="true"
             android:numStars="5"
-            android:progressBackgroundTint="@color/gray"
+            android:progressBackgroundTint="#D3D3D3"
+            android:outlineAmbientShadowColor="@color/gray"
             android:progressTint="@color/gold"
             android:textAlignment="center"
             android:stepSize="1"
+            android:rating="1"
             android:gravity="center_horizontal" />
 
     </RelativeLayout>
