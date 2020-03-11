@@ -20,7 +20,6 @@ android {
 dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     testImplementation(TestLibraries.junit4)
     implementation(Libraries.shapedImageView)
 }
