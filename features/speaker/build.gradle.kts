@@ -13,12 +13,13 @@ android {
         versionName = Versions.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
 
+    }
 }
 
 dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
     testImplementation(TestLibraries.junit4)
+    implementation(Libraries.shapedImageView)
 }
