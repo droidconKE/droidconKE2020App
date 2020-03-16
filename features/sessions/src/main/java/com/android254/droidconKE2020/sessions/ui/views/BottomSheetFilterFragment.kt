@@ -9,7 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.filter_layout.*
 
-class BottomSheetFilterFragment : BottomSheetDialogFragment() {
+internal class BottomSheetFilterFragment : BottomSheetDialogFragment() {
 
     override fun getTheme(): Int {
         return R.style.AppBottomSheetDialogTheme

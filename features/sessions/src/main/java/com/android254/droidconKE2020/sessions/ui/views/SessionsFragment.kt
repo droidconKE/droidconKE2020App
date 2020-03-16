@@ -8,7 +8,7 @@ import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsTabAdapter
 import kotlinx.android.synthetic.main.fragment_sessions.*
 
-class SessionsFragment : Fragment(R.layout.fragment_sessions) {
+internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
 
     private lateinit var sessionsTabAdapter: SessionsTabAdapter
 

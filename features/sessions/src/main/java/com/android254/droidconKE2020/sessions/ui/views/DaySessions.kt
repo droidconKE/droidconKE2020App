@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_day_sessions.*
 /**
  * A simple [Fragment] subclass.
  */
-class DaySessions(day: String) : Fragment() {
+internal class DaySessions(day: String) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +27,6 @@ class DaySessions(day: String) : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setUpRvSessions()
-
     }
 
     private fun setUpRvSessions() {
