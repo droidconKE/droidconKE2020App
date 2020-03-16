@@ -41,33 +41,35 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_slab_bold"
                 android:textColor="@color/colorPurple"
-                tools:text="AM"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/textViewSessionStartTime"
-                app:layout_constraintTop_toBottomOf="@+id/textViewSessionStartTime" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewSessionStartTime"
+                tools:text="AM" />
 
             <TextView
                 android:id="@+id/textViewSessionTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="36dp"
                 android:fontFamily="@font/roboto_slab_bold"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="@dimen/sessionTitleFontSize"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewStarSession"
                 app:layout_constraintStart_toEndOf="@+id/textViewSessionStartTime"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewSessionStartTime"
                 tools:text="Keynote" />
 
             <TextView
                 android:id="@+id/textViewSessionDescription"
-                android:layout_width="260dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textViewSessionTitle"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewStarSession"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSessionTitle"
                 tools:text="Community on a Global Scale" />
 
             <TextView
@@ -133,8 +135,9 @@
                 android:id="@+id/imageViewStarSession"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:contentDescription="@string/star_session"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewSessionTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textViewSessionTitle"
                 app:srcCompat="@drawable/ic_star_outline" />

@@ -11,16 +11,6 @@
         <item name="android:colorBackground">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.Dark" parent="AppTheme">
-        <item name="android:textColorSecondary">@android:color/white</item>
-        <item name="android:colorBackground">@android:color/black</item>
-
-    </style>
-
-    <style name="AppTheme.Light" parent="AppTheme">
-        <item name="android:textColorSecondary">@color/colorPurple</item>
-        <item name="android:colorBackground">@android:color/white</item>
-    </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
