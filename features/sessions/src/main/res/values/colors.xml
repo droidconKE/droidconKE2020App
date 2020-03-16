@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cardViewStrokeColor">#82e3b3</color>
+    <color name="colorYellow">#ffd858</color>
+    <color name="colorTabBackground">#E9F5F0</color>
+    <color name="colorSessionTitle">#202424</color>
+</resources>
