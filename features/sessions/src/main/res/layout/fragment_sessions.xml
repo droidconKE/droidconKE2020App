@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5f5f7"
     android:fillViewport="true"
     android:orientation="vertical">
 
@@ -15,7 +14,6 @@
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#f5f5f7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -50,15 +48,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_slab"
-                        android:text="Filter"
+                        android:text="@string/filter"
                         android:textSize="18sp" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="24dp"
                         android:layout_marginStart="2dp"
+                        android:contentDescription="@string/image"
                         android:src="@drawable/ic_filter_outline"
-                        android:tint="#9254a1" />
+                        android:tint="@color/colorPurple" />
 
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -68,7 +67,6 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#f5f5f7"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +78,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
-                android:background="#f5f5f7"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -88,7 +85,7 @@
                 app:tabIndicatorAnimationDuration="2000"
                 app:tabIndicatorColor="@android:color/transparent"
                 app:tabMode="scrollable"
-                app:tabRippleColor="@android:color/transparent"></com.google.android.material.tabs.TabLayout>
+                app:tabRippleColor="@android:color/transparent" />
 
             <Switch
                 android:id="@+id/switch1"
@@ -106,7 +103,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/roboto_slab"
-                android:text="My Sessions"
+                android:text="@string/title_my_sessions"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/switch1" />

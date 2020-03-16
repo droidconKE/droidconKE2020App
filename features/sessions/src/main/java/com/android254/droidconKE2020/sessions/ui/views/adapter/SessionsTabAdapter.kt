@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -33,7 +34,12 @@ class SessionsTabAdapter(fragmentManager: FragmentManager, private val context: 
         val tabView = LayoutInflater.from(context).inflate(R.layout.tab_session, null)
         tabView.textViewDayDate.text = sessionDates[position]
         tabView.textViewDayName.text = sessionDays[position]
-        tabView.textViewDayName.setTextColor(context.resources.getColor(R.color.cardViewStrokeColor))
+        tabView.textViewDayName.setTextColor(
+            ContextCompat.getColor(
+                context,
+                R.color.cardViewStrokeColor
+            )
+        )
         tabView.layoutTabSession.background =
             context.resources.getDrawable(R.drawable.session_card_view_border, null)
         return tabView

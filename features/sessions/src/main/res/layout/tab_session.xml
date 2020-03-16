@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto_slab_bold"
         android:text="06"
-        android:textColor="#9254a1"
+        android:textColor="@color/colorPurple"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

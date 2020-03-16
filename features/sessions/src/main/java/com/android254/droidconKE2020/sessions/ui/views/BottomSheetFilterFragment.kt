@@ -42,7 +42,7 @@ class BottomSheetFilterFragment : BottomSheetDialogFragment() {
             val chip =
                 LayoutInflater.from(requireContext()).inflate(R.layout.filter_chip, null) as Chip
             chip.text = it
-            chipGroup.addView(chip)
+            levelChipGroup.addView(chip)
         }
         buttonCancel.setOnClickListener {
             this.dismiss()
