@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="sessions_content_string">Sessions 👷🔧🚧</string>
+    <string name="android_speaker_icon">Android Speaker Icon</string>
+    <string name="star_session">Star Session</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stringLevel">Level</string>
+    <string name="stringTopic">Topic</string>
+    <string name="stringRooms">Rooms</string>
+    <string name="stringSessionType">Session Type</string>
+    <string name="filter">Filter</string>
+    <string name="cancel">Cancel</string>
+    <string name="string_dummy_time">9:00 AM - 9:30 AM</string>
+    <string name="dummy_room_name">ROOM 1</string>
+    <string name="string_dummy_beginner">#BEGINNER</string>
+    <string name="string_dummy_keynote">KEYNOTE :</string>
+    <string name="community_on_a_global_scale">Community on a Global Scale</string>
+    <string name="greg_fawson">Greg Fawson</string>
+    <string name="image">Image</string>
+    <string name="title_description">Description</string>
+    <string name="title_session_details">Session Details</string>
+    <string name="title_my_sessions">My Sessions</string>
 </resources>
