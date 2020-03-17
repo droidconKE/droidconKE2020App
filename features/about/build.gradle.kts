@@ -37,4 +37,9 @@ dependencies {
     testImplementation(TestLibraries.junit4)
     implementation (Libraries.constraintLayout)
 
+    // Koin
+    implementation (Libraries.koinAndroid)
+    implementation (Libraries.koinExt)
+    implementation (Libraries.koinScope)
+    implementation (Libraries.koinViewModel)
 }

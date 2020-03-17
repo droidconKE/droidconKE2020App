@@ -45,9 +45,18 @@ android {
 }
 
 dependencies {
-    implementation (project(":repository"))
-    implementation (project(":data"))
-    implementation (project(":network"))
+    implementation (project(BuildModules.Libraries.Data))
+    implementation (project(BuildModules.Libraries.Network))
+    implementation (project(BuildModules.Libraries.Repository))
+
+//    // Features
+//    implementation (project(BuildModules.Features.About))
+//    implementation (project(BuildModules.Features.Auth))
+//    implementation (project(BuildModules.Features.Feed))
+//    implementation (project(BuildModules.Features.Feedback))
+//    implementation (project(BuildModules.Features.Home))
+//    implementation (project(BuildModules.Features.Speaker))
+//    implementation (project(BuildModules.Features.Sessions))
 
     api(APIs.ktxCore)
     api(APIs.kotlinStandardLibrary)

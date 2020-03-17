@@ -22,4 +22,10 @@ dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
     testImplementation(TestLibraries.junit4)
+
+    // Koin
+    implementation (Libraries.koinAndroid)
+    implementation (Libraries.koinExt)
+    implementation (Libraries.koinScope)
+    implementation (Libraries.koinViewModel)
 }

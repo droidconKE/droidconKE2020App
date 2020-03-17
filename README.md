@@ -93,7 +93,7 @@ check **"dependencies"** below
 
 **4. Build Project**
 
-**5. Incase of an error when building project, update your gradle version, Build Tools download**
+**5. In case of an error when building project, update your gradle version, Build Tools download**
 
 
 =======
