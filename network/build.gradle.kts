@@ -32,4 +32,16 @@ dependencies {
     testImplementation (TestLibraries.junit4)
     androidTestImplementation (TestLibraries.testRunner)
     androidTestImplementation (TestLibraries.espresso)
+
+    // Retrofit
+    implementation(Libraries.retrofit)
+    implementation(Libraries.okHttp3)
+    implementation(Libraries.gsonConverter)
+    implementation(Libraries.loggingInterceptor)
+
+    // Koin
+    implementation (Libraries.koinAndroid)
+    implementation (Libraries.koinExt)
+    implementation (Libraries.koinScope)
+    implementation (Libraries.koinViewModel)
 }

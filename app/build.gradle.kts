@@ -45,6 +45,10 @@ android {
 }
 
 dependencies {
+    implementation (project(":repository"))
+    implementation (project(":data"))
+    implementation (project(":network"))
+
     api(APIs.ktxCore)
     api(APIs.kotlinStandardLibrary)
     api(APIs.navigationFragment)
@@ -62,4 +66,10 @@ dependencies {
     androidTestImplementation (TestLibraries.testRunner)
     androidTestImplementation (TestLibraries.espresso)
     androidTestImplementation (TestLibraries.annotation)
+
+    // Koin
+    implementation (Libraries.koinAndroid)
+    implementation (Libraries.koinExt)
+    implementation (Libraries.koinScope)
+    implementation (Libraries.koinViewModel)
 }
