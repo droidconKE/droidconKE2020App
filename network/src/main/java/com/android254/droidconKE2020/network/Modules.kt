@@ -1,6 +1,6 @@
-package com.android254.droidconKE2020.network.di
+package com.android254.droidconKE2020.network
 
-import com.android254.droidconKE2020.network.di.Url.BASE_URL
+import com.android254.droidconKE2020.network.di.Constants.BASE_URL
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
