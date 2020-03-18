@@ -1,6 +1,7 @@
 package com.android254.droidconKE2020.auth.di
 
-import com.android254.droidconKE2020.auth.login.LoginViewModel
+import com.android254.droidconKE2020.auth.AuthViewModel
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -8,5 +9,5 @@ import org.koin.dsl.module
  * @author bernard
  */
 val authModule = module {
-    single { LoginViewModel(get()) }
+    viewModel { AuthViewModel(get()) }
 }

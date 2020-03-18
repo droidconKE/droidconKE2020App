@@ -141,7 +141,7 @@ Consists of classes and logic that is to be shared across the application. It co
 
 #### Modules To Be There:
 With the above in mind, here are the actual modules in the droidconKE2020 app following the guidelines laid above
-1. app 
+1. app
 2. core (library)
 3. data (library)
 4. features - directory for grouping all the feature modules together. It has the following dynamic feature modules:
@@ -156,7 +156,101 @@ With the above in mind, here are the actual modules in the droidconKE2020 app fo
  5. repository(library)
  6. network(library)
  
- 
+#### Koin Integration & Guides
+Dependency injection is integrated into the project based on the
+project's architecture. Each modules gradle file has koin dependencies.
+
+**Data module**
+
+The data module define a databaseModule in Module.kt file. The module
+defines a room database like:
+
+    `single {
+        Room.databaseBuilder(
+                androidApplication(),
+                DroidConDB::class.java,
+                "droidCon.db")
+            .build()
+    }`
+
+Then define entity in its on directory. Each entity defines a Data
+Access Object interfaces and data sources. For example, the user
+directory includes; user model file, UserDao interface and a
+LocalUserDataSource file. To define dependencies follow these steps;
+
+Define a data access object like this;
+
+    `@Dao
+    interface UserDao {
+        @Query("SELECT * FROM user")
+        fun getUser(): User
+    }`
+
+Then define a koin dependency like this:
+
+    `factory { get<DroidConDB>().userDao() }`
+
+and a data source dependencies like this:
+
+    `factory { LocalUserDataSource(get()) }`
+
+**Network Module**
+
+The network module also defines individual entities which shall contain
+response and request bodies (DTOs), if they are necessary, api service
+interface and a data source.
+
+To inject dependencies for data sources, do this:
+
+    `factory { get<Retrofit>().create(UserAPIService::class.java) }`
+
+for api service interface dependency injection definition add this:
+
+    `factory { RemoteUserDataSource(get()) }`
+
+to define data source dependencies.
+
+**Repository Module**
+
+The repository is dependent on the network and data module. To define a
+repository dependency, do this:
+
+    `factory { UserRepository(get(), get()) }`
+
+The first parameter is the UserLocalDataSource from the data module and
+the second is the UserRemoteDataSource from the network module.
+
+**Features**
+
+Each feature depend on the repository module. ViewModel dependencies
+require repository dependencies. for viewmodel injection, follow this
+steps;
+
+create a class, for example LoginViewModel,
+
+    `class AuthViewModel(private val repository: UserRepository): ViewModel() {
+        fun login(username: String, password: String) {
+            repository.login(username, password) }  
+    }`
+
+Then in the features di directory, add a viewmodel injection like this:
+
+    `viewModel { AuthViewModel(get()) }`
+
+then inject the viewmodel into a fragment/activity
+
+    `class AuthFragment: Fragment() {
+        **val authFragment: AuthFragment by viewModel()**
+        
+        override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            return super.onCreateView(inflater, container, savedInstanceState)
+        }    
+    }`
+
 #### Gradle
  The App uses Kotlin DSL for its gradle due to the obvious advantages Kotlin affords as compared to Groovy. 
  The Dependencies.kt file under buildSrc is where we store all our App Dependencies and contains the following objects;

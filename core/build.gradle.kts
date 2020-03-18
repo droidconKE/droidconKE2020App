@@ -34,4 +34,10 @@ dependencies {
     testImplementation(TestLibraries.coroutines)
     androidTestImplementation (TestLibraries.testRunner)
     androidTestImplementation (TestLibraries.espresso)
+
+    // Koin
+    implementation (Libraries.koinAndroid)
+    implementation (Libraries.koinExt)
+    implementation (Libraries.koinScope)
+    implementation (Libraries.koinViewModel)
 }

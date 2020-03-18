@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.auth.login
+package com.android254.droidconKE2020.auth
 
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.repository.user.UserRepository
@@ -7,7 +7,7 @@ import com.android254.droidconKE2020.repository.user.UserRepository
  * 17/03/20
  * @author bernard
  */
-class LoginViewModel(private val repository: UserRepository): ViewModel() {
+class AuthViewModel(private val repository: UserRepository): ViewModel() {
     fun login(username: String, password: String) {
         repository.login(username, password)
     }

@@ -11,5 +11,5 @@ import com.android254.droidconKE2020.data.user.UserDao
  */
 @Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class DroidConDB: RoomDatabase() {
-    abstract fun exampleDao(): UserDao
+    abstract fun userDao(): UserDao
 }

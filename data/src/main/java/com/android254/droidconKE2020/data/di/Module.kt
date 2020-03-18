@@ -13,7 +13,7 @@ import org.koin.dsl.module
 val databaseModule = module {
     factory { LocalUserDataSource(get()) }
 
-    factory { get<DroidConDB>().exampleDao() }
+    factory { get<DroidConDB>().userDao() }
 
     single {
         Room.databaseBuilder(

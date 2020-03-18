@@ -10,6 +10,6 @@ import com.android254.droidconKE2020.data.user.model.User
  */
 @Dao
 interface UserDao {
-    @Query("SELECT * FROM example")
+    @Query("SELECT * FROM user")
     fun getUser(): User
 }
