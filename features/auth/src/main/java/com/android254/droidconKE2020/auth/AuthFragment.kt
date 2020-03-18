@@ -12,7 +12,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
  * @author bernard
  */
 class AuthFragment: Fragment() {
-    val authFragment: AuthFragment by viewModel()
+    val authViewModel: AuthViewModel by viewModel()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
