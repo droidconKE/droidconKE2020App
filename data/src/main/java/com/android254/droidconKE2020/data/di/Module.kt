@@ -2,7 +2,6 @@ package com.android254.droidconKE2020.data.di
 
 import androidx.room.Room
 import com.android254.droidconKE2020.data.DroidConDB
-import com.android254.droidconKE2020.data.user.LocalUserDataSource
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -11,9 +10,6 @@ import org.koin.dsl.module
  * @author bernard
  */
 val databaseModule = module {
-    factory { LocalUserDataSource(get()) }
-
-    factory { get<DroidConDB>().userDao() }
 
     single {
         Room.databaseBuilder(

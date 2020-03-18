@@ -1,8 +1,6 @@
 package com.android254.droidconKE2020.network.di
 
-import com.android254.droidconKE2020.network.URL.Companion.baseUrl
-import com.android254.droidconKE2020.network.user.UserAPIService
-import com.android254.droidconKE2020.network.user.RemoteUserDataSource
+import com.android254.droidconKE2020.network.di.Url.BASE_URL
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,13 +13,10 @@ import java.lang.reflect.Modifier
  * @author bernard
  */
 val networkModule = module {
-    factory { RemoteUserDataSource(get()) }
-
-    factory { get<Retrofit>().create(UserAPIService::class.java) }
 
     single {
         Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(BASE_URL)
             .client(get())
             .addConverterFactory(get())
             .build()
