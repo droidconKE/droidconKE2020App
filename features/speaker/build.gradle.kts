@@ -26,4 +26,10 @@ dependencies {
     implementation (project(":app"))
     testImplementation(TestLibraries.junit4)
     implementation(Libraries.shapedImageView)
+
+    // Koin
+    implementation (Libraries.koinAndroid)
+    implementation (Libraries.koinExt)
+    implementation (Libraries.koinScope)
+    implementation (Libraries.koinViewModel)
 }

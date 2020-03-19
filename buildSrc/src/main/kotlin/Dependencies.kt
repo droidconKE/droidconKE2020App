@@ -11,6 +11,11 @@ object Versions {
     const val material = "1.1.0-rc02"
     const val shapedImageView = "0.8.7"
     const val coil = "0.9.5"
+    const val koin = "2.1.4"
+    const val room = "2.2.4"
+    const val retrofit = "2.7.2"
+    const val interceptor = "4.2.2"
+    const val okHttp = "4.4.0"
 
     const val junit4 = "4.12"
     const val testRunner = "1.1.1"
@@ -27,6 +32,7 @@ object BuildPlugins {
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val dynamicFeature = "com.android.dynamic-feature"
     const val androidLibrary = "com.android.library"
+    const val kotlinKapt = "kotlin-kapt"
 }
 
 object Libraries {
@@ -42,6 +48,22 @@ object Libraries {
     const val shapedImageView = "cn.gavinliu:ShapedImageView:${Versions.shapedImageView}"
     const val coil = "io.coil-kt:coil:${Versions.coil}"
 
+    const val koinAndroid = "org.koin:koin-android:${Versions.koin}"
+    const val koinScope = "org.koin:koin-android-scope:${Versions.koin}"
+    const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
+    const val koinExt = "org.koin:koin-android-ext:${Versions.koin}"
+    const val koinCore = "org.koin:koin-core:${Versions.koin}"
+
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val roomTesting = "androidx.room:room-testing:${Versions.room}"
+
+    // networking
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
+    const val okHttp3 = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
 }
 
 object APIs {

@@ -25,6 +25,9 @@ android {
 }
 
 dependencies {
+    implementation (project(":data"))
+    implementation (project(":network"))
+
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
@@ -32,4 +35,10 @@ dependencies {
     testImplementation (TestLibraries.junit4)
     androidTestImplementation (TestLibraries.testRunner)
     androidTestImplementation (TestLibraries.espresso)
+
+    // Koin
+    implementation (Libraries.koinAndroid)
+    implementation (Libraries.koinExt)
+    implementation (Libraries.koinScope)
+    implementation (Libraries.koinViewModel)
 }

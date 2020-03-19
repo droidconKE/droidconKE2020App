@@ -2,6 +2,7 @@ plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
+    id(BuildPlugins.kotlinKapt)
 }
 
 android {
@@ -32,4 +33,16 @@ dependencies {
     testImplementation (TestLibraries.junit4)
     androidTestImplementation (TestLibraries.testRunner)
     androidTestImplementation (TestLibraries.espresso)
+
+    // Room
+    testImplementation(Libraries.roomTesting)
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRuntime)
+    kapt (Libraries.roomCompiler)
+
+    // Koin
+    implementation (Libraries.koinAndroid)
+    implementation (Libraries.koinExt)
+    implementation (Libraries.koinScope)
+    implementation (Libraries.koinViewModel)
 }
