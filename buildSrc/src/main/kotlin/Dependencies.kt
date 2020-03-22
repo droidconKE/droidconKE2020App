@@ -9,6 +9,7 @@ object Versions {
     const val constraintLayout = "1.1.3"
     const val ktx = "1.1.0"
     const val material = "1.1.0-rc02"
+    const val androidAnimation = "0.2.0"
     const val shapedImageView = "0.8.7"
     const val coil = "0.9.5"
     const val koin = "2.1.4"
@@ -45,6 +46,7 @@ object Libraries {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val ktxCore          = "androidx.core:core-ktx:${Versions.ktx}"
     const val materialComponents = "com.google.android.material:material:${Versions.material}"
+    const val androidAnimation = "com.github.jama5262:AndroidAnimation:${Versions.androidAnimation}"
     const val shapedImageView = "cn.gavinliu:ShapedImageView:${Versions.shapedImageView}"
     const val coil = "io.coil-kt:coil:${Versions.coil}"
 
