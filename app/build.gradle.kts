@@ -60,6 +60,7 @@ dependencies {
     implementation (Libraries.ktxCore)
     api(Libraries.constraintLayout)
     implementation (Libraries.materialComponents)
+    implementation(Libraries.androidAnimation)
     api(Libraries.coil)
     api(Libraries.shapedImageView)
     testImplementation (TestLibraries.junit4)
