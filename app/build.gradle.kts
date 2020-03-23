@@ -46,6 +46,7 @@ android {
 
 dependencies {
     implementation (project(BuildModules.Libraries.Data))
+    implementation (project(BuildModules.Libraries.Core))
     implementation (project(BuildModules.Libraries.Network))
     implementation (project(BuildModules.Libraries.Repository))
 
