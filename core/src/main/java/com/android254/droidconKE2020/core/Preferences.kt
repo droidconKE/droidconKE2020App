@@ -5,6 +5,6 @@ import android.content.SharedPreferences
 interface Preferences {
     val sharedPref: SharedPreferences
 
-//    fun getUserName(defaultValue: String): String?
-//    fun setUserName(username: String)
+    fun getShowSplashScreen(): Boolean
+    fun setShowSplashScreen(showSplashScreen: Boolean)
 }
