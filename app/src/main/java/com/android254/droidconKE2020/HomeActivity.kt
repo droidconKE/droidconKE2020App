@@ -3,6 +3,7 @@ package com.android254.droidconKE2020
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -45,6 +46,13 @@ class HomeActivity : AppCompatActivity() {
         val navController = navHostFragment.findNavController()
         //Setup bottom navigation view with nav controller for dynamic navigation
         bottomNavigation.setupWithNavController(navController = navController)
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            when(destination.id){
+                R.id.aboutFragment,R.id.homeFragment,R.id.feedFragment,R.id.sessionsFragment -> bottomNavigation.visibility = View.VISIBLE
+                else -> bottomNavigation.visibility = View.GONE
+
+            }
+        }
     }
 
     private fun feedback(){

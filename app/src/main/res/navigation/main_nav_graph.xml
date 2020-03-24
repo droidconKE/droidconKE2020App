@@ -10,7 +10,16 @@
         android:name="com.android254.droidconKE2020.home.ui.views.HomeFragment"
         app:moduleName="home"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_SpeakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_sessionDetailsFragment"
+            app:destination="@id/sessionDetailsFragment"/>
+    </fragment>
+
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.android254.droidconKE2020.feed.ui.views.FeedFragment"
@@ -32,8 +41,8 @@
         android:label="SessionsFragment"
         tools:layout="@layout/fragment_sessions">
         <action
-            android:id="@+id/action_sessionsFragment_to_speakerDetailsFragment"
-            app:destination="@id/speakerDetailsFragment" />
+            android:id="@+id/action_sessionsFragment_to_sessionDetailFragment"
+            app:destination="@id/sessionDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -57,4 +66,15 @@
         app:moduleName="about"
         android:label="OrganizerDetailsFragment"
         tools:layout="@layout/fragment_organizer_details"/>
+
+    <fragment
+        android:id="@+id/sessionDetailsFragment"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.SessionDetailFragment"
+        app:moduleName="sessions"
+        android:label="SessionsFragment"
+        tools:layout="@layout/fragment_session_detail">
+        <action
+            android:id="@+id/action_sessionDetailsFragment_to_SpeakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment"/>
+    </fragment>
 </navigation>
