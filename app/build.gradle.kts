@@ -35,6 +35,10 @@ android {
         isEnabled = true
     }
 
+    dataBinding {
+        isEnabled = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -47,6 +51,7 @@ android {
 
 dependencies {
     implementation (project(BuildModules.Libraries.Data))
+    implementation (project(BuildModules.Libraries.Core))
     implementation (project(BuildModules.Libraries.Network))
     implementation (project(BuildModules.Libraries.Repository))
 
