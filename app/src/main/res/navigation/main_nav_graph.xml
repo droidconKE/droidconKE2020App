@@ -10,7 +10,16 @@
         android:name="com.android254.droidconKE2020.home.ui.views.HomeFragment"
         app:moduleName="home"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_SpeakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_sessionDetailsFragment"
+            app:destination="@id/sessionDetailsFragment"/>
+    </fragment>
+
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.android254.droidconKE2020.feed.ui.views.FeedFragment"
@@ -63,5 +72,9 @@
         android:name="com.android254.droidconKE2020.sessions.ui.views.SessionDetailFragment"
         app:moduleName="sessions"
         android:label="SessionsFragment"
-        tools:layout="@layout/fragment_session_detail"/>
+        tools:layout="@layout/fragment_session_detail">
+        <action
+            android:id="@+id/action_sessionDetailsFragment_to_SpeakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment"/>
+    </fragment>
 </navigation>

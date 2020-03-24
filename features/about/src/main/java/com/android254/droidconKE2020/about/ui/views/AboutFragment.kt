@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.about.R
 import com.android254.droidconKE2020.about.databinding.FragmentAboutBinding
 
@@ -25,12 +26,10 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val onProfileClicked: (Organizer) -> Unit = {
-
-            // TODO Handle showing Organizer details logic
-            Toast.makeText(context!!, "Show Organizer details clicked", Toast.LENGTH_SHORT).show()
+        val adapter = OrganizerAdapter{
+            val organizerDetailsDirections = AboutFragmentDirections.actionAboutFragmentToOrganizerDetailsFragment()
+            findNavController().navigate(organizerDetailsDirections)
         }
-        val adapter = OrganizerAdapter(onProfileClicked)
         binding.organizersList.adapter = adapter
         adapter.updateData(createDummyData()) // TODO Remove use of dummy data
     }

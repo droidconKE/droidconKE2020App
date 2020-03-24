@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
 import com.android254.droidconKE2020.sessions.ui.views.adapter.OnSessionClickListener
@@ -69,7 +70,9 @@ internal class DaySessions(day: String) : Fragment() {
             )
         )
         val sessionsAdapter = SessionsAdapter(sessions = sessions, context = requireContext()){
-          
+            val sessionsFragmentDirections = SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment()
+            findNavController().navigate(sessionsFragmentDirections)
+
         }
 
         rvSessions.adapter = sessionsAdapter

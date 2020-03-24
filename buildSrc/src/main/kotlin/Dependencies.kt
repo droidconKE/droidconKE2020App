@@ -23,6 +23,7 @@ object Versions {
     const val espresso = "3.2.0"
     const val annotation = "1.1.0"
     const val mockk = "1.9"
+    const val safeArgsPlugin = "2.2.1"
 }
 
 object BuildPlugins {
@@ -34,6 +35,8 @@ object BuildPlugins {
     const val dynamicFeature = "com.android.dynamic-feature"
     const val androidLibrary = "com.android.library"
     const val kotlinKapt = "kotlin-kapt"
+    const val safeArgs = "androidx.navigation.safeargs"
+    const val safeArgsGradlePlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.safeArgsPlugin}"
 }
 
 object Libraries {

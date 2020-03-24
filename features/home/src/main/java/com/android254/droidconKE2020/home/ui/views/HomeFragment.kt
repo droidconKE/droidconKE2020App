@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
@@ -28,7 +29,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.promoImg.load(R.drawable.black_friday_twitter)
         binding.cfpImage.load(R.drawable.cfp_image)
         val onClicked: (Session) -> Unit = {
-
+            val sessionDetailsAction = HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment()
+            findNavController().navigate(sessionDetailsAction)
         }
         val sessionsAdapter = SessionAdapter(onClicked)
         binding.sessionsList.adapter = sessionsAdapter
@@ -36,7 +38,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         sessionsAdapter.updateData(createDummyData())
 
         val onSpeakerClicked: (Speaker) -> Unit = {
-
+            val speakerDetailsAction = HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
+            findNavController().navigate(speakerDetailsAction)
         }
         val speakersAdapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = speakersAdapter

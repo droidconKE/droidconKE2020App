@@ -9,14 +9,15 @@ import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
 import com.android254.droidconKE2020.home.R
 import kotlinx.android.synthetic.main.item_speaker.view.*
 
-class SpeakerAdapter(private val onClicked: (Speaker) -> Unit) :
+typealias ClickListener = (Speaker) -> Unit
+class SpeakerAdapter(private val onClicked: ClickListener) :
     RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
 
     private val speakers = mutableListOf<Speaker>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpeakerViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_speaker, parent, false)
-        return SpeakerViewHolder(view)
+        return SpeakerViewHolder(view, onClicked)
     }
 
     override fun getItemCount(): Int = speakers.size
@@ -32,7 +33,7 @@ class SpeakerAdapter(private val onClicked: (Speaker) -> Unit) :
         notifyDataSetChanged()
     }
 
-    inner class SpeakerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class SpeakerViewHolder(view: View,onClicked : ClickListener) : RecyclerView.ViewHolder(view) {
         val speakerImg: ShapedImageView
         val nameTxt: TextView
 
@@ -44,6 +45,9 @@ class SpeakerAdapter(private val onClicked: (Speaker) -> Unit) :
         fun bindSpeaker(speaker: Speaker) {
             with(speaker) {
                 nameTxt.text = name
+                itemView.setOnClickListener {
+                    onClicked(this)
+                }
             }
         }
     }
