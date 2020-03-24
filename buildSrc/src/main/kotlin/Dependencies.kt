@@ -24,6 +24,8 @@ object Versions {
     const val annotation = "1.1.0"
     const val mockk = "1.9"
     const val safeArgsPlugin = "2.2.1"
+    const val archCore = "2.1.0"
+    const val core = "1.2.0"
 }
 
 object BuildPlugins {
@@ -93,6 +95,8 @@ object TestLibraries {
     const val espresso   = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val archCore = "androidx.arch.core:core-testing:${Versions.archCore}"
+    const val core = "androidx.test:core:${Versions.core}"
 }
 
 object BuildModules{
@@ -111,5 +115,6 @@ object BuildModules{
         const val Network = ":network"
         const val Data = ":data"
         const val App = ":app"
+        const val Test = ":test-utils"
     }
 }
