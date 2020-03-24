@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.android254.droidconKE2020.core.PreferencesImpl
 import com.example.android_animation.AndroidAnimation
 import com.example.android_animation.enums.Easing
 import kotlinx.android.synthetic.main.activity_splash_screen.*
@@ -17,18 +18,28 @@ class SplashScreenActivity : AppCompatActivity() {
     private val MAX_TRANSLATION_X = 310f
     private val MAX_TRANSLATION_Y = 170f
 
+    private lateinit var preferencesImpl: PreferencesImpl
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        startAnimation()
+        preferencesImpl = PreferencesImpl(this)
+        val showSplashScreen = preferencesImpl.getShowSplashScreen()
+        if (showSplashScreen) startAnimation() else navigateToHome()
+    }
+
+    private fun navigateToHome() {
+        startActivity(Intent(this@SplashScreenActivity, HomeActivity::class.java))
+        finish()
     }
 
     private fun startAnimation() {
         AndroidAnimation().apply {
-            delay = 1000
+            delay = 300
             targetViews(imageViewLogo)
             scaleX(MAX_SCALE)
             scaleY(MAX_SCALE)
+            duration = 1000
             thenPlay()
             easing = Easing.EXP_IN
             translateX(MAX_TRANSLATION_X)
@@ -39,7 +50,7 @@ class SplashScreenActivity : AppCompatActivity() {
             thenPlay()
             easing = Easing.CIRC_OUT
             translateX(-MAX_TRANSLATION_X)
-            translateY(-MAX_TRANSLATION_Y, delay = 5400)
+            translateY(-MAX_TRANSLATION_Y, delay = 3500)
             scaleX(MIN_SCALE)
             scaleY(MIN_SCALE)
             rotate(MAX_ROTATION)
@@ -48,8 +59,8 @@ class SplashScreenActivity : AppCompatActivity() {
             scaleY((MIN_SCALE + .2f), 1f, MAX_SCALE, 1f)
             alpha(1f)
             onAnimationEnd {
-                startActivity(Intent(this@SplashScreenActivity, HomeActivity::class.java))
-                finish()
+                preferencesImpl.setShowSplashScreen(false)
+                navigateToHome()
             }
             start()
         }

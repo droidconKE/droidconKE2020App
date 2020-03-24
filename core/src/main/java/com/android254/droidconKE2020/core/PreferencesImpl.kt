@@ -16,13 +16,13 @@ class PreferencesImpl(context: Context): Preferences {
         }
     }
 
-//    override fun getUserName(defaultValue: String): String? {
-//        return sharedPref.getString("userName", defaultValue)
-//    }
-//
-//    override fun setUserName(username: String) {
-//        editSharedPref {
-//            it.putString("userName", username)
-//        }
-//    }
+    override fun getShowSplashScreen(): Boolean {
+        return sharedPref.getBoolean("showSplashScreen", true)
+    }
+
+    override fun setShowSplashScreen(showSplashScreen: Boolean) {
+        editSharedPref {
+            it.putBoolean("showSplashScreen", showSplashScreen)
+        }
+    }
 }
