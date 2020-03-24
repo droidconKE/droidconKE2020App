@@ -32,8 +32,8 @@
         android:label="SessionsFragment"
         tools:layout="@layout/fragment_sessions">
         <action
-            android:id="@+id/action_sessionsFragment_to_speakerDetailsFragment"
-            app:destination="@id/speakerDetailsFragment" />
+            android:id="@+id/action_sessionsFragment_to_sessionDetailFragment"
+            app:destination="@id/sessionDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -57,4 +57,11 @@
         app:moduleName="about"
         android:label="OrganizerDetailsFragment"
         tools:layout="@layout/fragment_organizer_details"/>
+
+    <fragment
+        android:id="@+id/sessionDetailsFragment"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.SessionDetailFragment"
+        app:moduleName="sessions"
+        android:label="SessionsFragment"
+        tools:layout="@layout/fragment_session_detail"/>
 </navigation>

@@ -68,11 +68,10 @@ internal class DaySessions(day: String) : Fragment() {
                 sessionEndTime = "2:30 AM"
             )
         )
-        val sessionsAdapter = SessionsAdapter(sessions = sessions, onSessionClickListener = object :
-            OnSessionClickListener {
-            override fun clickItem(session: DummySession, v: View) {}
+        val sessionsAdapter = SessionsAdapter(sessions = sessions, context = requireContext()){
+          
+        }
 
-        }, context = requireContext())
         rvSessions.adapter = sessionsAdapter
     }
 

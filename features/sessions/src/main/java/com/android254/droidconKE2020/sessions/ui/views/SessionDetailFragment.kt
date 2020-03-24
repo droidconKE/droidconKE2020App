@@ -7,4 +7,6 @@ import com.android254.droidconKE2020.sessions.R
 /**
  * A simple [Fragment] subclass.
  */
-internal class SessionDetailFragment : Fragment(R.layout.fragment_session_detail)
+class SessionDetailFragment : Fragment(R.layout.fragment_session_detail){
+
+}
