@@ -15,7 +15,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    viewBinding {
+    dataBinding {
         isEnabled = true
     }
 
@@ -28,13 +28,20 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+    sourceSets {
+        getByName("test").java.srcDirs("src/test/java")
+    }
+
 }
 
 dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
     testImplementation(TestLibraries.junit4)
-
+    testImplementation(TestLibraries.mockk)
+    testImplementation(TestLibraries.archCore)
+    testImplementation(TestLibraries.core)
+    testImplementation(project(":test-utils"))
     // Koin
     implementation (Libraries.koinAndroid)
     implementation (Libraries.koinExt)

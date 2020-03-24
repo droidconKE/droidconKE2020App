@@ -4,6 +4,7 @@ include(
     BuildModules.Libraries.Network,
     BuildModules.Libraries.Data,
     BuildModules.Libraries.App,
+    BuildModules.Libraries.Test,
     BuildModules.Features.Feedback,
     BuildModules.Features.Speaker,
     BuildModules.Features.Auth,
