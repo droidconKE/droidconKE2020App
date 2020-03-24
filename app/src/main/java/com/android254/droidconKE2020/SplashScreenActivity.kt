@@ -25,10 +25,11 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun startAnimation() {
         AndroidAnimation().apply {
-            delay = 1000
+            delay = 300
             targetViews(imageViewLogo)
             scaleX(MAX_SCALE)
             scaleY(MAX_SCALE)
+            duration = 1000
             thenPlay()
             easing = Easing.EXP_IN
             translateX(MAX_TRANSLATION_X)
@@ -39,7 +40,7 @@ class SplashScreenActivity : AppCompatActivity() {
             thenPlay()
             easing = Easing.CIRC_OUT
             translateX(-MAX_TRANSLATION_X)
-            translateY(-MAX_TRANSLATION_Y, delay = 5400)
+            translateY(-MAX_TRANSLATION_Y, delay = 3500)
             scaleX(MIN_SCALE)
             scaleY(MIN_SCALE)
             rotate(MAX_ROTATION)
@@ -48,9 +49,10 @@ class SplashScreenActivity : AppCompatActivity() {
             scaleY((MIN_SCALE + .2f), 1f, MAX_SCALE, 1f)
             alpha(1f)
             onAnimationEnd {
-                startActivity(Intent(this@SplashScreenActivity, HomeActivity::class.java))
-                finish()
+//                startActivity(Intent(this@SplashScreenActivity, HomeActivity::class.java))
+//                finish()
             }
+            loop = true
             start()
         }
     }
