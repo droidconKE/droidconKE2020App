@@ -39,27 +39,18 @@ class SpeakerDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        getSpeakerDetails()
+        binding.lifecycleOwner = this
+        binding.speakerImg = "https://firebasestorage.googleapis.com/v0/b/droidconke-70d60.appspot.com/o/speakers2019%2Fjabez-mu.png?alt=media&token=ece3cbbd-b896-4748-9d9a-39e58391db92"
 
         observeSpeakerDetails()
+        getSpeakerDetails()
+
     }
 
     private fun observeSpeakerDetails() {
         speakerViewModel.speakerDetails.observe(viewLifecycleOwner, Observer { speakerDetailsModel ->
-            setupView(speakerDetailsModel)
+            binding.speakerDetailsModel = speakerDetailsModel
         })
-    }
-
-    private fun setupView(speakerDetailsModel: SpeakerDetailsModel) {
-        with(speakerDetailsModel){
-            binding.tvSpeakerName.text = speakerName
-            binding.tvSpeakerRole.text = speakerRole
-            binding.tvSpeakerCompany.text = speakerCompany
-            binding.tvTopTwitterHandle.text = twitterHandle
-            binding.tvSpeakerBio.text = speakerBio
-            binding.tvSpeakerHandle.text = twitterHandle
-        }
     }
 
     private fun getSpeakerDetails() {

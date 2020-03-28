@@ -39,6 +39,7 @@ object BuildPlugins {
     const val kotlinKapt = "kotlin-kapt"
     const val safeArgs = "androidx.navigation.safeargs"
     const val safeArgsGradlePlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.safeArgsPlugin}"
+    const val kapt = "kotlin-kapt"
 }
 
 object Libraries {
