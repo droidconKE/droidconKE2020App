@@ -29,7 +29,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.promoImg.load(R.drawable.black_friday_twitter)
         binding.cfpImage.load(R.drawable.cfp_image)
         val onClicked: (Session) -> Unit = {
-            val sessionDetailsAction = HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment()
+            val sessionDetailsAction =
+                HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(0L)
             findNavController().navigate(sessionDetailsAction)
         }
         val sessionsAdapter = SessionAdapter(onClicked)

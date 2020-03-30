@@ -7,15 +7,15 @@
     android:fillViewport="true"
     tools:context=".ui.views.DaySessions">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSessions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="56dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_session" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSessions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="56dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_session" />
 
 </androidx.core.widget.NestedScrollView>

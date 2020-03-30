@@ -1,60 +1,46 @@
 package com.android254.droidconKE2020.sessions.ui.views.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.sessions.R
-import kotlinx.android.synthetic.main.item_session.view.*
+import com.android254.droidconKE2020.sessions.databinding.ItemSessionBinding
 
-typealias SessionClickListener = (DummySession) -> Unit
 internal class SessionsAdapter(
     private val sessions: List<DummySession>,
-    private val context: Context,
-    private val sessionClickListener: SessionClickListener
+    private val sessionClickListener: SessionClickListener,
+    private val saveSessionListener: SaveSessionListener
 ) : RecyclerView.Adapter<SessionsAdapter.SessionsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionsViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_session, parent, false)
-        return SessionsViewHolder(itemView, sessionClickListener, context)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val itemSessionBinding = DataBindingUtil.inflate<ItemSessionBinding>(
+            layoutInflater,
+            R.layout.item_session,
+            parent,
+            false
+        )
+        return SessionsViewHolder(itemSessionBinding, sessionClickListener, saveSessionListener)
     }
 
     override fun getItemCount(): Int = sessions.size
 
-    override fun onBindViewHolder(holder: SessionsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SessionsViewHolder, position: Int) =
         holder.bind(sessions[position])
-    }
 
     internal class SessionsViewHolder(
-        itemView: View,
-        private val sessionClickListener: SessionClickListener,
-        private val context: Context
-    ) : RecyclerView.ViewHolder(itemView) {
+        private val itemSessionBinding: ItemSessionBinding,
+        private val onSessionClickListener: SessionClickListener,
+        private val onSaveSessionListener: SaveSessionListener
+    ) : RecyclerView.ViewHolder(itemSessionBinding.root) {
         fun bind(session: DummySession) {
-            with (session){
-                itemView.imageViewStarSession.setOnClickListener {
-                    context.displayToast("Session Saved")
-                }
-                itemView.cardViewSession.setOnClickListener {
-                    sessionClickListener(this)
-                }
-                itemView.textViewSessionTitle.text = sessionTitle
-                itemView.textViewSessionDescription.text = sessionDescription
-                itemView.textViewSessionSpeaker.text = sessionSpeaker
-                itemView.textViewSessionDuration.text =
-                    String.format("%s - %s", sessionStartTime, sessionEndTime)
-                itemView.textViewSessionStartTime.text = sessionStartTime?.replace("AM", "")
-                itemView.textViewSessionVenue.text = sessionVenue
-                itemView.textViewTimeZone.text = "AM"
+            with(itemSessionBinding) {
+                this.session = session
+                this.sessionClickListener = onSessionClickListener
+                this.saveSessionListener = onSaveSessionListener
+                this.executePendingBindings()
             }
-
         }
     }
-
 }
 
-fun Context.displayToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
-    Toast.makeText(this, message, duration).show()
-}
