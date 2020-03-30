@@ -1,4 +1,4 @@
-plugins{
+plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
@@ -50,33 +50,33 @@ android {
 }
 
 dependencies {
-    implementation (project(BuildModules.Libraries.Data))
-    implementation (project(BuildModules.Libraries.Core))
-    implementation (project(BuildModules.Libraries.Network))
-    implementation (project(BuildModules.Libraries.Repository))
+    implementation(project(BuildModules.Libraries.Data))
+    implementation(project(BuildModules.Libraries.Core))
+    implementation(project(BuildModules.Libraries.Network))
+    implementation(project(BuildModules.Libraries.Repository))
 
     api(APIs.ktxCore)
     api(APIs.kotlinStandardLibrary)
     api(APIs.navigationFragment)
     api(APIs.navigationUI)
     api(APIs.navigationDynamicFeature)
-    implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
-    implementation (Libraries.ktxCore)
+    implementation(Libraries.ktxCore)
     api(Libraries.constraintLayout)
-    implementation (Libraries.materialComponents)
+    api(Libraries.materialComponents)
     implementation(Libraries.androidAnimation)
     api(Libraries.coil)
     api(Libraries.shapedImageView)
-    testImplementation (TestLibraries.junit4)
-    androidTestImplementation (TestLibraries.testRunner)
-    androidTestImplementation (TestLibraries.espresso)
-    androidTestImplementation (TestLibraries.annotation)
+    testImplementation(TestLibraries.junit4)
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.annotation)
 
     // Koin
-    implementation (Libraries.koinAndroid)
-    implementation (Libraries.koinExt)
-    implementation (Libraries.koinScope)
-    implementation (Libraries.koinViewModel)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
 }

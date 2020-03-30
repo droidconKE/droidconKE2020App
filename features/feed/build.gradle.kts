@@ -19,6 +19,10 @@ android {
         isEnabled = true
     }
 
+    viewBinding {
+        isEnabled = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -35,16 +39,13 @@ android {
 }
 
 dependencies {
-    implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation (project(":app"))
-    testImplementation(TestLibraries.junit4)
-    testImplementation(TestLibraries.mockk)
-    testImplementation(TestLibraries.archCore)
-    testImplementation(TestLibraries.core)
-    testImplementation(project(":test-utils"))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(":app"))
     // Koin
-    implementation (Libraries.koinAndroid)
-    implementation (Libraries.koinExt)
-    implementation (Libraries.koinScope)
-    implementation (Libraries.koinViewModel)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
+
+    testImplementation(project(":test-utils", "testDependencies"))
 }

@@ -25,7 +25,18 @@
         android:name="com.android254.droidconKE2020.feed.ui.views.FeedFragment"
         app:moduleName="feed"
         android:label="FeedFragment"
-        tools:layout="@layout/fragment_feed"/>
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_feedFragment_to_shareFragment"
+            app:destination="@id/shareFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/shareFragment"
+        android:name="com.android254.droidconKE2020.feed.ui.views.ShareFragment"
+        android:label="Share Dialog"
+        app:moduleName="feed"
+        tools:layout="@layout/share_fragment" />
 
 
     <fragment

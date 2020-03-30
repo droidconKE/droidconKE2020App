@@ -26,6 +26,8 @@ object Versions {
     const val safeArgsPlugin = "2.2.1"
     const val archCore = "2.1.0"
     const val core = "1.2.0"
+    const val fragmentTesting = "1.2.3"
+    const val kakao = "2.3.0"
 }
 
 object BuildPlugins {
@@ -97,6 +99,9 @@ object TestLibraries {
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     const val archCore = "androidx.arch.core:core-testing:${Versions.archCore}"
     const val core = "androidx.test:core:${Versions.core}"
+    const val koin = "org.koin:koin-test:${Versions.koin}"
+    const val fragment = "androidx.fragment:fragment-testing:${Versions.fragmentTesting}"
+    const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
 }
 
 object BuildModules{
