@@ -88,4 +88,10 @@
             android:id="@+id/action_sessionDetailsFragment_to_SpeakerDetailsFragment"
             app:destination="@id/speakerDetailsFragment"/>
     </fragment>
+    <dialog
+        android:id="@+id/authDialog"
+        android:name="com.android254.droidconKE2020.auth.views.AuthDialog"
+        app:moduleName = "auth"
+        android:label=""
+        tools:layout="@layout/dialog_authenticate"/>
 </navigation>

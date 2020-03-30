@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -16,6 +17,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setUpBottomNavigation()
+
+        setSupportActionBar(findViewById(R.id.mainToolbar))
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -29,6 +33,10 @@ class HomeActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
+            R.id.action_sign_in -> {
+                signIn()
+                true
+            }
             R.id.action_settings -> true
             R.id.action_feedback -> {
                 feedback()
@@ -60,6 +68,9 @@ class HomeActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.findNavController()
         navController.navigate(R.id.feedBackFragment)
+    }
 
+    private fun signIn(){
+        findNavController(R.id.nav_host_fragment).navigate(R.id.authDialog)
     }
 }

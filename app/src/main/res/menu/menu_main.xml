@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.android254.droidconKE2020.HomeActivity">
     <item
+        android:id="@+id/action_sign_in"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        android:title="@string/sign_in"
+        android:icon="@drawable/ic_lock_outline_black_24dp"/>
+
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="1"
         android:title="@string/action_settings"
