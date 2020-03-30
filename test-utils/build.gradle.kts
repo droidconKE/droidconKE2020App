@@ -20,6 +20,20 @@ android {
 
 }
 
+val testDependencies by configurations.creating {
+    extendsFrom(configurations["testImplementation"])
+}
+
 dependencies {
     implementation(Libraries.appCompat)
+    implementation(Libraries.materialComponents)
+
+    testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.mockk)
+    testImplementation(TestLibraries.archCore)
+    testImplementation(TestLibraries.core)
+    testImplementation(TestLibraries.koin)
+
+    androidTestImplementation(TestLibraries.fragment)
+    androidTestImplementation(TestLibraries.kakao)
 }
