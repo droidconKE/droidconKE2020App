@@ -79,4 +79,7 @@ dependencies {
     implementation(Libraries.koinExt)
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
+
+    //Google services
+    implementation(Libraries.googleServices)
 }

@@ -17,6 +17,8 @@ object Versions {
     const val retrofit = "2.7.2"
     const val interceptor = "4.2.2"
     const val okHttp = "4.4.0"
+    const val googleAuth = "17.0.0"
+    const val googleServices = "9.2.1"
 
     const val junit4 = "4.12"
     const val testRunner = "1.1.1"
@@ -73,6 +75,10 @@ object Libraries {
     const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
     const val okHttp3 = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+
+    //Auth
+    const val googleAuth = "com.google.android.gms:play-services-auth:${Versions.googleAuth}"
+    const val googleServices = "com.google.android.gms:play-services:${Versions.googleServices}"
 }
 
 object APIs {
