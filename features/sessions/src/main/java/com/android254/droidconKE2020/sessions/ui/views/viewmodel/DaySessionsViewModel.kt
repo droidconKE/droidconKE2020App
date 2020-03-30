@@ -13,7 +13,7 @@ class DaySessionsViewModel : ViewModel() {
     val navigateToSessionDetail: LiveData<Long>
         get() = _navigateToSessionDetail
     private val _saveSessionItem = MutableLiveData<DummySession>()
-    val saveSessionItem
+    val saveSessionItem: LiveData<DummySession>
         get() = _saveSessionItem
 
     fun getDaySessions(day: String) {

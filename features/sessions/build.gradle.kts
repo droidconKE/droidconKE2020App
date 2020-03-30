@@ -40,4 +40,7 @@ dependencies {
     implementation (Libraries.koinExt)
     implementation (Libraries.koinScope)
     implementation (Libraries.koinViewModel)
+
+    //Test
+    testImplementation(project(":test-utils", "testDependencies"))
 }

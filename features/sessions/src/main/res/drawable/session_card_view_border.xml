@@ -5,9 +5,6 @@
 
     <solid android:color="@color/colorAquaMarineFaded" />
 
-    <size
-        android:width="48dp"
-        android:height="64dp" />
     <corners
         android:bottomLeftRadius="12dp"
         android:bottomRightRadius="12dp"
