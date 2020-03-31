@@ -53,7 +53,9 @@
         tools:layout="@layout/fragment_sessions">
         <action
             android:id="@+id/action_sessionsFragment_to_sessionDetailFragment"
-            app:destination="@id/sessionDetailsFragment" />
+            app:destination="@id/sessionDetailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -87,6 +89,9 @@
         <action
             android:id="@+id/action_sessionDetailsFragment_to_SpeakerDetailsFragment"
             app:destination="@id/speakerDetailsFragment"/>
+        <argument
+            android:name="sessionId"
+            app:argType="long" />
     </fragment>
     <dialog
         android:id="@+id/authDialog"
