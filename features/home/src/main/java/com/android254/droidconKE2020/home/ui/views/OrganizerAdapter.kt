@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.home.R
-import kotlinx.android.synthetic.main.item_organizer.view.*
+import kotlinx.android.synthetic.main.home_item_organizer.view.*
 
 class OrganizerAdapter : RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHolder>() {
 
@@ -15,7 +15,7 @@ class OrganizerAdapter : RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHold
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizerViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_organizer, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.home_item_organizer, parent, false)
         return OrganizerViewHolder(view)
     }
 

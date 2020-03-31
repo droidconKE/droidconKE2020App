@@ -49,6 +49,10 @@ android {
     }
 }
 
+val intTestDependencies by configurations.creating {
+    extendsFrom(configurations["androidTestImplementation"])
+}
+
 dependencies {
     implementation(project(BuildModules.Libraries.Data))
     implementation(project(BuildModules.Libraries.Core))
@@ -60,6 +64,7 @@ dependencies {
     api(APIs.navigationFragment)
     api(APIs.navigationUI)
     api(APIs.navigationDynamicFeature)
+    api(APIs.fragments)
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
@@ -79,6 +84,13 @@ dependencies {
     implementation(Libraries.koinExt)
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
+
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.testRules)
+    androidTestImplementation(TestLibraries.koin)
+    debugImplementation(TestLibraries.fragment)
+    androidTestImplementation(TestLibraries.kakao)
+}
 
     //Google services
     implementation(Libraries.googleServices)

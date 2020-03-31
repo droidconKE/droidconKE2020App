@@ -7,13 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import com.android254.droidconKE2020.feed.R
-import com.android254.droidconKE2020.feed.databinding.FragmentShareBinding
+import kotlinx.android.synthetic.main.fragment_share.*
 
 
 class ShareFragment : RoundedBottomSheetFragment() {
-    private var _binding: FragmentShareBinding? = null
-    private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,24 +21,18 @@ class ShareFragment : RoundedBottomSheetFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentShareBinding.bind(view)
-        binding.twitterShare.setOnClickListener {
+        twitterShare.setOnClickListener {
             Toast.makeText(context, "Twitter clicked", Toast.LENGTH_SHORT).show()
         }
-        binding.fbShare.setOnClickListener {
+        fbShare.setOnClickListener {
             Toast.makeText(context, "Fb clicked", Toast.LENGTH_SHORT).show()
         }
-        binding.whatsappShare.setOnClickListener {
+        whatsappShare.setOnClickListener {
             Toast.makeText(context, "WhatsApp clicked", Toast.LENGTH_SHORT).show()
         }
-        binding.telegramShare.setOnClickListener {
+        telegramShare.setOnClickListener {
             Toast.makeText(context, "Telegram clicked", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
     }
 
 }
