@@ -90,7 +90,6 @@ dependencies {
     androidTestImplementation(TestLibraries.koin)
     debugImplementation(TestLibraries.fragment)
     androidTestImplementation(TestLibraries.kakao)
-}
 
     //Google services
     implementation(Libraries.googleServices)

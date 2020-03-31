@@ -36,6 +36,8 @@ dependencies {
     implementation (Libraries.koinScope)
     implementation (Libraries.koinViewModel)
 
+    androidTestImplementation(project(":app", "intTestDependencies"))
+
     //Google auth
     implementation (Libraries.googleAuth)
 }

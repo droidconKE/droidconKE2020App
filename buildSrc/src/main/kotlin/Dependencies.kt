@@ -9,6 +9,7 @@ object Versions {
     const val constraintLayout = "1.1.3"
     const val ktx = "1.1.0"
     const val material = "1.1.0-rc02"
+    const val fragments = "1.2.3"
     const val androidAnimation = "0.2.0"
     const val shapedImageView = "0.8.7"
     const val coil = "0.9.5"
@@ -22,13 +23,14 @@ object Versions {
 
     const val junit4 = "4.12"
     const val testRunner = "1.1.1"
+    const val rules = "1.1.1"
     const val espresso = "3.2.0"
     const val annotation = "1.1.0"
     const val mockk = "1.9"
     const val safeArgsPlugin = "2.2.1"
     const val archCore = "2.1.0"
     const val core = "1.2.0"
-    const val fragmentTesting = "1.2.3"
+    const val fragmentsTesting = "1.2.3"
     const val kakao = "2.3.0"
 }
 
@@ -88,6 +90,7 @@ object APIs {
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${navVersion}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:$navVersion"
     const val navigationDynamicFeature = "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
+    const val fragments = "androidx.fragment:fragment-ktx:${Versions.fragments}"
 }
 
 object AndroidSDK{
@@ -98,7 +101,8 @@ object AndroidSDK{
 
 object TestLibraries {
     const val junit4     = "junit:junit:${Versions.junit4}"
-    const val testRunner = "androidx.test:runner:${Versions.testRunner}"
+    const val testRunner = "androidx.test.ext:junit:${Versions.testRunner}"
+    const val testRules = "androidx.test:rules:${Versions.rules}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val espresso   = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
@@ -106,7 +110,7 @@ object TestLibraries {
     const val archCore = "androidx.arch.core:core-testing:${Versions.archCore}"
     const val core = "androidx.test:core:${Versions.core}"
     const val koin = "org.koin:koin-test:${Versions.koin}"
-    const val fragment = "androidx.fragment:fragment-testing:${Versions.fragmentTesting}"
+    const val fragment = "androidx.fragment:fragment-testing:${Versions.fragmentsTesting}"
     const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
 }
 
