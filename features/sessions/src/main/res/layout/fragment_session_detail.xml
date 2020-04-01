@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="sessionDetailViewModel"
             type="com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionDetailViewModel" />
@@ -46,7 +45,6 @@
                     android:text="@{sessionDetailViewModel.sessionDetails.sessionVenue}"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@+id/chipSessionLevel"
-                    app:layout_constraintHorizontal_bias="0.474"
                     app:layout_constraintStart_toEndOf="@+id/textViewSessionTime"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="ROOM 1" />
@@ -231,7 +229,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:onClick="@{() -> sessionDetailViewModel.onClickSpeaker(sessionDetailViewModel.sessionDetails.sessionSpeakerId)}"
                     android:text="@{sessionDetailViewModel.sessionDetails.sessionSpeaker}"
-                    android:textColor="#82e3b3"
+                    android:textColor="@color/colorGreen"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/imageViewSpeakerIcon"
                     app:layout_constraintTop_toBottomOf="@+id/textViewSpeakerTitle"
@@ -282,6 +280,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
+                    android:tint="@color/iconShareTint"
                     android:onClick="@{() -> sessionDetailViewModel.onClickShareSession(sessionDetailViewModel.sessionDetails)}"
                     android:src="@drawable/ic_share"
                     app:backgroundTint="?android:attr/colorBackground"

@@ -15,4 +15,5 @@
     <color name="socialMediaButtonTextColour">@android:color/black</color>
     <color name="socialMediaButtonBackgroundColour">@android:color/white</color>
     <color name="sessionHeaderTextColor">@color/colorPurple</color>
+    <color name="iconShareTint">@color/colorPurple</color>
 </resources>
