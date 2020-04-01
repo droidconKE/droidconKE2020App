@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
 import com.android254.droidconKE2020.home.R
-import kotlinx.android.synthetic.main.item_speaker.view.*
+import kotlinx.android.synthetic.main.home_item_speaker.view.*
 
 typealias ClickListener = (Speaker) -> Unit
 class SpeakerAdapter(private val onClicked: ClickListener) :
@@ -16,7 +16,8 @@ class SpeakerAdapter(private val onClicked: ClickListener) :
     private val speakers = mutableListOf<Speaker>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpeakerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_speaker, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.home_item_speaker, parent, false)
         return SpeakerViewHolder(view, onClicked)
     }
 

@@ -8,14 +8,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.home.R
 import com.google.android.material.card.MaterialCardView
-import kotlinx.android.synthetic.main.item_session.view.*
+import kotlinx.android.synthetic.main.home_item_session.view.*
 
 class SessionAdapter(private val onClicked: (Session) -> Unit) :
     RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
 
     private val sessions = mutableListOf<Session>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_session, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.home_item_session, parent, false)
         return SessionViewHolder(view)
     }
 

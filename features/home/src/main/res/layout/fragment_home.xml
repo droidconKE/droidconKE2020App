@@ -255,7 +255,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sessionsTitle"
-                tools:listitem="@layout/item_session" />
+                tools:listitem="@layout/home_item_session" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -324,7 +324,7 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/speakersTitle"
-                tools:listitem="@layout/item_speaker" />
+                tools:listitem="@layout/home_item_speaker" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -464,7 +464,7 @@
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:spanCount="4"
-                    tools:listitem="@layout/item_organizer" />
+                    tools:listitem="@layout/home_item_organizer" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

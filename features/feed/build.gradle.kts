@@ -19,10 +19,6 @@ android {
         isEnabled = true
     }
 
-    viewBinding {
-        isEnabled = true
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -46,6 +42,9 @@ dependencies {
     implementation(Libraries.koinExt)
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
+    debugImplementation(TestLibraries.fragment)
 
     testImplementation(project(":test-utils", "testDependencies"))
+
+    androidTestImplementation(project(":app", "intTestDependencies"))
 }
