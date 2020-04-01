@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.speaker.utils
+package com.android254.droidconKE2020.core.utils
 
 import androidx.databinding.BindingAdapter
 import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
