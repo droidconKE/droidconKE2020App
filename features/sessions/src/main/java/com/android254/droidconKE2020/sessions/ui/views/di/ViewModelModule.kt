@@ -1,6 +1,7 @@
 package com.android254.droidconKE2020.sessions.ui.views.di
 
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.DaySessionsViewModel
+import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionDetailViewModel
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionsViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
@@ -13,6 +14,9 @@ val viewModelsModule: Module = module {
     }
     viewModel<SessionsViewModel> {
         SessionsViewModel()
+    }
+    viewModel<SessionDetailViewModel> {
+        SessionDetailViewModel()
     }
 }
 

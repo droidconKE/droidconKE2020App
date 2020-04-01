@@ -37,14 +37,6 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         super.onViewCreated(view, savedInstanceState)
         observeDaySessions()
         getDaySessions()
-        setUpFilterLayout()
-    }
-
-    private fun setUpFilterLayout() {
-        binding.filterLayout.setOnClickListener {
-            val bottomSheetFilterFragment = BottomSheetFilterFragment()
-            bottomSheetFilterFragment.show(parentFragmentManager, "Filter Fragment")
-        }
     }
 
     private fun observeDaySessions() {

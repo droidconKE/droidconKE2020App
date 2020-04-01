@@ -5,10 +5,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@android:color/black</item>"
         <item name="background">@android:color/white</item>
-        <item name="android:textColorSecondary">@color/colorPurple</item>
+        <item name="backgroundColor">@android:color/white</item>
         <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -20,10 +20,6 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="BottomSheetDialogTheme" parent="Theme.MaterialComponents.BottomSheetDialog">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-    </style>
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
@@ -31,5 +27,16 @@
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/filter_layout_drawable</item>
+    </style>
+
+    <style name="SocialMediaButtonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:height">56dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="textAllCaps">false</item>
+        <item name="strokeColor">@color/socialMediaButtonStrokeColour</item>
+        <item name="android:textSize">14sp</item>
+        <item name="backgroundTint">@color/socialMediaButtonBackgroundColour</item>
+        <item name="android:textColor">@color/socialMediaButtonTextColour</item>
     </style>
 </resources>

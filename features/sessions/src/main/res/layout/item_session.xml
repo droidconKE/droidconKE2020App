@@ -162,7 +162,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="12dp"
                     android:contentDescription="@string/star_session"
-                    android:onClick="@{(view) -> saveSessionListener.onSave(session,view)}"
+                    android:onClick="@{(v) -> saveSessionListener.onSave(session,v)}"
                     app:layout_constraintBottom_toBottomOf="@+id/textViewSessionTitle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textViewSessionTitle"

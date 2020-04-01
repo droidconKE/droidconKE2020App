@@ -11,5 +11,7 @@
     <color name="colorSessionCardBkg">#c2f1da</color>
     <color name="colorGrey">#a9b0b1</color>
     <color name="colorAquaMarineFaded">#1D68DEA4</color>
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="socialMediaButtonStrokeColour">@android:color/black</color>
+    <color name="socialMediaButtonTextColour">@android:color/black</color>
+    <color name="socialMediaButtonBackgroundColour">@android:color/white</color>
 </resources>
