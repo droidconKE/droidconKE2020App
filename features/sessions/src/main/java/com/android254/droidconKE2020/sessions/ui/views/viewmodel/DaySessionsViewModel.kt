@@ -19,7 +19,7 @@ class DaySessionsViewModel : ViewModel() {
     fun getDaySessions(day: String) {
         val sessions = listOf(
             DummySession(
-                sessionSpeaker = "James Kirwa",
+                sessionSpeaker = "Jabez Magomere",
                 sessionTitle = "Coroutines In Depth",
                 sessionVenue = "Twiga Foods",
                 sessionDescription = "A beginner guide to asynchronous programming",

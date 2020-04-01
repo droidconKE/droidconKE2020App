@@ -65,7 +65,7 @@ object FakeRepository {
         return DummySessionDetail(
             sessionDuration = "9:30 AM - 10:30 AM",
             sessionDescription = "A guide to asynchronous programming with Kotlin",
-            sessionImageURL = "",
+            sessionSpeakerImageURL = "https://media-exp1.licdn.com/dms/image/C5603AQGluIti7nsWtg/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=XU8HzarrTlprLPMaNJ2nWMCvzICaiB38HPtBOZsYTcw",
             sessionSpeaker = "Jabez Magomere",
             sessionSpeakerDescription = "I eat dispatchers for breakfast and workout using coroutine builders",
             sessionSpeakerJob = "Software Engineer, Twiga Foods",

@@ -82,7 +82,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewSessionVenue"
                     app:strokeColor="@color/cardViewStrokeColor"
-                    app:strokeWidth="1dp">
+                    app:strokeWidth="1.5dp">
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,6 +109,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:shape_mode="circle"
+                            imageUrl="@{sessionDetailViewModel.sessionDetails.sessionSpeakerImageURL}"
                             android:src="@drawable/greg">
 
                         </cn.gavinliu.android.lib.shapedimageview.ShapedImageView>
@@ -231,7 +232,7 @@
                     android:onClick="@{() -> sessionDetailViewModel.onClickSpeaker(sessionDetailViewModel.sessionDetails.sessionSpeakerId)}"
                     android:text="@{sessionDetailViewModel.sessionDetails.sessionSpeaker}"
                     android:textColor="#82e3b3"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/imageViewSpeakerIcon"
                     app:layout_constraintTop_toBottomOf="@+id/textViewSpeakerTitle"
                     tools:text="Greg Fawson" />
@@ -387,7 +388,7 @@
                             android:layout_marginBottom="16dp"
                             android:fontFamily="@font/roboto_slab_bold"
                             android:text="@string/title_session_details"
-                            android:textColor="?android:attr/textColorSecondary"
+                            android:textColor="@color/sessionHeaderTextColor"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@+id/view2"

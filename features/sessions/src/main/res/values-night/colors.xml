@@ -3,6 +3,7 @@
     <color name="socialMediaButtonStrokeColour">@android:color/transparent</color>
     <color name="socialMediaButtonTextColour">@android:color/white</color>
     <color name="socialMediaButtonBackgroundColour">#333333</color>
+    <color name="sessionHeaderTextColor">?android:attr/textColorSecondary</color>
 
 
 </resources>

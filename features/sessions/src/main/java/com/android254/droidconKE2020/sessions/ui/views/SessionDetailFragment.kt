@@ -87,7 +87,7 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail){
         sessionDetailViewModel.navigateBack.observe(viewLifecycleOwner, Observer { navigateBack ->
             navigateBack?.let {
                 if (navigateBack) {
-                    sessionDetailViewModel.onNavigateBack()
+                    sessionDetailViewModel.onNavigatedBack()
                     findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSessionsFragment())
                 }
             }
