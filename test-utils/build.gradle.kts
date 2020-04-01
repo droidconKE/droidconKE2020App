@@ -33,7 +33,4 @@ dependencies {
     testImplementation(TestLibraries.archCore)
     testImplementation(TestLibraries.core)
     testImplementation(TestLibraries.koin)
-
-    androidTestImplementation(TestLibraries.fragment)
-    androidTestImplementation(TestLibraries.kakao)
 }

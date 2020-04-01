@@ -21,9 +21,7 @@ val navController: (fragment: Fragment) -> NavController = {
 }
 
 
-class FeedFragment : Fragment(R.layout.fragment_feed) {
-    private var _binding: FragmentFeedBinding? = null
-    private val binding get() = _binding!!
+class FeedFragment : Fragment() {
 
     private val viewModel: FeedViewModel by viewModel()
 
@@ -37,16 +35,15 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFeedBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_feed, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentFeedBinding.bind(view)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         val onSharedClicked: (Feed) -> Unit = {
-            // TODO Handle share logic
             navController(this).navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
         }
         val adapter = FeedAdapter(onSharedClicked)
@@ -55,10 +52,4 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
             adapter.updateData(it)
         })
     }
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
-    }
-
 }
