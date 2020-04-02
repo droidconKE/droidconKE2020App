@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -33,6 +34,10 @@ class HomeActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
+            R.id.action_dark_theme -> {
+                toggleDarkTheme()
+                true
+            }
             R.id.action_sign_in -> {
                 signIn()
                 true
@@ -55,22 +60,31 @@ class HomeActivity : AppCompatActivity() {
         //Setup bottom navigation view with nav controller for dynamic navigation
         bottomNavigation.setupWithNavController(navController = navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            when(destination.id){
-                R.id.aboutFragment,R.id.homeFragment,R.id.feedFragment,R.id.sessionsFragment -> bottomNavigation.visibility = View.VISIBLE
+            when (destination.id) {
+                R.id.aboutFragment, R.id.homeFragment, R.id.feedFragment, R.id.sessionsFragment -> bottomNavigation.visibility =
+                    View.VISIBLE
                 else -> bottomNavigation.visibility = View.GONE
 
             }
         }
     }
 
-    private fun feedback(){
+    private fun feedback() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.findNavController()
         navController.navigate(R.id.feedBackFragment)
     }
 
-    private fun signIn(){
+    private fun signIn() {
         findNavController(R.id.nav_host_fragment).navigate(R.id.authDialog)
+    }
+
+    private fun toggleDarkTheme() {
+        val newTheme = when (AppCompatDelegate.getDefaultNightMode()) {
+            AppCompatDelegate.MODE_NIGHT_YES -> AppCompatDelegate.MODE_NIGHT_NO
+            else -> AppCompatDelegate.MODE_NIGHT_YES
+        }
+        AppCompatDelegate.setDefaultNightMode(newTheme)
     }
 }
