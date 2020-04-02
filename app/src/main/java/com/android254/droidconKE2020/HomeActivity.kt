@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
         setUpBottomNavigation()
 
         setSupportActionBar(findViewById(R.id.mainToolbar))
-
+        mainCollapsingToolbarLayout.title = supportActionBar?.title
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
