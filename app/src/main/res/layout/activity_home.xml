@@ -17,11 +17,12 @@
         app:liftOnScroll="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
             android:id="@+id/mainCollapsingToolbarLayout"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/transparent"
             app:layout_scrollFlags="scroll|snap|enterAlways"
-            android:background="@android:color/transparent">
+            app:titleEnabled="false">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/mainToolbar"

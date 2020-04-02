@@ -11,7 +11,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.content_home.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -21,7 +20,6 @@ class HomeActivity : AppCompatActivity() {
         setUpBottomNavigation()
 
         setSupportActionBar(findViewById(R.id.mainToolbar))
-        mainCollapsingToolbarLayout.title = supportActionBar?.title
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
