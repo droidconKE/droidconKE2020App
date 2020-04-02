@@ -92,6 +92,9 @@
         <argument
             android:name="sessionId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_sessionDetailsFragment_to_sessionsFragment"
+            app:destination="@id/sessionsFragment" />
     </fragment>
     <dialog
         android:id="@+id/authDialog"

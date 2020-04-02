@@ -22,4 +22,10 @@
     <string name="title_description">Description</string>
     <string name="title_session_details">Session Details</string>
     <string name="title_my_sessions">My Sessions</string>
+    <string name="back_button">Back button</string>
+    <string name="share">Share</string>
+    <string name="twitter_string">Twitter</string>
+    <string name="facebook_string">Facebook</string>
+    <string name="whatsapp_string">Whatsapp</string>
+    <string name="telegram_string">Telegram</string>
 </resources>

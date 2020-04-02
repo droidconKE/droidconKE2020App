@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
+import com.android254.droidconKE2020.sessions.ui.views.models.DummySessionDetail
 import io.mockk.MockKAnnotations
 import org.junit.Before
 import org.junit.Rule
@@ -54,4 +55,16 @@ val testSession = DummySession(
     sessionStartTime = "9:00 AM",
     sessionEndTime = "9:30 AM",
     sessionTimeZone = "AM"
+)
+
+val testSessionDetail = DummySessionDetail(
+    sessionDuration = "9:30 AM - 10:30 AM",
+    sessionDescription = "A guide to asynchronous programming with Kotlin",
+    sessionSpeakerImageURL = "",
+    sessionSpeaker = "Jabez Magomere",
+    sessionSpeakerDescription = "I eat dispatchers for breakfast and workout using coroutine builders",
+    sessionSpeakerJob = "Software Engineer, Twiga Foods",
+    sessionTargetType = "Intermediate",
+    sessionTitle = "Kotlin Coroutines",
+    sessionVenue = "ROOM 3"
 )
