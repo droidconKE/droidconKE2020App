@@ -16,20 +16,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:liftOnScroll="true">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/mainCollapsingToolbarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            app:layout_scrollFlags="scroll|snap|enterAlways"
-            app:titleEnabled="false">
-
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/mainToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ActionBarTheme" />
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_home" />
