@@ -8,6 +8,9 @@
     <color name="colorDarkGrey">#9b9b9b</color>
     <color name="colorYellow">#ffd858</color>
 
+
     <color name="backgroundColor">#fff</color>
     <color name="onBackgroundColor">#000</color>
+    <color name="elevatedBackgroundColor">#fff</color>
+
 </resources>

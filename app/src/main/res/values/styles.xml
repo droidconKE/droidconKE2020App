@@ -12,14 +12,20 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
+
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+
+        <item name="android:statusBarColor">@color/elevatedBackgroundColor</item>
         <item name="colorAccent">@color/colorAccent</item>
 
 
         <item name="android:colorBackground">@color/backgroundColor</item>
         <item name="colorOnBackground">@color/onBackgroundColor</item>
+    </style>
+
+    <style name="ActionBarTheme" parent="AppTheme">
+        <item name="android:colorBackground">@color/elevatedBackgroundColor</item>
+        <item name="android:textColorSecondary">@color/onBackgroundColor</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -29,6 +35,8 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light">
+
+    </style>
 
 </resources>
