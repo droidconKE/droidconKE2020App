@@ -50,10 +50,10 @@ class HomeActivity : AppCompatActivity() {
                 signIn()
                 if (isAuthenticated.value == true) {
                     isAuthenticated.value = false
-                    item.icon = ContextCompat.getDrawable(baseContext, R.drawable.ic_profile_pic)
+                    item.icon = ContextCompat.getDrawable(baseContext, R.drawable.ic_login)
                 } else {
                     isAuthenticated.value = true
-                    item.icon = ContextCompat.getDrawable(baseContext, R.drawable.ic_login)
+                    item.icon = ContextCompat.getDrawable(baseContext, R.drawable.ic_profile_pic)
                 }
 
                 true
