@@ -11,6 +11,8 @@
 
     <color name="backgroundColor">#fff</color>
     <color name="onBackgroundColor">#000</color>
-    <color name="elevatedBackgroundColor">#fff</color>
+
+    <color name="surfaceColour">#fff</color>
+    <color name="onSurfaceColour">#4B4B4B</color>
 
 </resources>

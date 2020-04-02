@@ -5,6 +5,8 @@
 
     <color name="backgroundColor">#000</color>
     <color name="onBackgroundColor">#fff</color>
-    <color name="elevatedBackgroundColor">#323232</color>
+
+    <color name="surfaceColour">#191919</color>
+    <color name="onSurfaceColour">#fff</color>
 
 </resources>
