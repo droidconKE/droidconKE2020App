@@ -6,13 +6,22 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.android254.droidconKE2020.toolbar.CountdownFragment
+import com.android254.droidconKE2020.toolbar.FeedbackFragment
+import com.android254.droidconKE2020.toolbar.TitleFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
+
+    // ToDo: Move this to viewmodel
+    private val isAuthenticated = MutableLiveData<Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,13 +48,21 @@ class HomeActivity : AppCompatActivity() {
             }
             R.id.action_sign_in -> {
                 signIn()
+                if (isAuthenticated.value == true) {
+                    isAuthenticated.value = false
+                    item.icon = ContextCompat.getDrawable(baseContext, R.drawable.ic_profile_pic)
+                } else {
+                    isAuthenticated.value = true
+                    item.icon = ContextCompat.getDrawable(baseContext, R.drawable.ic_login)
+                }
+
                 true
             }
-            R.id.action_settings -> true
-            R.id.action_feedback -> {
-                feedback()
-                true
-            }
+//            R.id.action_settings -> true
+//            R.id.action_feedback -> {
+//                feedback()
+//                true
+//            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -60,19 +77,14 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigation.setupWithNavController(navController = navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {
-                R.id.aboutFragment, R.id.homeFragment, R.id.feedFragment, R.id.sessionsFragment -> bottomNavigation.visibility =
-                    View.VISIBLE
+                R.id.aboutFragment, R.id.homeFragment, R.id.feedFragment, R.id.sessionsFragment -> {
+                    bottomNavigation.visibility = View.VISIBLE
+                    showToolbarContent(isAuthenticated.value ?: false, destination.id)
+                }
                 else -> bottomNavigation.visibility = View.GONE
 
             }
         }
-    }
-
-    private fun feedback() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.findNavController()
-        navController.navigate(R.id.feedBackFragment)
     }
 
     private fun signIn() {
@@ -85,5 +97,36 @@ class HomeActivity : AppCompatActivity() {
             else -> AppCompatDelegate.MODE_NIGHT_YES
         }
         AppCompatDelegate.setDefaultNightMode(newTheme)
+    }
+
+    private fun showToolbarContent(isAuthenticated: Boolean, destinationId: Int) {
+
+        val content = when (destinationId) {
+            R.id.homeFragment -> if (isAuthenticated) FeedbackFragment() else CountdownFragment()
+            R.id.feedFragment -> TitleFragment().also {
+                val args = Bundle()
+                args.putString("title", getString(R.string.feed))
+                it.arguments = args
+            }
+            R.id.sessionsFragment -> TitleFragment().also {
+                val args = Bundle()
+                args.putString("title", getString(R.string.sessions))
+                it.arguments = args
+            }
+            R.id.aboutFragment -> TitleFragment().also {
+                val args = Bundle()
+                args.putString("title", getString(R.string.about))
+                it.arguments = args
+            }
+            else -> null
+        }
+
+        content?.let {
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            ft.disallowAddToBackStack()
+            if (supportFragmentManager.fragments.size > 0)
+                ft.replace(toolbarContent.id, content).commit()
+            else ft.add(toolbarContent.id, content).commit()
+        }
     }
 }

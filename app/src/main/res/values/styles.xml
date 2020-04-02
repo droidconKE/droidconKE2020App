@@ -15,7 +15,7 @@
 
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
 
-        <item name="android:statusBarColor">@color/surfaceColour</item>
+        <item name="android:statusBarColor">@color/backgroundColor</item>
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:colorBackground">@color/backgroundColor</item>
@@ -26,8 +26,8 @@
     </style>
 
     <style name="ActionBarTheme" parent="AppTheme">
-        <item name="android:colorBackground">@color/surfaceColour</item>
-        <item name="android:textColorSecondary">@color/onSurfaceColour</item>
+        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="android:textColorSecondary">@color/onBackgroundColor</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

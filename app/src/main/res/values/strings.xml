@@ -11,4 +11,11 @@
     <string name="title_feedback">Feedback</string>
     <string name="sign_in">Sign In</string>
     <string name="dark_mode">Dark Mode</string>
+
+    <string name="image">Image</string>
+    <string name="filter">Filter</string>
+    <string name="feed">Feed</string>
+    <string name="sessions">Sessions</string>
+    <string name="about">About</string>
+
 </resources>
