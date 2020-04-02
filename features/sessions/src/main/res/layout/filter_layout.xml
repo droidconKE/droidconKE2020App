@@ -134,7 +134,7 @@
         android:layout_marginStart="16dp"
         android:contentDescription="@string/filter"
         android:src="@drawable/ic_filter_outline"
-        android:tint="@color/colorLightGreen"
+        android:tint="@color/colorGreen"
         app:layout_constraintBottom_toBottomOf="@+id/textView18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView18" />
@@ -147,7 +147,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_slab"
         android:text="@string/filter"
-        android:textColor="@color/colorLightGreen"
+        android:textColor="@color/colorGreen"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewFilterIcon"
         app:layout_constraintTop_toTopOf="parent" />

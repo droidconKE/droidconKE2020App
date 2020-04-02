@@ -58,7 +58,7 @@
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
             app:contentPadding="16dp"
-            app:cardBackgroundColor="@color/lightPurple"
+            app:cardBackgroundColor="@color/colorLightPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/promoImg">
@@ -75,7 +75,7 @@
                     android:layout_marginEnd="4dp"
                     android:background="@null"
                     android:src="@drawable/ic_play"
-                    android:tint="@color/darkPurple"
+                    android:tint="@color/colorDarkPurple"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -183,7 +183,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/become_a_speaker"
-                    android:textColor="@color/darkPurple"
+                    android:textColor="@color/colorDarkPurple"
                     android:textSize="12sp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -195,7 +195,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/superLightPurple"
+            android:background="@color/colorPurpleTransparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/keynoteSpeakerCard" />
@@ -228,8 +228,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/dummy_session_count"
-                android:textColor="@color/darkPurple"
-                app:chipBackgroundColor="@color/superLightPurple"
+                android:textColor="@color/colorDarkPurple"
+                app:chipBackgroundColor="@color/colorPurpleTransparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -240,10 +240,10 @@
                 android:layout_height="40dp"
                 android:text="@string/view_all"
                 android:textAllCaps="false"
-                android:textColor="@color/darkPurple"
+                android:textColor="@color/colorDarkPurple"
                 app:layout_constraintEnd_toStartOf="@id/sessionCountChip"
                 app:layout_constraintTop_toTopOf="parent"
-                app:rippleColor="@color/lightPurple" />
+                app:rippleColor="@color/colorLightPurple" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/sessionsList"
@@ -266,7 +266,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/superLightPurple"
+            android:background="@color/colorPurpleTransparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sessionsLayout" />
@@ -299,8 +299,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/dummy_session_count"
-                android:textColor="@color/darkPurple"
-                app:chipBackgroundColor="@color/superLightPurple"
+                android:textColor="@color/colorDarkPurple"
+                app:chipBackgroundColor="@color/colorPurpleTransparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -311,10 +311,10 @@
                 android:layout_height="40dp"
                 android:text="@string/view_all"
                 android:textAllCaps="false"
-                android:textColor="@color/darkPurple"
+                android:textColor="@color/colorDarkPurple"
                 app:layout_constraintEnd_toStartOf="@id/speakersCountChip"
                 app:layout_constraintTop_toTopOf="parent"
-                app:rippleColor="@color/lightPurple" />
+                app:rippleColor="@color/colorLightPurple" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/speakersList"
@@ -415,7 +415,7 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/become_a_sponsor"
-                    android:textColor="@color/darkPurple"
+                    android:textColor="@color/colorDarkPurple"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

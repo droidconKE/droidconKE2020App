@@ -62,13 +62,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                app:cardBackgroundColor="@color/colorSessionCardBkg"
+                app:cardBackgroundColor="@color/colorLightGreen"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewSessionVenue"
-                app:strokeColor="@color/cardViewStrokeColor"
+                app:strokeColor="@color/colorGreen"
                 app:strokeWidth="1.5dp">
 
 
@@ -86,19 +86,19 @@
                         app:layout_constraintGuide_end="248dp" />
 
 
-                        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-                            android:id="@+id/imageViewSpeaker"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:scaleType="fitXY"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/guideline"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shape_mode="circle"
-                            android:src="@drawable/greg">
+                    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+                        android:id="@+id/imageViewSpeaker"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/greg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shape_mode="circle">
 
-                        </cn.gavinliu.android.lib.shapedimageview.ShapedImageView>
+                    </cn.gavinliu.android.lib.shapedimageview.ShapedImageView>
 
 
                     <TextView
@@ -143,17 +143,17 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginBottom="24dp"
                         android:fontFamily="@font/roboto_bold"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewSessionSpeaker"
                         android:textColor="#1b1c1c"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewSessionSpeaker"
                         tools:text="COO Droidcon Global" />
 
                     <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-                        android:contentDescription="@string/image"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:contentDescription="@string/image"
                         android:src="@drawable/ic_droidcon_logo"
                         app:layout_constraintEnd_toEndOf="@+id/imageViewSpeaker"
                         app:layout_constraintStart_toStartOf="@+id/imageViewSpeaker"
@@ -307,9 +307,9 @@
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_marginEnd="16dp"
+                        app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="40dp"
                         app:cardElevation="8dp"
-                        app:cardBackgroundColor="@android:color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent">

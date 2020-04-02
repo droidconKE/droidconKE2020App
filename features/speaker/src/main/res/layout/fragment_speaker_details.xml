@@ -39,7 +39,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="16dp"
-            android:background="@color/colorAquaMarineFaded"
+            android:background="@color/colorBermudaFaded"
             app:layout_constraintBottom_toBottomOf="@+id/imgSpeakerToolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgSpeakerToolbar" />
@@ -68,7 +68,7 @@
             android:layout_marginStart="16dp"
             android:fontFamily="@font/roboto_slab"
             android:text="@{speakerDetailsModel.speakerName}"
-            android:textColor="@color/colorPurple"
+            android:textColor="@color/colorDarkPurple"
             android:textSize="@dimen/textSizeLarge"
             android:textStyle="bold"
             tools:text="@string/text_speaker_name"
@@ -123,7 +123,7 @@
             android:fontFamily="@font/roboto"
             android:text="@{speakerDetailsModel.twitterHandle}"
             tools:text="@string/text_speaker_handle"
-            android:textColor="@color/colorPurple"
+            android:textColor="@color/colorDarkPurple"
             app:layout_constraintBottom_toBottomOf="@+id/imgTwitter"
             app:layout_constraintStart_toEndOf="@+id/imgTwitter"
             app:layout_constraintTop_toTopOf="@+id/imgTwitter" />
@@ -163,7 +163,7 @@
             android:layout_marginTop="32dp"
             android:fontFamily="@font/roboto"
             android:text="@string/text_twitter_handle_label"
-            android:textColor="@color/colorPurple"
+            android:textColor="@color/colorDarkPurple"
             android:textSize="@dimen/textSizeNormal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvSpeakerBio" />
