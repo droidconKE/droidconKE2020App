@@ -63,13 +63,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showOrganizers()
     }
 
+    private fun launchBrowser(webUrl: String) {
+        // ToDo: replace wit in-app browser
+        startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
+    }
+
     private fun showPromoCard() {
         // Check for any available promos
         homeViewModel.ongoingPromo.observe(viewLifecycleOwner, Observer { promo ->
             binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
             promo?.let {
                 binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
-                binding.promoImg.setOnClickListener { promotionClickEvent(promo.webUrl) }
+                binding.promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
             }
         })
 
@@ -82,16 +87,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    private fun promotionClickEvent(webUrl: String) {
-        startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
-    }
-
     private fun showCallForSpeakersCard() {
         binding.cfpImage.load(R.drawable.cfp_image)
     }
 
     private fun showKeynoteInfoCard() {
-        // ToDo: Implement keynote tasks
+        homeViewModel.retrieveKeynoteSpeaker()
+
+        homeViewModel.keynoteSpeaker.observe(viewLifecycleOwner, Observer { keynoteSpeaker ->
+            if (keynoteSpeaker == null) {
+                // ToDo: Show shimmer effect. No need to hide since this will always be available
+            } else {
+                binding.keynoteSpeakerImg.also {
+                    it.load(keynoteSpeaker.imageUrl)
+                    it.setOnClickListener { }
+                }
+                binding.keynoteSpeakerLbl.also {
+                    it.text = keynoteSpeaker.name
+                    it.setOnClickListener { }
+                }
+                binding.keynoteLblBecomeSpeaker.setOnClickListener {
+                    binding.applyBtn.callOnClick()
+                }
+            }
+        })
     }
 
     private fun showSessionsList() {

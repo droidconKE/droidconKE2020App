@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Promotion
+import com.android254.droidconKE2020.home.domain.Speaker
 
 class HomeViewModel : ViewModel() {
 
@@ -16,6 +17,16 @@ class HomeViewModel : ViewModel() {
         val dummyImgResource = "${R.drawable.black_friday_twitter}"
         val dummyWebUrl = "https://mookh.com/event/droidconke2020/"
         _ongoingPromo.postValue(Promotion(dummyImgResource, dummyWebUrl, 0))
+    }
+
+    private val _keynoteSpeaker = MutableLiveData<Speaker>() // ToDo: Fetch from repository
+    val keynoteSpeaker get() = _keynoteSpeaker
+
+    fun retrieveKeynoteSpeaker() {
+        // ToDo: Refresh keynote speaker form api and store in repository
+        val name = "Greg Speaker"
+        val imageUrl = "https://loremflickr.com/320/320/dog"
+        _keynoteSpeaker.postValue(Speaker(name, imageUrl))
     }
 
 }
