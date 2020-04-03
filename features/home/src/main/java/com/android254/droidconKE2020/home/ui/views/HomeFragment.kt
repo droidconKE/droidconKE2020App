@@ -50,19 +50,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.testData.observe(viewLifecycleOwner, Observer {
-            Log.e("testingLiveData", ">>>> $it")
-        })
-
-        CoroutineScope(Dispatchers.IO).launch {
-            while (true) {
-                withContext(Dispatchers.Main) {
-                    homeViewModel.incrementTestData()
-                }
-                delay(500)
-            }
-        }
-
         binding.promoImg.load(R.drawable.black_friday_twitter)
         binding.cfpImage.load(R.drawable.cfp_image)
         val onClicked: (Session) -> Unit = {
