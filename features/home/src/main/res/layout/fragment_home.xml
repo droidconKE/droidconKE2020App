@@ -46,8 +46,8 @@
             app:constraint_referenced_ids="promoImg,promoBg" />
 
         <com.google.android.material.card.MaterialCardView
-            style="@style/Widget.MaterialComponents.CardView"
             android:id="@+id/cfpCard"
+            style="@style/Widget.MaterialComponents.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -55,10 +55,10 @@
             android:layout_marginEnd="16dp"
             android:maxHeight="100dp"
             android:minHeight="80dp"
+            app:cardBackgroundColor="@color/lightPurple"
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
             app:contentPadding="16dp"
-            app:cardBackgroundColor="@color/lightPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/promoImg">
@@ -225,9 +225,10 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/sessionCountChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Action"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:clickable="false"
                 android:text="@string/dummy_session_count"
                 android:textColor="@color/darkPurple"
                 app:chipBackgroundColor="@color/superLightPurple"
@@ -296,9 +297,10 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/speakersCountChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Action"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:clickable="false"
                 android:text="@string/dummy_session_count"
                 android:textColor="@color/darkPurple"
                 app:chipBackgroundColor="@color/superLightPurple"

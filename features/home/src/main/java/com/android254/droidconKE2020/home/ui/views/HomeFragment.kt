@@ -14,8 +14,6 @@ import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeModule
 import com.android254.droidconKE2020.home.domain.Organizer
-import com.android254.droidconKE2020.home.domain.Session
-import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
@@ -26,12 +24,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
-import kotlin.random.Random
 
 private val loadFeature by lazy { loadKoinModules(homeModule) }
-private fun injectFeature() = loadFeature
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
+    private fun injectFeature() = loadFeature
 
     private val homeViewModel: HomeViewModel by viewModel()
 
@@ -123,24 +120,63 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSessionsList() {
-        val onClicked: (Session) -> Unit = {
-            val sessionDetailsAction =
-                HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(0)
-            findNavController().navigate(sessionDetailsAction)
+        binding.viewSessionsBtn.setOnClickListener {
+            val sessionsFragmentAction =
+                HomeFragmentDirections.actionHomeFragmentToSessionsFragment()
+            findNavController().navigate(sessionsFragmentAction)
         }
 
-        val adapter = SessionAdapter(onClicked)
+        val adapter = SessionAdapter()
         binding.sessionsList.adapter = adapter
         binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(20))
 
-        adapter.updateData(createDummyData())
+        homeViewModel.sessionList.observe(viewLifecycleOwner, Observer { sessions ->
+            if (sessions == null) {
+                binding.sessionCountChip.visibility = View.GONE
+
+                // ToDo: Show shimmer effect. No need to hide since this will always be available
+            } else {
+                binding.sessionCountChip.visibility = View.VISIBLE
+                binding.sessionCountChip.text = "${sessions.size}"
+                adapter.updateData(sessions)
+            }
+        })
+
+        homeViewModel.retrieveSessionList()
     }
 
     private fun showSpeakersList() {
-        val speakersAdapter = SpeakerAdapter()
-        binding.speakersList.adapter = speakersAdapter
+        homeViewModel.isShowingAllSpeakers.observe(viewLifecycleOwner, Observer { isShowing ->
+            binding.viewSpeakersBtn.text =
+                getString(if (isShowing == true) R.string.view_less else R.string.view_all)
+            binding.viewSpeakersBtn.setOnClickListener {
+                if (isShowing == true) {
+                    // ToDo: Show one row of speakers
+                } else {
+                    // ToDo: Set layoutManager to a grid and show all speakers
+                }
+                homeViewModel.setIsShowingAllSpeakers(isShowing != true)
+            }
+        })
+
+        val adapter = SpeakerAdapter()
+        binding.speakersList.adapter = adapter
         binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
-        speakersAdapter.updateData(createDummySpeakerData())
+
+        homeViewModel.speakerList.observe(viewLifecycleOwner, Observer
+        { speakers ->
+            if (speakers == null) {
+                binding.speakersCountChip.visibility = View.GONE
+
+                // ToDo: Show shimmer effect. No need to hide since this will always be available
+            } else {
+                binding.speakersCountChip.visibility = View.VISIBLE
+                binding.speakersCountChip.text = "${speakers.size}"
+                adapter.updateData(speakers)
+            }
+        })
+
+        homeViewModel.retrieveSpeakerList()
     }
 
     private fun showSponsors() {
@@ -162,35 +198,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
-    }
-
-    private fun createDummyData(): List<Session> {
-        val list = mutableListOf<Session>()
-        for (i in 0 until 10) {
-            list.add(
-                Session(
-                    description = "Some short description",
-                    room = "Room $i",
-                    time = "10:5$i",
-                    imageUrl = ""
-                )
-            )
-        }
-        return list
-    }
-
-    private fun createDummySpeakerData(): List<Speaker> {
-        val list = mutableListOf<Speaker>()
-        for (i in 0 until 10) {
-            list.add(
-                Speaker(
-                    id = Random.nextInt(),
-                    name = "Person $i",
-                    imageUrl = "https://loremflickr.com/320/320/dog"
-                )
-            )
-        }
-        return list
     }
 
     private fun createDummyOrganizers(): List<Organizer> {
