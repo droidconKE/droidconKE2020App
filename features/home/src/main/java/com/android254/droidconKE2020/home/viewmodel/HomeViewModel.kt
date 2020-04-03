@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Promotion
 import com.android254.droidconKE2020.home.domain.Speaker
+import kotlin.random.Random
 
 class HomeViewModel : ViewModel() {
 
@@ -24,9 +25,10 @@ class HomeViewModel : ViewModel() {
 
     fun retrieveKeynoteSpeaker() {
         // ToDo: Refresh keynote speaker form api and store in repository
+        val id = Random.nextInt()
         val name = "Greg Speaker"
         val imageUrl = "https://loremflickr.com/320/320/dog"
-        _keynoteSpeaker.postValue(Speaker(name, imageUrl))
+        _keynoteSpeaker.postValue(Speaker(id, name, imageUrl))
     }
 
 }

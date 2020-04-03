@@ -26,7 +26,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
-
+import kotlin.random.Random
 
 private val loadFeature by lazy { loadKoinModules(homeModule) }
 private fun injectFeature() = loadFeature
@@ -68,6 +68,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
     }
 
+    private fun onSpeakerClicked(speakerId: Int) {
+        val speakerDetailsAction =
+            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
+        findNavController().navigate(speakerDetailsAction)
+    }
+
     private fun showPromoCard() {
         // Check for any available promos
         homeViewModel.ongoingPromo.observe(viewLifecycleOwner, Observer { promo ->
@@ -100,11 +106,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             } else {
                 binding.keynoteSpeakerImg.also {
                     it.load(keynoteSpeaker.imageUrl)
-                    it.setOnClickListener { }
+                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
                 binding.keynoteSpeakerLbl.also {
                     it.text = keynoteSpeaker.name
-                    it.setOnClickListener { }
+                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
                 binding.keynoteLblBecomeSpeaker.setOnClickListener {
                     binding.applyBtn.callOnClick()
@@ -128,12 +134,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSpeakersList() {
-        val onSpeakerClicked: (Speaker) -> Unit = {
-            val speakerDetailsAction =
-                HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
-            findNavController().navigate(speakerDetailsAction)
-        }
-        val speakersAdapter = SpeakerAdapter(onSpeakerClicked)
+        val speakersAdapter = SpeakerAdapter()
         binding.speakersList.adapter = speakersAdapter
         binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
         speakersAdapter.updateData(createDummySpeakerData())
@@ -180,8 +181,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         for (i in 0 until 10) {
             list.add(
                 Speaker(
+                    id = Random.nextInt(),
                     name = "Person $i",
-                    imageUrl = ""
+                    imageUrl = "https://loremflickr.com/320/320/dog"
                 )
             )
         }
