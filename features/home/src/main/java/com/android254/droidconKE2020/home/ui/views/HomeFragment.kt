@@ -13,7 +13,6 @@ import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeModule
-import com.android254.droidconKE2020.home.domain.Organizer
 import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
@@ -24,6 +23,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
+
 
 private val loadFeature by lazy { loadKoinModules(homeModule) }
 
@@ -58,6 +58,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showSpeakersList()
         showSponsors()
         showOrganizers()
+    }
+
+    private fun sendEmail(address: String, subject: String) {
     }
 
     private fun launchBrowser(webUrl: String) {
@@ -180,33 +183,44 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSponsors() {
+        binding.tvBecomeSponsor.setOnClickListener {
+            sendEmail(homeViewModel.becomeSponsorEmail, homeViewModel.becomeSponsorSubject)
+        }
+
+        homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
+            sponsors?.let {
+                // ToDo: Replace imageViews with recyclerView to allow dynamic sponsors from api
+
+                val mainSponsor = sponsors.firstOrNull { it.isMajor }
+                sponsors.remove(mainSponsor)
+                binding.sponsor1Img.load(mainSponsor?.imageUrl)
+
+                binding.sponsor2Img.load(sponsors[0].imageUrl)
+                binding.sponsor3Img.load(sponsors[1].imageUrl)
+                binding.sponsor4Img.load(sponsors[2].imageUrl)
+            }
+        })
+        homeViewModel.retrieveSponsors()
     }
 
     private fun showOrganizers() {
-        val organizerAdapter = OrganizerAdapter()
-        binding.organizersList.adapter = organizerAdapter
-        organizerAdapter.updateData(createDummyOrganizers())
 
-        binding.sponsor1Img.load(R.drawable.google)
-        binding.sponsor2Img.load(R.drawable.andela)
-        binding.sponsor3Img.load(R.drawable.hover)
-        binding.sponsor4Img.load(R.drawable.jetbrains)
+        val adapter = OrganizerAdapter()
+        binding.organizersList.adapter = adapter
 
+        homeViewModel.organizerList.observe(viewLifecycleOwner, Observer { organizers ->
+            if (organizers == null) {
+                // ToDo: Show shimmer effect. No need to hide since this will always be available
+            } else {
+                adapter.updateData(organizers)
+            }
+        })
+
+        homeViewModel.retrieveOrganizerList()
     }
-
 
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
-    }
-
-    private fun createDummyOrganizers(): List<Organizer> {
-        val list = mutableListOf<Organizer>()
-        for (i in 0 until 10) {
-            list.add(
-                Organizer(imageUrl = "")
-            )
-        }
-        return list
     }
 }

@@ -3,9 +3,7 @@ package com.android254.droidconKE2020.home.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.home.R
-import com.android254.droidconKE2020.home.domain.Promotion
-import com.android254.droidconKE2020.home.domain.Session
-import com.android254.droidconKE2020.home.domain.Speaker
+import com.android254.droidconKE2020.home.domain.*
 import kotlin.random.Random
 
 class HomeViewModel : ViewModel() {
@@ -91,6 +89,55 @@ class HomeViewModel : ViewModel() {
             )
         }
         _speakersList.postValue(list)
+    }
+
+    /**
+     * Sponsor stuff
+     * */
+    val becomeSponsorEmail: String get() = "frank@droidcon.co.ke"
+    val becomeSponsorSubject: String get() = "Sponsor DroidConKe20"
+
+    private val _sponsors = MutableLiveData<MutableList<Sponsor>>()
+    val sponsors get() = _sponsors
+    fun retrieveSponsors() {
+        val list = mutableListOf(
+            Sponsor(
+                1,
+                "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+                "https://www.google.com", true
+            ), Sponsor(
+                2,
+                "https://hire.andela.com/hs-fs/hubfs/Images_Feb_Folder/Andela-logo-landscape-blue-400px.png?width=3163&height=923&name=Andela-logo-landscape-blue-400px.png",
+                "https://andela.com"
+            ), Sponsor(
+                3,
+                "https://avatars0.githubusercontent.com/u/16653668?s=280&v=4",
+                "https://www.hover.com"
+            ), Sponsor(
+                4,
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/JetBrains_Logo_2016.svg/1200px-JetBrains_Logo_2016.svg.png",
+                "https://www.jetbrains.com"
+            )
+        )
+
+        _sponsors.postValue(list)
+    }
+
+    /**
+     * Organizers stuff
+     * */
+    private val _organizerList = MutableLiveData<List<Organizer>>() // ToDo: Fetch from repository
+    val organizerList get() = _organizerList
+    fun retrieveOrganizerList() {
+        // ToDo: Refresh sessions from api and store in repository
+
+        val list = mutableListOf<Organizer>()
+        for (i in 0 until 10) {
+            list.add(
+                Organizer(imageUrl = "")
+            )
+        }
+        _organizerList.postValue(list)
     }
 
 }
