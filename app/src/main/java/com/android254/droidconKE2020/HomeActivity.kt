@@ -122,7 +122,6 @@ class HomeActivity : AppCompatActivity() {
 
         content?.let {
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
-            ft.disallowAddToBackStack()
             if (supportFragmentManager.fragments.size > 0)
                 ft.replace(toolbarContent.id, content).commit()
             else ft.add(toolbarContent.id, content).commit()
