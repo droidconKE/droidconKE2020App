@@ -1,5 +1,7 @@
 package com.android254.droidconKE2020.home.ui.views
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +26,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
+
 
 private val loadFeature by lazy { loadKoinModules(homeModule) }
 private fun injectFeature() = loadFeature
@@ -63,10 +66,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun showPromoCard() {
         // Check for any available promos
         homeViewModel.ongoingPromo.observe(viewLifecycleOwner, Observer { promo ->
-            if (promo != null) {
-                binding.promoImg.visibility = View.VISIBLE
+            binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
+            promo?.let {
                 binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
-            } else binding.promoImg.visibility = View.GONE
+                binding.promoImg.setOnClickListener { promotionClickEvent(promo.webUrl) }
+            }
         })
 
         // Check for new promos after every minute
@@ -76,6 +80,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 delay(60 * 1000)
             }
         }
+    }
+
+    private fun promotionClickEvent(webUrl: String) {
+        startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
     }
 
     private fun showCallForSpeakersCard() {

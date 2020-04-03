@@ -13,8 +13,9 @@ class HomeViewModel : ViewModel() {
     fun checkForNewPromo() {
         // ToDo: Refresh promos and store in repository
         // ToDo: Remove expired promos from cache (room) in repository by comparing expiryDateInEpoch
-        val dummyImgResource = R.drawable.black_friday_twitter
-        _ongoingPromo.postValue(Promotion("$dummyImgResource", "", 0))
+        val dummyImgResource = "${R.drawable.black_friday_twitter}"
+        val dummyWebUrl = "https://mookh.com/event/droidconke2020/"
+        _ongoingPromo.postValue(Promotion(dummyImgResource, dummyWebUrl, 0))
     }
 
 }
