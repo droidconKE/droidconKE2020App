@@ -1,10 +1,12 @@
 package com.android254.droidconKE2020.home.ui.views
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import coil.api.load
 import com.android254.droidconKE2020.home.R
@@ -16,12 +18,17 @@ import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
+import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
+import kotlinx.coroutines.*
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
+
+private val loadFeature by lazy { loadKoinModules(homeModule) }
+private fun injectFeature() = loadFeature
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private val loadFeature by lazy { loadKoinModules(homeModule) }
-    private fun injectFeature() = loadFeature
+    private val homeViewModel: HomeViewModel by viewModel()
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -42,6 +49,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        homeViewModel.testData.observe(viewLifecycleOwner, Observer {
+            Log.e("testingLiveData", ">>>> $it")
+        })
+
+        CoroutineScope(Dispatchers.IO).launch {
+            while (true) {
+                withContext(Dispatchers.Main) {
+                    homeViewModel.incrementTestData()
+                }
+                delay(500)
+            }
+        }
+
         binding.promoImg.load(R.drawable.black_friday_twitter)
         binding.cfpImage.load(R.drawable.cfp_image)
         val onClicked: (Session) -> Unit = {
