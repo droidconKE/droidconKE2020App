@@ -1,7 +1,6 @@
 package com.android254.droidconKE2020.home.ui.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,10 @@ import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
@@ -49,21 +51,56 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        showPromoCard()
+        showCallForSpeakersCard()
+        showKeynoteInfoCard()
+        showSessionsList()
+        showSpeakersList()
+        showSponsors()
+        showOrganizers()
+    }
 
-        binding.promoImg.load(R.drawable.black_friday_twitter)
+    private fun showPromoCard() {
+        // Check for any available promos
+        homeViewModel.ongoingPromo.observe(viewLifecycleOwner, Observer { promo ->
+            if (promo != null) {
+                binding.promoImg.visibility = View.VISIBLE
+                binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
+            } else binding.promoImg.visibility = View.GONE
+        })
+
+        // Check for new promos after every minute
+        CoroutineScope(Dispatchers.IO).launch {
+            while (true) {
+                homeViewModel.checkForNewPromo()
+                delay(60 * 1000)
+            }
+        }
+    }
+
+    private fun showCallForSpeakersCard() {
         binding.cfpImage.load(R.drawable.cfp_image)
+    }
+
+    private fun showKeynoteInfoCard() {
+        // ToDo: Implement keynote tasks
+    }
+
+    private fun showSessionsList() {
         val onClicked: (Session) -> Unit = {
             val sessionDetailsAction =
                 HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(0)
             findNavController().navigate(sessionDetailsAction)
         }
-        val sessionsAdapter = SessionAdapter(onClicked)
-        binding.sessionsList.adapter = sessionsAdapter
-        binding.sessionsList.addItemDecoration(
-            HorizontalSpaceDecoration(20)
-        )
-        sessionsAdapter.updateData(createDummyData())
 
+        val adapter = SessionAdapter(onClicked)
+        binding.sessionsList.adapter = adapter
+        binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(20))
+
+        adapter.updateData(createDummyData())
+    }
+
+    private fun showSpeakersList() {
         val onSpeakerClicked: (Speaker) -> Unit = {
             val speakerDetailsAction =
                 HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
@@ -71,11 +108,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
         val speakersAdapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = speakersAdapter
-        binding.speakersList.addItemDecoration(
-            HorizontalSpaceDecoration(30)
-        )
+        binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
         speakersAdapter.updateData(createDummySpeakerData())
+    }
 
+    private fun showSponsors() {
+    }
+
+    private fun showOrganizers() {
         val organizerAdapter = OrganizerAdapter()
         binding.organizersList.adapter = organizerAdapter
         organizerAdapter.updateData(createDummyOrganizers())
@@ -84,7 +124,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.sponsor2Img.load(R.drawable.andela)
         binding.sponsor3Img.load(R.drawable.hover)
         binding.sponsor4Img.load(R.drawable.jetbrains)
+
     }
+
 
     override fun onDestroyView() {
         _binding = null
