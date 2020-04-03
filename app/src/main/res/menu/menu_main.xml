@@ -3,11 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.android254.droidconKE2020.HomeActivity">
     <item
-        android:id="@+id/action_sign_in"
+        android:id="@+id/action_dark_theme"
+        android:icon="@drawable/dark_theme_toggle"
         android:orderInCategory="1"
-        app:showAsAction="ifRoom"
+        android:title="@string/dark_mode"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_sign_in"
+        android:icon="@drawable/ic_login"
+        android:orderInCategory="1"
         android:title="@string/sign_in"
-        android:icon="@drawable/ic_lock_outline_black_24dp"/>
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_settings"

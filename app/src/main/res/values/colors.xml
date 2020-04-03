@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
+    <color name="colorOnPrimary">#fff</color>
+
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorDarkGrey">#9b9b9b</color>
     <color name="colorYellow">#ffd858</color>
+
+    <color name="colorGreen">#0f0</color>
+    <color name="fadedGreen">#3600FF00</color>
+
+    <color name="darkPurple">#843D95</color>
+    <color name="onDarkPurple">#843D95</color>
+
+    <color name="bottomSheetBackground">#000</color>
+
+    <color name="backgroundColor">#f6f6f8</color>
+    <color name="onBackgroundColor">#000</color>
+
+    <color name="surfaceColour">#fff</color>
+    <color name="onSurfaceColour">#4B4B4B</color>
+
 </resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="onDarkPurple">#fff</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorOnPrimary">#000</color>
+
+    <color name="backgroundColor">#000</color>
+    <color name="onBackgroundColor">#fff</color>
+
+    <color name="surfaceColour">#191919</color>
+    <color name="onSurfaceColour">#fff</color>
+
+</resources>

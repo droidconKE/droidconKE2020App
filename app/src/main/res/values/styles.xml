@@ -1,13 +1,33 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="DayNight" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="AppTheme" parent="DayNight">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+
+        <item name="android:statusBarColor">@color/backgroundColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="colorOnBackground">@color/onBackgroundColor</item>
+
+        <item name="colorSurface">@color/surfaceColour</item>
+        <item name="colorOnSurface">@color/onSurfaceColour</item>
+    </style>
+
+    <style name="ActionBarTheme" parent="AppTheme">
+        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="android:textColorSecondary">@color/onBackgroundColor</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -17,6 +37,8 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light">
+
+    </style>
 
 </resources>

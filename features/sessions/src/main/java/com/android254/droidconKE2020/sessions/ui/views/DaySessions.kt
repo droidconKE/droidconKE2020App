@@ -23,7 +23,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 /**
  * A simple [Fragment] subclass.
  */
-class DaySessions(private val day: String) : Fragment(R.layout.fragment_day_sessions) {
+class DaySessions : Fragment(R.layout.fragment_day_sessions) {
 
 
     private fun injectFeatures() = loadModules
@@ -116,11 +116,15 @@ class DaySessions(private val day: String) : Fragment(R.layout.fragment_day_sess
     }
 
     private fun getDaySessions() {
-        daySessionsViewModel.getDaySessions(day)
+        daySessionsViewModel.getDaySessions(arguments?.getString("day").orEmpty())
     }
 
     companion object {
-        fun newInstance(day: String): DaySessions = DaySessions(day)
+        fun newInstance(day: String): DaySessions = DaySessions().also {
+            val args = Bundle()
+            args.putString("day", day)
+            it.arguments = args
+        }
     }
 
 }
