@@ -16,3 +16,4 @@
 /.idea/
 .idea/sonarlint/
 app/libs/
+buildSrc/build
