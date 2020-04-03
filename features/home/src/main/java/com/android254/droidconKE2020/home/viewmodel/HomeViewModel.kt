@@ -9,6 +9,9 @@ import kotlin.random.Random
 
 class HomeViewModel : ViewModel() {
 
+    /**
+     * Promotion stuff
+     * */
     private val _ongoingPromo = MutableLiveData<Promotion>() // ToDo: Fetch from repository
     val ongoingPromo get() = _ongoingPromo
 
@@ -20,6 +23,15 @@ class HomeViewModel : ViewModel() {
         _ongoingPromo.postValue(Promotion(dummyImgResource, dummyWebUrl, 0))
     }
 
+    /**
+     * CFP stuff
+     * */
+    val callForSpeakerUrl: String get() = "https://sessionize.com/droidconke"
+
+
+    /**
+     * Keynote speaker stuff
+     * */
     private val _keynoteSpeaker = MutableLiveData<Speaker>() // ToDo: Fetch from repository
     val keynoteSpeaker get() = _keynoteSpeaker
 

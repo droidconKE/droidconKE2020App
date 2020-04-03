@@ -94,6 +94,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showCallForSpeakersCard() {
+        val callForSpeakerUrl = homeViewModel.callForSpeakerUrl
+        binding.applyBtn.setOnClickListener { launchBrowser(callForSpeakerUrl) }
+        binding.cfpDescription.setOnClickListener { launchBrowser(callForSpeakerUrl) }
         binding.cfpImage.load(R.drawable.cfp_image)
     }
 
@@ -113,7 +116,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
                 binding.keynoteLblBecomeSpeaker.setOnClickListener {
-                    binding.applyBtn.callOnClick()
+                    launchBrowser(homeViewModel.callForSpeakerUrl)
                 }
             }
         })
