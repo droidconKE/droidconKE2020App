@@ -82,7 +82,6 @@ class HomeActivity : AppCompatActivity() {
                     showToolbarContent(isAuthenticated.value ?: false, destination.id)
                 }
                 else -> bottomNavigation.visibility = View.GONE
-
             }
         }
     }
