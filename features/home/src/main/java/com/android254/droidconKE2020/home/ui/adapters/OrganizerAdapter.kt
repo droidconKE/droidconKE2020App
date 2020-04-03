@@ -1,11 +1,11 @@
-package com.android254.droidconKE2020.home.ui.views
+package com.android254.droidconKE2020.home.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.home.R
+import com.android254.droidconKE2020.home.domain.Organizer
 import kotlinx.android.synthetic.main.home_item_organizer.view.*
 
 class OrganizerAdapter : RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHolder>() {
@@ -33,11 +33,7 @@ class OrganizerAdapter : RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHold
     }
 
     inner class OrganizerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val orgImg: ImageView
-
-        init {
-            orgImg = view.organizerImg
-        }
+        val orgImg = view.organizerImg
 
         fun bindOrg(organizer: Organizer) {
             with(organizer) {

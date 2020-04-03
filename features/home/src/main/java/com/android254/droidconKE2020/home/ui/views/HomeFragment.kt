@@ -9,11 +9,27 @@ import androidx.navigation.fragment.findNavController
 import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
-
+import com.android254.droidconKE2020.home.di.homeModule
+import com.android254.droidconKE2020.home.domain.Organizer
+import com.android254.droidconKE2020.home.domain.Session
+import com.android254.droidconKE2020.home.domain.Speaker
+import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
+import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
+import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
+import org.koin.core.context.loadKoinModules
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
+
+    private val loadFeature by lazy { loadKoinModules(homeModule) }
+    private fun injectFeature() = loadFeature
+
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        injectFeature()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,21 +46,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.cfpImage.load(R.drawable.cfp_image)
         val onClicked: (Session) -> Unit = {
             val sessionDetailsAction =
-                HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(0L)
+                HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(0)
             findNavController().navigate(sessionDetailsAction)
         }
         val sessionsAdapter = SessionAdapter(onClicked)
         binding.sessionsList.adapter = sessionsAdapter
-        binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(20))
+        binding.sessionsList.addItemDecoration(
+            HorizontalSpaceDecoration(20)
+        )
         sessionsAdapter.updateData(createDummyData())
 
         val onSpeakerClicked: (Speaker) -> Unit = {
-            val speakerDetailsAction = HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
+            val speakerDetailsAction =
+                HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
             findNavController().navigate(speakerDetailsAction)
         }
         val speakersAdapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = speakersAdapter
-        binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
+        binding.speakersList.addItemDecoration(
+            HorizontalSpaceDecoration(30)
+        )
         speakersAdapter.updateData(createDummySpeakerData())
 
         val organizerAdapter = OrganizerAdapter()
@@ -81,7 +102,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val list = mutableListOf<Speaker>()
         for (i in 0 until 10) {
             list.add(
-                Speaker(name = "Person $i", imageUrl = "")
+                Speaker(
+                    name = "Person $i",
+                    imageUrl = ""
+                )
             )
         }
         return list

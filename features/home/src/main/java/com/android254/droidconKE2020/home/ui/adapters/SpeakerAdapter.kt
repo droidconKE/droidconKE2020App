@@ -1,23 +1,22 @@
-package com.android254.droidconKE2020.home.ui.views
+package com.android254.droidconKE2020.home.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
 import com.android254.droidconKE2020.home.R
+import com.android254.droidconKE2020.home.domain.Speaker
 import kotlinx.android.synthetic.main.home_item_speaker.view.*
 
 typealias ClickListener = (Speaker) -> Unit
+
 class SpeakerAdapter(private val onClicked: ClickListener) :
-    RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
+        RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
 
     private val speakers = mutableListOf<Speaker>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpeakerViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.home_item_speaker, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.home_item_speaker, parent, false)
         return SpeakerViewHolder(view, onClicked)
     }
 
@@ -34,14 +33,9 @@ class SpeakerAdapter(private val onClicked: ClickListener) :
         notifyDataSetChanged()
     }
 
-    inner class SpeakerViewHolder(view: View,onClicked : ClickListener) : RecyclerView.ViewHolder(view) {
-        val speakerImg: ShapedImageView
-        val nameTxt: TextView
-
-        init {
-            speakerImg = view.speakerImg
-            nameTxt = view.name
-        }
+    inner class SpeakerViewHolder(view: View, onClicked: ClickListener) : RecyclerView.ViewHolder(view) {
+        val speakerImg = view.speakerImg
+        val nameTxt = view.name
 
         fun bindSpeaker(speaker: Speaker) {
             with(speaker) {

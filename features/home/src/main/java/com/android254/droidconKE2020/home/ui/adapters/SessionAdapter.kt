@@ -1,22 +1,19 @@
-package com.android254.droidconKE2020.home.ui.views
+package com.android254.droidconKE2020.home.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.home.R
-import com.google.android.material.card.MaterialCardView
+import com.android254.droidconKE2020.home.domain.Session
 import kotlinx.android.synthetic.main.home_item_session.view.*
 
 class SessionAdapter(private val onClicked: (Session) -> Unit) :
-    RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
+        RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
 
     private val sessions = mutableListOf<Session>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.home_item_session, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.home_item_session, parent, false)
         return SessionViewHolder(view)
     }
 
@@ -34,19 +31,11 @@ class SessionAdapter(private val onClicked: (Session) -> Unit) :
     }
 
     inner class SessionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val sessionImg: ImageView
-        val timeTxt: TextView
-        val roomTxt: TextView
-        val descriptionTxt: TextView
-        val sessionCard: MaterialCardView
-
-        init {
-            sessionImg = view.sessionImg
-            timeTxt = view.time
-            roomTxt = view.room
-            descriptionTxt = view.description
-            sessionCard = view.sessionCard
-        }
+        val sessionImg = view.sessionImg
+        val timeTxt = view.time
+        val roomTxt = view.room
+        val descriptionTxt = view.description
+        val sessionCard = view.sessionCard
 
         fun bindSession(session: Session) {
             with(session) {
