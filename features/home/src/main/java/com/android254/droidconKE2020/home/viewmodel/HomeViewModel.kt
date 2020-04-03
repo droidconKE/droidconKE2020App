@@ -1,5 +1,6 @@
 package com.android254.droidconKE2020.home.viewmodel
 
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.home.R
@@ -94,7 +95,7 @@ class HomeViewModel : ViewModel() {
     /**
      * Sponsor stuff
      * */
-    val becomeSponsorEmail: String get() = "frank@droidcon.co.ke"
+    val becomeSponsorEmail: Array<String> get() =arrayOf( "frank@droidcon.co.ke")
     val becomeSponsorSubject: String get() = "Sponsor DroidConKe20"
 
     private val _sponsors = MutableLiveData<MutableList<Sponsor>>()

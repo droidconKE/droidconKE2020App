@@ -60,7 +60,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showOrganizers()
     }
 
-    private fun sendEmail(address: String, subject: String) {
+    private fun sendEmail(addresses: Array<String>, subject: String) {
+
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            type = "message/rfc822"
+            val uriText = "mailto:${addresses.joinToString(",")}?subject=$subject"
+            data = Uri.parse(uriText)
+        }
+        if (intent.resolveActivity(requireContext().packageManager) != null) {
+            startActivity(intent)
+        }
     }
 
     private fun launchBrowser(webUrl: String) {
