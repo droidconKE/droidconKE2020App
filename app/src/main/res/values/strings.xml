@@ -10,4 +10,6 @@
     <string name="title_speaker">Speaker</string>
     <string name="title_feedback">Feedback</string>
     <string name="sign_in">Sign In</string>
+    <string name="text_toolbar_image_desc">Toolbar Image</string>
+    <string name="text_toolbar_icon_desc">Toolbar Account Icon</string>
 </resources>

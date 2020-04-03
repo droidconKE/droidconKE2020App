@@ -21,4 +21,11 @@
     <string name="sponsors">Sponsors</string>
     <string name="become_a_sponsor"><u>Become a sponsor</u></string>
     <string name="organized_by">Organized by:</string>
+    <string name="text_button_feedback_label">Feeback</string>
+    <string name="text_days_number">194</string>
+    <string name="text_days_label">Days</string>
+    <string name="text_mins_label">Min</string>
+    <string name="text_mins_number">56</string>
+    <string name="text_hrs_label">Hrs</string>
+    <string name="text_hours_number">1</string>
 </resources>

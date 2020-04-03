@@ -5,4 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorDarkGrey">#9b9b9b</color>
     <color name="colorYellow">#ffd858</color>
+    <color name="darkPurple">#843D95</color>
+    <color name="lightPurple">#ECDAF1</color>
+    <color name="superLightPurple">#0D843D95</color>
+    <color name="colorAquaMarineFaded">#1D68DEA4</color>
+    <color name="colorAquaMarine">#1ce8b5</color>
 </resources>
