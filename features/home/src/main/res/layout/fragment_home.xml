@@ -46,8 +46,8 @@
             app:constraint_referenced_ids="promoImg,promoBg" />
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cfpCard"
             style="@style/Widget.MaterialComponents.CardView"
+            android:id="@+id/cfpCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -55,10 +55,10 @@
             android:layout_marginEnd="16dp"
             android:maxHeight="100dp"
             android:minHeight="80dp"
-            app:cardBackgroundColor="@color/colorCfpBackground"
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
             app:contentPadding="16dp"
+            app:cardBackgroundColor="@color/lightPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/promoImg">
@@ -75,7 +75,7 @@
                     android:layout_marginEnd="4dp"
                     android:background="@null"
                     android:src="@drawable/ic_play"
-                    android:tint="@color/colorDarkPurple"
+                    android:tint="@color/darkPurple"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +87,7 @@
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/roboto_slab"
                     android:text="@string/call_for_speakers"
-                    android:textColor="@color/colorOnBackground"
+                    android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@id/applyBtn"
@@ -151,7 +151,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/roboto_slab"
                     android:text="@string/keynote_speaker"
-                    android:textColor="@color/colorOnBackground"
+                    android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -183,7 +183,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/become_a_speaker"
-                    android:textColor="@color/colorLinks"
+                    android:textColor="@color/darkPurple"
                     android:textSize="12sp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -195,7 +195,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/colorPurpleTransparent"
+            android:background="@color/superLightPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/keynoteSpeakerCard" />
@@ -216,7 +216,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_slab"
                 android:text="@string/sessions"
-                android:textColor="@color/colorOnBackground"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -228,8 +228,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/dummy_session_count"
-                android:textColor="@color/colorDarkPurple"
-                app:chipBackgroundColor="@color/colorLightPurple"
+                android:textColor="@color/darkPurple"
+                app:chipBackgroundColor="@color/superLightPurple"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -240,10 +240,10 @@
                 android:layout_height="40dp"
                 android:text="@string/view_all"
                 android:textAllCaps="false"
-                android:textColor="@color/colorViewAll"
+                android:textColor="@color/darkPurple"
                 app:layout_constraintEnd_toStartOf="@id/sessionCountChip"
                 app:layout_constraintTop_toTopOf="parent"
-                app:rippleColor="@color/colorLightPurple" />
+                app:rippleColor="@color/lightPurple" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/sessionsList"
@@ -266,7 +266,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/colorPurpleTransparent"
+            android:background="@color/superLightPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sessionsLayout" />
@@ -287,7 +287,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_slab"
                 android:text="@string/speakers"
-                android:textColor="@color/colorOnBackground"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -299,8 +299,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/dummy_session_count"
-                android:textColor="@color/colorDarkPurple"
-                app:chipBackgroundColor="@color/colorLightPurple"
+                android:textColor="@color/darkPurple"
+                app:chipBackgroundColor="@color/superLightPurple"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -311,10 +311,10 @@
                 android:layout_height="40dp"
                 android:text="@string/view_all"
                 android:textAllCaps="false"
-                android:textColor="@color/colorViewAll"
+                android:textColor="@color/darkPurple"
                 app:layout_constraintEnd_toStartOf="@id/speakersCountChip"
                 app:layout_constraintTop_toTopOf="parent"
-                app:rippleColor="@color/colorLightPurple" />
+                app:rippleColor="@color/lightPurple" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/speakersList"
@@ -352,7 +352,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_slab"
                     android:text="@string/sponsors"
-                    android:textColor="@color/colorOnBackground"
+                    android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -415,7 +415,7 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/become_a_sponsor"
-                    android:textColor="@color/colorLinks"
+                    android:textColor="@color/darkPurple"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -451,7 +451,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/roboto_slab"
                     android:text="@string/organized_by"
-                    android:textColor="@color/colorOnBackground"
+                    android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

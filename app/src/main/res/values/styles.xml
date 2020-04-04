@@ -12,23 +12,22 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
 
-       <!--   Sets status bar color-->
-        <item name="colorPrimaryDark">@color/colorStatusBar</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
 
-        <item name="colorAccent">@color/colorSecondary</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
-        <item name="android:colorBackground">@color/colorBackground</item>
-        <item name="colorOnBackground">@color/colorOnBackground</item>
-        <item name="colorSurface">@color/colorSurface</item>
-        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:statusBarColor">@color/backgroundColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="colorOnBackground">@color/onBackgroundColor</item>
+
+        <item name="colorSurface">@color/surfaceColour</item>
+        <item name="colorOnSurface">@color/onSurfaceColour</item>
     </style>
 
     <style name="ActionBarTheme" parent="AppTheme">
-        <item name="android:colorBackground">@color/colorBackground</item>
-        <item name="android:textColorSecondary">@color/colorOnBackground</item>
+        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="android:textColorSecondary">@color/onBackgroundColor</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
