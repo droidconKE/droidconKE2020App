@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="DayNight" parent="Theme.MaterialComponents.DayNight">
+    <style name="Theme.DroidConKe.DayNight" parent="Theme.MaterialComponents.DayNight">
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
-    <style name="AppTheme" parent="DayNight">
+    <style name="Theme.DroidConKe" parent="Theme.DroidConKe.DayNight">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
 
@@ -26,19 +26,19 @@
         <item name="colorOnSurface">@color/colorOnSurface</item>
     </style>
 
-    <style name="ActionBarTheme" parent="AppTheme">
+    <style name="Theme.DroidConKe.ActionBar" parent="Theme.DroidConKe">
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="android:textColorSecondary">@color/colorOnBackground</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="Theme.DroidConKe.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar" />
+    <style name="Theme.DroidConKe.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light">
+    <style name="Theme.DroidConKe.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light">
 
     </style>
 
