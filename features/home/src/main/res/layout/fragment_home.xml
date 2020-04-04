@@ -360,54 +360,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/sponsor1Img"
-                    android:layout_width="108dp"
-                    android:layout_height="36dp"
-                    android:layout_marginTop="16dp"
-                    android:scaleType="fitXY"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sponsorsTitle"
-                    tools:src="@drawable/google" />
-
-                <ImageView
-                    android:id="@+id/sponsor2Img"
-                    android:layout_width="76dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:scaleType="fitXY"
-                    app:layout_constraintEnd_toStartOf="@+id/sponsor3Img"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sponsor1Img"
-                    tools:src="@drawable/andela" />
-
-                <ImageView
-                    android:id="@+id/sponsor3Img"
-                    android:layout_width="76dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="16dp"
-                    android:scaleType="fitXY"
-                    app:layout_constraintEnd_toStartOf="@+id/sponsor4Img"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/sponsor2Img"
-                    app:layout_constraintTop_toBottomOf="@id/sponsor1Img"
-                    tools:src="@drawable/hover" />
-
-                <ImageView
-                    android:id="@+id/sponsor4Img"
-                    android:layout_width="76dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="16dp"
-                    android:scaleType="fitCenter"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/sponsor3Img"
-                    app:layout_constraintTop_toBottomOf="@id/sponsor1Img"
-                    tools:src="@drawable/jetbrains" />
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvSponsors"
                     android:layout_width="0dp"

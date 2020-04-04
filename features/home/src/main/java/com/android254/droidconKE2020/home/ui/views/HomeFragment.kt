@@ -9,9 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
@@ -211,27 +208,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.rvSponsors.adapter = adapter
 
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
-            sponsors?.let {
-                adapter.submitList(sponsors)
-
-                // ToDo: Replace imageViews with recyclerView to allow dynamic sponsors from api
-                binding.sponsor1Img.also {
-                    it.load(sponsors[0].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[0].website, requireContext()) }
-                }
-                binding.sponsor2Img.also {
-                    it.load(sponsors[1].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[1].website, requireContext()) }
-                }
-                binding.sponsor3Img.also {
-                    it.load(sponsors[2].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[2].website, requireContext()) }
-                }
-                binding.sponsor4Img.also {
-                    it.load(sponsors[3].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[3].website, requireContext()) }
-                }
-            }
+            sponsors?.let { adapter.submitList(sponsors) }
         })
         homeViewModel.retrieveSponsors()
     }
