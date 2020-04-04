@@ -17,6 +17,7 @@ import com.android254.droidconKE2020.home.di.homeViewModels
 import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
+import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -70,11 +71,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         if (intent.resolveActivity(requireContext().packageManager) != null) startActivity(intent)
     }
 
-    private fun launchBrowser(webUrl: String) {
-        // ToDo: replace wit in-app browser
-        startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
-    }
-
     private fun onSpeakerClicked(speakerId: Int) {
         val speakerDetailsAction =
             HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
@@ -87,7 +83,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
             promo?.let {
                 binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
-                binding.promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
+                binding.promoImg.setOnClickListener {
+                    launchBrowser(
+                        promo.webUrl,
+                        requireContext()
+                    )
+                }
             }
         })
 
@@ -102,8 +103,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun showCallForSpeakersCard() {
         val callForSpeakerUrl = homeViewModel.callForSpeakerUrl
-        binding.applyBtn.setOnClickListener { launchBrowser(callForSpeakerUrl) }
-        binding.cfpDescription.setOnClickListener { launchBrowser(callForSpeakerUrl) }
+        binding.applyBtn.setOnClickListener { launchBrowser(callForSpeakerUrl, requireContext()) }
+        binding.cfpDescription.setOnClickListener {
+            launchBrowser(
+                callForSpeakerUrl,
+                requireContext()
+            )
+        }
         binding.cfpImage.load(R.drawable.cfp_image)
     }
 
@@ -123,7 +129,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
                 binding.keynoteLblBecomeSpeaker.setOnClickListener {
-                    launchBrowser(homeViewModel.callForSpeakerUrl)
+                    launchBrowser(homeViewModel.callForSpeakerUrl, requireContext())
                 }
             }
         })
@@ -204,19 +210,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 // ToDo: Replace imageViews with recyclerView to allow dynamic sponsors from api
                 binding.sponsor1Img.also {
                     it.load(sponsors[0].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[0].website) }
+                    it.setOnClickListener { launchBrowser(sponsors[0].website, requireContext()) }
                 }
                 binding.sponsor2Img.also {
                     it.load(sponsors[1].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[1].website) }
+                    it.setOnClickListener { launchBrowser(sponsors[1].website, requireContext()) }
                 }
                 binding.sponsor3Img.also {
                     it.load(sponsors[2].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[2].website) }
+                    it.setOnClickListener { launchBrowser(sponsors[2].website, requireContext()) }
                 }
                 binding.sponsor4Img.also {
                     it.load(sponsors[3].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[3].website) }
+                    it.setOnClickListener { launchBrowser(sponsors[3].website, requireContext()) }
                 }
             }
         })

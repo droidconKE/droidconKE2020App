@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.home.databinding.HomeItemSponsorBinding
 import com.android254.droidconKE2020.home.domain.Sponsor
+import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
 
 class SponsorAdapter : ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
 
@@ -25,7 +26,9 @@ class SponsorAdapter : ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiff
         RecyclerView.ViewHolder(binding.root) {
 
         init {
-            binding.setOpenSponsorWebsite { }
+            binding.setOpenSponsorWebsite {
+                launchBrowser(binding.sponsor.imageUrl, binding.root.context)
+            }
         }
 
         fun bind(item: Sponsor) {
