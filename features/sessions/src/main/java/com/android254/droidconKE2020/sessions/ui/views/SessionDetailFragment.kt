@@ -14,16 +14,15 @@ import com.android254.droidconKE2020.sessions.databinding.FragmentSessionDetailB
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionDetailViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
-import com.android254.droidconKE2020.R as AppR
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
+class SessionDetailFragment : Fragment(R.layout.fragment_session_detail){
     private fun injectFeatures() = loadModules
-    private var _binding: FragmentSessionDetailBinding? = null
-    private val binding get() = _binding!!
+    private var _binding : FragmentSessionDetailBinding? = null
+    private val binding  get() = _binding!!
     private val sessionDetailViewModel: SessionDetailViewModel by viewModel()
 
     override fun onCreateView(
@@ -73,7 +72,7 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
                 } else {
                     binding.imageViewSave.setImageDrawable(
                         resources.getDrawable(
-                            AppR.drawable.ic_star,
+                            R.drawable.ic_star,
                             null
                         )
                     )
