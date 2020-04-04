@@ -8,7 +8,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 open class RoundedBottomSheetFragment : BottomSheetDialogFragment() {
     override fun getTheme(): Int {
-        return R.style.Theme.Feed.BottomSheetDialog
+        return R.style.Theme_Feed_BottomSheetDialog
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
