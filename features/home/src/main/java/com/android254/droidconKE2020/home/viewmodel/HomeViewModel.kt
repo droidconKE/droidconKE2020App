@@ -13,7 +13,6 @@ class HomeViewModel(
     private val sponsorRepository: FakeSponsorRepository,
     private val organizerRepository: FakeOrganizerRepository
 ) : ViewModel() {
-    fun doSum(a:Int,b:Int) = a+b
 
     /**
      * Promotion stuff

@@ -4,7 +4,6 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.android254.droidconKE2020.home.di.homeRepositories
 import com.android254.droidconKE2020.home.di.homeViewModels
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
-import io.mockk.impl.annotations.InjectMockKs
 import org.junit.*
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
@@ -34,8 +33,17 @@ class HomeViewModelTest : KoinTest {
 
     @Test
     fun `test that a promotion is retrieved when checkForNewPromo() is called`() {
-        Assert.assertEquals(homeViewModel.doSum(2, 2), 4)
+        println("Action: Retrieving promotion without calling checkForNewPromo()")
+        println("Expected: Null")
+        var promo = homeViewModel.activePromo.getOrAwaitValue()
+        println("Value: $promo \n")
+        Assert.assertNull(promo)
 
-
+        println("Action: Retrieving promotion after calling checkForNewPromo()")
+        println("Expected: Promotion Object")
+        homeViewModel.checkForNewPromo()
+        promo = homeViewModel.activePromo.getOrAwaitValue()
+        println("Value: $promo \n")
+        Assert.assertNotNull(promo)
     }
 }
