@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.android254.droidconKE2020.sessions.R
+import com.android254.droidconKE2020.R as AppR
 import kotlinx.android.synthetic.main.tab_session.view.*
 
 class SessionsTabAdapter(fragmentManager: FragmentManager, private val context: Context) :
@@ -37,7 +38,7 @@ class SessionsTabAdapter(fragmentManager: FragmentManager, private val context: 
         tabView.textViewDayName.setTextColor(
             ContextCompat.getColor(
                 context,
-                R.color.cardViewStrokeColor
+                AppR.color.colorGreen
             )
         )
         tabView.layoutTabSession.background =
