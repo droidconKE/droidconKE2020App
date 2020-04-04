@@ -1,24 +1,24 @@
-package com.android254.droidconKE2020.home.ui.views
+package com.android254.droidconKE2020.home.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+import coil.api.load
 import com.android254.droidconKE2020.home.R
+import com.android254.droidconKE2020.home.domain.Speaker
+import com.android254.droidconKE2020.home.ui.views.HomeFragmentDirections
 import kotlinx.android.synthetic.main.home_item_speaker.view.*
 
-typealias ClickListener = (Speaker) -> Unit
-class SpeakerAdapter(private val onClicked: ClickListener) :
-    RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
+class SpeakerAdapter : RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
 
     private val speakers = mutableListOf<Speaker>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpeakerViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.home_item_speaker, parent, false)
-        return SpeakerViewHolder(view, onClicked)
+        return SpeakerViewHolder(view)
     }
 
     override fun getItemCount(): Int = speakers.size
@@ -34,22 +34,20 @@ class SpeakerAdapter(private val onClicked: ClickListener) :
         notifyDataSetChanged()
     }
 
-    inner class SpeakerViewHolder(view: View,onClicked : ClickListener) : RecyclerView.ViewHolder(view) {
-        val speakerImg: ShapedImageView
-        val nameTxt: TextView
-
-        init {
-            speakerImg = view.speakerImg
-            nameTxt = view.name
-        }
+    inner class SpeakerViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
         fun bindSpeaker(speaker: Speaker) {
             with(speaker) {
-                nameTxt.text = name
-                itemView.setOnClickListener {
-                    onClicked(this)
-                }
+                view.speakerImg.load(speaker.imageUrl)
+                view.name.text = name
+                itemView.setOnClickListener { onSpeakerClicked(speaker.id) }
             }
+        }
+
+        private fun onSpeakerClicked(speakerId: Int) {
+            val speakerDetailsAction =
+                HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
+            view.findNavController().navigate(speakerDetailsAction)
         }
     }
 }

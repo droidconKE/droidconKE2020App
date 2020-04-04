@@ -177,6 +177,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/keynoteLblBecomeSpeaker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -408,6 +409,7 @@
                     tools:src="@drawable/jetbrains" />
 
                 <TextView
+                    android:id="@+id/tvBecomeSponsor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

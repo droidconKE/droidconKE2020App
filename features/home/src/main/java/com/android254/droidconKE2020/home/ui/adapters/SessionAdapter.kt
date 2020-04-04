@@ -1,17 +1,17 @@
-package com.android254.droidconKE2020.home.ui.views
+package com.android254.droidconKE2020.home.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 import com.android254.droidconKE2020.home.R
-import com.google.android.material.card.MaterialCardView
+import com.android254.droidconKE2020.home.domain.Session
+import com.android254.droidconKE2020.home.ui.views.HomeFragmentDirections
 import kotlinx.android.synthetic.main.home_item_session.view.*
 
-class SessionAdapter(private val onClicked: (Session) -> Unit) :
-    RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
+class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
 
     private val sessions = mutableListOf<Session>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionViewHolder {
@@ -33,30 +33,22 @@ class SessionAdapter(private val onClicked: (Session) -> Unit) :
         notifyDataSetChanged()
     }
 
-    inner class SessionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val sessionImg: ImageView
-        val timeTxt: TextView
-        val roomTxt: TextView
-        val descriptionTxt: TextView
-        val sessionCard: MaterialCardView
-
-        init {
-            sessionImg = view.sessionImg
-            timeTxt = view.time
-            roomTxt = view.room
-            descriptionTxt = view.description
-            sessionCard = view.sessionCard
-        }
+    inner class SessionViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
         fun bindSession(session: Session) {
             with(session) {
-                timeTxt.text = time
-                roomTxt.text = room
-                descriptionTxt.text = description
-                sessionCard.setOnClickListener {
-                    onClicked.invoke(session)
-                }
+                view.sessionImg.load(imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
+                view.time.text = time
+                view.room.text = room
+                view.description.text = description
+                view.rootView.setOnClickListener { onSessionClicked(id) }
             }
+        }
+
+        private fun onSessionClicked(sessionId: Long) {
+            val sessionDetailsAction =
+                HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(sessionId)
+            view.findNavController().navigate(sessionDetailsAction)
         }
     }
 }
