@@ -13,6 +13,7 @@ class HomeViewModel(
     private val sponsorRepository: FakeSponsorRepository,
     private val organizerRepository: FakeOrganizerRepository
 ) : ViewModel() {
+    fun doSum(a:Int,b:Int) = a+b
 
     /**
      * Promotion stuff
@@ -40,7 +41,7 @@ class HomeViewModel(
     /**
      * Speaker stuff
      * */
-    private val _isShowingAllSpeakers = MutableLiveData(false)
+    private val _isShowingAllSpeakers = MutableLiveData<Boolean>()
     val isShowingAllSpeakers get() = _isShowingAllSpeakers
     fun setIsShowingAllSpeakers(isShowingAll: Boolean) {
         _isShowingAllSpeakers.value = isShowingAll

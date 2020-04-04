@@ -157,6 +157,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSpeakersList() {
+        homeViewModel.setIsShowingAllSpeakers(false)
         homeViewModel.isShowingAllSpeakers.observe(viewLifecycleOwner, Observer { isShowing ->
             binding.viewSpeakersBtn.text =
                 getString(if (isShowing == true) R.string.view_less else R.string.view_all)
