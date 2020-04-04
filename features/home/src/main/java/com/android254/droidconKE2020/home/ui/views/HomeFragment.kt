@@ -199,10 +199,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
             sponsors?.let {
                 // ToDo: Replace imageViews with recyclerView to allow dynamic sponsors from api
-                binding.sponsor1Img.load(sponsors[0].imageUrl)
-                binding.sponsor2Img.load(sponsors[1].imageUrl)
-                binding.sponsor3Img.load(sponsors[2].imageUrl)
-                binding.sponsor4Img.load(sponsors[3].imageUrl)
+                binding.sponsor1Img.also {
+                    it.load(sponsors[0].imageUrl)
+                    it.setOnClickListener { launchBrowser(sponsors[0].website) }
+                }
+                binding.sponsor2Img.also {
+                    it.load(sponsors[1].imageUrl)
+                    it.setOnClickListener { launchBrowser(sponsors[1].website) }
+                }
+                binding.sponsor3Img.also {
+                    it.load(sponsors[2].imageUrl)
+                    it.setOnClickListener { launchBrowser(sponsors[2].website) }
+                }
+                binding.sponsor4Img.also {
+                    it.load(sponsors[3].imageUrl)
+                    it.setOnClickListener { launchBrowser(sponsors[3].website) }
+                }
             }
         })
         homeViewModel.retrieveSponsors()
