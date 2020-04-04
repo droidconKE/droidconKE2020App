@@ -93,6 +93,7 @@
             android:layout_height="16dp"
             android:layout_marginTop="6dp"
             android:contentDescription="@string/twitter_icon"
+            android:tint="@color/colorAquaMarine"
             android:src="@drawable/ic_twitter"
             app:layout_constraintStart_toStartOf="@id/txtOrganizerRole"
             app:layout_constraintEnd_toStartOf="@id/tvTopTwitterHandle"
