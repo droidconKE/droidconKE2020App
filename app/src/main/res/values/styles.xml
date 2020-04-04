@@ -12,23 +12,23 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
 
-        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+       <!--   Sets status bar color-->
+        <item name="colorPrimaryDark">@color/colorStatusBar</item>
 
-        <item name="android:statusBarColor">@color/backgroundColor</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="android:colorBackground">@color/backgroundColor</item>
-        <item name="colorOnBackground">@color/onBackgroundColor</item>
-
-        <item name="colorSurface">@color/surfaceColour</item>
-        <item name="colorOnSurface">@color/onSurfaceColour</item>
+        <item name="colorAccent">@color/colorSecondary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
     </style>
 
     <style name="Theme.DroidConKe.ActionBar" parent="Theme.DroidConKe">
         <item name="android:colorBackground">@color/backgroundColor</item>
         <item name="android:textColorSecondary">@color/onBackgroundColor</item>
-    </style>
 
     <style name="Theme.DroidConKe.NoActionBar">
         <item name="windowActionBar">false</item>
