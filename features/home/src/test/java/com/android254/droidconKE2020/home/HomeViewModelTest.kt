@@ -46,4 +46,13 @@ class HomeViewModelTest : KoinTest {
         println("Value: $promo \n")
         Assert.assertNotNull(promo)
     }
+
+    @Test
+    fun `test that a the callForSpeakers registration url exists`() {
+        println("Action: Retrieving callForSpeakers registration url")
+        println("Expected: String (web url)")
+        var url = homeViewModel.callForSpeakerUrl
+        println("Value: $url \n")
+        Assert.assertFalse(url.isNullOrBlank())
+    }
 }
