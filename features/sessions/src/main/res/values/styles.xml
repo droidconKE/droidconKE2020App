@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+    <style name="Theme.Sessions" parent="Theme.MaterialComponents.DayNight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -11,25 +11,25 @@
         <item name="android:textColorPrimary">@android:color/black</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="Theme.Sessions.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Sessions.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.Sessions.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
-    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    <style name="Theme.Sessions.BottomSheetDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Theme.Sessions.Modal</item>
     </style>
 
-    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+    <style name="Theme.Sessions.Modal" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/filter_layout_drawable</item>
     </style>
 
-    <style name="SocialMediaButtonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+    <style name="Widget.Sessions.Button.SocialMedia" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:height">56dp</item>
         <item name="cornerRadius">12dp</item>
         <item name="fontFamily">@font/roboto</item>

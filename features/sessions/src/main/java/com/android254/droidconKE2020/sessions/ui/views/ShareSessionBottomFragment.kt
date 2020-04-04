@@ -15,7 +15,7 @@ internal class ShareSessionBottomFragment() : BottomSheetDialogFragment() {
 
 
     override fun getTheme(): Int {
-        return R.style.AppBottomSheetDialogTheme
+        return R.Theme.Sessions.BottomSheetDialog
     }
 
     override fun onCreateView(

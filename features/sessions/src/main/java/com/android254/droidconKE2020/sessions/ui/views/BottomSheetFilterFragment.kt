@@ -11,9 +11,7 @@ import kotlinx.android.synthetic.main.filter_layout.*
 
 internal class BottomSheetFilterFragment : BottomSheetDialogFragment() {
 
-    override fun getTheme(): Int {
-        return R.style.AppBottomSheetDialogTheme
-    }
+    override fun getTheme() = R.style.Theme.Sessions.BottomSheetDialog
 
     private val roomsTestList = mutableListOf<String>()
     private val levelsTestList = mutableListOf<String>()
