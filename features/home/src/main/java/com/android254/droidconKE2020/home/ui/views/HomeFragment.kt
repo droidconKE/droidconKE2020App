@@ -197,6 +197,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             sendEmail(homeViewModel.becomeSponsorEmails, homeViewModel.becomeSponsorSubject)
         }
 
+
+
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
             sponsors?.let {
                 // ToDo: Replace imageViews with recyclerView to allow dynamic sponsors from api
