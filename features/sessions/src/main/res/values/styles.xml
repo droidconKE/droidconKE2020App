@@ -23,10 +23,10 @@
         <item name="cornerRadius">12dp</item>
         <item name="fontFamily">@font/roboto</item>
         <item name="textAllCaps">false</item>
-        <item name="strokeColor">?attr/colorOnSurface</item>
+        <item name="strokeColor">@color/colorOnBackground</item>
         <item name="android:textSize">14sp</item>
-        <item name="backgroundTint">?attr/colorSurface</item>
-        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="backgroundTint">@color/colorBackground</item>
+        <item name="android:textColor">@color/colorOnBackground</item>
     </style>
 
     <style name="SwitchTheme">

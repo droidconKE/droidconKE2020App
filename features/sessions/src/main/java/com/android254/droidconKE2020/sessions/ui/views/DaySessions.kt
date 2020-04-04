@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.R
+import com.android254.droidconKE2020.R as AppR
 import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding
 import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
 import com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener
@@ -103,7 +104,7 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
                     session.isSessionSaved = true
                     (view as ImageView).setImageDrawable(
                         resources.getDrawable(
-                            R.drawable.ic_star,
+                            AppR.drawable.ic_star,
                             null
                         )
                     )
