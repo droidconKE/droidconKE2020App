@@ -137,7 +137,7 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/roboto"
                     android:text="@{session.sessionSpeaker}"
-                    android:textColor="@color/colorGreen"
+                    android:textColor="#82e3b3"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageViewSpeakerIcon"
@@ -150,7 +150,7 @@
                     android:layout_height="16dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/android_speaker_icon"
-                    android:tint="@color/colorGreen"
+                    android:tint="#82e3b3"
                     app:layout_constraintStart_toStartOf="@+id/textViewSessionDuration"
                     app:layout_constraintTop_toBottomOf="@+id/textViewSessionDuration"
                     app:srcCompat="@drawable/ic_android_black_24dp" />
