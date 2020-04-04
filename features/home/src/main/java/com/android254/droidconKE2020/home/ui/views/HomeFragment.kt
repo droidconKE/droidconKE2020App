@@ -12,8 +12,8 @@ import androidx.navigation.fragment.findNavController
 import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
-import com.android254.droidconKE2020.home.di.homeModule
-import com.android254.droidconKE2020.home.di.organizerRepositoryModule
+import com.android254.droidconKE2020.home.di.homeRepositories
+import com.android254.droidconKE2020.home.di.homeViewModels
 import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
@@ -26,7 +26,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 
-private val loadFeature by lazy { loadKoinModules(listOf(homeModule, organizerRepositoryModule)) }
+private val loadFeature by lazy { loadKoinModules(listOf(homeViewModels, homeRepositories)) }
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun injectFeature() = loadFeature
@@ -83,7 +83,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun showPromoCard() {
         // Check for any available promos
-        homeViewModel.ongoingPromo.observe(viewLifecycleOwner, Observer { promo ->
+        homeViewModel.activePromo.observe(viewLifecycleOwner, Observer { promo ->
             binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
             promo?.let {
                 binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
@@ -108,7 +108,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showKeynoteInfoCard() {
-        homeViewModel.retrieveKeynoteSpeaker()
+        homeViewModel.retrieveSpeakerList()
 
         homeViewModel.keynoteSpeaker.observe(viewLifecycleOwner, Observer { keynoteSpeaker ->
             if (keynoteSpeaker == null) {
@@ -147,7 +147,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 // ToDo: Show shimmer effect. No need to hide since this will always be available
             } else {
                 binding.sessionCountChip.visibility = View.VISIBLE
-                binding.sessionCountChip.text = "${sessions.size}"
+                val totalSessions = "+${sessions.size}"
+                binding.sessionCountChip.text = totalSessions
                 adapter.updateData(sessions)
             }
         })
@@ -181,7 +182,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 // ToDo: Show shimmer effect. No need to hide since this will always be available
             } else {
                 binding.speakersCountChip.visibility = View.VISIBLE
-                binding.speakersCountChip.text = "${speakers.size}"
+                val totalSpeakers = "+${speakers.size}"
+                binding.speakersCountChip.text = totalSpeakers
                 adapter.updateData(speakers)
             }
         })
@@ -197,14 +199,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
             sponsors?.let {
                 // ToDo: Replace imageViews with recyclerView to allow dynamic sponsors from api
-
-                val mainSponsor = sponsors.firstOrNull { it.isMajor }
-                sponsors.remove(mainSponsor)
-                binding.sponsor1Img.load(mainSponsor?.imageUrl)
-
-                binding.sponsor2Img.load(sponsors[0].imageUrl)
-                binding.sponsor3Img.load(sponsors[1].imageUrl)
-                binding.sponsor4Img.load(sponsors[2].imageUrl)
+                binding.sponsor1Img.load(sponsors[0].imageUrl)
+                binding.sponsor2Img.load(sponsors[1].imageUrl)
+                binding.sponsor3Img.load(sponsors[2].imageUrl)
+                binding.sponsor4Img.load(sponsors[3].imageUrl)
             }
         })
         homeViewModel.retrieveSponsors()
