@@ -11,8 +11,6 @@ import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.ui.views.HomeFragmentDirections
 import kotlinx.android.synthetic.main.home_item_speaker.view.*
 
-typealias ClickListener = (Speaker) -> Unit
-
 class SpeakerAdapter : RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
 
     private val speakers = mutableListOf<Speaker>()

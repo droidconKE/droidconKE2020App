@@ -74,7 +74,14 @@
         android:name="com.android254.droidconKE2020.speaker.views.ui.SpeakerDetailsFragment"
         android:label="SpeakerDetailsFragment"
         app:moduleName="speaker"
-        tools:layout="@layout/fragment_speaker_details" />
+        tools:layout="@layout/fragment_speaker_details">
+
+        <argument
+            android:name="speakerId"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+    </fragment>
     <fragment
         android:id="@+id/organizerDetailsFragment"
         android:name="com.android254.droidconKE2020.about.ui.views.OrganizerDetailsFragment"
