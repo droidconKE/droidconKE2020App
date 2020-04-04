@@ -13,6 +13,7 @@ import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeModule
+import com.android254.droidconKE2020.home.di.organizerRepositoryModule
 import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
@@ -25,7 +26,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 
-private val loadFeature by lazy { loadKoinModules(homeModule) }
+private val loadFeature by lazy { loadKoinModules(listOf(homeModule, organizerRepositoryModule)) }
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun injectFeature() = loadFeature
@@ -61,15 +62,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun sendEmail(addresses: Array<String>, subject: String) {
-
         val intent = Intent(Intent.ACTION_SENDTO).apply {
             type = "message/rfc822"
             val uriText = "mailto:${addresses.joinToString(",")}?subject=$subject"
             data = Uri.parse(uriText)
         }
-        if (intent.resolveActivity(requireContext().packageManager) != null) {
-            startActivity(intent)
-        }
+        if (intent.resolveActivity(requireContext().packageManager) != null) startActivity(intent)
     }
 
     private fun launchBrowser(webUrl: String) {

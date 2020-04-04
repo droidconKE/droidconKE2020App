@@ -1,13 +1,12 @@
 package com.android254.droidconKE2020.home.viewmodel
 
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.*
 import kotlin.random.Random
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val organizersRepository: FakeOrganizersRepository) : ViewModel() {
 
     /**
      * Promotion stuff
@@ -95,7 +94,7 @@ class HomeViewModel : ViewModel() {
     /**
      * Sponsor stuff
      * */
-    val becomeSponsorEmail: Array<String> get() =arrayOf( "frank@droidcon.co.ke")
+    val becomeSponsorEmail: Array<String> get() = arrayOf("frank@droidcon.co.ke")
     val becomeSponsorSubject: String get() = "Sponsor DroidConKe20"
 
     private val _sponsors = MutableLiveData<MutableList<Sponsor>>()
@@ -127,18 +126,21 @@ class HomeViewModel : ViewModel() {
     /**
      * Organizers stuff
      * */
-    private val _organizerList = MutableLiveData<List<Organizer>>() // ToDo: Fetch from repository
-    val organizerList get() = _organizerList
+    val organizerList get() = organizersRepository.organizers
     fun retrieveOrganizerList() {
-        // ToDo: Refresh sessions from api and store in repository
-
-        val list = mutableListOf<Organizer>()
-        for (i in 0 until 10) {
-            list.add(
-                Organizer(imageUrl = "")
-            )
-        }
-        _organizerList.postValue(list)
+        organizersRepository.refreshOrganizers()
     }
 
+}
+
+class FakeOrganizersRepository {
+    private val db = mutableListOf<Organizer>()
+
+    val organizers = MutableLiveData<List<Organizer>>(db)
+
+    fun refreshOrganizers() {
+        for (i in 0 until 10) {
+            db.add(Organizer(imageUrl = ""))
+        }
+    }
 }
