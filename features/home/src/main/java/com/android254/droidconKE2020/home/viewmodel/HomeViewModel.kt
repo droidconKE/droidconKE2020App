@@ -115,27 +115,19 @@ class FakeSpeakerRepository {
     fun refreshSpeakers() {
         db.clear()
 
-        db.add(
-            Speaker(
-                id = Random.nextInt(),
-                name = "Person 0",
-                imageUrl = "https://loremflickr.com/320/320/dog",
-                isKeynoteSpeaker = true
-            )
-        )
-
-        for (i in 1 until 10) {
+        for (i in 0 until 10) {
             db.add(
                 Speaker(
                     id = Random.nextInt(),
                     name = "Person $i",
-                    imageUrl = "https://loremflickr.com/320/320/dog"
+                    imageUrl = "https://loremflickr.com/320/320/dog",
+                    isKeynoteSpeaker = i == 0
                 )
             )
         }
 
-        keynoteSpeaker.postValue(db[0])
-        sessionSpeakers.postValue(db.subList(1, db.lastIndex))
+        keynoteSpeaker.postValue(db.removeAt(0))
+        sessionSpeakers.postValue(db)
     }
 }
 
