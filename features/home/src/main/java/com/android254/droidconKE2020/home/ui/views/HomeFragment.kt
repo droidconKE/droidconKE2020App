@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
@@ -17,6 +20,7 @@ import com.android254.droidconKE2020.home.di.homeViewModels
 import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
 import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
+import com.android254.droidconKE2020.home.ui.adapters.SponsorAdapter
 import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -203,10 +207,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             sendEmail(homeViewModel.becomeSponsorEmails, homeViewModel.becomeSponsorSubject)
         }
 
-
+        val adapter = SponsorAdapter()
+        binding.rvSponsors.adapter = adapter
 
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
             sponsors?.let {
+                adapter.submitList(sponsors)
+
                 // ToDo: Replace imageViews with recyclerView to allow dynamic sponsors from api
                 binding.sponsor1Img.also {
                     it.load(sponsors[0].imageUrl)

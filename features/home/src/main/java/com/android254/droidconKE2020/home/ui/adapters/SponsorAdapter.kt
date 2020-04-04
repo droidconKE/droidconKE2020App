@@ -1,20 +1,23 @@
 package com.android254.droidconKE2020.home.ui.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.android254.droidconKE2020.home.databinding.HomeItemSponsorBinding
+import coil.api.load
+import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
 
 class SponsorAdapter : ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding =
-            HomeItemSponsorBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return SponsorViewHolder(binding)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.home_item_sponsor, parent, false)
+        return SponsorViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -22,19 +25,19 @@ class SponsorAdapter : ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiff
         (holder as SponsorViewHolder).bind(sponsor)
     }
 
-    class SponsorViewHolder(private val binding: HomeItemSponsorBinding) :
-        RecyclerView.ViewHolder(binding.root) {
 
-        init {
-            binding.setOpenSponsorWebsite {
-                launchBrowser(binding.sponsor.imageUrl, binding.root.context)
-            }
-        }
+    class SponsorViewHolder(private val view: View) :
+        RecyclerView.ViewHolder(view) {
+        private val imgSponsor: AppCompatImageView = view.findViewById(R.id.imgSponsor)
 
         fun bind(item: Sponsor) {
-            binding.apply { sponsor = item;executePendingBindings() }
+            imgSponsor.also {
+                it.load(item.imageUrl)
+                it.setOnClickListener { launchBrowser(item.website, view.context) }
+            }
         }
     }
+
 
     class SponsorDiffCallback : DiffUtil.ItemCallback<Sponsor>() {
 

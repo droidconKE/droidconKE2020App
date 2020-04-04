@@ -332,7 +332,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/sponsorsCard"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -412,9 +412,12 @@
                     android:id="@+id/rvSponsors"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sponsorsTitle" />
+                    app:layout_constraintTop_toBottomOf="@id/sponsorsTitle"
+                    app:spanCount="3"
+                    tools:listitem="@layout/home_item_sponsor" />
 
                 <TextView
                     android:id="@+id/tvBecomeSponsor"
