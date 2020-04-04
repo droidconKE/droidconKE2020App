@@ -116,7 +116,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/colorPurple"
+        android:backgroundTint="#9254a1"
         android:fontFamily="@font/roboto_slab_bold"
         android:text="@string/filter"
         android:textColor="@android:color/white"
@@ -134,7 +134,7 @@
         android:layout_marginStart="16dp"
         android:contentDescription="@string/filter"
         android:src="@drawable/ic_filter_outline"
-        android:tint="@color/colorGreen"
+        android:tint="@color/colorLightGreen"
         app:layout_constraintBottom_toBottomOf="@+id/textView18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView18" />
@@ -147,7 +147,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_slab"
         android:text="@string/filter"
-        android:textColor="@color/colorGreen"
+        android:textColor="@color/colorLightGreen"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewFilterIcon"
         app:layout_constraintTop_toTopOf="parent" />
@@ -162,7 +162,7 @@
         android:fontFamily="@font/roboto_slab"
         android:text="@string/cancel"
         android:textAllCaps="false"
-        android:textColor="@color/colorDarkGrey"
+        android:textColor="#969696"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,7 +39,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="16dp"
-            android:background="@color/colorBermudaFaded"
+            android:background="@color/colorAquaMarineFaded"
             app:layout_constraintBottom_toBottomOf="@+id/imgSpeakerToolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgSpeakerToolbar" />
