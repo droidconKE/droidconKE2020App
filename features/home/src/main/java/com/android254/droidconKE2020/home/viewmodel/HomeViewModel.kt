@@ -56,8 +56,12 @@ class HomeViewModel(
     /**
      * Sponsor stuff
      * */
-    val becomeSponsorEmail: Array<String> get() = arrayOf("frank@droidcon.co.ke")
     val becomeSponsorSubject: String get() = "Sponsor DroidConKe20"
+    val becomeSponsorEmails: Array<String>
+        get() = arrayOf(
+            "frank@droidcon.co.ke",
+            "another@droidcon.co.ke"
+        )
 
     val sponsors get() = sponsorRepository.sponsors
     fun retrieveSponsors() {

@@ -194,7 +194,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun showSponsors() {
         binding.tvBecomeSponsor.setOnClickListener {
-            sendEmail(homeViewModel.becomeSponsorEmail, homeViewModel.becomeSponsorSubject)
+            sendEmail(homeViewModel.becomeSponsorEmails, homeViewModel.becomeSponsorSubject)
         }
 
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
