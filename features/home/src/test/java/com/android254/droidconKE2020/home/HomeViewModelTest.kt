@@ -4,12 +4,12 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.android254.droidconKE2020.home.di.homeRepositories
 import com.android254.droidconKE2020.home.di.homeViewModels
 import com.android254.droidconKE2020.home.viewmodel.*
+import io.mockk.MockKAnnotations
 import org.junit.*
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.test.KoinTest
 import org.koin.test.inject
-import org.mockito.MockitoAnnotations
 
 class HomeViewModelTest : KoinTest {
 
@@ -21,7 +21,7 @@ class HomeViewModelTest : KoinTest {
         startKoin {
             modules(listOf(homeViewModels, homeRepositories))
         }
-        MockitoAnnotations.initMocks(this)
+        MockKAnnotations.init(this)
     }
 
     @After
