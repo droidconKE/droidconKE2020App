@@ -164,8 +164,8 @@ class FakeSponsorRepository {
                     "https://www.jetbrains.com"
                 ), Sponsor(
                     5,
-                    "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png",
-                    "https://www.facebook.com", true
+                    "https://miro.medium.com/max/2370/1*a1Sy9bAOy6vZzILhvhSYjA.png",
+                    "https://www.facebook.com"
                 ), Sponsor(
                     6,
                     "https://img.favpng.com/12/24/19/pied-piper-of-hamelin-computer-icons-clip-art-png-favpng-HCANn6weBGtG9BLp5BJkLqwYx.jpg",
@@ -178,6 +178,10 @@ class FakeSponsorRepository {
                     8,
                     "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1507291476/i6rr6zn0myh1bg1y6jan.jpg",
                     "https://www.jetbrains.com"
+                ), Sponsor(
+                    9,
+                    "https://media-exp1.licdn.com/dms/image/C560BAQFi15PqkUndWg/company-logo_200_200/0?e=2159024400&v=beta&t=1snlZD0vqCn6hgvJ_FsYxTAFCddq22hbdxWujzCIvaY",
+                    "https://www.jetbrains.com", true
                 )
             )
         )
