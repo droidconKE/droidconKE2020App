@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.android254.droidconKE2020.core.PreferencesImpl
 import kotlinx.android.synthetic.main.content_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -84,6 +85,9 @@ class HomeActivity : AppCompatActivity() {
             AppCompatDelegate.MODE_NIGHT_YES -> AppCompatDelegate.MODE_NIGHT_NO
             else -> AppCompatDelegate.MODE_NIGHT_YES
         }
+
+        val preferencesImpl = PreferencesImpl(this)
+        preferencesImpl.setUserTheme(newTheme)
         AppCompatDelegate.setDefaultNightMode(newTheme)
     }
 }
