@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.R
+import com.android254.droidconKE2020.R as AppR
 import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding
 import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
 import com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener
@@ -23,7 +24,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 /**
  * A simple [Fragment] subclass.
  */
-class DaySessions(private val day: String) : Fragment(R.layout.fragment_day_sessions) {
+class DaySessions : Fragment(R.layout.fragment_day_sessions) {
 
 
     private fun injectFeatures() = loadModules
@@ -103,7 +104,7 @@ class DaySessions(private val day: String) : Fragment(R.layout.fragment_day_sess
                     session.isSessionSaved = true
                     (view as ImageView).setImageDrawable(
                         resources.getDrawable(
-                            R.drawable.ic_star,
+                            AppR.drawable.ic_star,
                             null
                         )
                     )
@@ -116,11 +117,15 @@ class DaySessions(private val day: String) : Fragment(R.layout.fragment_day_sess
     }
 
     private fun getDaySessions() {
-        daySessionsViewModel.getDaySessions(day)
+        daySessionsViewModel.getDaySessions(arguments?.getString("day").orEmpty())
     }
 
     companion object {
-        fun newInstance(day: String): DaySessions = DaySessions(day)
+        fun newInstance(day: String): DaySessions = DaySessions().also {
+            val args = Bundle()
+            args.putString("day", day)
+            it.arguments = args
+        }
     }
 
 }

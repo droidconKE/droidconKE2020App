@@ -8,23 +8,25 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.android254.droidconKE2020.home.ui.views.HomeFragment"
-        app:moduleName="home"
         android:label="HomeFragment"
+        app:moduleName="home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_SpeakerDetailsFragment"
-            app:destination="@id/speakerDetailsFragment"
-            />
+            app:destination="@id/speakerDetailsFragment" />
         <action
             android:id="@+id/action_homeFragment_to_sessionDetailsFragment"
-            app:destination="@id/sessionDetailsFragment"/>
+            app:destination="@id/sessionDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sessionsFragment"
+            app:destination="@id/sessionsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.android254.droidconKE2020.feed.ui.views.FeedFragment"
-        app:moduleName="feed"
         android:label="FeedFragment"
+        app:moduleName="feed"
         tools:layout="@layout/fragment_feed">
         <action
             android:id="@+id/action_feedFragment_to_shareFragment"
@@ -42,14 +44,14 @@
     <fragment
         android:id="@+id/feedBackFragment"
         android:name="com.android254.droidconKE2020.feedback.ui.views.FeedbackFragment"
-        app:moduleName="feedback"
         android:label="FeedbackFragment"
-        tools:layout="@layout/fragment_feedback"/>
+        app:moduleName="feedback"
+        tools:layout="@layout/fragment_feedback" />
     <fragment
         android:id="@+id/sessionsFragment"
         android:name="com.android254.droidconKE2020.sessions.ui.views.SessionsFragment"
-        app:moduleName="sessions"
         android:label="SessionsFragment"
+        app:moduleName="sessions"
         tools:layout="@layout/fragment_sessions">
         <action
             android:id="@+id/action_sessionsFragment_to_sessionDetailFragment"
@@ -60,8 +62,8 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.android254.droidconKE2020.about.ui.views.AboutFragment"
-        app:moduleName="about"
         android:label="AboutFragment"
+        app:moduleName="about"
         tools:layout="@layout/fragment_about">
         <action
             android:id="@+id/action_aboutFragment_to_organizerDetailsFragment"
@@ -70,25 +72,32 @@
     <fragment
         android:id="@+id/speakerDetailsFragment"
         android:name="com.android254.droidconKE2020.speaker.views.ui.SpeakerDetailsFragment"
-        app:moduleName="speaker"
         android:label="SpeakerDetailsFragment"
-        tools:layout="@layout/fragment_speaker_details"/>
+        app:moduleName="speaker"
+        tools:layout="@layout/fragment_speaker_details">
+
+        <argument
+            android:name="speakerId"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+    </fragment>
     <fragment
         android:id="@+id/organizerDetailsFragment"
         android:name="com.android254.droidconKE2020.about.ui.views.OrganizerDetailsFragment"
-        app:moduleName="about"
         android:label="OrganizerDetailsFragment"
-        tools:layout="@layout/fragment_organizer_details"/>
+        app:moduleName="about"
+        tools:layout="@layout/fragment_organizer_details" />
 
     <fragment
         android:id="@+id/sessionDetailsFragment"
         android:name="com.android254.droidconKE2020.sessions.ui.views.SessionDetailFragment"
-        app:moduleName="sessions"
         android:label="SessionsFragment"
+        app:moduleName="sessions"
         tools:layout="@layout/fragment_session_detail">
         <action
             android:id="@+id/action_sessionDetailsFragment_to_SpeakerDetailsFragment"
-            app:destination="@id/speakerDetailsFragment"/>
+            app:destination="@id/speakerDetailsFragment" />
         <argument
             android:name="sessionId"
             app:argType="long" />
@@ -99,7 +108,7 @@
     <dialog
         android:id="@+id/authDialog"
         android:name="com.android254.droidconKE2020.auth.views.AuthDialog"
-        app:moduleName = "auth"
         android:label=""
-        tools:layout="@layout/dialog_authenticate"/>
+        app:moduleName="auth"
+        tools:layout="@layout/dialog_authenticate" />
 </navigation>
