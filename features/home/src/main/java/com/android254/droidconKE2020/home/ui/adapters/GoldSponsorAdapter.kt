@@ -12,11 +12,11 @@ import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
 
-class SponsorAdapter : ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
+class GoldSponsorAdapter : ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.home_item_sponsor, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.home_item_gold_sponsor, parent, false)
         return SponsorViewHolder(view)
     }
 

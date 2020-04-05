@@ -361,15 +361,30 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvSponsors"
+                    android:overScrollMode="never"
+                    android:id="@+id/rvGoldSponsors"
+                    android:focusable="false"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/sponsorsTitle"
                     app:spanCount="3"
-                    tools:listitem="@layout/home_item_sponsor" />
+                    tools:listitem="@layout/home_item_gold_sponsor" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
+                    android:id="@+id/rvOtherSponsors"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@id/rvGoldSponsors"
+                    app:layout_constraintStart_toStartOf="@id/rvGoldSponsors"
+                    app:layout_constraintTop_toBottomOf="@id/rvGoldSponsors"
+                    app:spanCount="5"
+                    tools:listitem="@layout/home_item_other_sponsor" />
 
                 <TextView
                     android:id="@+id/tvBecomeSponsor"
@@ -385,7 +400,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rvSponsors" />
+                    app:layout_constraintTop_toBottomOf="@id/rvOtherSponsors" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 

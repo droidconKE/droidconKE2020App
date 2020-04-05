@@ -14,10 +14,8 @@ import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeRepositories
 import com.android254.droidconKE2020.home.di.homeViewModels
-import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
-import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
-import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
-import com.android254.droidconKE2020.home.ui.adapters.SponsorAdapter
+import com.android254.droidconKE2020.home.domain.Sponsor
+import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -204,11 +202,23 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             sendEmail(homeViewModel.becomeSponsorEmails, homeViewModel.becomeSponsorSubject)
         }
 
-        val adapter = SponsorAdapter()
-        binding.rvSponsors.adapter = adapter
+        // ToDo: Merge two adapters to use a single list using MergeAdapter
+        val goldAdapter = GoldSponsorAdapter()
+        binding.rvGoldSponsors.adapter = goldAdapter
+
+        val otherAdapter = OtherSponsorAdapter()
+        binding.rvOtherSponsors.adapter = otherAdapter
 
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
-            sponsors?.let { adapter.submitList(sponsors) }
+            sponsors?.let {
+                val goldSponsors = mutableListOf<Sponsor>()
+                val otherSponsors = mutableListOf<Sponsor>()
+
+                sponsors.forEach { if (it.isGold) goldSponsors.add(it) else otherSponsors.add(it) }
+
+                goldAdapter.submitList(goldSponsors)
+                otherAdapter.submitList(otherSponsors)
+            }
         })
         homeViewModel.retrieveSponsors()
     }
