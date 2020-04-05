@@ -364,7 +364,6 @@
                     android:id="@+id/rvGoldSponsors"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
                     android:focusable="false"
                     android:overScrollMode="never"
                     app:layout_constraintEnd_toEndOf="parent"
