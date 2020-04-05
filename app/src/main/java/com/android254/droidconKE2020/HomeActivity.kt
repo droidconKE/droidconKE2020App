@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android254.droidconKE2020.core.PreferencesImpl
 import kotlinx.android.synthetic.main.content_home.*
+import org.koin.android.ext.android.inject
 
 class HomeActivity : AppCompatActivity() {
 
@@ -85,9 +86,9 @@ class HomeActivity : AppCompatActivity() {
             AppCompatDelegate.MODE_NIGHT_YES -> AppCompatDelegate.MODE_NIGHT_NO
             else -> AppCompatDelegate.MODE_NIGHT_YES
         }
-
-        val preferencesImpl = PreferencesImpl(this)
-        preferencesImpl.setUserTheme(newTheme)
+        
+        val sharedPrefs: PreferencesImpl by inject()
+        sharedPrefs.setUserTheme(newTheme)
         AppCompatDelegate.setDefaultNightMode(newTheme)
     }
 }
