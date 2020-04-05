@@ -8,11 +8,10 @@
     tools:context=".HomeActivity"
     tools:showIn="@layout/activity_home">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/mainToolbar"
+    <com.android254.droidconKE2020.DynamicToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
         android:theme="@style/Theme.DroidConKe.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:navGraph="@navigation/main_nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

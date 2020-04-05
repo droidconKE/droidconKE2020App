@@ -10,4 +10,7 @@ interface Preferences {
 
     fun getUserTheme(): Int
     fun setUserTheme(theme: Int)
+
+    fun isSignedIn(): Boolean
+    fun setSignedIn(value: Boolean)
 }
