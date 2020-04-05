@@ -10,13 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Sponsor
-import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
 
-class GoldSponsorAdapter : ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
+class GoldSponsorAdapter(private var onSponsorClickedEvent: (Sponsor) -> Unit) :
+    ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.home_item_gold_sponsor, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.home_item_gold_sponsor, parent, false)
         return SponsorViewHolder(view)
     }
 
@@ -26,14 +28,14 @@ class GoldSponsorAdapter : ListAdapter<Sponsor, RecyclerView.ViewHolder>(Sponsor
     }
 
 
-    class SponsorViewHolder(private val view: View) :
+    inner class SponsorViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
         private val imgSponsor: AppCompatImageView = view.findViewById(R.id.imgSponsor)
 
         fun bind(item: Sponsor) {
             imgSponsor.also {
                 it.load(item.imageUrl)
-                it.setOnClickListener { launchBrowser(item.website, view.context) }
+                it.setOnClickListener { onSponsorClickedEvent.invoke(item) }
             }
         }
     }

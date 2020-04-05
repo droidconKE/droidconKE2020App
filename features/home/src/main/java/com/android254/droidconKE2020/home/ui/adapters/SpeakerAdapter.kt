@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Speaker
-import com.android254.droidconKE2020.home.utlities.CommonTasks.onSpeakerClicked
 import kotlinx.android.synthetic.main.home_item_speaker.view.*
 
-class SpeakerAdapter : RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
+class SpeakerAdapter(private var onSpeakerClickedEvent: (Speaker) -> Unit) :
+    RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
 
     private val speakers = mutableListOf<Speaker>()
 
@@ -39,7 +39,7 @@ class SpeakerAdapter : RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() 
             with(speaker) {
                 view.speakerImg.load(speaker.imageUrl)
                 view.name.text = name
-                itemView.setOnClickListener { onSpeakerClicked(speaker.id, view) }
+                itemView.setOnClickListener { onSpeakerClickedEvent.invoke(speaker) }
             }
         }
 

@@ -14,10 +14,9 @@ import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeRepositories
 import com.android254.droidconKE2020.home.di.homeViewModels
+import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
-import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
-import com.android254.droidconKE2020.home.utlities.CommonTasks.onSpeakerClicked
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
@@ -66,6 +65,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showOrganizers()
     }
 
+    private fun onSpeakerClicked(speakerId: Int) {
+        val speakerDetailsAction =
+            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
+        findNavController().navigate(speakerDetailsAction)
+    }
+
+    private fun launchBrowser(webUrl: String) {
+        // ToDo: replace wit in-app browser
+        startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
+    }
+
     private fun sendEmail(addresses: Array<String>, subject: String) {
         val intent = Intent(Intent.ACTION_SENDTO).apply {
             type = "message/rfc822"
@@ -81,12 +91,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
             promo?.let {
                 binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
-                binding.promoImg.setOnClickListener {
-                    launchBrowser(
-                        promo.webUrl,
-                        requireContext()
-                    )
-                }
+                binding.promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
             }
         })
 
@@ -101,13 +106,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun showCallForSpeakersCard() {
         val callForSpeakerUrl = homeViewModel.callForSpeakerUrl
-        binding.applyBtn.setOnClickListener { launchBrowser(callForSpeakerUrl, requireContext()) }
-        binding.cfpDescription.setOnClickListener {
-            launchBrowser(
-                callForSpeakerUrl,
-                requireContext()
-            )
-        }
+        binding.applyBtn.setOnClickListener { launchBrowser(callForSpeakerUrl) }
+        binding.cfpDescription.setOnClickListener { launchBrowser(callForSpeakerUrl) }
         binding.cfpImage.load(R.drawable.cfp_image)
     }
 
@@ -120,14 +120,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             } else {
                 binding.keynoteSpeakerImg.also {
                     it.load(keynoteSpeaker.imageUrl)
-                    it.setOnClickListener { v -> onSpeakerClicked(keynoteSpeaker.id, v) }
+                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
                 binding.keynoteSpeakerLbl.also {
                     it.text = keynoteSpeaker.name
-                    it.setOnClickListener { v -> onSpeakerClicked(keynoteSpeaker.id, v) }
+                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
                 binding.keynoteLblBecomeSpeaker.setOnClickListener {
-                    launchBrowser(homeViewModel.callForSpeakerUrl, requireContext())
+                    launchBrowser(homeViewModel.callForSpeakerUrl)
                 }
             }
         })
@@ -175,7 +175,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         })
 
-        val adapter = SpeakerAdapter()
+        val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked(it.id) }
+
+        val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = adapter
         binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
 
@@ -201,8 +203,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             sendEmail(homeViewModel.becomeSponsorEmails, homeViewModel.becomeSponsorSubject)
         }
 
+        val onSponsorClicked: (Sponsor) -> Unit = { launchBrowser(it.website) }
+
         // ToDo: Merge two adapters to use a single list using MergeAdapter
-        val goldAdapter = GoldSponsorAdapter()
+        val goldAdapter = GoldSponsorAdapter(onSponsorClicked)
         binding.rvGoldSponsors.adapter = goldAdapter
         binding.rvGoldSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
             it.flexDirection = FlexDirection.ROW
@@ -210,7 +214,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             it.justifyContent = JustifyContent.SPACE_EVENLY
         }
 
-        val otherAdapter = OtherSponsorAdapter()
+        val otherAdapter = OtherSponsorAdapter(onSponsorClicked)
         binding.rvOtherSponsors.adapter = otherAdapter
         binding.rvOtherSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
             it.flexDirection = FlexDirection.ROW
