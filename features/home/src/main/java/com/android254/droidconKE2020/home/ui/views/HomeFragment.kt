@@ -18,6 +18,10 @@ import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -205,9 +209,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         // ToDo: Merge two adapters to use a single list using MergeAdapter
         val goldAdapter = GoldSponsorAdapter()
         binding.rvGoldSponsors.adapter = goldAdapter
+        binding.rvGoldSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
+            it.flexDirection = FlexDirection.ROW
+            it.flexWrap = FlexWrap.WRAP
+            it.justifyContent = JustifyContent.SPACE_EVENLY
+        }
 
         val otherAdapter = OtherSponsorAdapter()
         binding.rvOtherSponsors.adapter = otherAdapter
+        binding.rvOtherSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
+            it.flexDirection = FlexDirection.ROW
+            it.flexWrap = FlexWrap.WRAP
+            it.justifyContent = JustifyContent.SPACE_EVENLY
+        }
 
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
             sponsors?.let {

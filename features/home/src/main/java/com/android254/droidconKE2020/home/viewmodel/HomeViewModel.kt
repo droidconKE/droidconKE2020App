@@ -164,7 +164,7 @@ class FakeSponsorRepository {
                     "https://www.jetbrains.com"
                 ), Sponsor(
                     5,
-                    "https://cdn.techgyd.com/50-Best-Facebook-Logo-Icons-GIF-Transparent-PNG-Images-12.png",
+                    "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png",
                     "https://www.facebook.com", true
                 ), Sponsor(
                     6,
