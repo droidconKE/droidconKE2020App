@@ -32,6 +32,7 @@ object Versions {
     const val core = "1.2.0"
     const val fragmentsTesting = "1.2.3"
     const val kakao = "2.3.0"
+    const val flexBox = "2.0.1"
 }
 
 object BuildPlugins {
@@ -44,7 +45,8 @@ object BuildPlugins {
     const val androidLibrary = "com.android.library"
     const val kotlinKapt = "kotlin-kapt"
     const val safeArgs = "androidx.navigation.safeargs"
-    const val safeArgsGradlePlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.safeArgsPlugin}"
+    const val safeArgsGradlePlugin =
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.safeArgsPlugin}"
     const val kapt = "kotlin-kapt"
 }
 
@@ -54,9 +56,10 @@ object Libraries {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutinesAndroidLibrary =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
-    const val appCompat        = "androidx.appcompat:appcompat:${Versions.jetPack}"
-    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
-    const val ktxCore          = "androidx.core:core-ktx:${Versions.ktx}"
+    const val appCompat = "androidx.appcompat:appcompat:${Versions.jetPack}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
     const val materialComponents = "com.google.android.material:material:${Versions.material}"
     const val androidAnimation = "com.github.jama5262:AndroidAnimation:${Versions.androidAnimation}"
     const val shapedImageView = "cn.gavinliu:ShapedImageView:${Versions.shapedImageView}"
@@ -76,12 +79,16 @@ object Libraries {
     // networking
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
-    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
+    const val loggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
     const val okHttp3 = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
 
     //Auth
     const val googleAuth = "com.google.android.gms:play-services-auth:${Versions.googleAuth}"
     const val googleServices = "com.google.android.gms:play-services:${Versions.googleServices}"
+
+    // Layouts
+    const val flexBox = "com.google.android:flexbox:${Versions.flexBox}"
 }
 
 object APIs {
@@ -90,22 +97,23 @@ object APIs {
     const val kotlinStandardLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${navVersion}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:$navVersion"
-    const val navigationDynamicFeature = "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
+    const val navigationDynamicFeature =
+        "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
     const val fragments = "androidx.fragment:fragment-ktx:${Versions.fragments}"
 }
 
-object AndroidSDK{
+object AndroidSDK {
     const val min = 21
     const val compile = 29
     const val target = compile
 }
 
 object TestLibraries {
-    const val junit4     = "junit:junit:${Versions.junit4}"
+    const val junit4 = "junit:junit:${Versions.junit4}"
     const val testRunner = "androidx.test.ext:junit:${Versions.testRunner}"
     const val testRules = "androidx.test:rules:${Versions.rules}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
-    const val espresso   = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     const val archCore = "androidx.arch.core:core-testing:${Versions.archCore}"
@@ -115,7 +123,7 @@ object TestLibraries {
     const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
 }
 
-object BuildModules{
+object BuildModules {
     object Features {
         const val Home = ":features:home"
         const val Feed = ":features:feed"
@@ -125,7 +133,8 @@ object BuildModules{
         const val Feedback = ":features:feedback"
         const val About = ":features:about"
     }
-    object Libraries{
+
+    object Libraries {
         const val Core = ":core"
         const val Repository = ":repository"
         const val Network = ":network"

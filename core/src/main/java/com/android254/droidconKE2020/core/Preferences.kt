@@ -7,4 +7,7 @@ interface Preferences {
 
     fun getShowSplashScreen(): Boolean
     fun setShowSplashScreen(showSplashScreen: Boolean)
+
+    fun getUserTheme(): Int
+    fun setUserTheme(theme: Int)
 }
