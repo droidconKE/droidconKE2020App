@@ -3,12 +3,11 @@ package com.android254.droidconKE2020.home.ui.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Speaker
-import com.android254.droidconKE2020.home.ui.views.HomeFragmentDirections
+import com.android254.droidconKE2020.home.utlities.CommonTasks.onSpeakerClicked
 import kotlinx.android.synthetic.main.home_item_speaker.view.*
 
 class SpeakerAdapter : RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
@@ -40,14 +39,9 @@ class SpeakerAdapter : RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() 
             with(speaker) {
                 view.speakerImg.load(speaker.imageUrl)
                 view.name.text = name
-                itemView.setOnClickListener { onSpeakerClicked(speaker.id) }
+                itemView.setOnClickListener { onSpeakerClicked(speaker.id, view) }
             }
         }
 
-        private fun onSpeakerClicked(speakerId: Int) {
-            val speakerDetailsAction =
-                HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
-            view.findNavController().navigate(speakerDetailsAction)
-        }
     }
 }

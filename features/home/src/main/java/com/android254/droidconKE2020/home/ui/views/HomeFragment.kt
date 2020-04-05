@@ -17,6 +17,7 @@ import com.android254.droidconKE2020.home.di.homeViewModels
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.utlities.CommonTasks.launchBrowser
+import com.android254.droidconKE2020.home.utlities.CommonTasks.onSpeakerClicked
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
@@ -74,12 +75,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         if (intent.resolveActivity(requireContext().packageManager) != null) startActivity(intent)
     }
 
-    private fun onSpeakerClicked(speakerId: Int) {
-        val speakerDetailsAction =
-            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
-        findNavController().navigate(speakerDetailsAction)
-    }
-
     private fun showPromoCard() {
         // Check for any available promos
         homeViewModel.activePromo.observe(viewLifecycleOwner, Observer { promo ->
@@ -125,11 +120,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             } else {
                 binding.keynoteSpeakerImg.also {
                     it.load(keynoteSpeaker.imageUrl)
-                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
+                    it.setOnClickListener { v -> onSpeakerClicked(keynoteSpeaker.id, v) }
                 }
                 binding.keynoteSpeakerLbl.also {
                     it.text = keynoteSpeaker.name
-                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
+                    it.setOnClickListener { v -> onSpeakerClicked(keynoteSpeaker.id, v) }
                 }
                 binding.keynoteLblBecomeSpeaker.setOnClickListener {
                     launchBrowser(homeViewModel.callForSpeakerUrl, requireContext())
