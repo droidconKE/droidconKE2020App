@@ -14,10 +14,14 @@ import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeRepositories
 import com.android254.droidconKE2020.home.di.homeViewModels
-import com.android254.droidconKE2020.home.ui.adapters.OrganizerAdapter
-import com.android254.droidconKE2020.home.ui.adapters.SessionAdapter
-import com.android254.droidconKE2020.home.ui.adapters.SpeakerAdapter
+import com.android254.droidconKE2020.home.domain.Speaker
+import com.android254.droidconKE2020.home.domain.Sponsor
+import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -61,13 +65,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showOrganizers()
     }
 
-    private fun sendEmail(addresses: Array<String>, subject: String) {
-        val intent = Intent(Intent.ACTION_SENDTO).apply {
-            type = "message/rfc822"
-            val uriText = "mailto:${addresses.joinToString(",")}?subject=$subject"
-            data = Uri.parse(uriText)
-        }
-        if (intent.resolveActivity(requireContext().packageManager) != null) startActivity(intent)
+    private fun onSpeakerClicked(speakerId: Int) {
+        val speakerDetailsAction =
+            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
+        findNavController().navigate(speakerDetailsAction)
     }
 
     private fun launchBrowser(webUrl: String) {
@@ -75,10 +76,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
     }
 
-    private fun onSpeakerClicked(speakerId: Int) {
-        val speakerDetailsAction =
-            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
-        findNavController().navigate(speakerDetailsAction)
+    private fun sendEmail(addresses: Array<String>, subject: String) {
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            type = "message/rfc822"
+            val uriText = "mailto:${addresses.joinToString(",")}?subject=$subject"
+            data = Uri.parse(uriText)
+        }
+        if (intent.resolveActivity(requireContext().packageManager) != null) startActivity(intent)
     }
 
     private fun showPromoCard() {
@@ -171,7 +175,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         })
 
-        val adapter = SpeakerAdapter()
+        val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked(it.id) }
+
+        val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = adapter
         binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
 
@@ -197,25 +203,34 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             sendEmail(homeViewModel.becomeSponsorEmails, homeViewModel.becomeSponsorSubject)
         }
 
+        val onSponsorClicked: (Sponsor) -> Unit = { launchBrowser(it.website) }
+
+        // ToDo: Merge two adapters to use a single list using MergeAdapter
+        val goldAdapter = GoldSponsorAdapter(onSponsorClicked)
+        binding.rvGoldSponsors.adapter = goldAdapter
+        binding.rvGoldSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
+            it.flexDirection = FlexDirection.ROW
+            it.flexWrap = FlexWrap.WRAP
+            it.justifyContent = JustifyContent.SPACE_EVENLY
+        }
+
+        val otherAdapter = OtherSponsorAdapter(onSponsorClicked)
+        binding.rvOtherSponsors.adapter = otherAdapter
+        binding.rvOtherSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
+            it.flexDirection = FlexDirection.ROW
+            it.flexWrap = FlexWrap.WRAP
+            it.justifyContent = JustifyContent.SPACE_EVENLY
+        }
+
         homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
             sponsors?.let {
-                // ToDo: Replace imageViews with recyclerView to allow dynamic sponsors from api
-                binding.sponsor1Img.also {
-                    it.load(sponsors[0].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[0].website) }
-                }
-                binding.sponsor2Img.also {
-                    it.load(sponsors[1].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[1].website) }
-                }
-                binding.sponsor3Img.also {
-                    it.load(sponsors[2].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[2].website) }
-                }
-                binding.sponsor4Img.also {
-                    it.load(sponsors[3].imageUrl)
-                    it.setOnClickListener { launchBrowser(sponsors[3].website) }
-                }
+                val goldSponsors = mutableListOf<Sponsor>()
+                val otherSponsors = mutableListOf<Sponsor>()
+
+                sponsors.forEach { if (it.isGold) goldSponsors.add(it) else otherSponsors.add(it) }
+
+                goldAdapter.submitList(goldSponsors)
+                otherAdapter.submitList(otherSponsors)
             }
         })
         homeViewModel.retrieveSponsors()

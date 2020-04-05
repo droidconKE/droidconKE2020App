@@ -4,5 +4,5 @@ data class Sponsor(
     val id: Int,
     val imageUrl: String,
     val website: String,
-    val isMajor: Boolean = false
+    val isGold: Boolean = false
 )

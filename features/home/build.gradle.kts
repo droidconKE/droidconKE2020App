@@ -91,6 +91,9 @@ dependencies {
     implementation(project(":app"))
     testImplementation(TestLibraries.junit4)
 
+    implementation(Libraries.flexBox)
+
+
     // Koin
     implementation(Libraries.koinAndroid)
     implementation(Libraries.koinExt)
