@@ -27,7 +27,7 @@ class DroidConKeApp : Application() {
         setSavedTheme()
     }
 
-    private fun setSavedTheme() {
+     fun setSavedTheme() {
         val sharedPrefs: PreferencesImpl by inject()
         val savedTheme = sharedPrefs.getUserTheme()
         AppCompatDelegate.setDefaultNightMode(savedTheme)

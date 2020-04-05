@@ -86,9 +86,9 @@ class HomeActivity : AppCompatActivity() {
             AppCompatDelegate.MODE_NIGHT_YES -> AppCompatDelegate.MODE_NIGHT_NO
             else -> AppCompatDelegate.MODE_NIGHT_YES
         }
-        
+
         val sharedPrefs: PreferencesImpl by inject()
         sharedPrefs.setUserTheme(newTheme)
-        AppCompatDelegate.setDefaultNightMode(newTheme)
+        (application as DroidConKeApp).setSavedTheme()
     }
 }
