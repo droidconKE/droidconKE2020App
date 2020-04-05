@@ -91,7 +91,7 @@ dependencies {
     implementation(project(":app"))
     testImplementation(TestLibraries.junit4)
 
-    implementation ("com.google.android:flexbox:2.0.1")
+    implementation(Libraries.flexBox)
 
 
     // Koin
