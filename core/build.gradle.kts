@@ -53,6 +53,7 @@ dependencies {
     androidTestImplementation (TestLibraries.espresso)
     implementation(Libraries.shapedImageView)
     implementation(Libraries.coil)
+    implementation(Libraries.browser)
 
     // Koin
     implementation (Libraries.koinAndroid)

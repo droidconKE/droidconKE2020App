@@ -6,14 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.browser.customtabs.CustomTabsClient
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import coil.api.load
+import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeRepositories
@@ -75,28 +72,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun launchBrowser(webUrl: String) {
-        val builder = CustomTabsIntent.Builder()
-
-        val context = requireContext()
-        builder.setStartAnimations(context, android.R.anim.fade_out, android.R.anim.fade_in)
-        builder.setExitAnimations(context, android.R.anim.fade_in, android.R.anim.fade_out)
-
+        val webPages: WebPages = WebPages(requireContext())
         val statusBarColorId = com.android254.droidconKE2020.R.color.colorStatusBar
-        builder.setToolbarColor(ContextCompat.getColor(context, statusBarColorId))
-        builder.setShowTitle(true)
-
-        // Check if chrome is installed
-        val providerName = CustomTabsClient.getPackageName(requireContext(), null)
-        if (providerName == null) runCatching {
-            startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
-        }.onFailure {
-            val msg = "Install a browser to view this content"
-            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-        } else {
-            val intent = builder.build()
-            intent.intent.setPackage(providerName)
-            intent.launchUrl(requireContext(), Uri.parse(webUrl))
-        }
+        webPages.launchInAppBrowser(webUrl, statusBarColorId)
     }
 
     private fun sendEmail(addresses: Array<String>, subject: String) {
