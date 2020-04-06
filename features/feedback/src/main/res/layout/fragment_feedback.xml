@@ -67,5 +67,6 @@
         android:textColor="@color/colorWhite"
         android:paddingRight="@dimen/ten_dp"
         android:drawableRight="@drawable/ic_send"
+        android:drawableTint="@android:color/white"
         />
 </LinearLayout>

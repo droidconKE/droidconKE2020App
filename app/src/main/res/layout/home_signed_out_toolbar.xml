@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:minHeight="?attr/actionBarSize">
+
+    <ImageView
+        android:id="@+id/imgToolbarLogo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:contentDescription="@string/text_toolbar_image_desc"
+        android:focusable="true"
+        android:src="@drawable/ic_droidcon_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnFeedback"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/countdown_toolbar_bg"
+        android:drawableStart="@drawable/ic_smiley_outline"
+        android:drawableEnd="@drawable/ic_send"
+        android:drawablePadding="6dp"
+        android:text="@string/text_button_feedback_label"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgSmiley"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/ic_alarm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tVDaysNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:fontFamily="@font/roboto_slab"
+            android:text="@string/text_days_number"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/imgSmiley"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tVDaysLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_days_label"
+            android:textColor="@color/colorAquaMarine"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tVDaysNumber"
+            app:layout_constraintStart_toStartOf="@+id/tVDaysNumber"
+            app:layout_constraintTop_toBottomOf="@id/tVDaysNumber" />
+
+        <TextView
+            android:id="@+id/tVHoursNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="@string/text_hours_number"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tVDaysNumber"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tVHoursLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_hrs_label"
+            android:textColor="@color/colorAquaMarine"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tVHoursNumber"
+            app:layout_constraintStart_toStartOf="@id/tVHoursNumber"
+            app:layout_constraintTop_toBottomOf="@+id/tVHoursNumber" />
+
+        <TextView
+            android:id="@+id/tVMinsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="@string/text_mins_number"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tVHoursLabel"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tVMinsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/text_mins_label"
+            android:textColor="@color/colorAquaMarine"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tVMinsNumber"
+            app:layout_constraintStart_toStartOf="@+id/tVMinsNumber"
+            app:layout_constraintTop_toBottomOf="@+id/tVMinsNumber" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ImageView
+        android:id="@+id/btnToolbarIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:contentDescription="@string/text_toolbar_icon_desc"
+        android:focusable="true"
+        android:src="@drawable/ic_sign_in_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnFeedback"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

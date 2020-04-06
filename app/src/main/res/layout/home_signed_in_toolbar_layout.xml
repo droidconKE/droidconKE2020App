@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:minHeight="?attr/actionBarSize"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:id="@+id/imgToolbarLogo"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/text_toolbar_image_desc"
+            android:src="@drawable/ic_droidcon_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnFeedback"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_smiley_outline"
+            android:drawableEnd="@drawable/ic_send"
+            android:drawablePadding="6dp"
+            android:text="@string/text_button_feedback_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/round_button_bg"
+            android:clickable="true"
+            app:cornerRadius="5dp"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            >
+            <ImageView
+                android:id="@+id/imgSmiley"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_smiley_outline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"/>
+            <TextView
+                android:id="@+id/tVFeedBackLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorDarkPurple"
+                android:textSize="16sp"
+                android:text="@string/text_button_feedback_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <ImageView
+                android:id="@+id/imgSend"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_send"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                app:layout_constraintStart_toEndOf="@id/tVFeedBackLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <ImageView
+            android:id="@+id/btnToolbarIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/text_toolbar_icon_desc"
+            android:src="@drawable/ic_sign_in_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnFeedback"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,4 +40,14 @@ class PreferencesImpl(context: Context) : Preferences {
             it.putInt("theme", theme)
         }
     }
+
+    override fun isSignedIn(): Boolean {
+        return sharedPref.getBoolean("signedIn", false)
+    }
+
+    override fun setSignedIn(value: Boolean) {
+        editSharedPref {
+            it.putBoolean("signedIn", value)
+        }
+    }
 }

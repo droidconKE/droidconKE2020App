@@ -1,54 +1,40 @@
 package com.android254.droidconKE2020
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.android254.droidconKE2020.core.PreferencesImpl
+import com.android254.droidconKE2020.core.Preferences
 import kotlinx.android.synthetic.main.content_home.*
 import org.koin.android.ext.android.inject
 
 class HomeActivity : AppCompatActivity() {
+    val sharedPrefs: Preferences by inject()
+
+    lateinit var toolbar: DynamicToolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         setUpBottomNavigation()
-
-        setSupportActionBar(findViewById(R.id.mainToolbar))
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_dark_theme -> {
-                toggleDarkTheme()
-                true
-            }
-            R.id.action_sign_in -> {
-                signIn()
-                true
-            }
-            R.id.action_settings -> true
-            R.id.action_feedback -> {
-                feedback()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        toolbar.authHandler = {
+            signIn()
+        }
+        toolbar.feedbackHandler = {
+            feedback()
+        }
+        toolbar.nightModeHandler = {
+            Toast.makeText(applicationContext,"Night",Toast.LENGTH_SHORT).show()
+            toggleDarkTheme()
         }
     }
 
@@ -60,7 +46,8 @@ class HomeActivity : AppCompatActivity() {
         val navController = navHostFragment.findNavController()
         //Setup bottom navigation view with nav controller for dynamic navigation
         bottomNavigation.setupWithNavController(navController = navController)
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            toolbar.onDestinationChanged(destination.id, destination.label as String)
             when (destination.id) {
                 R.id.aboutFragment, R.id.homeFragment, R.id.feedFragment, R.id.sessionsFragment -> {
                     bottomNavigation.visibility = View.VISIBLE
@@ -87,7 +74,6 @@ class HomeActivity : AppCompatActivity() {
             else -> AppCompatDelegate.MODE_NIGHT_YES
         }
 
-        val sharedPrefs: PreferencesImpl by inject()
         sharedPrefs.setUserTheme(newTheme)
         (application as DroidConKeApp).setSavedTheme()
     }

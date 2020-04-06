@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionsBinding
@@ -17,7 +18,6 @@ import kotlinx.android.synthetic.main.fragment_sessions.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
-
     private lateinit var sessionsTabAdapter: SessionsTabAdapter
     private var _binding: FragmentSessionsBinding? = null
     private val binding get() = _binding!!
@@ -37,6 +37,9 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         super.onViewCreated(view, savedInstanceState)
         observeDaySessions()
         getDaySessions()
+        binding.filterLayout.setOnClickListener {
+            findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToFilterBottomSheet())
+        }
     }
 
     private fun observeDaySessions() {

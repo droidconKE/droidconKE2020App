@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.android254.droidconKE2020.HomeActivity">
+
     <item
         android:id="@+id/action_dark_theme"
         android:icon="@drawable/dark_theme_toggle"
@@ -9,21 +10,4 @@
         android:title="@string/dark_mode"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/action_sign_in"
-        android:icon="@drawable/ic_login"
-        android:orderInCategory="1"
-        android:title="@string/sign_in"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="1"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_feedback"
-        android:orderInCategory="2"
-        android:title="@string/action_feedback"
-        app:showAsAction="never" />
 </menu>
