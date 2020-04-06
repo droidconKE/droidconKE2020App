@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.android254.droidconKE2020.core.Preferences
@@ -19,22 +20,31 @@ class DynamicToolbar @JvmOverloads constructor(
 ) : MaterialToolbar(context, attrs, defStyle), KoinComponent {
 
     val sharedPrefs: Preferences by inject()
-
     var authHandler: (() -> Unit)? = null
     var feedbackHandler: (() -> Unit)? = null
     var nightModeHandler: (() -> Unit)? = null
+    var sessionsHandler :(() -> Unit)? = null
 
-    fun onDestinationChanged(destination: Int) {
+    fun onDestinationChanged(destination: Int, destinationName : String) {
         when (destination) {
             R.id.homeFragment, R.id.authDialog -> setHomeToolbar()
             R.id.feedFragment -> setFeedToolbar()
+            R.id.feedBackFragment -> setFeedbackToolbar(destinationName)
             else -> removeAllViews()
         }
     }
 
+    private fun setFeedbackToolbar(destinationName: String) {
+        removeAllViews()
+        val view = getView(R.layout.feed_toolbar)
+        val tvToolbarTitle = view.findViewById<TextView>(R.id.title)
+        tvToolbarTitle.text = destinationName
+        addView(view)
+    }
+
     fun setHomeToolbar() {
         removeAllViews()
-        if (sharedPrefs.isSignedIn()) {
+        if (!sharedPrefs.isSignedIn()) {
             val view = getView(R.layout.home_signed_in_toolbar_layout)
             val feedbackBtn = view.findViewById<ConstraintLayout>(R.id.btnFeedback)
             feedbackBtn.setOnClickListener {
