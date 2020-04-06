@@ -1,12 +1,12 @@
 package com.android254.droidconKE2020.home.ui.views
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsClient
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
@@ -87,8 +87,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         // Check if chrome is installed
         val providerName = CustomTabsClient.getPackageName(requireContext(), null)
-        if (providerName == null) startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
-        else {
+        if (providerName == null) runCatching {
+            startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
+        }.onFailure {
+            val msg = "Install a browser to view this content"
+            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+        } else {
             val intent = builder.build()
             intent.intent.setPackage(providerName)
             intent.launchUrl(requireContext(), Uri.parse(webUrl))
