@@ -91,8 +91,7 @@ dependencies {
     implementation(project(":app"))
 
     implementation(Libraries.flexBox)
-    implementation ("androidx.browser:browser:1.2.0")
-
+    implementation(Libraries.browser)
 
     // Koin
     implementation(Libraries.koinAndroid)
