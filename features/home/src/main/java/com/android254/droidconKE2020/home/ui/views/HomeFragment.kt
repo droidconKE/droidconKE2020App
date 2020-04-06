@@ -1,11 +1,15 @@
 package com.android254.droidconKE2020.home.ui.views
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsClient
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -28,7 +32,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
-
 
 private val loadFeature by lazy { loadKoinModules(listOf(homeViewModels, homeRepositories)) }
 
@@ -72,8 +75,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun launchBrowser(webUrl: String) {
-        // ToDo: replace wit in-app browser
-        startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
+        val builder = CustomTabsIntent.Builder()
+
+        val context = requireContext()
+        builder.setStartAnimations(context, android.R.anim.fade_out, android.R.anim.fade_in)
+        builder.setExitAnimations(context, android.R.anim.fade_in, android.R.anim.fade_out)
+
+        val statusBarColorId = com.android254.droidconKE2020.R.color.colorStatusBar
+        builder.setToolbarColor(ContextCompat.getColor(context, statusBarColorId))
+        builder.setShowTitle(true)
+
+        // Check if chrome is installed
+        val providerName = CustomTabsClient.getPackageName(requireContext(), null)
+        if (providerName == null) startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)))
+        else {
+            val intent = builder.build()
+            intent.intent.setPackage(providerName)
+            intent.launchUrl(requireContext(), Uri.parse(webUrl))
+        }
     }
 
     private fun sendEmail(addresses: Array<String>, subject: String) {
