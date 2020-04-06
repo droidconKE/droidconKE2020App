@@ -89,10 +89,8 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":app"))
-    testImplementation(TestLibraries.junit4)
 
     implementation(Libraries.flexBox)
-
 
     // Koin
     implementation(Libraries.koinAndroid)
@@ -101,6 +99,7 @@ dependencies {
     implementation(Libraries.koinViewModel)
 
     //Test
+    testImplementation(TestLibraries.junit4)
     testImplementation(project(":test-utils", "testDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
 

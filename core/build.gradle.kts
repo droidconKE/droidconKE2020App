@@ -54,6 +54,7 @@ dependencies {
     implementation(Libraries.shapedImageView)
     implementation(Libraries.coil)
     implementation(Libraries.materialComponents)
+    implementation(Libraries.browser)
 
     // Koin
     implementation (Libraries.koinAndroid)
