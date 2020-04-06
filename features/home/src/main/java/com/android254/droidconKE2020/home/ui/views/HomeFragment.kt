@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import coil.api.load
+import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
@@ -27,10 +28,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
-private val loadFeature by lazy { loadKoinModules(listOf(homeViewModels, homeRepositories)) }
+private val loadFeature by lazy {
+    loadKoinModules(listOf(homeViewModels, homeRepositories, browserModule))
+}
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun injectFeature() = loadFeature
@@ -72,7 +76,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun launchBrowser(webUrl: String) {
-        val webPages: WebPages = WebPages(requireContext())
+        val webPages: WebPages by inject()
         val statusBarColorId = com.android254.droidconKE2020.R.color.colorStatusBar
         webPages.launchInAppBrowser(webUrl, statusBarColorId)
     }
