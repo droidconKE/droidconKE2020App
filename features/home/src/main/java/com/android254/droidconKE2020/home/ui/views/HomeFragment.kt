@@ -77,8 +77,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun launchBrowser(webUrl: String) {
         val webPages: WebPages by inject()
-        val statusBarColorId = com.android254.droidconKE2020.R.color.colorStatusBar
-        webPages.launchInAppBrowser(webUrl, statusBarColorId)
+        webPages.launchInAppBrowser(webUrl)
     }
 
     private fun sendEmail(addresses: Array<String>, subject: String) {
