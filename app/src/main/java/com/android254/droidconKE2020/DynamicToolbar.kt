@@ -44,7 +44,7 @@ class DynamicToolbar @JvmOverloads constructor(
 
     fun setHomeToolbar() {
         removeAllViews()
-        if (!sharedPrefs.isSignedIn()) {
+        if (sharedPrefs.isSignedIn()) {
             val view = getView(R.layout.home_signed_in_toolbar_layout)
             val feedbackBtn = view.findViewById<ConstraintLayout>(R.id.btnFeedback)
             feedbackBtn.setOnClickListener {
@@ -52,7 +52,13 @@ class DynamicToolbar @JvmOverloads constructor(
             }
             addView(view)
         } else {
-            addView(getView(R.layout.home_signed_out_toolbar))
+            val view = LayoutInflater.from(context).inflate(R.layout.home_signed_out_toolbar, this, false)
+            val droidconIcon = view.findViewById<ImageView>(R.id.imgToolbarLogo)
+            droidconIcon.setOnClickListener {
+                nightModeHandler?.invoke()
+                true
+            }
+            addView(view)
         }
     }
 
@@ -66,11 +72,6 @@ class DynamicToolbar @JvmOverloads constructor(
         val authBtn = view.findViewById<ImageView>(R.id.btnToolbarIcon)
         authBtn.setOnClickListener {
             authHandler?.invoke()
-        }
-        val droidconIcon = view.findViewById<ImageView>(R.id.droidconLogo)
-        droidconIcon.setOnLongClickListener {
-            nightModeHandler?.invoke()
-            true
         }
         return view
     }
