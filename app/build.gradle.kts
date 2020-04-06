@@ -55,7 +55,7 @@ val intTestDependencies by configurations.creating {
 
 dependencies {
     implementation(project(BuildModules.Libraries.Data))
-    implementation(project(BuildModules.Libraries.Core))
+    api(project(BuildModules.Libraries.Core))
     implementation(project(BuildModules.Libraries.Network))
     implementation(project(BuildModules.Libraries.Repository))
 

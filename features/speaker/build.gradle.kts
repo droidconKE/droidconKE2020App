@@ -35,7 +35,6 @@ android {
 dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
-    implementation(project(BuildModules.Libraries.Core))
     testImplementation(TestLibraries.junit4)
     implementation(Libraries.shapedImageView)
 

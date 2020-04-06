@@ -33,6 +33,7 @@ object Versions {
     const val fragmentsTesting = "1.2.3"
     const val kakao = "2.3.0"
     const val flexBox = "2.0.1"
+    const val browser = "1.2.0"
 }
 
 object BuildPlugins {
@@ -89,6 +90,9 @@ object Libraries {
 
     // Layouts
     const val flexBox = "com.google.android:flexbox:${Versions.flexBox}"
+
+    // Browser
+    const val browser = "androidx.browser:browser:${Versions.browser}"
 }
 
 object APIs {
