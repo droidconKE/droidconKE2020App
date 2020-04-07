@@ -225,7 +225,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/sessionCountChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Action"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/dummy_session_count"
@@ -296,7 +296,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/speakersCountChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Action"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/dummy_session_count"
@@ -310,6 +310,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:gravity="center_horizontal|end"
                 android:text="@string/view_all"
                 android:textAllCaps="false"
                 android:textColor="@color/colorViewAll"

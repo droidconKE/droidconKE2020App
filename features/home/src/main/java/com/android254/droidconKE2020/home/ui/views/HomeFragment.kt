@@ -141,6 +141,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSessionsList() {
+        binding.sessionCountChip.setOnClickListener { binding.viewSessionsBtn.callOnClick()}
         binding.viewSessionsBtn.setOnClickListener {
             val sessionsFragmentAction =
                 HomeFragmentDirections.actionHomeFragmentToSessionsFragment()
@@ -173,13 +174,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val label = getString(if (isShowing == true) R.string.view_less else R.string.view_all)
             binding.viewSpeakersBtn.text = label
 
+            binding.speakersCountChip.setOnClickListener { binding.viewSpeakersBtn.callOnClick()}
             binding.viewSpeakersBtn.setOnClickListener {
                 binding.speakersList.layoutManager = (if (isShowing != true) {
                     val rvWidth = binding.speakersList.measuredWidth
                     val itemWidth = resources.getDimension(R.dimen.rvSpeakerItemWidth) +
                             2 * (resources.getDimension(R.dimen.rvSpeakerItemMargin))
                     val noOfColumns = (rvWidth / itemWidth).toInt()
-                    
+
                     GridLayoutManager(requireContext(), noOfColumns)
                 } else LinearLayoutManager(context, RecyclerView.HORIZONTAL, false))
 
