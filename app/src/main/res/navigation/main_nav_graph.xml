@@ -116,7 +116,7 @@
         app:moduleName="auth"
         tools:layout="@layout/dialog_authenticate" />
 
-    <dialog
+    <fragment
         android:id="@+id/filterBottomSheet"
         android:name="com.android254.droidconKE2020.sessions.ui.views.BottomSheetFilterFragment"
         android:label="Filter"

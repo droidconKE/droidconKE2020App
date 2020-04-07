@@ -4,15 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.android254.droidconKE2020.sessions.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.filter_layout.*
 
-internal class BottomSheetFilterFragment : BottomSheetDialogFragment() {
-
-    override fun getTheme() = R.style.Theme_Sessions_BottomSheetDialog
-
+internal class BottomSheetFilterFragment : Fragment() {
     private val roomsTestList = mutableListOf<String>()
     private val levelsTestList = mutableListOf<String>()
 
@@ -43,7 +41,7 @@ internal class BottomSheetFilterFragment : BottomSheetDialogFragment() {
             levelChipGroup.addView(chip)
         }
         buttonCancel.setOnClickListener {
-            this.dismiss()
+
         }
     }
 }
