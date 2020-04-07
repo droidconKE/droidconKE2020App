@@ -61,7 +61,9 @@
 
         <action
             android:id="@+id/action_sessionsFragment_to_filterBottomSheet"
-            app:destination="@id/filterBottomSheet"/>
+            app:destination="@id/filterBottomSheet"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"/>
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -118,8 +120,14 @@
 
     <fragment
         android:id="@+id/filterBottomSheet"
-        android:name="com.android254.droidconKE2020.sessions.ui.views.BottomSheetFilterFragment"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.FilterFragment"
         android:label="Filter"
         app:moduleName="sessions"
-        tools:layout="@layout/filter_layout"/>
+        tools:layout="@layout/fragment_filter">
+        <action
+            android:id="@+id/action_filterFragment_to_SessionsFragment"
+            app:destination="@+id/sessionsFragment"
+            />
+    </fragment>
+
 </navigation>

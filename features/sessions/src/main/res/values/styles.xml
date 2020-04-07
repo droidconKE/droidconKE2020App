@@ -32,6 +32,11 @@
         <item name="android:background">@drawable/filter_layout_drawable</item>
     </style>
 
+    <style name="Theme.Sessions.RoundFilterButton" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">5dp</item>
+    </style>
+
     <style name="Widget.Sessions.Button.SocialMedia" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:height">56dp</item>
         <item name="cornerRadius">12dp</item>
