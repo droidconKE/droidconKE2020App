@@ -174,9 +174,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             binding.viewSpeakersBtn.text = label
 
             binding.viewSpeakersBtn.setOnClickListener {
-                binding.speakersList.layoutManager = (if (isShowing == true)
-                    LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-                else GridLayoutManager(requireContext(), 5))
+                binding.speakersList.layoutManager = (if (isShowing != true) {
+                    val rvWidth = binding.speakersList.measuredWidth
+                    val itemWidth = resources.getDimension(R.dimen.rvSpeakerItemWidth) +
+                            2 * (resources.getDimension(R.dimen.rvSpeakerItemMargin))
+                    val noOfColumns = (rvWidth / itemWidth).toInt()
+                    
+                    GridLayoutManager(requireContext(), noOfColumns)
+                } else LinearLayoutManager(context, RecyclerView.HORIZONTAL, false))
 
                 homeViewModel.setIsShowingAllSpeakers(isShowing != true)
             }
