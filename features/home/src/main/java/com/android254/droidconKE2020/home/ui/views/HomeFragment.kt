@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.utils.WebPages
@@ -167,14 +170,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun showSpeakersList() {
         homeViewModel.setIsShowingAllSpeakers(false)
         homeViewModel.isShowingAllSpeakers.observe(viewLifecycleOwner, Observer { isShowing ->
-            binding.viewSpeakersBtn.text =
-                getString(if (isShowing == true) R.string.view_less else R.string.view_all)
+            val label = getString(if (isShowing == true) R.string.view_less else R.string.view_all)
+            binding.viewSpeakersBtn.text = label
+
             binding.viewSpeakersBtn.setOnClickListener {
-                if (isShowing == true) {
-                    // ToDo: Show one row of speakers
-                } else {
-                    // ToDo: Set layoutManager to a grid and show all speakers
-                }
+                binding.speakersList.layoutManager = (if (isShowing == true)
+                    LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                else GridLayoutManager(requireContext(), 5))
+
                 homeViewModel.setIsShowingAllSpeakers(isShowing != true)
             }
         })
@@ -183,7 +186,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = adapter
-        binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
 
         homeViewModel.speakerList.observe(viewLifecycleOwner, Observer
         { speakers ->
