@@ -34,6 +34,7 @@ object Versions {
     const val kakao = "2.3.0"
     const val flexBox = "2.0.1"
     const val browser = "1.2.0"
+    const val ktlint = "9.2.1"
 }
 
 object BuildPlugins {
@@ -49,6 +50,8 @@ object BuildPlugins {
     const val safeArgsGradlePlugin =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.safeArgsPlugin}"
     const val kapt = "kotlin-kapt"
+    const val ktlintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle:${Versions.ktlint}"
+    const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
 }
 
 object Libraries {

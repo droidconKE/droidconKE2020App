@@ -1,9 +1,8 @@
 package com.android254.droidconKE2020
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.android254.droidconKE2020.core.PreferencesImpl
 import com.example.android_animation.AndroidAnimation
 import com.example.android_animation.enums.Easing

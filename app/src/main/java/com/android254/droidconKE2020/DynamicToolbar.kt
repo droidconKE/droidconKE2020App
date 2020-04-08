@@ -23,9 +23,9 @@ class DynamicToolbar @JvmOverloads constructor(
     var authHandler: (() -> Unit)? = null
     var feedbackHandler: (() -> Unit)? = null
     var nightModeHandler: (() -> Unit)? = null
-    var sessionsHandler :(() -> Unit)? = null
+    var sessionsHandler: (() -> Unit)? = null
 
-    fun onDestinationChanged(destination: Int, destinationName : String) {
+    fun onDestinationChanged(destination: Int, destinationName: String) {
         when (destination) {
             R.id.homeFragment, R.id.authDialog -> setHomeToolbar()
             R.id.feedFragment -> setFeedToolbar()
@@ -52,7 +52,8 @@ class DynamicToolbar @JvmOverloads constructor(
             }
             addView(view)
         } else {
-            val view = LayoutInflater.from(context).inflate(R.layout.home_signed_out_toolbar, this, false)
+            val view = LayoutInflater.from(context).inflate(R.layout.home_signed_out_toolbar,
+                this, false)
             val droidconIcon = view.findViewById<ImageView>(R.id.imgToolbarLogo)
             droidconIcon.setOnClickListener {
                 nightModeHandler?.invoke()
@@ -75,5 +76,4 @@ class DynamicToolbar @JvmOverloads constructor(
         }
         return view
     }
-
 }

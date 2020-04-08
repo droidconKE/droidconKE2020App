@@ -3,12 +3,15 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+        repositories {
+            maven("https://plugins.gradle.org/m2/")
+        }
     }
     dependencies {
         classpath(BuildPlugins.androidGradlePlugin)
         classpath(BuildPlugins.kotlinGradlePlugin)
         classpath(BuildPlugins.safeArgsGradlePlugin)
+        classpath(BuildPlugins.ktlintGradlePlugin)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
