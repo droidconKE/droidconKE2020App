@@ -14,7 +14,7 @@
         <action
             android:id="@+id/action_homeFragment_to_speakersFragment"
             app:destination="@id/speakersFragment" />
-       <action
+        <action
             android:id="@+id/action_homeFragment_to_SpeakerDetailsFragment"
             app:destination="@id/speakerDetailsFragment" />
         <action
@@ -94,13 +94,12 @@
         android:id="@+id/speakerDetailsFragment"
         android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakerDetailsFragment"
         android:label="Speaker Details"
-        app:moduleName="speaker"
+        app:moduleName="speakers"
         tools:layout="@layout/fragment_speaker_details">
 
         <argument
             android:name="speakerId"
             app:argType="integer" />
-
     </fragment>
     <fragment
         android:id="@+id/organizerDetailsFragment"

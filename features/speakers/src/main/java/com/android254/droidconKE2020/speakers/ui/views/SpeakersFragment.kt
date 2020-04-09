@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakersBinding
 import com.android254.droidconKE2020.speakers.di.speakersModule
 import com.android254.droidconKE2020.speakers.models.Speaker
@@ -45,8 +45,10 @@ class SpeakersFragment : Fragment() {
         showSpeakersList()
     }
 
-    val onSpeakerClicked: (Speaker) -> Unit = {
-        Toast.makeText(context, it.name, Toast.LENGTH_SHORT).show()
+    private val onSpeakerClicked: (Speaker) -> Unit = {
+        val speakerDetailsAction =
+            SpeakersFragmentDirections.actionSpeakersFragmentToSpeakerDetailsFragment(it.id)
+        findNavController().navigate(speakerDetailsAction)
     }
 
     private fun showSpeakersList() {

@@ -56,7 +56,7 @@
             android:layout_marginEnd="@dimen/fab_margin"
             android:fontFamily="@font/roboto_slab"
             android:text="@string/text_days_number"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorOnSurface"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/imgSmiley"
             app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +83,7 @@
             android:layout_marginStart="32dp"
             android:fontFamily="@font/roboto_slab"
             android:text="@string/text_hours_number"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorOnSurface"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/tVDaysNumber"
             app:layout_constraintTop_toTopOf="parent" />
@@ -110,7 +110,7 @@
             android:layout_marginStart="32dp"
             android:fontFamily="@font/roboto_slab"
             android:text="@string/text_mins_number"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorOnSurface"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/tVHoursLabel"
             app:layout_constraintTop_toTopOf="parent" />
