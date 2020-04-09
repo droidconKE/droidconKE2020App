@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.speaker.models
+package com.android254.droidconKE2020.speakers.models
 
 data class SpeakerDetailsModel (
     val speakerName : String,
@@ -7,4 +7,10 @@ data class SpeakerDetailsModel (
     val speakerRole : String,
     val speakerBio : String,
     val speakerProfileImg : String
+)
+data class Speaker(
+    val id: Int,
+    val name: String,
+    val imageUrl: String,
+    val isKeynoteSpeaker: Boolean = false
 )

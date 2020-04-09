@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/speakersFragment"
-        android:name="com.android254.droidconKE2020.speaker.ui.views.SpeakersFragment"
+        android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakersFragment"
         android:label="Speakers"
         app:moduleName="speakers"
         tools:layout="@layout/fragment_speakers">
@@ -92,7 +92,7 @@
     </fragment>
     <fragment
         android:id="@+id/speakerDetailsFragment"
-        android:name="com.android254.droidconKE2020.speaker.ui.views.SpeakerDetailsFragment"
+        android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakerDetailsFragment"
         android:label="Speaker Details"
         app:moduleName="speaker"
         tools:layout="@layout/fragment_speaker_details">

@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.speaker
+package com.android254.droidconKE2020.speakers
 
 import org.junit.Test
 

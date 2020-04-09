@@ -7,7 +7,7 @@
 
         <variable
             name="speakerDetailsModel"
-            type="com.android254.droidconKE2020.speaker.models.SpeakerDetailsModel" />
+            type="com.android254.droidconKE2020.speakers.models.SpeakerDetailsModel" />
         <variable
             name="speakerImg"
             type="String" />

@@ -1,10 +1,10 @@
-package com.android254.droidconKE2020.speaker.views.viewmodels
+package com.android254.droidconKE2020.speakers.views.viewmodels
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
-import com.android254.droidconKE2020.speaker.models.SpeakerDetailsModel
+import com.android254.droidconKE2020.speakers.models.SpeakerDetailsModel
 
-class SpeakerViewModel : ViewModel() {
+class SpeakerDetailsViewModel : ViewModel() {
     val speakerDetails = MediatorLiveData<SpeakerDetailsModel>()
 
 
