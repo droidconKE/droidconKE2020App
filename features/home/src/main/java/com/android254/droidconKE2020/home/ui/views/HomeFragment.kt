@@ -9,9 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.utils.WebPages
@@ -74,7 +71,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun onSpeakerClicked(speakerId: Int) {
         val speakerDetailsAction =
-            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
+            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment(speakerId)
         findNavController().navigate(speakerDetailsAction)
     }
 
@@ -141,7 +138,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSessionsList() {
-        binding.sessionCountChip.setOnClickListener { binding.viewSessionsBtn.callOnClick()}
+        binding.sessionCountChip.setOnClickListener { binding.viewSessionsBtn.callOnClick() }
         binding.viewSessionsBtn.setOnClickListener {
             val sessionsFragmentAction =
                 HomeFragmentDirections.actionHomeFragmentToSessionsFragment()
@@ -169,33 +166,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSpeakersList() {
-        homeViewModel.setIsShowingAllSpeakers(false)
-        homeViewModel.isShowingAllSpeakers.observe(viewLifecycleOwner, Observer { isShowing ->
-            val label = getString(if (isShowing == true) R.string.view_less else R.string.view_all)
-            binding.viewSpeakersBtn.text = label
-
-            binding.speakersCountChip.setOnClickListener { binding.viewSpeakersBtn.callOnClick()}
-            binding.viewSpeakersBtn.setOnClickListener {
-                binding.speakersList.layoutManager = (if (isShowing != true) {
-                    val rvWidth = binding.speakersList.measuredWidth
-                    val itemWidth = resources.getDimension(R.dimen.rvSpeakerItemWidth) +
-                            2 * (resources.getDimension(R.dimen.rvSpeakerItemMargin))
-                    val noOfColumns = (rvWidth / itemWidth).toInt()
-
-                    GridLayoutManager(requireContext(), noOfColumns)
-                } else LinearLayoutManager(context, RecyclerView.HORIZONTAL, false))
-
-                homeViewModel.setIsShowingAllSpeakers(isShowing != true)
-            }
-        })
+        binding.speakersCountChip.setOnClickListener { binding.viewSpeakersBtn.callOnClick() }
+        binding.viewSpeakersBtn.setOnClickListener {
+            val speakersFragmentAction =
+                HomeFragmentDirections.actionHomeFragmentToSpeakersFragment()
+            findNavController().navigate(speakersFragmentAction)
+        }
 
         val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked(it.id) }
-
         val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = adapter
 
-        homeViewModel.speakerList.observe(viewLifecycleOwner, Observer
-        { speakers ->
+        homeViewModel.speakerList.observe(viewLifecycleOwner, Observer { speakers ->
             if (speakers == null) {
                 binding.speakersCountChip.visibility = View.GONE
 
