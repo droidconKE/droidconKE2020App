@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.speaker.databinding.ItemSpeakerBinding
 import com.android254.droidconKE2020.speakers.models.Speaker
 
-class SpeakerAdapter() : ListAdapter<Speaker, RecyclerView.ViewHolder>(SpeakerDiffCallback()) {
+class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
+    ListAdapter<Speaker, RecyclerView.ViewHolder>(SpeakerDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemSpeakerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -17,12 +18,17 @@ class SpeakerAdapter() : ListAdapter<Speaker, RecyclerView.ViewHolder>(SpeakerDi
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val speaker = getItem(position)
+        (holder as SpeakerViewHolder).bind(speaker)
     }
 
-    class SpeakerViewHolder(binding: ItemSpeakerBinding) : RecyclerView.ViewHolder(binding.root) {
-
+    inner class SpeakerViewHolder(private val binding: ItemSpeakerBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: Speaker) {
+            binding.speaker = item
+            binding.executePendingBindings()
+            binding.setOpenSpeakerDetails { onSpeakerClicked.invoke(item) }
+        }
     }
-
 
     class SpeakerDiffCallback : DiffUtil.ItemCallback<Speaker>() {
 

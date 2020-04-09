@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data></data>
+    <data>
+
+        <variable
+            name="openSpeakerDetails"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="speaker"
+            type="com.android254.droidconKE2020.speakers.models.Speaker" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/rvSpeakerItemMargin">
+        android:layout_margin="@dimen/rvSpeakerItemMargin"
+        android:onClick="@{openSpeakerDetails}">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:alpha="0.6"
             android:scaleType="centerCrop"
             android:src="@drawable/img_speaker_header" />
 

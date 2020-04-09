@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakersBinding
 import com.android254.droidconKE2020.speakers.di.speakersModule
+import com.android254.droidconKE2020.speakers.models.Speaker
 import com.android254.droidconKE2020.speakers.ui.adapters.SpeakerAdapter
 import com.android254.droidconKE2020.speakers.viewmodels.SpeakersViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -43,8 +45,12 @@ class SpeakersFragment : Fragment() {
         showSpeakersList()
     }
 
+    val onSpeakerClicked: (Speaker) -> Unit = {
+        Toast.makeText(context, it.name, Toast.LENGTH_SHORT).show()
+    }
+
     private fun showSpeakersList() {
-        val adapter = SpeakerAdapter()
+        val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.rvSpeakers.adapter = adapter
 
         speakersViewModel.speakerList.observe(viewLifecycleOwner, Observer { speakers ->
