@@ -12,6 +12,9 @@
         app:moduleName="home"
         tools:layout="@layout/fragment_home">
         <action
+            android:id="@+id/action_homeFragment_to_speakersFragment"
+            app:destination="@id/speakersFragment" />
+       <action
             android:id="@+id/action_homeFragment_to_SpeakerDetailsFragment"
             app:destination="@id/speakerDetailsFragment" />
         <action
@@ -63,7 +66,7 @@
             android:id="@+id/action_sessionsFragment_to_filterBottomSheet"
             app:destination="@id/filterBottomSheet"
             app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"/>
+            app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -76,8 +79,20 @@
             app:destination="@id/organizerDetailsFragment" />
     </fragment>
     <fragment
+        android:id="@+id/speakersFragment"
+        android:name="com.android254.droidconKE2020.speaker.ui.views.SpeakersFragment"
+        android:label="Speakers"
+        app:moduleName="speaker"
+        tools:layout="@layout/fragment_speakers">
+        <action
+            android:id="@+id/action_speakersFragment_to_speakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
         android:id="@+id/speakerDetailsFragment"
-        android:name="com.android254.droidconKE2020.speaker.views.ui.SpeakerDetailsFragment"
+        android:name="com.android254.droidconKE2020.speaker.ui.views.SpeakerDetailsFragment"
         android:label="Speaker Details"
         app:moduleName="speaker"
         tools:layout="@layout/fragment_speaker_details">
@@ -126,8 +141,7 @@
         tools:layout="@layout/fragment_filter">
         <action
             android:id="@+id/action_filterFragment_to_SessionsFragment"
-            app:destination="@+id/sessionsFragment"
-            />
+            app:destination="@+id/sessionsFragment" />
     </fragment>
 
 </navigation>
