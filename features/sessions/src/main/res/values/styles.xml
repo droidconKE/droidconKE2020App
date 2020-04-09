@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.Sessions" parent="Theme.MaterialComponents.DayNight">
         <!-- Customize your theme here. -->
@@ -22,11 +22,19 @@
 
 
     <style name="Theme.Sessions.BottomSheetDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/Theme.Sessions.Modal</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@android:color/white
+        </item>
     </style>
 
     <style name="Theme.Sessions.Modal" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/filter_layout_drawable</item>
+    </style>
+
+    <style name="Theme.Sessions.RoundFilterButton" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">5dp</item>
     </style>
 
     <style name="Widget.Sessions.Button.SocialMedia" parent="Widget.MaterialComponents.Button.OutlinedButton">
