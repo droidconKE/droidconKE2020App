@@ -82,7 +82,7 @@
         android:id="@+id/speakersFragment"
         android:name="com.android254.droidconKE2020.speaker.ui.views.SpeakersFragment"
         android:label="Speakers"
-        app:moduleName="speaker"
+        app:moduleName="speakers"
         tools:layout="@layout/fragment_speakers">
         <action
             android:id="@+id/action_speakersFragment_to_speakerDetailsFragment"
