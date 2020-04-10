@@ -1,10 +1,10 @@
 object Versions {
     const val name = "1.0"
     const val code = 1
-
     const val kotlin = "1.3.61"
     const val coroutines = "1.3.3"
     const val buildToolsVersion = "3.6.0"
+
     const val jetPack = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val ktx = "1.1.0"
@@ -25,6 +25,7 @@ object Versions {
     const val testRunner = "1.1.1"
     const val rules = "1.1.1"
     const val espresso = "3.2.0"
+
     const val annotation = "1.1.0"
     const val mockk = "1.9"
     const val safeArgsPlugin = "2.2.1"
