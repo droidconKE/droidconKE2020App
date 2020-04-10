@@ -13,7 +13,7 @@
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_speakers" >
+        dist:title="@string/title_speaker" >
         <dist:delivery>
             <dist:install-time />
         </dist:delivery>

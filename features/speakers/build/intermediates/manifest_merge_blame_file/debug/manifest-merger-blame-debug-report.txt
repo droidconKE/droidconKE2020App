@@ -8,25 +8,25 @@
 8
 9    <uses-sdk
 10        android:minSdkVersion="21"
-10-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+10-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml
 11        android:targetSdkVersion="29" />
-11-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+11-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml
 12
 13    <dist:module
-13-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:4:5-11:19
+13-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml:5:5-12:19
 14        dist:instant="false"
-14-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:5:9-29
-15        dist:title="@string/title_speakers" >
-15-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:6:9-44
+14-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml:6:9-29
+15        dist:title="@string/title_speaker" >
+15-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml:7:9-43
 16        <dist:delivery>
-16-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:7:9-9:25
+16-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml:8:9-10:25
 17            <dist:install-time />
-17-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:8:13-34
+17-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml:9:13-34
 18        </dist:delivery>
 19
 20        <dist:fusing dist:include="true" />
-20-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:10:9-44
-20-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:10:22-41
+20-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml:11:9-44
+20-->/home/oly/Workspace/OpenSource/Android/DroidConKE2020Background/features/speakers/src/main/AndroidManifest.xml:11:22-41
 21    </dist:module>
 22
 23</manifest>

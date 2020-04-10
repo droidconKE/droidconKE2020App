@@ -134,7 +134,7 @@ object BuildModules {
         const val Feed = ":features:feed"
         const val Sessions = ":features:sessions"
         const val Auth = ":features:auth"
-        const val Speaker = ":features:speaker"
+        const val Speakers = ":features:speakers"
         const val Feedback = ":features:feedback"
         const val About = ":features:about"
     }
