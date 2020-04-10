@@ -3,7 +3,6 @@ plugins {
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.safeArgs)
-    id(BuildPlugins.ktlintPlugin)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
@@ -32,6 +31,7 @@ android {
         BuildModules.Features.Feedback
     )
 
+
     viewBinding {
         isEnabled = true
     }
@@ -53,11 +53,6 @@ android {
 val intTestDependencies by configurations.creating {
     extendsFrom(configurations["androidTestImplementation"])
 }
- ktlint{
-     android.set(true)
-     debug.set(true)
-     outputColorName.set("RED")
- }
 
 dependencies {
     implementation(project(BuildModules.Libraries.Data))

@@ -1,20 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        repositories {
-            maven("https://plugins.gradle.org/m2/")
-        }
-    }
-    dependencies {
-        classpath(BuildPlugins.androidGradlePlugin)
-        classpath(BuildPlugins.kotlinGradlePlugin)
-        classpath(BuildPlugins.safeArgsGradlePlugin)
-        classpath(BuildPlugins.ktlintGradlePlugin)
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
+plugins{
+    id(BuildPlugins.ktlintPlugin)
+    id(BuildPlugins.dektPlugin)
+    id(BuildPlugins.dynamicFeature) apply false
+    id(BuildPlugins.androidLibrary) apply false
+    id(BuildPlugins.androidApplication) apply  false
+    id(BuildPlugins.kotlinAndroid) apply false
+    id(BuildPlugins.kotlinAndroidExtensions) apply false
+    id(BuildPlugins.safeArgs) apply false
 }
 
 allprojects {
@@ -23,6 +16,16 @@ allprojects {
         jcenter()
         maven(url = "https://jitpack.io")
     }
+    apply(plugin = BuildPlugins.ktlintPlugin)
+    
+    ktlint{
+        android.set(true)
+        debug.set(true)
+        outputColorName.set("RED")
+    }
+
+    apply(plugin = BuildPlugins.dektPlugin)
+
 }
 
 tasks.register("clean").configure{
