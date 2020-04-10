@@ -1,18 +1,18 @@
 package com.android254.droidconKE2020.about.ui.viewmodel
 
 import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android254.droidconKE2020.about.R
 import com.android254.droidconKE2020.about.ui.views.Organizer
 
 /**
  * 29/03/20
  */
 class AboutViewModel : ViewModel() {
-    private val _organizer: MediatorLiveData<List<Organizer>> = MediatorLiveData()
+    private val _organizers: MutableLiveData<List<Organizer>> = MutableLiveData()
 
-    val organizer: MediatorLiveData<List<Organizer>>
-        get() = _organizer
+    val organizers: MutableLiveData<List<Organizer>>
+        get() = _organizers
 
     fun createDummyData() {
         // TODO Remove use of dummy data
@@ -26,6 +26,6 @@ class AboutViewModel : ViewModel() {
             )
         }
 
-        _organizer.value = list
+        _organizers.value = list
     }
 }

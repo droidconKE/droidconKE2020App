@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -49,7 +48,7 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
 
         binding.organizersList.adapter = adapter
         aboutViewModel.createDummyData() // TODO Remove use of dummy data
-        aboutViewModel.organizer.observe(viewLifecycleOwner, Observer {
+        aboutViewModel.organizers.observe(viewLifecycleOwner, Observer {
             adapter.updateData(it)
         })
     }
