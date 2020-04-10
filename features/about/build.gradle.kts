@@ -37,12 +37,12 @@ dependencies {
 
     // Testing Libraries
     testImplementation (TestLibraries.junit4)
-    testImplementation (TestLibraries.testRule)
+    testImplementation (TestLibraries.testRules)
     testImplementation (TestLibraries.archCore)
     testImplementation (TestLibraries.mockk)
     androidTestImplementation (TestLibraries.espresso)
-    androidTestImplementation (TestLibraries.fragmentTesting)
-    androidTestImplementation (TestLibraries.extJunit)
+    androidTestImplementation (TestLibraries.fragment)
+    androidTestImplementation (TestLibraries.testRunner)
 
     // Koin
     implementation (Libraries.koinAndroid)
