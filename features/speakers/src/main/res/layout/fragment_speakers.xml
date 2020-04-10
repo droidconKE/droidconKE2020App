@@ -9,14 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:alpha="0.6"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_speaker_header" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSpeakers"
             android:layout_width="match_parent"

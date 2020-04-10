@@ -39,7 +39,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="16dp"
-            android:background="@color/colorBermudaFaded"
+            android:background="@drawable/promo_background"
             app:layout_constraintBottom_toBottomOf="@+id/imgSpeakerToolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgSpeakerToolbar" />
@@ -47,19 +47,19 @@
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
             android:id="@+id/circleImageView"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="75dp"
+            android:layout_height="76dp"
             android:src="@drawable/greg"
+            app:imageUrl="@{speakerImg}"
             app:layout_constraintBottom_toBottomOf="@id/circleImageViewBg"
             app:layout_constraintEnd_toEndOf="@id/circleImageViewBg"
             app:layout_constraintStart_toStartOf="@id/circleImageViewBg"
             app:layout_constraintTop_toTopOf="@id/circleImageViewBg"
             app:shape_mode="circle"
-            app:imageUrl="@{speakerImg}"
             app:stroke_color="@color/colorAquaMarine"
             app:stroke_width="2dp"
 
-          />
+            />
 
         <TextView
             android:id="@+id/tvSpeakerName"

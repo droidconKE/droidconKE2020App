@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.speakers.views.viewmodels
+package com.android254.droidconKE2020.speakers.viewmodels
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel

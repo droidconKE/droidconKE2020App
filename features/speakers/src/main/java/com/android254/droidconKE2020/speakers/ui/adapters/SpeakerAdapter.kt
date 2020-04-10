@@ -2,11 +2,13 @@ package com.android254.droidconKE2020.speakers.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.speaker.databinding.ItemSpeakerBinding
 import com.android254.droidconKE2020.speakers.models.Speaker
+import com.google.android.material.chip.Chip
 
 class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
     ListAdapter<Speaker, RecyclerView.ViewHolder>(SpeakerDiffCallback()) {
@@ -27,6 +29,19 @@ class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
             binding.speaker = item
             binding.executePendingBindings()
             binding.setOpenSpeakerDetails { onSpeakerClicked.invoke(item) }
+
+            item.skills.forEach { skill ->
+                binding.cgSkills.addView(Chip(binding.cgSkills.context)
+                    .also {
+                        it.text = skill
+                        it.isClickable = false
+                        it.setTextAppearance(android.R.style.TextAppearance_Material_Caption)
+                        it.chipBackgroundColor = ContextCompat.getColorStateList(
+                            it.context,
+                            com.android254.droidconKE2020.R.color.colorAquaMarineFaded
+                        )
+                    })
+            }
         }
     }
 
