@@ -9,6 +9,15 @@ import com.github.javafaker.Faker
 class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : ViewModel() {
 
     /**
+     * Search stuff
+     */
+    private val _searchPhrase = MutableLiveData<String>()
+    val searchPhrase get() = _searchPhrase
+    fun setSearchPhrase(searchPhrase: String) {
+        _searchPhrase.postValue(searchPhrase)
+    }
+
+    /**
      * Speaker stuff
      * */
     val speakerList get() = speakerRepository.sessionSpeakers

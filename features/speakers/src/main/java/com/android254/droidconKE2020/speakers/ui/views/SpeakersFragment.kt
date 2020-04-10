@@ -1,12 +1,16 @@
 package com.android254.droidconKE2020.speakers.ui.views
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.android254.droidconKE2020.speaker.R
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakersBinding
 import com.android254.droidconKE2020.speakers.di.speakersModule
 import com.android254.droidconKE2020.speakers.models.Speaker
@@ -42,6 +46,11 @@ class SpeakersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.setGoBack { findNavController().navigateUp() }
+        binding.setOpenProfile { Log.e("openProfile", "Clicked") }
+
+        searchSpeaker()
         showSpeakersList()
     }
 
@@ -51,8 +60,35 @@ class SpeakersFragment : Fragment() {
         findNavController().navigate(speakerDetailsAction)
     }
 
-    private val onStarClicked: (Int) -> Unit = {speakerId-> speakersViewModel.adjustStars(speakerId) }
+    private val onStarClicked: (Int) -> Unit =
+        { speakerId -> speakersViewModel.adjustStars(speakerId) }
 
+    private fun searchSpeaker() {
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.speakersViewModel = speakersViewModel
+
+        speakersViewModel.searchPhrase.observe(viewLifecycleOwner, Observer { searchPhrase ->
+            with(binding.imgLogo) {
+                setImageDrawable(
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        if (searchPhrase.isNullOrEmpty()) com.android254.droidconKE2020.R.drawable.ic_droidcon_logo
+                        else R.drawable.ic_clear_24px
+                    )
+                )
+
+                setOnClickListener {
+                    if (searchPhrase.isNullOrEmpty())
+                        Toast.makeText(context, "Easter Egg", Toast.LENGTH_SHORT).show()
+                    else speakersViewModel.setSearchPhrase("")
+                }
+
+                binding.tvSearch.isCursorVisible = !searchPhrase.isNullOrEmpty()
+
+            }
+        })
+        speakersViewModel.setSearchPhrase("")
+    }
 
     private fun showSpeakersList() {
         val adapter = SpeakerAdapter(onSpeakerClicked, onStarClicked)

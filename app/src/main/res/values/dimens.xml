@@ -6,6 +6,8 @@
     <!-- Toolbar measurements -->
     <dimen name="toolbarBigContentSize">40dp</dimen>
     <dimen name="toolbarIconSize">32dp</dimen>
+    <dimen name="toolbarInsets">16dp</dimen>
+    <dimen name="toolbarContentMargin">5dp</dimen>
 
     <!-- List cards measurements -->
     <dimen name="cardCornerRadius">12dp</dimen>
