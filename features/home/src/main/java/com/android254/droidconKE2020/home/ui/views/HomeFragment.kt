@@ -13,17 +13,17 @@ import coil.api.load
 import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.home.R
+import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeRepositories
 import com.android254.droidconKE2020.home.di.homeViewModels
+import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
-import com.android254.droidconKE2020.speakers.models.Speaker
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -36,10 +36,13 @@ private val loadFeature by lazy {
     loadKoinModules(listOf(homeViewModels, homeRepositories, browserModule))
 }
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun injectFeature() = loadFeature
 
     private val homeViewModel: HomeViewModel by viewModel()
+
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +54,8 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -67,7 +71,7 @@ class HomeFragment : Fragment() {
 
     private fun onSpeakerClicked(speakerId: Int) {
         val speakerDetailsAction =
-            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment(speakerId)
+            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
         findNavController().navigate(speakerDetailsAction)
     }
 
@@ -88,10 +92,10 @@ class HomeFragment : Fragment() {
     private fun showPromoCard() {
         // Check for any available promos
         homeViewModel.activePromo.observe(viewLifecycleOwner, Observer { promo ->
-            promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
+            binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
             promo?.let {
-                promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
-                promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
+                binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
+                binding.promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
             }
         })
 
@@ -106,9 +110,9 @@ class HomeFragment : Fragment() {
 
     private fun showCallForSpeakersCard() {
         val callForSpeakerUrl = homeViewModel.callForSpeakerUrl
-        applyBtn.setOnClickListener { launchBrowser(callForSpeakerUrl) }
-        cfpDescription.setOnClickListener { launchBrowser(callForSpeakerUrl) }
-        cfpImage.load(R.drawable.cfp_image)
+        binding.applyBtn.setOnClickListener { launchBrowser(callForSpeakerUrl) }
+        binding.cfpDescription.setOnClickListener { launchBrowser(callForSpeakerUrl) }
+        binding.cfpImage.load(R.drawable.cfp_image)
     }
 
     private fun showKeynoteInfoCard() {
@@ -118,15 +122,15 @@ class HomeFragment : Fragment() {
             if (keynoteSpeaker == null) {
                 // ToDo: Show shimmer effect. No need to hide since this will always be available
             } else {
-                keynoteSpeakerImg.also {
+                binding.keynoteSpeakerImg.also {
                     it.load(keynoteSpeaker.imageUrl)
                     it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
-                keynoteSpeakerLbl.also {
+                binding.keynoteSpeakerLbl.also {
                     it.text = keynoteSpeaker.name
                     it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
-                keynoteLblBecomeSpeaker.setOnClickListener {
+                binding.keynoteLblBecomeSpeaker.setOnClickListener {
                     launchBrowser(homeViewModel.callForSpeakerUrl)
                 }
             }
@@ -134,25 +138,25 @@ class HomeFragment : Fragment() {
     }
 
     private fun showSessionsList() {
-        sessionCountChip.setOnClickListener { viewSessionsBtn.callOnClick() }
-        viewSessionsBtn.setOnClickListener {
+        binding.viewSessionsBtn.setOnClickListener {
             val sessionsFragmentAction =
                 HomeFragmentDirections.actionHomeFragmentToSessionsFragment()
             findNavController().navigate(sessionsFragmentAction)
         }
 
         val adapter = SessionAdapter()
-        sessionsList.adapter = adapter
+        binding.sessionsList.adapter = adapter
+        binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(20))
 
         homeViewModel.sessionList.observe(viewLifecycleOwner, Observer { sessions ->
             if (sessions == null) {
-                sessionCountChip.visibility = View.GONE
+                binding.sessionCountChip.visibility = View.GONE
 
                 // ToDo: Show shimmer effect. No need to hide since this will always be available
             } else {
-                sessionCountChip.visibility = View.VISIBLE
+                binding.sessionCountChip.visibility = View.VISIBLE
                 val totalSessions = "+${sessions.size}"
-                sessionCountChip.text = totalSessions
+                binding.sessionCountChip.text = totalSessions
                 adapter.updateData(sessions)
             }
         })
@@ -161,26 +165,36 @@ class HomeFragment : Fragment() {
     }
 
     private fun showSpeakersList() {
-        speakersCountChip.setOnClickListener { viewSpeakersBtn.callOnClick() }
-        viewSpeakersBtn.setOnClickListener {
-            val speakersFragmentAction =
-                HomeFragmentDirections.actionHomeFragmentToSpeakersFragment()
-            findNavController().navigate(speakersFragmentAction)
-        }
+        homeViewModel.setIsShowingAllSpeakers(false)
+        homeViewModel.isShowingAllSpeakers.observe(viewLifecycleOwner, Observer { isShowing ->
+            binding.viewSpeakersBtn.text =
+                getString(if (isShowing == true) R.string.view_less else R.string.view_all)
+            binding.viewSpeakersBtn.setOnClickListener {
+                if (isShowing == true) {
+                    // ToDo: Show one row of speakers
+                } else {
+                    // ToDo: Set layoutManager to a grid and show all speakers
+                }
+                homeViewModel.setIsShowingAllSpeakers(isShowing != true)
+            }
+        })
 
         val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked(it.id) }
-        val adapter = SpeakerAdapter(onSpeakerClicked)
-        speakersList.adapter = adapter
 
-        homeViewModel.speakerList.observe(viewLifecycleOwner, Observer { speakers ->
+        val adapter = SpeakerAdapter(onSpeakerClicked)
+        binding.speakersList.adapter = adapter
+        binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
+
+        homeViewModel.speakerList.observe(viewLifecycleOwner, Observer
+        { speakers ->
             if (speakers == null) {
-                speakersCountChip.visibility = View.GONE
+                binding.speakersCountChip.visibility = View.GONE
 
                 // ToDo: Show shimmer effect. No need to hide since this will always be available
             } else {
-                speakersCountChip.visibility = View.VISIBLE
+                binding.speakersCountChip.visibility = View.VISIBLE
                 val totalSpeakers = "+${speakers.size}"
-                speakersCountChip.text = totalSpeakers
+                binding.speakersCountChip.text = totalSpeakers
                 adapter.updateData(speakers)
             }
         })
@@ -189,7 +203,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun showSponsors() {
-        tvBecomeSponsor.setOnClickListener {
+        binding.tvBecomeSponsor.setOnClickListener {
             sendEmail(homeViewModel.becomeSponsorEmails, homeViewModel.becomeSponsorSubject)
         }
 
@@ -197,16 +211,16 @@ class HomeFragment : Fragment() {
 
         // ToDo: Merge two adapters to use a single list using MergeAdapter
         val goldAdapter = GoldSponsorAdapter(onSponsorClicked)
-        rvGoldSponsors.adapter = goldAdapter
-        rvGoldSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
+        binding.rvGoldSponsors.adapter = goldAdapter
+        binding.rvGoldSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
             it.flexDirection = FlexDirection.ROW
             it.flexWrap = FlexWrap.WRAP
             it.justifyContent = JustifyContent.SPACE_EVENLY
         }
 
         val otherAdapter = OtherSponsorAdapter(onSponsorClicked)
-        rvOtherSponsors.adapter = otherAdapter
-        rvOtherSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
+        binding.rvOtherSponsors.adapter = otherAdapter
+        binding.rvOtherSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
             it.flexDirection = FlexDirection.ROW
             it.flexWrap = FlexWrap.WRAP
             it.justifyContent = JustifyContent.SPACE_EVENLY
@@ -229,7 +243,7 @@ class HomeFragment : Fragment() {
     private fun showOrganizers() {
 
         val adapter = OrganizerAdapter()
-        organizersList.adapter = adapter
+        binding.organizersList.adapter = adapter
 
         homeViewModel.organizerList.observe(viewLifecycleOwner, Observer { organizers ->
             if (organizers == null) {
@@ -242,4 +256,8 @@ class HomeFragment : Fragment() {
         homeViewModel.retrieveOrganizerList()
     }
 
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+    }
 }

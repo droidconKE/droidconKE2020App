@@ -1,0 +1,5 @@
+com.github.javafaker:javafaker
+com.github.mifmif:generex
+dk.brics.automaton:automaton
+org.apache.commons:commons-lang3
+org.yaml:snakeyaml

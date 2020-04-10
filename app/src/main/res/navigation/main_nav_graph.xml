@@ -12,9 +12,6 @@
         app:moduleName="home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_speakersFragment"
-            app:destination="@id/speakersFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_SpeakerDetailsFragment"
             app:destination="@id/speakerDetailsFragment" />
         <action
@@ -66,7 +63,7 @@
             android:id="@+id/action_sessionsFragment_to_filterBottomSheet"
             app:destination="@id/filterBottomSheet"
             app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit" />
+            app:exitAnim="@anim/fragment_fade_exit"/>
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -79,27 +76,17 @@
             app:destination="@id/organizerDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/speakersFragment"
-        android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakersFragment"
-        android:label="Speakers"
-        app:moduleName="speakers"
-        tools:layout="@layout/fragment_speakers">
-        <action
-            android:id="@+id/action_speakersFragment_to_speakerDetailsFragment"
-            app:destination="@id/speakerDetailsFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit" />
-    </fragment>
-    <fragment
         android:id="@+id/speakerDetailsFragment"
-        android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakerDetailsFragment"
+        android:name="com.android254.droidconKE2020.speaker.views.ui.SpeakerDetailsFragment"
         android:label="Speaker Details"
-        app:moduleName="speakers"
+        app:moduleName="speaker"
         tools:layout="@layout/fragment_speaker_details">
 
         <argument
             android:name="speakerId"
+            android:defaultValue="0"
             app:argType="integer" />
+
     </fragment>
     <fragment
         android:id="@+id/organizerDetailsFragment"
@@ -139,7 +126,8 @@
         tools:layout="@layout/fragment_filter">
         <action
             android:id="@+id/action_filterFragment_to_SessionsFragment"
-            app:destination="@+id/sessionsFragment" />
+            app:destination="@+id/sessionsFragment"
+            />
     </fragment>
 
 </navigation>

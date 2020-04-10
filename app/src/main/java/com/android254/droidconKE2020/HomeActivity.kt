@@ -10,7 +10,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android254.droidconKE2020.core.Preferences
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import org.koin.android.ext.android.inject
 
@@ -34,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
             feedback()
         }
         toolbar.nightModeHandler = {
-            Toast.makeText(applicationContext, "Night", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,"Night",Toast.LENGTH_SHORT).show()
             toggleDarkTheme()
         }
     }
@@ -45,14 +44,15 @@ class HomeActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.findNavController()
-
         //Setup bottom navigation view with nav controller for dynamic navigation
         bottomNavigation.setupWithNavController(navController = navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             toolbar.onDestinationChanged(destination.id, destination.label as String)
-            bottomNavigation.visibility = when (destination.id) {
-                R.id.aboutFragment, R.id.homeFragment, R.id.feedFragment, R.id.sessionsFragment -> View.VISIBLE
-                else -> View.GONE
+            when (destination.id) {
+                R.id.aboutFragment, R.id.homeFragment, R.id.feedFragment, R.id.sessionsFragment -> {
+                    bottomNavigation.visibility = View.VISIBLE
+                }
+                else -> bottomNavigation.visibility = View.GONE
             }
         }
     }

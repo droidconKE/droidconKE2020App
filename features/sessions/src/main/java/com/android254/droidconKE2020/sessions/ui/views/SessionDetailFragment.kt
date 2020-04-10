@@ -100,7 +100,7 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail){
             it?.let {
                 sessionDetailViewModel.onSpeakerClicked()
                 val speakerDetailsAction =
-                    SessionDetailFragmentDirections.actionSessionDetailsFragmentToSpeakerDetailsFragment(it.toInt())
+                    SessionDetailFragmentDirections.actionSessionDetailsFragmentToSpeakerDetailsFragment()
                 findNavController().navigate(speakerDetailsAction)
             }
         })

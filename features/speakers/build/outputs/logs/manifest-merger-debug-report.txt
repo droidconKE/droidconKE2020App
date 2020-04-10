@@ -1,0 +1,53 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+	package
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:2:5-52
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+	xmlns:dist
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:11-67
+	xmlns:android
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+	android:versionCode
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:1:1-12:12
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+dist:module
+ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:4:5-11:19
+	dist:instant
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:5:9-29
+	dist:title
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:6:9-44
+dist:delivery
+ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:7:9-9:25
+dist:install-time
+ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:8:13-34
+dist:fusing
+ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:10:9-44
+	dist:include
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml:10:22-41
+uses-sdk
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+		ADDED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml
+		INJECTED from /home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/AndroidManifest.xml

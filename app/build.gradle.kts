@@ -27,7 +27,7 @@ android {
         BuildModules.Features.About,
         BuildModules.Features.Sessions,
         BuildModules.Features.Auth,
-        BuildModules.Features.Speakers,
+        BuildModules.Features.Speaker,
         BuildModules.Features.Feedback
     )
 

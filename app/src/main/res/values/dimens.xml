@@ -3,17 +3,6 @@
     <dimen name="twitter_handle_bg">24dp</dimen>
     <dimen name="twitter_handle">24dp</dimen>
 
-    <!-- Toolbar measurements -->
     <dimen name="toolbarBigContentSize">40dp</dimen>
     <dimen name="toolbarIconSize">32dp</dimen>
-    <dimen name="toolbarInsets">16dp</dimen>
-    <dimen name="toolbarContentMargin">5dp</dimen>
-
-    <!-- List cards measurements -->
-    <dimen name="cardCornerRadius">12dp</dimen>
-    <dimen name="cardElevation">8dp</dimen>
-    <dimen name="cardMarginVertical">8dp</dimen>
-    <dimen name="cardMarginHorizontal">16dp</dimen>
-    <dimen name="cardPadding">8dp</dimen>
-
 </resources>

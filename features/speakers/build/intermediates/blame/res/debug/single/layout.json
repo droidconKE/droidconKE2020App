@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speaker_details.xml",
+        "source": "/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/res/layout/fragment_speaker_details.xml"
+    },
+    {
+        "merged": "/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speakers.xml",
+        "source": "/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/res/layout/fragment_speakers.xml"
+    },
+    {
+        "merged": "/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_speaker.xml",
+        "source": "/home/oly/Workspace/OpenSource/Android/DroidConKE2020/features/speakers/src/main/res/layout/item_speaker.xml"
+    }
+]
