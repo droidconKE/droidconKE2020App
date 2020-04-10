@@ -32,8 +32,17 @@ android {
 dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
-    testImplementation(TestLibraries.junit4)
+    implementation (project(BuildModules.Libraries.Core))
     implementation (Libraries.constraintLayout)
+
+    // Testing Libraries
+    testImplementation (TestLibraries.junit4)
+    testImplementation (TestLibraries.testRules)
+    testImplementation (TestLibraries.archCore)
+    testImplementation (TestLibraries.mockk)
+    androidTestImplementation (TestLibraries.espresso)
+    androidTestImplementation (TestLibraries.fragment)
+    androidTestImplementation (TestLibraries.testRunner)
 
     // Koin
     implementation (Libraries.koinAndroid)
