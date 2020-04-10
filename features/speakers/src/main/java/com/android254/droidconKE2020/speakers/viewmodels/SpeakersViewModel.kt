@@ -1,10 +1,12 @@
 package com.android254.droidconKE2020.speakers.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.speakers.models.SocialMedia
 import com.android254.droidconKE2020.speakers.models.Speaker
 import com.github.javafaker.Faker
+import java.util.*
 
 class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : ViewModel() {
 
@@ -13,8 +15,8 @@ class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : 
      */
     private val _searchPhrase = MutableLiveData<String>()
     val searchPhrase get() = _searchPhrase
-    fun setSearchPhrase(searchPhrase: String) {
-        _searchPhrase.postValue(searchPhrase)
+    fun setSearchPhrase(value: String) {
+        _searchPhrase.postValue(value)
     }
 
     /**
@@ -22,14 +24,16 @@ class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : 
      * */
     val speakerList get() = speakerRepository.sessionSpeakers
 
-    fun retrieveSpeakerList() {
-        speakerRepository.refreshSpeakers()
+    fun retrieveSpeakerList(searchPhrase: String?) {
+        if (searchPhrase.isNullOrBlank()) speakerRepository.refreshSpeakers()
+        else speakerRepository.searchSpeakers(searchPhrase.toLowerCase(Locale.ROOT))
     }
 
     /**
      * Star stuff
      * */
     fun adjustStars(speakerId: Int) {
+        Log.e("adjustStars", "Added $speakerId")
         // ToDo
     }
 }
@@ -38,6 +42,12 @@ class FakeSpeakerRepository {
     private val db = mutableListOf<Speaker>()
     val keynoteSpeaker = MutableLiveData<Speaker>()
     val sessionSpeakers = MutableLiveData<List<Speaker>>()
+
+    fun searchSpeakers(searchPhrase: String) {
+        val searchedDb = mutableListOf<Speaker>()
+        db.forEach { if (it.toString().toLowerCase().contains(searchPhrase)) searchedDb.add(it) }
+        sessionSpeakers.postValue(searchedDb)
+    }
 
     fun refreshSpeakers() {
         db.clear()

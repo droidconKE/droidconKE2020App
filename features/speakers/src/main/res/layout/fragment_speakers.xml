@@ -39,6 +39,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="?colorSurface"
                     android:orientation="horizontal"
                     app:layout_collapseMode="parallax">
 
@@ -52,7 +53,6 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="?actionBarSize"
-                        android:background="@drawable/background_toolbar_reverse"
                         android:paddingStart="@dimen/toolbarInsets"
                         android:paddingEnd="@dimen/toolbarInsets">
 

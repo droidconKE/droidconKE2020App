@@ -84,7 +84,7 @@ class SpeakersFragment : Fragment() {
                 }
 
                 binding.tvSearch.isCursorVisible = !searchPhrase.isNullOrEmpty()
-
+                speakersViewModel.retrieveSpeakerList(searchPhrase)
             }
         })
         speakersViewModel.setSearchPhrase("")
@@ -99,6 +99,6 @@ class SpeakersFragment : Fragment() {
                 // ToDo: show shimmer
             } else adapter.submitList(speakers)
         })
-        speakersViewModel.retrieveSpeakerList()
+        speakersViewModel.retrieveSpeakerList(null)
     }
 }
