@@ -35,7 +35,7 @@ class FakeSpeakerRepository {
 
         val faker = Faker()
 
-        for (i in 0 until 47) {
+        for (i in 0 until 10) {
             db.add(
                 Speaker(
                     id = i,
