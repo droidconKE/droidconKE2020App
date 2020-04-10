@@ -8,8 +8,6 @@ android {
     defaultConfig {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
-        versionCode = Versions.code
-        versionName = Versions.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -17,6 +15,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        isEnabled = true
     }
 }
 
@@ -31,4 +33,9 @@ dependencies {
     implementation (Libraries.koinExt)
     implementation (Libraries.koinScope)
     implementation (Libraries.koinViewModel)
+
+    androidTestImplementation(project(":app", "intTestDependencies"))
+
+    //Google auth
+    implementation (Libraries.googleAuth)
 }

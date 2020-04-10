@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorBackground"
+    android:layout_height="wrap_content"
+    tools:context=".ui.views.ShareFragment">
+
+    <ImageButton
+        android:id="@+id/shareIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@null"
+        android:contentDescription="@string/share_icon"
+        android:tint="@color/colorAquaMarine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_share" />
+
+    <TextView
+        android:id="@+id/shareTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/roboto_slab"
+        android:text="@string/share"
+        android:textColor="@color/colorAquaMarine"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/shareIcon"
+        app:layout_constraintStart_toEndOf="@id/shareIcon"
+        app:layout_constraintTop_toTopOf="@id/shareIcon" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/twitterShare"
+        style="@style/Widget.Feed.Button.Share"
+        android:layout_width="@dimen/shareButtonWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/twitter"
+        app:icon="@drawable/ic_twitter"
+        app:layout_constraintEnd_toStartOf="@id/fbShare"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shareTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fbShare"
+        style="@style/Widget.Feed.Button.Share"
+        android:layout_width="@dimen/shareButtonWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/facebook"
+        app:icon="@drawable/ic_facebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/twitterShare"
+        app:layout_constraintTop_toBottomOf="@id/shareTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/whatsappShare"
+        style="@style/Widget.Feed.Button.Share"
+        android:layout_width="@dimen/shareButtonWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/whatsapp"
+        app:icon="@drawable/ic_whatsapp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/telegramShare"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/twitterShare" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/telegramShare"
+        style="@style/Widget.Feed.Button.Share"
+        android:layout_width="@dimen/shareButtonWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/telegram"
+        app:icon="@drawable/ic_telegram"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/whatsappShare"
+        app:layout_constraintTop_toBottomOf="@id/twitterShare" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

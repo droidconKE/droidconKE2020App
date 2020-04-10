@@ -1,85 +1,136 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.R
+import com.android254.droidconKE2020.R as AppR
+import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding
 import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
-import com.android254.droidconKE2020.sessions.ui.views.adapter.OnSessionClickListener
+import com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener
+import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionClickListener
 import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
-import kotlinx.android.synthetic.main.fragment_day_sessions.*
+import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
+import com.android254.droidconKE2020.sessions.ui.views.viewmodel.DaySessionsViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass.
  */
-internal class DaySessions(day: String) : Fragment() {
+class DaySessions : Fragment(R.layout.fragment_day_sessions) {
+
+
+    private fun injectFeatures() = loadModules
+    private val daySessionsViewModel: DaySessionsViewModel by viewModel()
+    private var _binding: FragmentDaySessionsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_day_sessions, container, false)
+        _binding = FragmentDaySessionsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setUpRvSessions()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        injectFeatures()
+        super.onViewCreated(view, savedInstanceState)
+        getDaySessions()
+        observeDaySessions()
+        observeNavigateToSessionDetail()
+        observeSaveSessionItem()
     }
 
-    private fun setUpRvSessions() {
-        val sessions = listOf(
-            DummySession(
-                sessionSpeaker = "James Kirwa",
-                sessionTitle = "Coroutines In Depth",
-                sessionVenue = "Twiga Foods",
-                sessionDescription = "A beginner guide to asynchronous programming",
-                sessionStartTime = "9:00 AM",
-                sessionEndTime = "9:30 AM"
-            ), DummySession(
-                sessionSpeaker = "Jake Wharton",
-                sessionTitle = "Retrofit",
-                sessionVenue = "ROOM 2",
-                sessionDescription = "Let's retrofit",
-                sessionStartTime = "9:30 AM",
-                sessionEndTime = "10:30 AM"
-            ), DummySession(
-                sessionSpeaker = "Chris Banes",
-                sessionTitle = "Kotlin Flows",
-                sessionVenue = "ROOM 3",
-                sessionDescription = "Flowing in Kotlin",
-                sessionStartTime = "11:00 AM",
-                sessionEndTime = "11:30 AM"
-            ), DummySession(
-                sessionSpeaker = "Juma Allan",
-                sessionTitle = "Android Modularization",
-                sessionVenue = "ROOM 2",
-                sessionDescription = "Modularization:The Branch Story",
-                sessionStartTime = "12:00 AM",
-                sessionEndTime = "12:30 AM"
-            ), DummySession(
-                sessionSpeaker = "Android Maestro",
-                sessionTitle = "Invalidate caches/ restart",
-                sessionVenue = "Room 4",
-                sessionDescription = "How to be a rockstar developer",
-                sessionStartTime = "2:00 AM",
-                sessionEndTime = "2:30 AM"
-            )
-        )
-        val sessionsAdapter = SessionsAdapter(sessions = sessions, context = requireContext()){
-            val sessionsFragmentDirections = SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment()
-            findNavController().navigate(sessionsFragmentDirections)
+    private fun observeDaySessions() {
+        daySessionsViewModel.daySessions.observe(viewLifecycleOwner, Observer { sessions ->
+            if (sessions.isNotEmpty()) {
+                setUpRvSessions(sessions)
+            }
+        })
+    }
 
-        }
+    private fun observeNavigateToSessionDetail() {
+        daySessionsViewModel.navigateToSessionDetail.observe(
+            viewLifecycleOwner,
+            Observer { sessionId ->
+                sessionId?.let {
+                    val sessionsFragmentDirections =
+                        SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment(
+                            sessionId
+                        )
+                    findNavController().navigate(sessionsFragmentDirections)
+                    daySessionsViewModel.onSessionDetailNavigated()
+                }
+            })
+    }
 
-        rvSessions.adapter = sessionsAdapter
+    private fun observeSaveSessionItem() {
+        daySessionsViewModel.saveSessionItem.observe(viewLifecycleOwner, Observer { session ->
+            session?.let {
+                if (session.isSessionSaved) {
+                    requireContext().displayToast(" ${session.sessionTitle} Unsaved")
+                    daySessionsViewModel.onSessionItemSaved()
+                } else {
+                    requireContext().displayToast(" ${session.sessionTitle} Saved")
+                    daySessionsViewModel.onSessionItemSaved()
+                }
+            }
+        })
+    }
+
+    private fun setUpRvSessions(sessions: List<DummySession>) {
+        val sessionsAdapter = SessionsAdapter(
+            sessions = sessions,
+            saveSessionListener = SaveSessionListener { session, view ->
+                daySessionsViewModel.onSaveSessionItemClicked(session = session)
+                if (session.isSessionSaved) {
+                    session.isSessionSaved = false
+                    (view as ImageView).setImageDrawable(
+                        resources.getDrawable(
+                            R.drawable.ic_star_outline,
+                            null
+                        )
+                    )
+                } else {
+                    session.isSessionSaved = true
+                    (view as ImageView).setImageDrawable(
+                        resources.getDrawable(
+                            AppR.drawable.ic_star,
+                            null
+                        )
+                    )
+                }
+            },
+            sessionClickListener = SessionClickListener { sessionId ->
+                daySessionsViewModel.onSessionItemClicked(sessionId = sessionId)
+            })
+        binding.rvSessions.adapter = sessionsAdapter
+    }
+
+    private fun getDaySessions() {
+        daySessionsViewModel.getDaySessions(arguments?.getString("day").orEmpty())
     }
 
     companion object {
-        fun newInstance(day: String): DaySessions = DaySessions(day)
+        fun newInstance(day: String): DaySessions = DaySessions().also {
+            val args = Bundle()
+            args.putString("day", day)
+            it.arguments = args
+        }
     }
 
 }
+
+fun Context.displayToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(this, message, duration).show()
+}
+

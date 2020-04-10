@@ -48,9 +48,9 @@
             android:layout_centerInParent="true"
             android:isIndicator="true"
             android:numStars="5"
-            android:progressBackgroundTint="#D3D3D3"
-            android:outlineAmbientShadowColor="@color/gray"
-            android:progressTint="@color/gold"
+            android:progressBackgroundTint="@color/colorLightGrey"
+            android:outlineAmbientShadowColor="@color/colorGrey"
+            android:progressTint="@color/colorGold"
             android:textAlignment="center"
             android:stepSize="1"
             android:rating="1"
@@ -64,8 +64,9 @@
         android:layout_margin="@dimen/fifty_dp"
         android:background="@drawable/btn_round_edge"
         android:text="@string/submit_feedback"
-        android:textColor="@color/white"
+        android:textColor="@color/colorWhite"
         android:paddingRight="@dimen/ten_dp"
         android:drawableRight="@drawable/ic_send"
+        android:drawableTint="@android:color/white"
         />
 </LinearLayout>

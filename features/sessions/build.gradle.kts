@@ -9,8 +9,6 @@ android {
     defaultConfig {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
-        versionCode = Versions.code
-        versionName = Versions.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -22,11 +20,15 @@ android {
     viewBinding {
         isEnabled = true
     }
+    dataBinding {
+        isEnabled = true
+    }
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":app"))
+    implementation(project(":core"))
     implementation(Libraries.constraintLayout)
     implementation(Libraries.coil)
     implementation(Libraries.shapedImageView)
@@ -37,4 +39,7 @@ dependencies {
     implementation (Libraries.koinExt)
     implementation (Libraries.koinScope)
     implementation (Libraries.koinViewModel)
+
+    //Test
+    testImplementation(project(":test-utils", "testDependencies"))
 }

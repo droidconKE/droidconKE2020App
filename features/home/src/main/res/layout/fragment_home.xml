@@ -46,8 +46,8 @@
             app:constraint_referenced_ids="promoImg,promoBg" />
 
         <com.google.android.material.card.MaterialCardView
-            style="@style/Widget.MaterialComponents.CardView"
             android:id="@+id/cfpCard"
+            style="@style/Widget.MaterialComponents.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -55,10 +55,10 @@
             android:layout_marginEnd="16dp"
             android:maxHeight="100dp"
             android:minHeight="80dp"
+            app:cardBackgroundColor="@color/colorCfpBackground"
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
             app:contentPadding="16dp"
-            app:cardBackgroundColor="@color/lightPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/promoImg">
@@ -75,7 +75,7 @@
                     android:layout_marginEnd="4dp"
                     android:background="@null"
                     android:src="@drawable/ic_play"
-                    android:tint="@color/darkPurple"
+                    android:tint="@color/colorDarkPurple"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +87,7 @@
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/roboto_slab"
                     android:text="@string/call_for_speakers"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorOnBackground"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@id/applyBtn"
@@ -151,7 +151,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/roboto_slab"
                     android:text="@string/keynote_speaker"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorOnBackground"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -177,13 +177,14 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/keynoteLblBecomeSpeaker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/become_a_speaker"
-                    android:textColor="@color/darkPurple"
+                    android:textColor="@color/colorLinks"
                     android:textSize="12sp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -195,7 +196,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/superLightPurple"
+            android:background="@color/colorPurpleTransparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/keynoteSpeakerCard" />
@@ -216,7 +217,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_slab"
                 android:text="@string/sessions"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorOnBackground"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -228,8 +229,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/dummy_session_count"
-                android:textColor="@color/darkPurple"
-                app:chipBackgroundColor="@color/superLightPurple"
+                android:textColor="@color/colorDarkPurple"
+                app:chipBackgroundColor="@color/colorLightPurple"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -240,10 +241,10 @@
                 android:layout_height="40dp"
                 android:text="@string/view_all"
                 android:textAllCaps="false"
-                android:textColor="@color/darkPurple"
+                android:textColor="@color/colorViewAll"
                 app:layout_constraintEnd_toStartOf="@id/sessionCountChip"
                 app:layout_constraintTop_toTopOf="parent"
-                app:rippleColor="@color/lightPurple" />
+                app:rippleColor="@color/colorLightPurple" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/sessionsList"
@@ -255,7 +256,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sessionsTitle"
-                tools:listitem="@layout/item_session" />
+                tools:listitem="@layout/home_item_session" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -266,7 +267,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/superLightPurple"
+            android:background="@color/colorPurpleTransparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sessionsLayout" />
@@ -287,7 +288,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_slab"
                 android:text="@string/speakers"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorOnBackground"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -299,8 +300,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/dummy_session_count"
-                android:textColor="@color/darkPurple"
-                app:chipBackgroundColor="@color/superLightPurple"
+                android:textColor="@color/colorDarkPurple"
+                app:chipBackgroundColor="@color/colorLightPurple"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -311,10 +312,10 @@
                 android:layout_height="40dp"
                 android:text="@string/view_all"
                 android:textAllCaps="false"
-                android:textColor="@color/darkPurple"
+                android:textColor="@color/colorViewAll"
                 app:layout_constraintEnd_toStartOf="@id/speakersCountChip"
                 app:layout_constraintTop_toTopOf="parent"
-                app:rippleColor="@color/lightPurple" />
+                app:rippleColor="@color/colorLightPurple" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/speakersList"
@@ -324,14 +325,14 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/speakersTitle"
-                tools:listitem="@layout/item_speaker" />
+                tools:listitem="@layout/home_item_speaker" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/sponsorsCard"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -352,62 +353,34 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_slab"
                     android:text="@string/sponsors"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorOnBackground"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/sponsor1Img"
-                    android:layout_width="108dp"
-                    android:layout_height="36dp"
-                    android:layout_marginTop="16dp"
-                    android:scaleType="fitXY"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGoldSponsors"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:overScrollMode="never"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sponsorsTitle"
-                    tools:src="@drawable/google" />
+                    app:layout_constraintTop_toBottomOf="@id/sponsorsTitle" />
 
-                <ImageView
-                    android:id="@+id/sponsor2Img"
-                    android:layout_width="76dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:scaleType="fitXY"
-                    app:layout_constraintEnd_toStartOf="@+id/sponsor3Img"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sponsor1Img"
-                    tools:src="@drawable/andela" />
-
-                <ImageView
-                    android:id="@+id/sponsor3Img"
-                    android:layout_width="76dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="16dp"
-                    android:scaleType="fitXY"
-                    app:layout_constraintEnd_toStartOf="@+id/sponsor4Img"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/sponsor2Img"
-                    app:layout_constraintTop_toBottomOf="@id/sponsor1Img"
-                    tools:src="@drawable/hover" />
-
-                <ImageView
-                    android:id="@+id/sponsor4Img"
-                    android:layout_width="76dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="16dp"
-                    android:scaleType="fitCenter"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/sponsor3Img"
-                    app:layout_constraintTop_toBottomOf="@id/sponsor1Img"
-                    tools:src="@drawable/jetbrains" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOtherSponsors"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    app:layout_constraintEnd_toEndOf="@id/rvGoldSponsors"
+                    app:layout_constraintStart_toStartOf="@id/rvGoldSponsors"
+                    app:layout_constraintTop_toBottomOf="@id/rvGoldSponsors" />
 
                 <TextView
+                    android:id="@+id/tvBecomeSponsor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -415,12 +388,12 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/become_a_sponsor"
-                    android:textColor="@color/darkPurple"
+                    android:textColor="@color/colorLinks"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sponsor3Img" />
+                    app:layout_constraintTop_toBottomOf="@id/rvOtherSponsors" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -451,7 +424,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/roboto_slab"
                     android:text="@string/organized_by"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorOnBackground"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -464,7 +437,7 @@
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:spanCount="4"
-                    tools:listitem="@layout/item_organizer" />
+                    tools:listitem="@layout/home_item_organizer" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

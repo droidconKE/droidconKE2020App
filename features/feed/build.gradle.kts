@@ -9,8 +9,6 @@ android {
     defaultConfig {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
-        versionCode = Versions.code
-        versionName = Versions.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,16 +33,16 @@ android {
 }
 
 dependencies {
-    implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation (project(":app"))
-    testImplementation(TestLibraries.junit4)
-    testImplementation(TestLibraries.mockk)
-    testImplementation(TestLibraries.archCore)
-    testImplementation(TestLibraries.core)
-    testImplementation(project(":test-utils"))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(":app"))
     // Koin
-    implementation (Libraries.koinAndroid)
-    implementation (Libraries.koinExt)
-    implementation (Libraries.koinScope)
-    implementation (Libraries.koinViewModel)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
+    debugImplementation(TestLibraries.fragment)
+
+    testImplementation(project(":test-utils", "testDependencies"))
+
+    androidTestImplementation(project(":app", "intTestDependencies"))
 }

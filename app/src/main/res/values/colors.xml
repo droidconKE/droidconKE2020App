@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">@color/colorPurple</color>
+    <color name="colorSecondary">@color/colorYellow</color>
+    <color name="colorBackground">@color/colorWhite</color>
+    <color name="colorPrimaryVariant">@color/colorDarkPurple</color>
+    <color name="colorPrimaryDark">@color/colorDarkPurple</color>
+    <color name="colorSecondaryVariant">@color/colorGreen</color>
+    <color name="colorSurface">@color/colorWhite</color>
+    <color name="colorOnPrimary">@color/colorWhite</color>
+    <color name="colorOnSecondary">@color/colorPurple</color>
+    <color name="colorOnBackground">@color/colorBlack</color>
+    <color name="colorOnSurface">@color/colorBlack</color>
+    <color name="colorIconBackground">#ff000000</color>
+    <color name="colorStatusBar">@color/colorWhite</color>
+
+    <!--  Home Screen-->
+    <color name="colorCfpBackground">@color/colorLightPurple</color>
+    <color name="colorLinks">@color/colorDarkPurple</color>
+    <color name="colorViewAll">@color/colorPurple</color>
+
+    <!--  Session Details-->
+    <color name="colorSessionDetailsTitle">@color/colorDarkPurple</color>
+    <color name="colorSessionLevelBackground">@color/colorPurple</color>
+    <color name="colorOnSessionLevelBackground">@color/colorWhite</color>
+    <color name="colorSessionDetailsCard">@color/colorGreen</color>
+    <color name="colorShareIcon">@color/colorPurple</color>
+
+    <!--  About Screen-->
+    <color name="colorAboutTitle">@color/colorDarkPurple</color>
+
+    <!--  Organizer Details Screen-->
+    <color name="colorOrganizerName">@color/colorDarkPurple</color>
+
+    <!--  Colors used across the app -->
+    <color name="colorLightGrey">#f5f5f5</color>
+    <color name="colorGrey">#9b9b9b</color>
+    <color name="colorDarkGrey">#707070</color>
+    <color name="colorPurple">#9254a1</color>
+    <color name="colorDarkPurple">#863B96</color>
+    <color name="colorLightPurple">#ecdaf1</color>
+    <color name="colorGreen">#82e3b3</color>
+    <color name="colorLightGreen">#c2f1da</color>
+    <color name="colorBermuda">#68dea4</color>
+    <color name="colorBermudaFaded">#1c68dea4</color>
+    <color name="colorAquaMarine">#1ce8b5</color>
+    <color name="colorBlack">#191d1d</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorYellow">#ffd858</color>
+    <color name="superLightPurple">#0D843D95</color>
+    <color name="colorAquaMarineFaded">#1D68DEA4</color>
+    <color name="colorRevolver">#241527</color>
+
+    <!-- Line Separator Color -->
+    <color name="colorPurpleTransparent">#0D843D95</color>
 </resources>
