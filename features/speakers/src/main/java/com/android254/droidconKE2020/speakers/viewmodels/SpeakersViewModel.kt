@@ -43,6 +43,24 @@ class FakeSpeakerRepository {
     val keynoteSpeaker = MutableLiveData<Speaker>()
     val sessionSpeakers = MutableLiveData<List<Speaker>>()
 
+    fun retrieveSpeaker(speakerId: Int): Speaker? {
+        var speaker: Speaker? = null
+
+        val db = db
+        keynoteSpeaker.value?.let { db.add(it) }
+
+        db.forEach {
+            if (it.id == speakerId) {
+                speaker = it
+                return@forEach
+            }
+        }
+
+        Log.e(">>>>", speaker.toString())
+
+        return speaker
+    }
+
     fun searchSpeakers(searchPhrase: String) {
         val searchedDb = mutableListOf<Speaker>()
         db.forEach { if (it.toString().toLowerCase().contains(searchPhrase)) searchedDb.add(it) }
@@ -59,12 +77,15 @@ class FakeSpeakerRepository {
                 Speaker(
                     id = i,
                     name = faker.funnyName().name(),
-                    bio = faker.backToTheFuture().quote(),
+                    bio = faker.backToTheFuture().quote() + " " +
+                            faker.gameOfThrones().quote() + " " +
+                            faker.harryPotter().quote() + " " +
+                            faker.shakespeare().romeoAndJulietQuote(),
                     work = faker.job().title(),
                     company = faker.company().name(),
                     skills = faker.job().keySkills().split(","),
                     imageUrl = faker.avatar().image(),
-                    socialMedia = SocialMedia(),
+                    socialMedia = SocialMedia(twitter = faker.name().username()),
                     stars = listOf(),
                     isKeynoteSpeaker = i == 0
                 )

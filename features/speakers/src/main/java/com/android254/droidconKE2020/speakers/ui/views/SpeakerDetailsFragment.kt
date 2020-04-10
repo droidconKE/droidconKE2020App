@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakerDetailsBinding
 import com.android254.droidconKE2020.speakers.di.speakerModule
 import com.android254.droidconKE2020.speakers.viewmodels.SpeakerDetailsViewModel
@@ -35,24 +36,21 @@ class SpeakerDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val args: SpeakerDetailsFragmentArgs by navArgs()
+
         binding.lifecycleOwner = this
-        binding.speakerImg =
-            "https://firebasestorage.googleapis.com/v0/b/droidconke-70d60.appspot.com/o/speakers2019%2Fjabez-mu.png?alt=media&token=ece3cbbd-b896-4748-9d9a-39e58391db92"
 
         observeSpeakerDetails()
-        getSpeakerDetails()
-
+        getSpeakerDetails(args.speakerId)
     }
 
     private fun observeSpeakerDetails() {
-        speakerDetailsViewModel.speakerDetails.observe(
-            viewLifecycleOwner,
-            Observer { speakerDetailsModel ->
-                binding.speakerDetailsModel = speakerDetailsModel
-            })
+        speakerDetailsViewModel.speakerDetails.observe(viewLifecycleOwner, Observer { speaker ->
+            binding.speaker = speaker
+        })
     }
 
-    private fun getSpeakerDetails() {
-        speakerDetailsViewModel.fetchSpeakerDetails()
+    private fun getSpeakerDetails(speakerId: Int) {
+        speakerDetailsViewModel.fetchSpeakerDetails(speakerId)
     }
 }

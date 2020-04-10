@@ -96,9 +96,11 @@ class SpeakersFragment : Fragment() {
 
         speakersViewModel.speakerList.observe(viewLifecycleOwner, Observer { speakers ->
             if (speakers == null) {
-                // ToDo: show shimmer
+                // ToDo: show shimmer for the first time and null views for conseq times.
+                //  This can be null due to the search functionality
             } else adapter.submitList(speakers)
         })
+
         speakersViewModel.retrieveSpeakerList(null)
     }
 }

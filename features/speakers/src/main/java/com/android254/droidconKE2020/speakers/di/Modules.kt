@@ -8,12 +8,11 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val speakerModule: Module = module {
-    viewModel { SpeakerDetailsViewModel() }
+    viewModel { SpeakerDetailsViewModel(get()) }
 }
 
 val speakersModule = module {
     viewModel { SpeakersViewModel(get()) }
-//    speakerRepositories
 }
 
 val speakerRepositories = module {
