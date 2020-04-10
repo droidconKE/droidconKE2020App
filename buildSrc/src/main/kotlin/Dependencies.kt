@@ -1,4 +1,4 @@
- object Versions {
+object Versions {
     const val name = "1.0"
     const val code = 1
     const val kotlin = "1.3.61"
