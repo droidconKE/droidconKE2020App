@@ -9,8 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.speaker.databinding.ItemSpeakerBinding
 import com.android254.droidconKE2020.speakers.models.Speaker
 import com.google.android.material.chip.Chip
+import kotlin.random.Random
 
-class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
+class SpeakerAdapter(
+    val onSpeakerClicked: (Speaker) -> Unit,
+    val onStarClicked: (Int) -> Unit
+) :
     ListAdapter<Speaker, RecyclerView.ViewHolder>(SpeakerDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -29,6 +33,17 @@ class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
             binding.speaker = item
             binding.executePendingBindings()
             binding.setOpenSpeakerDetails { onSpeakerClicked.invoke(item) }
+            binding.setAdjustStars {
+                onStarClicked.invoke(item.id)
+                // ToDo Remove below code after implementing repository and vm
+                binding.tvStars.text = Random.nextInt(200).toString()
+                binding.btnStar.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        it.context,
+                        com.android254.droidconKE2020.R.drawable.ic_star
+                    )
+                )
+            }
 
             item.skills.forEach { skill ->
                 binding.cgSkills.addView(Chip(binding.cgSkills.context)

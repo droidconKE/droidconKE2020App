@@ -17,6 +17,7 @@ data class Speaker(
     val company: String,
     val skills: List<String>,
     val imageUrl: String,
+    val stars: List<Int>,
     val socialMedia: SocialMedia,
     val isKeynoteSpeaker: Boolean = false
 )

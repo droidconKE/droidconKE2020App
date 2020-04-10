@@ -17,6 +17,12 @@ class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : 
         speakerRepository.refreshSpeakers()
     }
 
+    /**
+     * Star stuff
+     * */
+    fun adjustStars(speakerId: Int) {
+        // ToDo
+    }
 }
 
 class FakeSpeakerRepository {
@@ -40,6 +46,7 @@ class FakeSpeakerRepository {
                     skills = faker.job().keySkills().split(","),
                     imageUrl = faker.avatar().image(),
                     socialMedia = SocialMedia(),
+                    stars = listOf(),
                     isKeynoteSpeaker = i == 0
                 )
             )
