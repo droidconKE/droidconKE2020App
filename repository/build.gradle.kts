@@ -19,7 +19,10 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -34,20 +37,21 @@ android {
 }
 
 dependencies {
-    implementation (project(":data"))
-    implementation (project(":network"))
+    implementation(project(":data"))
+    implementation(project(":network"))
+    implementation(Libraries.fakeit)
 
-    implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
-    implementation (Libraries.ktxCore)
-    testImplementation (TestLibraries.junit4)
-    androidTestImplementation (TestLibraries.testRunner)
-    androidTestImplementation (TestLibraries.espresso)
+    implementation(Libraries.ktxCore)
+    testImplementation(TestLibraries.junit4)
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.espresso)
 
     // Koin
-    implementation (Libraries.koinAndroid)
-    implementation (Libraries.koinExt)
-    implementation (Libraries.koinScope)
-    implementation (Libraries.koinViewModel)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
 }

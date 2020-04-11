@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.speaker.databinding.ItemSpeakerBinding
-import com.android254.droidconKE2020.speakers.models.Speaker
+import com.android254.droidconKE2020.repository.models.Speaker
 import com.google.android.material.chip.Chip
 import kotlin.random.Random
 

@@ -19,7 +19,7 @@
 
         <variable
             name="speaker"
-            type="com.android254.droidconKE2020.speakers.models.Speaker" />
+            type="com.android254.droidconKE2020.repository.models.Speaker" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
