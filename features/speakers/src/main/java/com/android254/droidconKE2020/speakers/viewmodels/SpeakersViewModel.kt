@@ -13,15 +13,13 @@ class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : 
      */
     private val _searchPhrase = MutableLiveData<String>()
     val searchPhrase get() = _searchPhrase
-    fun setSearchPhrase(value: String) {
-        _searchPhrase.postValue(value)
-    }
+    fun clearSearch() = _searchPhrase.postValue("")
+
 
     /**
      * Speaker stuff
      * */
     val speakerList get() = speakerRepository.sessionSpeakers
-
     fun retrieveSpeakerList(searchPhrase: String?) {
         if (searchPhrase.isNullOrBlank()) speakerRepository.refreshSpeakers()
         else speakerRepository.searchSpeakers(searchPhrase.toLowerCase(Locale.ROOT))

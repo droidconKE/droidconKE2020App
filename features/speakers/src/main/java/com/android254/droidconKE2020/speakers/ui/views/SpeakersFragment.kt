@@ -5,12 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.android254.droidconKE2020.speaker.R
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakersBinding
 import com.android254.droidconKE2020.speakers.di.speakersModule
 import com.android254.droidconKE2020.speakers.models.Speaker
@@ -19,15 +16,11 @@ import com.android254.droidconKE2020.speakers.viewmodels.SpeakersViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
-private val loadFeature by lazy {
-    loadKoinModules(listOf(speakersModule))
-}
+private val loadFeature by lazy { loadKoinModules(listOf(speakersModule)) }
 
 class SpeakersFragment : Fragment() {
     private fun injectFeature() = loadFeature
-
     private val speakersViewModel: SpeakersViewModel by viewModel()
-
     private lateinit var binding: FragmentSpeakersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +34,8 @@ class SpeakersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSpeakersBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.speakersViewModel = speakersViewModel
         return binding.root
     }
 
@@ -48,10 +43,15 @@ class SpeakersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.setGoBack { findNavController().navigateUp() }
-        binding.setOpenProfile { Log.e("openProfile", "Clicked") }
+        binding.setOpenProfile { Log.e("SpeakersFragment", "OpenProfile") }
 
-        searchSpeaker()
-        showSpeakersList()
+        binding.setClearSearch { speakersViewModel.clearSearch() }
+        binding.setInitiateEasterEgg { Log.e("SpeakersFragment", "InitiateEasterEgg") }
+
+        observeSpeakers()
+        fetchSpeakers(null)
+
+        listenForSearchEvent()
     }
 
     private val onSpeakerClicked: (Speaker) -> Unit = {
@@ -63,44 +63,30 @@ class SpeakersFragment : Fragment() {
     private val onStarClicked: (Int) -> Unit =
         { speakerId -> speakersViewModel.adjustStars(speakerId) }
 
-    private fun searchSpeaker() {
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.speakersViewModel = speakersViewModel
 
-        speakersViewModel.searchPhrase.observe(viewLifecycleOwner, Observer { searchPhrase ->
-            with(binding.imgLogo) {
-                setImageDrawable(
-                    ContextCompat.getDrawable(
-                        requireContext(),
-                        if (searchPhrase.isNullOrEmpty()) com.android254.droidconKE2020.R.drawable.ic_droidcon_logo
-                        else R.drawable.ic_clear_24px
-                    )
-                )
-
-                setOnClickListener {
-                    if (searchPhrase.isNullOrEmpty())
-                        Toast.makeText(context, "Easter Egg", Toast.LENGTH_SHORT).show()
-                    else speakersViewModel.setSearchPhrase("")
-                }
-
-                binding.tvSearch.isCursorVisible = !searchPhrase.isNullOrEmpty()
-                speakersViewModel.retrieveSpeakerList(searchPhrase)
-            }
-        })
-        speakersViewModel.setSearchPhrase("")
+    private fun fetchSpeakers(searchPhrase: String?) {
+        speakersViewModel.retrieveSpeakerList(searchPhrase)
     }
 
-    private fun showSpeakersList() {
+    private fun observeSpeakers() {
         val adapter = SpeakerAdapter(onSpeakerClicked, onStarClicked)
         binding.rvSpeakers.adapter = adapter
 
         speakersViewModel.speakerList.observe(viewLifecycleOwner, Observer { speakers ->
-            if (speakers == null) {
+            if (speakers != null) adapter.submitList(speakers)
+            else {
                 // ToDo: show shimmer for the first time and null views for conseq times.
                 //  This can be null due to the search functionality
-            } else adapter.submitList(speakers)
+            }
         })
-
-        speakersViewModel.retrieveSpeakerList(null)
     }
+
+    private fun listenForSearchEvent() {
+        speakersViewModel.clearSearch()
+        speakersViewModel.searchPhrase.observe(viewLifecycleOwner, Observer { searchPhrase ->
+            binding.tvSearch.isCursorVisible = !searchPhrase.isNullOrEmpty()
+            fetchSpeakers(searchPhrase)
+        })
+    }
+
 }
