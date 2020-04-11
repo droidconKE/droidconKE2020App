@@ -1,5 +1,6 @@
 package com.android254.droidconKE2020.speakers.repositories
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.android254.droidconKE2020.speakers.models.SocialMedia
 import com.android254.droidconKE2020.speakers.models.Speaker
@@ -21,9 +22,11 @@ class FakeSpeakerRepository {
                 speaker = it
                 return@forEach
             }
+            Log.e(">>>", "Found ${it.id} looking for $speakerId" )
         }
 
-        return speaker
+//        return speaker
+        return db[0]
     }
 
     fun searchSpeakers(searchPhrase: String) {
