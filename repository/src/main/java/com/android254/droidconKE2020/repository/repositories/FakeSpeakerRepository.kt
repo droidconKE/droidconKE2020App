@@ -22,11 +22,9 @@ class FakeSpeakerRepository {
                 speaker = it
                 return@forEach
             }
-            Log.e(">>>", "Found ${it.id} looking for $speakerId" )
         }
 
-//        return speaker
-        return db[0]
+        return speaker
     }
 
     fun searchSpeakers(searchPhrase: String) {
