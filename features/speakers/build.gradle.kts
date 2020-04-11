@@ -45,4 +45,10 @@ dependencies {
     implementation (Libraries.koinExt)
     implementation (Libraries.koinScope)
     implementation (Libraries.koinViewModel)
+
+    //Test
+    testImplementation(TestLibraries.junit4)
+    testImplementation(project(":test-utils", "testDependencies"))
+    androidTestImplementation(project(":app", "intTestDependencies"))
+
 }
