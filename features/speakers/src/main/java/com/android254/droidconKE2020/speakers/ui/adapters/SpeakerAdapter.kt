@@ -6,16 +6,15 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.android254.droidconKE2020.speaker.databinding.ItemSpeakerBinding
 import com.android254.droidconKE2020.repository.models.Speaker
+import com.android254.droidconKE2020.speaker.databinding.ItemSpeakerBinding
 import com.google.android.material.chip.Chip
 import kotlin.random.Random
 
 class SpeakerAdapter(
     val onSpeakerClicked: (Speaker) -> Unit,
     val onStarClicked: (Int) -> Unit
-) :
-    ListAdapter<Speaker, RecyclerView.ViewHolder>(SpeakerDiffCallback()) {
+) : ListAdapter<Speaker, RecyclerView.ViewHolder>(SpeakerDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemSpeakerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
