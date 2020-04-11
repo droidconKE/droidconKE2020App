@@ -14,6 +14,14 @@
             type="android.view.View.OnClickListener" />
 
         <variable
+            name="clearSearch"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="initiateEasterEgg"
+            type="android.view.View.OnClickListener" />
+
+        <variable
             name="speakersViewModel"
             type="com.android254.droidconKE2020.speakers.viewmodels.SpeakersViewModel" />
     </data>
@@ -53,6 +61,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="?actionBarSize"
+                        android:layout_gravity="top"
                         android:paddingStart="@dimen/toolbarInsets"
                         android:paddingEnd="@dimen/toolbarInsets">
 
@@ -72,8 +81,8 @@
                             android:id="@+id/backProfile"
                             android:layout_width="@dimen/toolbarIconSize"
                             android:layout_height="@dimen/toolbarIconSize"
-                            android:scaleType="fitXY"
                             android:onClick="@{openProfile}"
+                            android:scaleType="fitXY"
                             android:src="@drawable/ic_sign_in_icon"
                             android:tint="?colorOnSurface"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -116,27 +125,29 @@
 
                         <EditText
                             android:id="@+id/tvSearch"
-                            android:maxLines="1"
-                            android:ellipsize="end"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
+                            android:ellipsize="end"
                             android:hint="@string/search_speaker_hint"
+                            android:maxLines="1"
                             android:text='@={speakersViewModel.searchPhrase}'
                             app:layout_constraintEnd_toStartOf="@id/imgLogo"
                             app:layout_constraintStart_toEndOf="@id/imgSearch" />
 
                         <ImageView
                             android:id="@+id/imgLogo"
+                            droidconLogoImageResource="@{speakersViewModel.searchPhrase.empty}"
                             android:layout_width="@dimen/toolbarIconSize"
                             android:layout_height="@dimen/toolbarIconSize"
                             android:layout_marginEnd="@dimen/toolbarContentMargin"
+                            android:onClick="@{speakersViewModel.searchPhrase.empty ? initiateEasterEgg : clearSearch }"
                             android:padding="@dimen/toolbarContentMargin"
                             android:scaleType="fitXY"
-                            android:src="@drawable/ic_droidcon_logo"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@drawable/ic_droidcon_logo" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.appcompat.widget.Toolbar>
@@ -147,6 +158,7 @@
             android:id="@+id/rvSpeakers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             tools:listitem="@layout/item_speaker" />
