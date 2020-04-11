@@ -69,10 +69,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showOrganizers()
     }
 
+    private fun viewAllSessionsClicked() {
+        val action =
+            HomeFragmentDirections.actionHomeFragmentToSessionsFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun viewAllSpeakersClicked() {
+        val action =
+            HomeFragmentDirections.actionHomeFragmentToSpeakersFragment()
+        findNavController().navigate(action)
+    }
+
     private fun onSpeakerClicked(speakerId: Int) {
-        val speakerDetailsAction =
-            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
-        findNavController().navigate(speakerDetailsAction)
+        val action =
+            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment(speakerId)
+        findNavController().navigate(action)
     }
 
     private fun launchBrowser(webUrl: String) {
@@ -138,11 +150,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSessionsList() {
-        binding.viewSessionsBtn.setOnClickListener {
-            val sessionsFragmentAction =
-                HomeFragmentDirections.actionHomeFragmentToSessionsFragment()
-            findNavController().navigate(sessionsFragmentAction)
-        }
+        binding.viewSessionsBtn.setOnClickListener { viewAllSessionsClicked() }
 
         val adapter = SessionAdapter()
         binding.sessionsList.adapter = adapter
@@ -165,22 +173,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSpeakersList() {
-        homeViewModel.setIsShowingAllSpeakers(false)
-        homeViewModel.isShowingAllSpeakers.observe(viewLifecycleOwner, Observer { isShowing ->
-            binding.viewSpeakersBtn.text =
-                getString(if (isShowing == true) R.string.view_less else R.string.view_all)
-            binding.viewSpeakersBtn.setOnClickListener {
-                if (isShowing == true) {
-                    // ToDo: Show one row of speakers
-                } else {
-                    // ToDo: Set layoutManager to a grid and show all speakers
-                }
-                homeViewModel.setIsShowingAllSpeakers(isShowing != true)
-            }
-        })
+        binding.viewSpeakersBtn.setOnClickListener { viewAllSpeakersClicked() }
 
         val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked(it.id) }
-
         val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = adapter
         binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))

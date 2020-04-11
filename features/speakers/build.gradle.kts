@@ -38,6 +38,8 @@ dependencies {
     testImplementation(TestLibraries.junit4)
     implementation(Libraries.shapedImageView)
 
+    implementation(Libraries.fakeit)
+
     // Koin
     implementation (Libraries.koinAndroid)
     implementation (Libraries.koinExt)

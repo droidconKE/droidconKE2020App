@@ -41,12 +41,6 @@ class HomeViewModel(
     /**
      * Speaker stuff
      * */
-    private val _isShowingAllSpeakers = MutableLiveData<Boolean>()
-    val isShowingAllSpeakers get() = _isShowingAllSpeakers
-    fun setIsShowingAllSpeakers(isShowingAll: Boolean) {
-        _isShowingAllSpeakers.value = isShowingAll
-    }
-
     val keynoteSpeaker get() = speakerRepository.keynoteSpeaker
     val speakerList get() = speakerRepository.sessionSpeakers
     fun retrieveSpeakerList() {
