@@ -12,6 +12,9 @@
         app:moduleName="home"
         tools:layout="@layout/fragment_home">
         <action
+            android:id="@+id/action_homeFragment_to_speakersFragment"
+            app:destination="@id/speakersFragment" />
+        <action
             android:id="@+id/action_homeFragment_to_SpeakerDetailsFragment"
             app:destination="@id/speakerDetailsFragment" />
         <action
@@ -75,6 +78,19 @@
             android:id="@+id/action_aboutFragment_to_organizerDetailsFragment"
             app:destination="@id/organizerDetailsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/speakersFragment"
+        android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakersFragment"
+        android:label="Speakers"
+        app:moduleName="speakers"
+        tools:layout="@layout/fragment_speakers">
+        <action
+            android:id="@+id/action_speakersFragment_to_speakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
     <fragment
         android:id="@+id/speakerDetailsFragment"
         android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakerDetailsFragment"
@@ -84,7 +100,6 @@
 
         <argument
             android:name="speakerId"
-            android:defaultValue="0"
             app:argType="integer" />
 
     </fragment>

@@ -12,4 +12,7 @@
     <string name="header_background">Speaker header background</string>
     <string name="twitter_icon">Twitter icon</string>
     <string name="copy_icon">Copy icon</string>
+
+    <string name="search_speaker_hint">Search A Speaker</string>
+
 </resources>
