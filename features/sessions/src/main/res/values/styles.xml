@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Sessions" parent="Theme.MaterialComponents.DayNight">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorSecondary</item>
+        <item name="background">@android:color/white</item>
+        <item name="backgroundColor">@android:color/white</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+    </style>
+
+    <style name="Theme.Sessions.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Sessions.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Sessions.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="Theme.Sessions.BottomSheetDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@android:color/white
+        </item>
+    </style>
+
+    <style name="Theme.Sessions.Modal" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/filter_layout_drawable</item>
+    </style>
+
+    <style name="Theme.Sessions.RoundFilterButton" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">5dp</item>
+    </style>
+
+    <style name="Widget.Sessions.Button.SocialMedia" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:height">56dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="textAllCaps">false</item>
+        <item name="strokeColor">@color/colorOnBackground</item>
+        <item name="android:textSize">14sp</item>
+        <item name="backgroundTint">@color/colorBackground</item>
+        <item name="android:textColor">@color/colorOnBackground</item>
+    </style>
+
+    <style name="SwitchTheme">
+        <item name="trackTint">@color/switch_color</item>
+    </style>
+</resources>

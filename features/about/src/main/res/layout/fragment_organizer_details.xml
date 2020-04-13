@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgOrganizerToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:alpha="0.6"
+            android:contentDescription="@string/header_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/organizer_header"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/organizerCardview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="@dimen/cv_margin_bottom"
+            app:layout_constraintBottom_toBottomOf="@+id/imgOrganizerToolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgOrganizerToolbar"
+            app:cardBackgroundColor="@color/colorBermudaFaded"
+            app:cardCornerRadius="@dimen/cv_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <ImageView
+                android:id="@+id/img_frank"
+                android:layout_width="@dimen/team_icon_cardview_dimens"
+                android:layout_height="@dimen/team_icon_cardview_dimens"
+                android:layout_margin="@dimen/team_icon_cardview_margin"
+                android:background="@drawable/franktamre" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/txtOrganizerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/organizer_name"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:textColor="@color/colorOrganizerName"
+            android:textSize="@dimen/about_heading_text_size"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/imgOrganizerToolbar"
+            app:layout_constraintStart_toEndOf="@id/organizerCardview" />
+
+        <TextView
+            android:id="@+id/txtOrganizerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/organizerTitle"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="@dimen/team_name_txt_size"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@id/txtOrganizerName"
+            app:layout_constraintStart_toEndOf="@id/organizerCardview"/>
+
+        <TextView
+            android:id="@+id/txtOrganizerCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/organizerCompany"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="@dimen/team_name_txt_size"
+            app:layout_constraintStart_toEndOf="@id/organizerCardview"
+            app:layout_constraintTop_toBottomOf="@id/txtOrganizerTitle"/>
+
+        <TextView
+            android:id="@+id/txtOrganizerRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/organizer_role"
+            android:layout_marginTop="30dp"
+            android:textSize="@dimen/about_content_text_size"
+            android:fontFamily="@font/roboto"
+            app:layout_constraintTop_toBottomOf="@id/txtOrganizerCompany"
+            app:layout_constraintStart_toEndOf="@id/organizerCardview"/>
+
+        <ImageView
+            android:id="@+id/imgTwitter"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="6dp"
+            android:contentDescription="@string/twitter_icon"
+            android:tint="@color/colorAquaMarine"
+            android:src="@drawable/ic_twitter"
+            app:layout_constraintStart_toStartOf="@id/txtOrganizerRole"
+            app:layout_constraintEnd_toStartOf="@id/tvTopTwitterHandle"
+            app:layout_constraintTop_toBottomOf="@+id/txtOrganizerRole" />
+
+
+        <TextView
+            android:id="@+id/tvTopTwitterHandle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/organizer_twitter_handle"
+            android:textColor="@color/colorPurple"
+            android:textSize="@dimen/medium_textsize"
+            app:layout_constraintTop_toTopOf="@id/imgTwitter"
+            app:layout_constraintBottom_toBottomOf="@id/imgTwitter"
+            app:layout_constraintStart_toEndOf="@+id/imgTwitter"
+            app:layout_constraintEnd_toEndOf="@id/txtOrganizerRole"
+            app:layout_constraintTop_toBottomOf="@id/txtOrganizerRole" />
+
+        <TextView
+            android:id="@+id/tvOrganizerBioLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/organizer_bio_label"
+            android:textSize="@dimen/organized_by_txt_size"
+            app:layout_constraintStart_toStartOf="@+id/organizerCardview"
+            app:layout_constraintTop_toBottomOf="@+id/tvTopTwitterHandle" />
+
+        <TextView
+            android:id="@+id/tvOrganizerBio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="@string/organizer_bio"
+            android:textSize="@dimen/about_content_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvOrganizerBioLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvOrganizerBioLabel" />
+
+        <TextView
+            android:id="@+id/tvTwitterHandleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/twitter_handle_label"
+            android:textColor="@color/colorPurple"
+            android:textSize="@dimen/about_heading_text_size"
+            app:layout_constraintStart_toStartOf="@id/tvOrganizerBio"
+            app:layout_constraintTop_toBottomOf="@+id/tvOrganizerBio" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clOrganizerHandle"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/btn_twitter_handle_bg"
+            android:padding="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTwitterHandleLabel"
+            app:layout_constraintStart_toEndOf="@+id/tvTwitterHandleLabel"
+            app:layout_constraintTop_toTopOf="@+id/tvTwitterHandleLabel">
+
+            <TextView
+                android:id="@+id/tvOrganizerHandle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:fontFamily="@font/roboto"
+                android:text="@string/organizer_twitter_handle"
+                android:textColor="@color/colorAquaMarine"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/copyIcon"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/copyIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="3dp"
+                android:contentDescription="@string/copy_icon"
+                android:src="@drawable/ic_copy_outline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="80dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/tap_to_copy_handle"
+            android:textSize="@dimen/copy_handle_txt_size"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/clOrganizerHandle"
+            app:layout_constraintTop_toBottomOf="@+id/clOrganizerHandle"
+            app:layout_constraintVertical_bias="0.044" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

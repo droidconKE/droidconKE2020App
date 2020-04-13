@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Feedback</string>
+    <string name="cheers">Kindly leave your honest feedback to help us make it even better. Cheers :)</string>
+    <string name="feedback">Feedback</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="type_here">Type here..</string>
+    <string name="rating">Rating</string>
+    <string name="submit_feedback">Submit Feedback</string>
+</resources>

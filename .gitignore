@@ -9,9 +9,11 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+/buildSrc/build
 /captures
 .externalNativeBuild
 .cxx
 /.idea/
 .idea/sonarlint/
 app/libs/
+buildSrc/build

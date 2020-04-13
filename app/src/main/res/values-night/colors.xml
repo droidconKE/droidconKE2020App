@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--   Dark Theme Variants -->
+    <color name="colorBackground">@color/colorBlack</color>
+    <color name="colorSurface">@color/colorBlack</color>
+    <color name="colorOnBackground">@color/colorWhite</color>
+    <color name="colorOnSurface">@color/colorWhite</color>
+    <color name="colorIconBackground">#ffffffff</color>
+    <color name="colorStatusBar">@color/colorBlack</color>
+
+    <!--  Home Screen-->
+    <color name="colorCfpBackground">@color/colorRevolver</color>
+    <color name="colorLinks">@color/colorLightPurple</color>
+    <color name="colorViewAll">@color/colorWhite</color>
+
+    <!--  Session Details-->
+    <color name="colorSessionDetailsTitle">@color/colorWhite</color>
+    <color name="colorSessionLevelBackground">@color/colorWhite</color>
+    <color name="colorOnSessionLevelBackground">@color/colorBlack</color>
+    <color name="colorSessionDetailsCard">@color/colorLightGreen</color>
+    <color name="colorShareIcon">@color/colorWhite</color>
+
+    <!--  About Screen-->
+    <color name="colorAboutTitle">@color/colorWhite</color>
+
+    <!--  Organizer Details Screen-->
+    <color name="colorOrganizerName">@color/colorWhite</color>
+
+</resources>
