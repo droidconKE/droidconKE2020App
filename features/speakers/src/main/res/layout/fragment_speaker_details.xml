@@ -151,36 +151,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvTopTwitterHandle" />
 
             <TextView
-                android:id="@+id/sessionsLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/roboto_slab"
-                android:text="@string/text_speaker_sessions_label"
-                android:textColor="?colorOnBackground"
-                android:textSize="@dimen/textSizeSmall"
-                app:layout_constraintStart_toStartOf="@+id/tvSpeakerBio"
-                app:layout_constraintTop_toBottomOf="@+id/tvSpeakerBio" />
-
-            <LinearLayout
-                android:id="@+id/llCards"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/sessionsLabel">
-
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Theme.DroidConKe.ListCard"
-                    android:layout_height="120dp" />
-
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Theme.DroidConKe.ListCard"
-                    android:layout_height="120dp" />
-
-            </LinearLayout>
-
-
-            <TextView
                 android:id="@+id/tvTwitterHandleLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -191,8 +161,7 @@
                 android:textColor="@color/colorPurple"
                 android:textSize="@dimen/textSizeNormal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llCards" />
-
+                app:layout_constraintTop_toBottomOf="@id/tvSpeakerBio" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rlSpeakerHandle"
