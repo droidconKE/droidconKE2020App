@@ -1,9 +1,8 @@
 package com.android254.droidconKE2020.speakers
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android254.droidconKE2020.repository.di.speakerReposModule
-import com.android254.droidconKE2020.speakers.repositories.FakeSpeakerRepository
 import com.android254.droidconKE2020.speakers.di.speakersModule
+import com.android254.droidconKE2020.speakers.repositories.FakeSpeakerRepository
 import com.android254.droidconKE2020.speakers.viewmodels.SpeakersViewModel
 import io.mockk.MockKAnnotations
 import org.junit.*
@@ -19,9 +18,7 @@ class SpeakersViewModelTest : KoinTest {
 
     @Before
     fun before() {
-        startKoin {
-            modules(listOf(speakersModule, speakerReposModule))
-        }
+        startKoin { modules(speakersModule) }
         MockKAnnotations.init(this)
     }
 
