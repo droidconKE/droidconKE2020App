@@ -2,12 +2,9 @@ package com.android254.droidconKE2020.about.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import androidx.test.runner.screenshot.Screenshot.capture
 import com.android254.droidconKE2020.about.ui.views.Organizer
-import io.mockk.every
 import io.mockk.spyk
 import io.mockk.verify
-import org.hamcrest.core.Is.`is`
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
