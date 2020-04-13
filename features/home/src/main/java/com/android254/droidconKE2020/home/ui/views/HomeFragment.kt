@@ -18,8 +18,7 @@ import com.android254.droidconKE2020.home.di.homeViewModels
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
-import com.android254.droidconKE2020.repository.di.speakerReposModule
-import com.android254.droidconKE2020.repository.models.Speaker
+import com.android254.droidconKE2020.home.domain.Speaker
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -33,7 +32,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 private val loadFeature by lazy {
-    loadKoinModules(listOf(homeViewModels, speakerReposModule, browserModule))
+    loadKoinModules(listOf(homeViewModels, browserModule))
 }
 
 class HomeFragment : Fragment(R.layout.fragment_home) {

@@ -2,7 +2,7 @@ package com.android254.droidconKE2020.speakers
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.android254.droidconKE2020.repository.di.speakerReposModule
-import com.android254.droidconKE2020.repository.repositories.FakeSpeakerRepository
+import com.android254.droidconKE2020.speakers.repositories.FakeSpeakerRepository
 import com.android254.droidconKE2020.speakers.di.speakersModule
 import com.android254.droidconKE2020.speakers.viewmodels.SpeakersViewModel
 import io.mockk.MockKAnnotations

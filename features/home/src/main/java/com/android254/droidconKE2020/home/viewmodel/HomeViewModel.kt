@@ -7,7 +7,7 @@ import com.android254.droidconKE2020.home.domain.Organizer
 import com.android254.droidconKE2020.home.domain.Promotion
 import com.android254.droidconKE2020.home.domain.Session
 import com.android254.droidconKE2020.home.domain.Sponsor
-import com.android254.droidconKE2020.repository.repositories.FakeSpeakerRepository
+import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
 
 class HomeViewModel(
     private val promotionRepository: FakePromotionRepository,

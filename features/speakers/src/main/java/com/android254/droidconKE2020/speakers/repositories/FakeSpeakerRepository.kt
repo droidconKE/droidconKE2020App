@@ -1,9 +1,8 @@
-package com.android254.droidconKE2020.repository.repositories
+package com.android254.droidconKE2020.speakers.repositories
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.android254.droidconKE2020.repository.models.SocialMedia
-import com.android254.droidconKE2020.repository.models.Speaker
+import com.android254.droidconKE2020.speakers.models.SocialMedia
+import com.android254.droidconKE2020.speakers.models.Speaker
 import com.github.javafaker.Faker
 
 class FakeSpeakerRepository {

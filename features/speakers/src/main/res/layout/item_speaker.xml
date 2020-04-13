@@ -15,7 +15,7 @@
 
         <variable
             name="speaker"
-            type="com.android254.droidconKE2020.repository.models.Speaker" />
+            type="com.android254.droidconKE2020.speakers.models.Speaker" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -56,7 +56,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
                 tools:text="@tools:sample/full_names" />
-            
+
             <TextView
                 android:id="@+id/tvRole"
                 android:layout_width="0dp"

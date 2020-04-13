@@ -1,8 +1,7 @@
 package com.android254.droidconKE2020.home.di
 
 import com.android254.droidconKE2020.home.viewmodel.*
-import com.android254.droidconKE2020.repository.di.speakerReposModule
-import com.android254.droidconKE2020.repository.repositories.FakeSpeakerRepository
+import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -12,4 +11,5 @@ val homeViewModels = module {
     single { FakeSessionRepository() }
     single { FakeSponsorRepository() }
     single { FakeOrganizerRepository() }
+    single { FakeSpeakerRepository() }
 }

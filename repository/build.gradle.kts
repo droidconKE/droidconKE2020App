@@ -39,7 +39,6 @@ android {
 dependencies {
     implementation(project(":data"))
     implementation(project(":network"))
-    implementation(Libraries.fakeit)
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)

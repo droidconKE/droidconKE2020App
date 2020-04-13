@@ -1,9 +1,8 @@
 package com.android254.droidconKE2020.speakers.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android254.droidconKE2020.repository.repositories.FakeSpeakerRepository
+import com.android254.droidconKE2020.speakers.repositories.FakeSpeakerRepository
 import java.util.*
 
 class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : ViewModel() {

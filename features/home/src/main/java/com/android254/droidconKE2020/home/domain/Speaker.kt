@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.repository.models
+package com.android254.droidconKE2020.home.domain
 
 data class Speaker(
     val id: Int,
