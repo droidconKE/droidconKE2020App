@@ -9,7 +9,12 @@ import com.android254.droidconKE2020.speaker.R
 fun droidconLogoImageResource(imageView: ImageView, isSearchViewEmpty: Boolean) {
     val imgResource =
         if (isSearchViewEmpty) com.android254.droidconKE2020.R.drawable.ic_droidcon_logo
-        else R.drawable.ic_clear_24px
+        else R.drawable.ic_danger_outline
 
-    imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context,imgResource))
+    with(imageView) {
+        setImageDrawable(ContextCompat.getDrawable(imageView.context, imgResource))
+        if (!isSearchViewEmpty) imageTintList = ContextCompat.getColorStateList(
+            context, com.android254.droidconKE2020.R.color.colorOnSurface
+        )
+    }
 }

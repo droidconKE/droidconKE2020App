@@ -25,11 +25,4 @@ class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : 
         else speakerRepository.searchSpeakers(searchPhrase.toLowerCase(Locale.ROOT))
     }
 
-    /**
-     * Star stuff
-     * */
-    fun adjustStars(speakerId: Int) {
-        Log.e("adjustStars", "Added $speakerId")
-        // ToDo
-    }
 }

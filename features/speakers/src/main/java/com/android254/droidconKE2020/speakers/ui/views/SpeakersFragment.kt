@@ -61,16 +61,13 @@ class SpeakersFragment : Fragment() {
         findNavController().navigate(speakerDetailsAction)
     }
 
-    private val onStarClicked: (Int) -> Unit =
-        { speakerId -> speakersViewModel.adjustStars(speakerId) }
-
 
     private fun fetchSpeakers(searchPhrase: String?) {
         speakersViewModel.retrieveSpeakerList(searchPhrase)
     }
 
     private fun observeSpeakers() {
-        val adapter = SpeakerAdapter(onSpeakerClicked, onStarClicked)
+        val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.rvSpeakers.adapter = adapter
 
         speakersViewModel.speakerList.observe(viewLifecycleOwner, Observer { speakers ->

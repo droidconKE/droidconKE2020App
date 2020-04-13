@@ -70,7 +70,7 @@
                             android:layout_height="@dimen/toolbarIconSize"
                             android:adjustViewBounds="true"
                             android:onClick="@{goBack}"
-                            android:src="@drawable/ic_arrow_back_24px"
+                            android:src="@drawable/ic_left_outline"
                             android:tint="?colorOnSurface"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +116,7 @@
                             android:layout_marginStart="@dimen/toolbarContentMargin"
                             android:padding="@dimen/toolbarContentMargin"
                             android:scaleType="fitXY"
-                            android:src="@drawable/ic_search_24px"
+                            android:src="@drawable/ic_search_outline"
                             android:tint="?colorOnSurface"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -130,6 +130,8 @@
                             android:ellipsize="end"
                             android:hint="@string/search_speaker_hint"
                             android:maxLines="1"
+                            android:layout_marginEnd="@dimen/cardMarginHorizontal"
+                            android:layout_marginStart="@dimen/cardMarginHorizontal"
                             android:text='@={speakersViewModel.searchPhrase}'
                             app:layout_constraintEnd_toStartOf="@id/imgLogo"
                             app:layout_constraintStart_toEndOf="@id/imgSearch" />

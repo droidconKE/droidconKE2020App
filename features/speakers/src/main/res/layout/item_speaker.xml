@@ -10,10 +10,6 @@
             type="Boolean" />
 
         <variable
-            name="adjustStars"
-            type="android.view.View.OnClickListener" />
-
-        <variable
             name="openSpeakerDetails"
             type="android.view.View.OnClickListener" />
 
@@ -55,40 +51,12 @@
                 android:text="@{speaker.name}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintBottom_toTopOf="@id/tvRole"
-                app:layout_constraintEnd_toStartOf="@id/llStars"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imgContainer"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
                 tools:text="@tools:sample/full_names" />
-
-            <LinearLayout
-                android:id="@+id/llStars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:onClick="@{adjustStars}"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/tvStars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text='@{Integer.toString(speaker.stars.size())}'
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
-                    android:textColor="@color/colorAquaMarine" />
-
-                <ImageView
-                    android:id="@+id/btnStar"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_margin="6dp"
-                    android:onClick="@{adjustStars}"
-                    android:src="@drawable/ic_star_outline"
-                    android:tint="@color/colorAquaMarineFaded" />
-            </LinearLayout>
-
+            
             <TextView
                 android:id="@+id/tvRole"
                 android:layout_width="0dp"
