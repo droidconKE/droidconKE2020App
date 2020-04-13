@@ -1,4 +1,3 @@
-
 plugins {
     id(BuildPlugins.dynamicFeature)
     id(BuildPlugins.kotlinAndroid)
@@ -15,6 +14,10 @@ android {
     }
 
     viewBinding {
+        isEnabled = true
+    }
+
+    dataBinding {
         isEnabled = true
     }
 
@@ -36,13 +39,9 @@ dependencies {
     implementation (Libraries.constraintLayout)
 
     // Testing Libraries
-    testImplementation (TestLibraries.junit4)
-    testImplementation (TestLibraries.testRules)
-    testImplementation (TestLibraries.archCore)
-    testImplementation (TestLibraries.mockk)
-    androidTestImplementation (TestLibraries.espresso)
-    androidTestImplementation (TestLibraries.fragment)
-    androidTestImplementation (TestLibraries.testRunner)
+    testImplementation (project(":test-utils", "testDependencies"))
+    androidTestImplementation (project(":app", "intTestDependencies"))
+    debugImplementation (TestLibraries.fragment)
 
     // Koin
     implementation (Libraries.koinAndroid)

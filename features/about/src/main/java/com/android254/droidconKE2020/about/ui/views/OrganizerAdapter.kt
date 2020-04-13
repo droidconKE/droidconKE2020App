@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.about.databinding.ItemOrganizerBinding
+import com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel
 import kotlinx.android.synthetic.main.item_organizer.view.*
 
 typealias ClickListener =(Organizer) -> Unit
@@ -35,14 +36,11 @@ class OrganizerAdapter(private val clickListener : ClickListener) :
     }
 
     inner class OrganizerViewHolder(view: View, clickListener : ClickListener) : RecyclerView.ViewHolder(view) {
-        val organizerImg: ImageView = view.img_organizer
-        val nametxt: TextView =  view.organizer_name
-        val titletxt: TextView = view.organizer_title
+        private val organizerViewModel = OrganizerViewModel()
 
         fun bindOrganizer(organizer: Organizer) {
             with(organizer) {
-                nametxt.text = name
-                titletxt.text = title
+                organizerViewModel.bind(organizer)
                 itemView.setOnClickListener {
                     clickListener(this)
                 }
