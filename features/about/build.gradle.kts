@@ -2,6 +2,7 @@ plugins {
     id(BuildPlugins.dynamicFeature)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
+    id(BuildPlugins.kotlinKapt)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
@@ -35,7 +36,7 @@ android {
 dependencies {
     implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":app"))
-    implementation (project(BuildModules.Libraries.Core))
+    implementation (project(":core"))
     implementation (Libraries.constraintLayout)
 
     // Testing Libraries

@@ -16,10 +16,11 @@ class OrganizerAdapter(private val clickListener : ClickListener) :
     RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHolder>() {
 
     private val organizers = mutableListOf<Organizer>()
+    private lateinit var binding: ItemOrganizerBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizerViewHolder {
-        val binding = ItemOrganizerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return OrganizerViewHolder(binding.root, clickListener)
+        binding = ItemOrganizerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return OrganizerViewHolder(binding, clickListener)
     }
 
     override fun getItemCount(): Int = organizers.size
@@ -35,12 +36,13 @@ class OrganizerAdapter(private val clickListener : ClickListener) :
         notifyDataSetChanged()
     }
 
-    inner class OrganizerViewHolder(view: View, clickListener : ClickListener) : RecyclerView.ViewHolder(view) {
+    inner class OrganizerViewHolder(binding: ItemOrganizerBinding, clickListener : ClickListener) : RecyclerView.ViewHolder(binding.root) {
         private val organizerViewModel = OrganizerViewModel()
 
         fun bindOrganizer(organizer: Organizer) {
             with(organizer) {
                 organizerViewModel.bind(organizer)
+                binding.organizerViewModel = organizerViewModel
                 itemView.setOnClickListener {
                     clickListener(this)
                 }

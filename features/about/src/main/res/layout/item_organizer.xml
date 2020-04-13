@@ -32,7 +32,6 @@
                 android:layout_width="@dimen/team_icon_cardview_dimens"
                 android:layout_height="@dimen/team_icon_cardview_dimens"
                 android:layout_margin="@dimen/team_icon_cardview_margin"
-                android:background="@drawable/franktamre"
                 app:imageSrc="@{organizerViewModel.getOrganizerImage()}"/>
         </com.google.android.material.card.MaterialCardView>
 
@@ -41,9 +40,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:text="@{organizerViewModel.getOrganizerName()}"
             android:textColor="@color/colorOnBackground"
             android:textSize="@dimen/team_name_txt_size"
+            app:mutableText="@{organizerViewModel.getOrganizerName()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/organizer_cardview"/>
@@ -53,13 +52,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:text="@{organizerViewModel.getOrganizerTitle()}"
             android:textColor="@color/colorDarkGrey"
             android:textSize="@dimen/team_title_txt_size"
+            app:mutableText="@{organizerViewModel.getOrganizerTitle()}"
             app:layout_constraintTop_toBottomOf="@id/organizer_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
