@@ -2,7 +2,7 @@ plugins {
     id(BuildPlugins.dynamicFeature)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
-    id(BuildPlugins.kapt)
+    id(BuildPlugins.kotlinKapt)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
