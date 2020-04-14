@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speakers.xml",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/layout/fragment_speakers.xml"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speaker_details.xml",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/layout/fragment_speaker_details.xml"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_speaker.xml",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/layout/item_speaker.xml"
+    }
+]

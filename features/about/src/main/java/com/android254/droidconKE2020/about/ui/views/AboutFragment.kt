@@ -26,8 +26,9 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = OrganizerAdapter{
-            val organizerDetailsDirections = AboutFragmentDirections.actionAboutFragmentToOrganizerDetailsFragment()
+        val adapter = OrganizerAdapter {
+            val organizerDetailsDirections =
+                AboutFragmentDirections.actionAboutFragmentToOrganizerDetailsFragment()
             findNavController().navigate(organizerDetailsDirections)
         }
         binding.organizersList.adapter = adapter
@@ -42,7 +43,12 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
     private fun createDummyData(): List<Organizer> {
         val list = mutableListOf<Organizer>()
         for (i in 0 until 10) {
-            list.add(Organizer(name = context!!.getString(R.string.organizer_name), title = context!!.getString(R.string.organizer_title)))
+            list.add(
+                Organizer(
+                    name = context!!.getString(R.string.organizer_name),
+                    title = context!!.getString(R.string.organizer_title)
+                )
+            )
         }
         return list
     }

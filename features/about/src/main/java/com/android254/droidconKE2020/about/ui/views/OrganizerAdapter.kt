@@ -9,15 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.about.R
 import kotlinx.android.synthetic.main.item_organizer.view.*
 
-typealias ClickListener =(Organizer) -> Unit
-class OrganizerAdapter(private val clickListener : ClickListener) :
+typealias ClickListener = (Organizer) -> Unit
+
+class OrganizerAdapter(private val clickListener: ClickListener) :
 
     RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHolder>() {
 
     private val organizers = mutableListOf<Organizer>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_organizer, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_organizer, parent,
+                false)
         return OrganizerViewHolder(view, clickListener)
     }
 
@@ -34,9 +37,10 @@ class OrganizerAdapter(private val clickListener : ClickListener) :
         notifyDataSetChanged()
     }
 
-    inner class OrganizerViewHolder(view: View,clickListener : ClickListener) : RecyclerView.ViewHolder(view) {
+    inner class OrganizerViewHolder(view: View, clickListener: ClickListener) :
+        RecyclerView.ViewHolder(view) {
         val organizerImg: ImageView = view.img_organizer
-        val nametxt: TextView =  view.organizer_name
+        val nametxt: TextView = view.organizer_name
         val titletxt: TextView = view.organizer_title
 
 

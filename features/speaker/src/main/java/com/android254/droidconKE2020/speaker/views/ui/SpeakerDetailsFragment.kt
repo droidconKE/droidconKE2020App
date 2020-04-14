@@ -19,9 +19,9 @@ private val loadFeature by lazy { loadKoinModules(speakerModule) }
 private fun injectFeature() = loadFeature
 
 class SpeakerDetailsFragment : Fragment() {
-    private var _binding :FragmentSpeakerDetailsBinding?=null
+    private var _binding: FragmentSpeakerDetailsBinding? = null
     private val binding get() = _binding!!
-    private val speakerViewModel : SpeakerViewModel by viewModel()
+    private val speakerViewModel: SpeakerViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,8 @@ class SpeakerDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-        binding.speakerImg = "https://firebasestorage.googleapis.com/v0/b/droidconke-70d60.appspot.com/o/speakers2019%2Fjabez-mu.png?alt=media&token=ece3cbbd-b896-4748-9d9a-39e58391db92"
+        binding.speakerImg =
+            "https://firebasestorage.googleapis.com/v0/b/droidconke-70d60.appspot.com/o/speakers2019%2Fjabez-mu.png?alt=media&token=ece3cbbd-b896-4748-9d9a-39e58391db92"
 
         observeSpeakerDetails()
         getSpeakerDetails()
@@ -48,9 +49,11 @@ class SpeakerDetailsFragment : Fragment() {
     }
 
     private fun observeSpeakerDetails() {
-        speakerViewModel.speakerDetails.observe(viewLifecycleOwner, Observer { speakerDetailsModel ->
-            binding.speakerDetailsModel = speakerDetailsModel
-        })
+        speakerViewModel.speakerDetails.observe(
+            viewLifecycleOwner,
+            Observer { speakerDetailsModel ->
+                binding.speakerDetailsModel = speakerDetailsModel
+            })
     }
 
     private fun getSpeakerDetails() {

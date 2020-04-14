@@ -3,6 +3,7 @@ plugins {
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.safeArgs)
+    id(BuildPlugins.ktlintPlugin)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
@@ -18,7 +19,8 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro")
         }
     }
     dynamicFeatures = mutableSetOf(
@@ -30,7 +32,6 @@ android {
         BuildModules.Features.Speaker,
         BuildModules.Features.Feedback
     )
-
 
     viewBinding {
         isEnabled = true
@@ -91,8 +92,5 @@ dependencies {
     androidTestImplementation(TestLibraries.koin)
     debugImplementation(TestLibraries.fragment)
     androidTestImplementation(TestLibraries.kakao)
-
-    //Google services
     implementation(Libraries.googleServices)
 }
-

@@ -1,0 +1,34 @@
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speakers.xml:95
+-keep class androidx.appcompat.widget.Toolbar { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speaker_details.xml:19
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speakers.xml:61
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_speaker.xml:29
+-keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout-land/fragment_speaker_details.xml:178
+-keep class androidx.constraintlayout.widget.Guideline { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speakers.xml:29
+-keep class androidx.coordinatorlayout.widget.CoordinatorLayout { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speakers.xml:157
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speaker_details.xml:44
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_speaker.xml:33
+-keep class cn.gavinliu.android.lib.shapedimageview.ShapedImageView { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speakers.xml:34
+-keep class com.google.android.material.appbar.AppBarLayout { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speakers.xml:41
+-keep class com.google.android.material.appbar.CollapsingToolbarLayout { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speaker_details.xml:172
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_speaker.xml:25
+-keep class com.google.android.material.card.MaterialCardView { <init>(...); }
+
+# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_speaker.xml:130
+-keep class com.google.android.material.chip.ChipGroup { <init>(...); }
+

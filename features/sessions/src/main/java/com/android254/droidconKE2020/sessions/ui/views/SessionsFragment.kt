@@ -32,6 +32,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         _binding = FragmentSessionsBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         injectFeatures()
         super.onViewCreated(view, savedInstanceState)
@@ -70,7 +71,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
             val tab = tabLayout.getTabAt(tabPosition)
             tab?.let {
                 tab.customView = null
-                tab.setCustomView(sessionsTabAdapter.getTabView(tabPosition))
+                tab.customView = sessionsTabAdapter.getTabView(tabPosition)
             }
         }
         tabLayout.getTabAt(0)?.customView = null
@@ -83,6 +84,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
                 positionOffsetPixels: Int
             ) {
             }
+
             override fun onPageSelected(position: Int) {
                 highlightTab(position)
             }
@@ -95,7 +97,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
             val tab = tabLayout.getTabAt(tabPosition)
             tab?.let {
                 tab.customView = null
-                tab.setCustomView(sessionsTabAdapter.getTabView(tabPosition))
+                tab.customView = sessionsTabAdapter.getTabView(tabPosition)
             }
         }
         val tab = tabLayout.getTabAt(position)

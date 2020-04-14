@@ -1,10 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins{
+plugins {
     id(BuildPlugins.ktlintPlugin)
     id(BuildPlugins.dektPlugin)
     id(BuildPlugins.dynamicFeature) apply false
     id(BuildPlugins.androidLibrary) apply false
-    id(BuildPlugins.androidApplication) apply  false
+    id(BuildPlugins.androidApplication) apply false
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
     id(BuildPlugins.safeArgs) apply false
@@ -17,18 +17,19 @@ allprojects {
         maven(url = "https://jitpack.io")
     }
     apply(plugin = BuildPlugins.ktlintPlugin)
-    
-    ktlint{
+    ktlint {
         android.set(true)
         debug.set(true)
-        outputColorName.set("RED")
     }
-
+}
+subprojects {
     apply(plugin = BuildPlugins.dektPlugin)
-
+    detekt {
+        parallel = true
+    }
 }
 
-tasks.register("clean").configure{
+tasks.register("clean").configure {
     delete("build")
 }
 
