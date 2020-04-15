@@ -12,6 +12,6 @@ data class DummySessionDetail(
     val sessionSpeakerDescription: String,
     val sessionSpeakerJob: String,
     val sessionSpeakerImageURL: String,
-    val sessionSpeakerId: Long = Random.nextLong(),
+    val sessionSpeakerId: Int = Random.nextInt(),
     var isSaved: Boolean = false
 )

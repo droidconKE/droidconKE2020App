@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_speaker_bio">Been in the tech industry for over 20 years. Am passionate about developer communities, motivating people and building successful organizations. Proven track record in product development, business development,
+    and nurturing mission critical strategic partner relationships. Have lived and worked in Germany for 10 years. Fluent in German and English</string>
+
+    <string name="text_speaker_bio_label">Bio</string>
+    <string name="text_speaker_sessions_label">Sessions</string>
+
+    <string name="text_twitter_handle_label">Twitter Handle</string>
+    <string name="text_speaker_handle">\@GregFawson</string>
+    <string name="text_copy_handle">Tap to copy handle</string>
+    <string name="text_speaker_name">Greg Fawson</string>
+    <string name="text_speaker_role">COO/Chief Innovation Officer</string>
+    <string name="text_speaker_company">Droidcon Global</string>
+    <string name="header_background">Speaker header background</string>
+    <string name="twitter_icon">Twitter icon</string>
+    <string name="copy_icon">Copy icon</string>
+
+    <string name="search_speaker_hint">Search A Speaker</string>
+
+</resources>

@@ -35,6 +35,7 @@ object Versions {
     const val kakao = "2.3.0"
     const val flexBox = "2.0.1"
     const val browser = "1.2.0"
+    const val fakeit = "1.0.2"
 }
 
 object BuildPlugins {
@@ -93,6 +94,9 @@ object Libraries {
 
     // Browser
     const val browser = "androidx.browser:browser:${Versions.browser}"
+
+    // Fake Data
+    const val fakeit = "com.github.javafaker:javafaker:${Versions.fakeit}"
 }
 
 object APIs {
@@ -133,7 +137,7 @@ object BuildModules {
         const val Feed = ":features:feed"
         const val Sessions = ":features:sessions"
         const val Auth = ":features:auth"
-        const val Speaker = ":features:speaker"
+        const val Speakers = ":features:speakers"
         const val Feedback = ":features:feedback"
         const val About = ":features:about"
     }

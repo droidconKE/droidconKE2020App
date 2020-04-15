@@ -16,8 +16,8 @@ class SessionDetailViewModel : ViewModel() {
     private val _shareSession = MutableLiveData<DummySessionDetail>()
     val shareSession: LiveData<DummySessionDetail>
         get() = _shareSession
-    private val _clickSpeaker = MutableLiveData<Long>()
-    val clickSpeaker: LiveData<Long>
+    private val _clickSpeaker = MutableLiveData<Int>()
+    val clickSpeaker: LiveData<Int>
         get() = _clickSpeaker
     private val _navigateBack = MutableLiveData<Boolean>()
     val navigateBack: LiveData<Boolean>
@@ -43,7 +43,7 @@ class SessionDetailViewModel : ViewModel() {
         _shareSession.value = null
     }
 
-    fun onClickSpeaker(speakerId: Long) {
+    fun onClickSpeaker(speakerId: Int) {
         _clickSpeaker.value = speakerId
     }
 
