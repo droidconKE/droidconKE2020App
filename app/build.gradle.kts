@@ -18,7 +18,10 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     dynamicFeatures = mutableSetOf(
@@ -27,7 +30,7 @@ android {
         BuildModules.Features.About,
         BuildModules.Features.Sessions,
         BuildModules.Features.Auth,
-        BuildModules.Features.Speaker,
+        BuildModules.Features.Speakers,
         BuildModules.Features.Feedback
     )
 
@@ -93,4 +96,7 @@ dependencies {
 
     //Google services
     implementation(Libraries.googleServices)
+
+    // Mock data
+    api(Libraries.fakeit)
 }

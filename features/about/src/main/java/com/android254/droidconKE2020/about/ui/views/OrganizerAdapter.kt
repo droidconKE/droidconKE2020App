@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.about.databinding.ItemOrganizerBinding
+import com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel
 import kotlinx.android.synthetic.main.item_organizer.view.*
 
 typealias ClickListener =(Organizer) -> Unit
@@ -15,10 +16,11 @@ class OrganizerAdapter(private val clickListener : ClickListener) :
     RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHolder>() {
 
     private val organizers = mutableListOf<Organizer>()
+    private lateinit var binding: ItemOrganizerBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizerViewHolder {
-        val binding = ItemOrganizerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return OrganizerViewHolder(binding.root, clickListener)
+        binding = ItemOrganizerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return OrganizerViewHolder(binding, clickListener)
     }
 
     override fun getItemCount(): Int = organizers.size
@@ -34,15 +36,13 @@ class OrganizerAdapter(private val clickListener : ClickListener) :
         notifyDataSetChanged()
     }
 
-    inner class OrganizerViewHolder(view: View, clickListener : ClickListener) : RecyclerView.ViewHolder(view) {
-        val organizerImg: ImageView = view.img_organizer
-        val nametxt: TextView =  view.organizer_name
-        val titletxt: TextView = view.organizer_title
+    inner class OrganizerViewHolder(binding: ItemOrganizerBinding, clickListener : ClickListener) : RecyclerView.ViewHolder(binding.root) {
+        private val organizerViewModel = OrganizerViewModel()
 
         fun bindOrganizer(organizer: Organizer) {
             with(organizer) {
-                nametxt.text = name
-                titletxt.text = title
+                organizerViewModel.bind(organizer)
+                binding.organizerViewModel = organizerViewModel
                 itemView.setOnClickListener {
                     clickListener(this)
                 }

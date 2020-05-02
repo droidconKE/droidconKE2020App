@@ -3,8 +3,11 @@ package com.android254.droidconKE2020.home.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.home.R
-import com.android254.droidconKE2020.home.domain.*
-import kotlin.random.Random
+import com.android254.droidconKE2020.home.domain.Organizer
+import com.android254.droidconKE2020.home.domain.Promotion
+import com.android254.droidconKE2020.home.domain.Session
+import com.android254.droidconKE2020.home.domain.Sponsor
+import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
 
 class HomeViewModel(
     private val promotionRepository: FakePromotionRepository,
@@ -41,12 +44,6 @@ class HomeViewModel(
     /**
      * Speaker stuff
      * */
-    private val _isShowingAllSpeakers = MutableLiveData<Boolean>()
-    val isShowingAllSpeakers get() = _isShowingAllSpeakers
-    fun setIsShowingAllSpeakers(isShowingAll: Boolean) {
-        _isShowingAllSpeakers.value = isShowingAll
-    }
-
     val keynoteSpeaker get() = speakerRepository.keynoteSpeaker
     val speakerList get() = speakerRepository.sessionSpeakers
     fun retrieveSpeakerList() {
@@ -110,30 +107,6 @@ class FakeSessionRepository {
             )
         }
         sessions.postValue(db)
-    }
-}
-
-class FakeSpeakerRepository {
-    private val db = mutableListOf<Speaker>()
-    val keynoteSpeaker = MutableLiveData<Speaker>()
-    val sessionSpeakers = MutableLiveData<List<Speaker>>()
-
-    fun refreshSpeakers() {
-        db.clear()
-
-        for (i in 0 until 10) {
-            db.add(
-                Speaker(
-                    id = Random.nextInt(),
-                    name = "Person $i",
-                    imageUrl = "https://loremflickr.com/320/320/dog",
-                    isKeynoteSpeaker = i == 0
-                )
-            )
-        }
-
-        keynoteSpeaker.postValue(db.removeAt(0))
-        sessionSpeakers.postValue(db)
     }
 }
 

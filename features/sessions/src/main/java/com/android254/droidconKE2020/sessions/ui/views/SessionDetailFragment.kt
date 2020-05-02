@@ -10,20 +10,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.R
-import com.android254.droidconKE2020.R as AppR
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionDetailBinding
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionDetailViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
+import com.android254.droidconKE2020.R as AppR
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class SessionDetailFragment : Fragment(R.layout.fragment_session_detail){
+class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
     private fun injectFeatures() = loadModules
-    private var _binding : FragmentSessionDetailBinding? = null
-    private val binding  get() = _binding!!
+    private var _binding: FragmentSessionDetailBinding? = null
+    private val binding get() = _binding!!
     private val sessionDetailViewModel: SessionDetailViewModel by viewModel()
 
     override fun onCreateView(
@@ -100,7 +100,9 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail){
             it?.let {
                 sessionDetailViewModel.onSpeakerClicked()
                 val speakerDetailsAction =
-                    SessionDetailFragmentDirections.actionSessionDetailsFragmentToSpeakerDetailsFragment()
+                    SessionDetailFragmentDirections.actionSessionDetailsFragmentToSpeakerDetailsFragment(
+                        it
+                    )
                 findNavController().navigate(speakerDetailsAction)
             }
         })

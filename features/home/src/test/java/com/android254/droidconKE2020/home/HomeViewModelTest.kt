@@ -1,8 +1,8 @@
 package com.android254.droidconKE2020.home
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android254.droidconKE2020.home.di.homeRepositories
 import com.android254.droidconKE2020.home.di.homeViewModels
+import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
 import com.android254.droidconKE2020.home.viewmodel.*
 import io.mockk.MockKAnnotations
 import org.junit.*
@@ -18,9 +18,7 @@ class HomeViewModelTest : KoinTest {
 
     @Before
     fun before() {
-        startKoin {
-            modules(listOf(homeViewModels, homeRepositories))
-        }
+        startKoin { modules(homeViewModels) }
         MockKAnnotations.init(this)
     }
 

@@ -36,6 +36,7 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
+        _binding?.viewModel = aboutViewModel
         return binding.root
     }
 

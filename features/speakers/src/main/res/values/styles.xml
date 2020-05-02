@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- List Cards style -->
+    <style name="Theme.DroidConKe.ListCard">
+        <item name="android:layout_marginStart">@dimen/cardMarginHorizontal</item>
+        <item name="android:layout_marginEnd">@dimen/cardMarginHorizontal</item>
+        <item name="android:layout_marginTop">@dimen/cardMarginVertical</item>
+        <item name="android:layout_marginBottom">@dimen/cardMarginVertical</item>
+
+        <item name="cardElevation">@dimen/cardElevation</item>
+        <item name="cardCornerRadius">@dimen/cardCornerRadius</item>
+        <item name="contentPadding">@dimen/cardPadding</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>
