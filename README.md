@@ -416,3 +416,4 @@ Auto-populated from:
 2.  https://github.com/VMadalin/kotlin-sample-app
 3.  https://github.com/DroidKaigi/conference-app-2020
 4.  https://proandroiddev.com/multiple-ways-of-defining-clean-architecture-layers-bbb70afa5d4a
+
