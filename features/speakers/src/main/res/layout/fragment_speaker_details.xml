@@ -25,14 +25,13 @@
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="30dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <ImageView
                     android:id="@+id/imgSpeakerToolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:paddingTop="40dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="70dp"
                     android:alpha="0.6"
                     android:contentDescription="@string/header_background"
                     android:scaleType="centerCrop"
@@ -122,9 +121,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="70dp"
-                    android:alpha="0.6"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_speaker_header"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <View
