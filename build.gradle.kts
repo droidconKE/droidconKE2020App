@@ -19,12 +19,16 @@ allprojects {
     apply(plugin = BuildPlugins.ktlintPlugin)
     ktlint {
         android.set(true)
-        debug.set(true)
+        verbose.set(true)
+        filter {
+            exclude { element -> element.file.path.contains("generated/") }
+        }
     }
 }
 subprojects {
     apply(plugin = BuildPlugins.dektPlugin)
     detekt {
+        config = files("${project.rootDir}/detekt.yml")
         parallel = true
     }
 }

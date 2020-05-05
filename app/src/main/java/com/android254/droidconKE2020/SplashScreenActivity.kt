@@ -8,6 +8,7 @@ import com.example.android_animation.AndroidAnimation
 import com.example.android_animation.enums.Easing
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 
+@Suppress("MagicNumber")
 class SplashScreenActivity : AppCompatActivity() {
 
     private val maxScale = 1.5f

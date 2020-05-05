@@ -5,6 +5,7 @@ import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 
+@Suppress("MagicNumber")
 @BindingAdapter("imageUrl")
 fun loadImage(imageView : ShapedImageView,imageUrl : String){
     imageView.load(imageUrl) {

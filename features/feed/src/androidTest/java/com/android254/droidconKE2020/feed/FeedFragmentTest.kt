@@ -15,7 +15,7 @@ class FeedFragmentTest {
 
     @Test
     fun testFeedsAreShown() {
-        launchFragmentInContainer<FeedFragment>(themeResId = com.android254.droidconKE2020.R.style.AppTheme)
+        launchFragmentInContainer<FeedFragment>(themeResId = com.android254.droidconKE2020.R.style.Theme_DroidConKe)
         onScreen<FeedScreen> {
             idle(5000)
             feedsList {
