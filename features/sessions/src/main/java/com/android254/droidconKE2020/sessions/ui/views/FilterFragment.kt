@@ -44,7 +44,6 @@ internal class FilterFragment : Fragment() {
         }
         buttonCancel.setOnClickListener {
             findNavController().navigate(FilterFragmentDirections.actionFilterFragmentToSessionsFragment())
-
         }
         (0..6).forEach {
             topicsTestList.add("Topic $it")

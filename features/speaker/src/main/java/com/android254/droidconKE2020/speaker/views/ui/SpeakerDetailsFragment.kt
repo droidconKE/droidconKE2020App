@@ -6,12 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.android254.droidconKE2020.speaker.R
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakerDetailsBinding
 import com.android254.droidconKE2020.speaker.di.speakerModule
-import com.android254.droidconKE2020.speaker.models.SpeakerDetailsModel
 import com.android254.droidconKE2020.speaker.views.viewmodels.SpeakerViewModel
-import org.koin.android.ext.android.bind
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
@@ -45,7 +42,6 @@ class SpeakerDetailsFragment : Fragment() {
 
         observeSpeakerDetails()
         getSpeakerDetails()
-
     }
 
     private fun observeSpeakerDetails() {

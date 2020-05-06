@@ -20,7 +20,6 @@ val navController: (fragment: Fragment) -> NavController = {
     NavHostFragment.findNavController(it)
 }
 
-
 class FeedFragment : Fragment() {
 
     private val viewModel: FeedViewModel by viewModel()

@@ -8,10 +8,8 @@ import com.android254.droidconKE2020.feed.ui.views.FeedFragment
 import org.junit.Test
 import org.junit.runner.RunWith
 
-
 @RunWith(AndroidJUnit4::class)
 class FeedFragmentTest {
-
 
     @Test
     fun testFeedsAreShown() {

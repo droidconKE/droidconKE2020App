@@ -14,5 +14,4 @@ val homeRepositories = module {
     single { FakeSpeakerRepository() }
     single { FakeSponsorRepository() }
     single { FakeOrganizerRepository() }
-
 }

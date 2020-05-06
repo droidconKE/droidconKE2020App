@@ -24,19 +24,19 @@ android {
 }
 
 dependencies {
-    implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation (project(":app"))
-    implementation (project(BuildModules.Libraries.Repository))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(":app"))
+    implementation(project(BuildModules.Libraries.Repository))
     testImplementation(TestLibraries.junit4)
 
     // Koin
-    implementation (Libraries.koinAndroid)
-    implementation (Libraries.koinExt)
-    implementation (Libraries.koinScope)
-    implementation (Libraries.koinViewModel)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
 
     androidTestImplementation(project(":app", "intTestDependencies"))
 
-    //Google auth
-    implementation (Libraries.googleAuth)
+    // Google auth
+    implementation(Libraries.googleAuth)
 }

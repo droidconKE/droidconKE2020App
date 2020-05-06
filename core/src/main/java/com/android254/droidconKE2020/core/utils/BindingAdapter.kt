@@ -7,7 +7,7 @@ import coil.transform.RoundedCornersTransformation
 
 @Suppress("MagicNumber")
 @BindingAdapter("imageUrl")
-fun loadImage(imageView : ShapedImageView,imageUrl : String){
+fun loadImage(imageView: ShapedImageView, imageUrl: String) {
     imageView.load(imageUrl) {
         transformations(RoundedCornersTransformation(12f))
     }

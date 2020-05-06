@@ -88,7 +88,6 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
             override fun onPageSelected(position: Int) {
                 highlightTab(position)
             }
-
         })
     }
 
@@ -106,8 +105,6 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
             tab.customView = sessionsTabAdapter.getSelectedTabView(position)
         }
     }
-
-
 }
 
 private const val MIN_SCALE = 0.85f

@@ -43,23 +43,23 @@ android {
 }
 
 dependencies {
-    implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.coroutinesLibrary)
     implementation(Libraries.appCompat)
-    implementation (Libraries.ktxCore)
-    testImplementation (TestLibraries.junit4)
+    implementation(Libraries.ktxCore)
+    testImplementation(TestLibraries.junit4)
     testImplementation(TestLibraries.coroutines)
-    androidTestImplementation (TestLibraries.testRunner)
-    androidTestImplementation (TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.espresso)
     implementation(Libraries.shapedImageView)
     implementation(Libraries.coil)
     implementation(Libraries.materialComponents)
     implementation(Libraries.browser)
 
     // Koin
-    implementation (Libraries.koinAndroid)
-    implementation (Libraries.koinExt)
-    implementation (Libraries.koinScope)
-    implementation (Libraries.koinViewModel)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
 }

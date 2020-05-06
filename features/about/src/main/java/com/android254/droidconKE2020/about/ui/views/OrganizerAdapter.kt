@@ -43,7 +43,6 @@ class OrganizerAdapter(private val clickListener: ClickListener) :
         val nametxt: TextView = view.organizer_name
         val titletxt: TextView = view.organizer_title
 
-
         fun bindOrganizer(organizer: Organizer) {
             with(organizer) {
                 nametxt.text = name

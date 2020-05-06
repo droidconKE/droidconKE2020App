@@ -42,6 +42,5 @@ class SpeakerAdapter(private var onSpeakerClickedEvent: (Speaker) -> Unit) :
                 itemView.setOnClickListener { onSpeakerClickedEvent.invoke(speaker) }
             }
         }
-
     }
 }

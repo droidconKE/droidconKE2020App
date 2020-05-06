@@ -7,7 +7,6 @@ import com.android254.droidconKE2020.speaker.models.SpeakerDetailsModel
 class SpeakerViewModel : ViewModel() {
     val speakerDetails = MediatorLiveData<SpeakerDetailsModel>()
 
-
     fun fetchSpeakerDetails() {
         val speakerDetailsModel = SpeakerDetailsModel(
             "John Doe",
@@ -20,6 +19,4 @@ class SpeakerViewModel : ViewModel() {
         )
         speakerDetails.value = speakerDetailsModel
     }
-
-
 }

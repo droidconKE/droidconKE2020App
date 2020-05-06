@@ -1,6 +1,5 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,14 +15,13 @@ import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionDetailViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
-
 /**
  * A simple [Fragment] subclass.
  */
-class SessionDetailFragment : Fragment(R.layout.fragment_session_detail){
+class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
     private fun injectFeatures() = loadModules
-    private var _binding : FragmentSessionDetailBinding? = null
-    private val binding  get() = _binding!!
+    private var _binding: FragmentSessionDetailBinding? = null
+    private val binding get() = _binding!!
     private val sessionDetailViewModel: SessionDetailViewModel by viewModel()
 
     override fun onCreateView(
@@ -89,7 +87,9 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail){
             navigateBack?.let {
                 if (navigateBack) {
                     sessionDetailViewModel.onNavigatedBack()
-                    findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSessionsFragment())
+                    findNavController().navigate(
+                        SessionDetailFragmentDirections.actionSessionDetailsFragmentToSessionsFragment()
+                    )
                 }
             }
         })

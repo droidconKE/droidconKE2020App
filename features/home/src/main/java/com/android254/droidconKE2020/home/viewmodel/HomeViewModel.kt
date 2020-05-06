@@ -28,7 +28,6 @@ class HomeViewModel(
      * */
     val callForSpeakerUrl: String get() = "https://sessionize.com/droidconke"
 
-
     /**
      * Session stuff
      * */
@@ -53,7 +52,6 @@ class HomeViewModel(
         speakerRepository.refreshSpeakers()
     }
 
-
     /**
      * Sponsor stuff
      * */
@@ -77,9 +75,7 @@ class HomeViewModel(
     fun retrieveOrganizerList() {
         organizerRepository.refreshOrganizers()
     }
-
 }
-
 
 class FakePromotionRepository {
     val activePromo = MutableLiveData<Promotion>()
@@ -152,7 +148,8 @@ class FakeSponsorRepository {
                     "https://www.google.com", true
                 ), Sponsor(
                     2,
-                    "https://hire.andela.com/hs-fs/hubfs/Images_Feb_Folder/Andela-logo-landscape-blue-400px.png?width=3163&height=923&name=Andela-logo-landscape-blue-400px.png",
+                    "https://hire.andela.com/hs-fs/hubfs/Images_Feb_Folder/Andela-logo-landscape-blue-400px." +
+                            "png?width=3163&height=923&name=Andela-logo-landscape-blue-400px.png",
                     "https://andela.com"
                 ), Sponsor(
                     3,
@@ -160,7 +157,8 @@ class FakeSponsorRepository {
                     "https://www.hover.com"
                 ), Sponsor(
                     4,
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/JetBrains_Logo_2016.svg/1200px-JetBrains_Logo_2016.svg.png",
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/JetBrains_Logo_2016." +
+                            "svg/1200px-JetBrains_Logo_2016.svg.png",
                     "https://www.jetbrains.com"
                 ), Sponsor(
                     5,
@@ -168,19 +166,23 @@ class FakeSponsorRepository {
                     "https://www.facebook.com"
                 ), Sponsor(
                     6,
-                    "https://img.favpng.com/12/24/19/pied-piper-of-hamelin-computer-icons-clip-art-png-favpng-HCANn6weBGtG9BLp5BJkLqwYx.jpg",
+                    "https://img.favpng.com/12/24/19/pied-piper-of-hamelin-computer-icons-clip-art-" +
+                            "png-favpng-HCANn6weBGtG9BLp5BJkLqwYx.jpg",
                     "https://www.jetbrains.com"
                 ), Sponsor(
                     7,
-                    "https://vignette.wikia.nocookie.net/silicon-valley/images/f/f0/Hooli.png/revision/latest/scale-to-width-down/340?cb=20160811201728",
+                    "https://vignette.wikia.nocookie.net/silicon-valley/images/f/f0/Hooli.png/revision" +
+                            "/latest/scale-to-width-down/340?cb=20160811201728",
                     "https://www.jetbrains.com"
                 ), Sponsor(
                     8,
-                    "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1507291476/i6rr6zn0myh1bg1y6jan.jpg",
+                    "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256," +
+                            "f_auto,q_auto:eco/v1507291476/i6rr6zn0myh1bg1y6jan.jpg",
                     "https://www.jetbrains.com"
                 ), Sponsor(
                     9,
-                    "https://media-exp1.licdn.com/dms/image/C560BAQFi15PqkUndWg/company-logo_200_200/0?e=2159024400&v=beta&t=1snlZD0vqCn6hgvJ_FsYxTAFCddq22hbdxWujzCIvaY",
+                    "https://media-exp1.licdn.com/dms/image/C560BAQFi15PqkUndWg/company-logo_200_200/0?e=" +
+                            "2159024400&v=beta&t=1snlZD0vqCn6hgvJ_FsYxTAFCddq22hbdxWujzCIvaY",
                     "https://www.jetbrains.com", true
                 )
             )

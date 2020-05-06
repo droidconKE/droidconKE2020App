@@ -128,7 +128,6 @@ class HomeViewModelTest : KoinTest {
         println("######## \n")
     }
 
-
     @Test
     fun `test that a the sponsor registration email addresses and subject exists`() {
         println("Action: Retrieving Become Sponsor email parameters")

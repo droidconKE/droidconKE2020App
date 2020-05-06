@@ -9,10 +9,10 @@ import android.widget.Toast
 import com.android254.droidconKE2020.feed.R
 import kotlinx.android.synthetic.main.fragment_share.*
 
-
 class ShareFragment : RoundedBottomSheetFragment() {
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -34,5 +34,4 @@ class ShareFragment : RoundedBottomSheetFragment() {
             Toast.makeText(context, "Telegram clicked", Toast.LENGTH_SHORT).show()
         }
     }
-
 }
