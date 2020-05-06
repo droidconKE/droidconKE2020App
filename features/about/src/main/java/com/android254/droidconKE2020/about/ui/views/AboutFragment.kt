@@ -44,8 +44,9 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         for (i in 0 until 10) {
             list.add(
                 Organizer(
-                    name = context!!.getString(R.string.organizer_name),
-                    title = context!!.getString(R.string.organizer_title)
+                    organizerId = i,
+                    name = requireContext().getString(R.string.organizer_name),
+                    title = requireContext().getString(R.string.organizer_title)
                 )
             )
         }

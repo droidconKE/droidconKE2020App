@@ -94,7 +94,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         homeViewModel.activePromo.observe(viewLifecycleOwner, Observer { promo ->
             binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
             promo?.let {
-                binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
+                binding.promoImg.load(promo.imageUrl.toInt())
                 binding.promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
             }
         })
