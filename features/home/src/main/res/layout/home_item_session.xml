@@ -1,27 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sessionCard"
-    android:layout_width="150dp"
-    android:layout_height="140dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
     android:clickable="true"
     android:focusable="true"
-    android:layout_marginBottom="4dp"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/sessionImg"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="132dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/promo_background"
             android:contentDescription="@string/session_image"
             android:scaleType="fitXY"
-            android:src="@drawable/dummy_session_image"
+            android:src="@drawable/img_speaker_header"
             app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Droidconke"
+            app:layout_constraintBottom_toTopOf="@id/tvSessionType"
+            app:layout_constraintStart_toStartOf="@id/tvSessionType"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="16dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".4"
+            app:shape_mode="circle"
+            tools:src="@tools:sample/avatars" />
+
+        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+            android:id="@+id/imgAvatarAction"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
+            app:layout_constraintEnd_toEndOf="@id/imgAvatar"
+            app:layout_constraintStart_toStartOf="@id/imgAvatar"
+            app:layout_constraintTop_toBottomOf="@id/imgAvatar"
+            app:shape_mode="circle"
+            app:stroke_color="?colorSurface"
+            app:stroke_width="1.5dp"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvSessionType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Keynote:"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tvSessionTitle"
+            app:layout_constraintStart_toEndOf="@id/imgAvatar"
+            app:layout_constraintTop_toTopOf="@id/imgAvatar"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvSessionTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Community on a Global Scale"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:textColor="@color/colorDarkPurple"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvSessionType"
+            app:layout_constraintTop_toBottomOf="@id/tvSessionType" />
+
+
+        <TextView
+            android:id="@+id/tvSpeakerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="John Fawson:"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tvSpeakerDelegation"
+            app:layout_constraintStart_toEndOf="@id/imgAvatar"
+            app:layout_constraintTop_toBottomOf="@id/tvSessionTitle"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvSpeakerDelegation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Chief Innovation Officer Droidcon Global"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvSpeakerName"
+            app:layout_constraintTop_toBottomOf="@id/tvSpeakerName" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

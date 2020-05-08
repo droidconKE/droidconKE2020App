@@ -37,7 +37,8 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
 
         fun bindSession(session: Session) {
             with(session) {
-                view.sessionImg.load(imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
+                view.imgAvatar.load(imageUrl.toInt())
+                view.imgAvatarAction.load(imageUrl.toInt())
                 view.time.text = time
                 view.room.text = room
                 view.description.text = description
