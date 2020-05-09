@@ -3,6 +3,7 @@ package com.android254.droidconKE2020.home.ui.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
@@ -10,6 +11,7 @@ import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Session
 import com.android254.droidconKE2020.home.ui.views.HomeFragmentDirections
 import kotlinx.android.synthetic.main.home_item_session.view.*
+import com.android254.droidconKE2020.R as appR
 
 class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
 
@@ -24,7 +26,7 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
 
     override fun onBindViewHolder(holder: SessionViewHolder, position: Int) {
         val session = sessions[position]
-        holder.bindSession(session)
+        holder.bindSession(session, position)
     }
 
     fun updateData(list: List<Session>) {
@@ -35,11 +37,18 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
 
     inner class SessionViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bindSession(session: Session) {
+        fun bindSession(session: Session, position: Int) {
+            view.sessionImg.apply {
+                val colorId = if (position % 2 == 0) appR.color.colorBermudaFaded
+                else appR.color.colorYellowFaded
+
+                val bgColor = ContextCompat.getColor(context, colorId)
+                setBackgroundColor(bgColor)
+            }
             with(session) {
                 view.imgAvatar.load(speaker.imageUrl)
-                view.tvSessionType.text = "$title:"
-                view.tvSessionTitle.text = description
+                view.tvSessionTitle.text = "$title:"
+                view.tvSessionDescription.text = description
                 view.tvSpeakerName.text = speaker.name
                 view.tvSpeakerDelegation.text =
                     "${speaker.work}${if (!speaker.company.isBlank()) ", " + speaker.company else ""}"

@@ -153,7 +153,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         val adapter = SessionAdapter()
         binding.sessionsList.adapter = adapter
-        binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(20))
+        binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(30))
 
         homeViewModel.sessionList.observe(viewLifecycleOwner, Observer { sessions ->
             if (sessions == null) {
