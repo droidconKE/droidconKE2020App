@@ -37,8 +37,12 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
 
         fun bindSession(session: Session) {
             with(session) {
-                view.imgAvatar.load(imageUrl.toInt())
-                view.imgAvatarAction.load(imageUrl.toInt())
+                view.imgAvatar.load(speaker.imageUrl)
+                view.tvSessionType.text = "$title:"
+                view.tvSessionTitle.text = description
+                view.tvSpeakerName.text = speaker.name
+                view.tvSpeakerDelegation.text =
+                    "${speaker.work}${if (!speaker.company.isBlank()) ", " + speaker.company else ""}"
                 view.time.text = time
                 view.room.text = room
                 view.description.text = description

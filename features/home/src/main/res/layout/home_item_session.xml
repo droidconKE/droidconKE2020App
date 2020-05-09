@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="132dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/promo_background"
+            android:background="@color/colorBermudaFaded"
             android:contentDescription="@string/session_image"
             android:scaleType="fitXY"
             android:src="@drawable/img_speaker_header"
@@ -46,6 +46,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias=".4"
             app:shape_mode="circle"
+            app:stroke_color="@color/colorBermuda"
+            app:stroke_width="1.5dp"
             tools:src="@tools:sample/avatars" />
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
@@ -53,14 +55,14 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:adjustViewBounds="true"
+            android:src="@drawable/ic_droidcon_logo"
             app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
             app:layout_constraintEnd_toEndOf="@id/imgAvatar"
             app:layout_constraintStart_toStartOf="@id/imgAvatar"
             app:layout_constraintTop_toBottomOf="@id/imgAvatar"
             app:shape_mode="circle"
             app:stroke_color="?colorSurface"
-            app:stroke_width="1.5dp"
-            tools:src="@tools:sample/avatars" />
+            app:stroke_width="1.5dp" />
 
         <TextView
             android:id="@+id/tvSessionType"

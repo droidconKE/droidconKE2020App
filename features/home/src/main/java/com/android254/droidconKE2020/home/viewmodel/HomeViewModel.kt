@@ -97,16 +97,15 @@ class FakeSessionRepository {
             db.add(
                 Session(
                     id = i.toLong(),
-                    title = "Community On Global Scale",
-                    description = "Some short short short shorter description",
+                    title = if (i == 0) "KeyNote" else if (i % 2 == 0) "Kotlin Garbage Collection" else "Yet Another Architecture",
+                    description = "Some short description",
                     room = "Room $i",
                     time = "10:5$i",
                     imageUrl = "${R.drawable.dummy_session_image}",
                     speaker = Speaker(
                         name = "Don Felker",
                         work = "Software Developer / Podcast Host",
-                        imageUrl = Faker().avatar().image(),
-                        isKeynoteSpeaker = i == 1
+                        imageUrl = Faker().avatar().image()
                     )
                 )
             )
