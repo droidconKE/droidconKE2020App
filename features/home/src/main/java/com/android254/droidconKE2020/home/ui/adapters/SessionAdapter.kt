@@ -54,7 +54,6 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
                     "${speaker.work}${if (!speaker.company.isBlank()) ", " + speaker.company else ""}"
                 view.time.text = time
                 view.room.text = room
-                view.description.text = description
                 view.rootView.setOnClickListener { onSessionClicked(id) }
             }
         }

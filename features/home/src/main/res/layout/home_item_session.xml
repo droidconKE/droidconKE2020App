@@ -17,9 +17,10 @@
         <ImageView
             android:id="@+id/sessionImg"
             android:layout_width="wrap_content"
-            android:layout_height="132dp"
+            android:layout_height="164dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/session_image"
+            android:paddingTop="32dp"
             android:scaleType="fitXY"
             android:src="@drawable/img_speaker_header"
             app:layout_constraintBottom_toTopOf="@id/guideline"
@@ -59,10 +60,11 @@
             android:id="@+id/imgAvatar"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintBottom_toTopOf="@id/time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias=".4"
@@ -71,47 +73,37 @@
             app:stroke_width="1.5dp"
             tools:src="@tools:sample/avatars" />
 
-        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-            android:id="@+id/imgAvatarAction"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_droidcon_logo"
-            app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
-            app:layout_constraintEnd_toEndOf="@id/imgAvatar"
-            app:layout_constraintStart_toStartOf="@id/imgAvatar"
-            app:layout_constraintTop_toBottomOf="@id/imgAvatar"
-            app:shape_mode="circle"
-            app:stroke_color="?colorSurface"
-            app:stroke_width="1.5dp" />
-
         <TextView
             android:id="@+id/tvSessionTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="Keynote:"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/tvSessionDescription"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgAvatar"
-            app:layout_constraintTop_toTopOf="@id/imgAvatar"
+            app:layout_constraintTop_toBottomOf="@id/tvDroidCon"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/tvSessionDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             android:textColor="@color/colorDarkPurple"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvSpeakerName"
+            app:layout_constraintEnd_toEndOf="@id/tvSessionTitle"
             app:layout_constraintStart_toStartOf="@id/tvSessionTitle"
             app:layout_constraintTop_toBottomOf="@id/tvSessionTitle"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="Community on a Global Scale" />
 
 
@@ -128,107 +120,67 @@
 
         <TextView
             android:id="@+id/tvSpeakerName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="John Fawson:"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/tvSpeakerDelegation"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/vBullet"
-            app:layout_constraintTop_toBottomOf="@id/tvSessionDescription"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/tvSpeakerDelegation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="Chief Innovation Officer Droidcon Global"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvSpeakerName"
-            app:layout_constraintTop_toBottomOf="@id/tvSpeakerName" />
+            app:layout_constraintBottom_toBottomOf="@id/room"
+            app:layout_constraintEnd_toEndOf="@id/tvSpeakerName"
+            app:layout_constraintStart_toStartOf="@id/tvSpeakerName" />
 
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <ImageButton
-            android:id="@+id/timeImg"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@null"
-            android:contentDescription="@string/time_icon"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_time"
-            android:tint="@color/colorAquaMarine"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_height="24dp"
+            android:drawableStart="@drawable/ic_time"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/colorAquaMarine"
             android:fontFamily="@font/roboto"
+            android:gravity="center_vertical"
             android:text="@string/dummy_time"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/timeImg"
-            app:layout_constraintStart_toEndOf="@id/timeImg"
-            app:layout_constraintTop_toTopOf="@id/timeImg" />
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+            app:layout_constraintBottom_toTopOf="@id/room"
+            app:layout_constraintStart_toStartOf="@id/imgAvatar"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/room"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/roboto"
-            android:text="@string/dummy_room"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/roomImg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/roomImg" />
-
-        <ImageButton
-            android:id="@+id/roomImg"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="@null"
-            android:contentDescription="@string/room_icon"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_direction"
-            android:tint="@color/colorAquaMarine"
-            app:layout_constraintBottom_toBottomOf="@id/timeImg"
-            app:layout_constraintEnd_toStartOf="@id/room"
-            app:layout_constraintTop_toTopOf="@id/timeImg" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/ic_direction"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/colorAquaMarine"
             android:fontFamily="@font/roboto"
-            android:text="@string/dummy_description"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:gravity="center_vertical"
+            android:text="@string/dummy_room"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/room"
-            app:layout_constraintStart_toStartOf="@id/timeImg"
-            app:layout_constraintTop_toBottomOf="@id/timeImg"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintStart_toStartOf="@id/time" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
