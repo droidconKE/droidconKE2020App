@@ -3,11 +3,9 @@ package com.android254.droidconKE2020.home.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.home.R
-import com.android254.droidconKE2020.home.domain.Organizer
-import com.android254.droidconKE2020.home.domain.Promotion
-import com.android254.droidconKE2020.home.domain.Session
-import com.android254.droidconKE2020.home.domain.Sponsor
+import com.android254.droidconKE2020.home.domain.*
 import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
+import com.github.javafaker.Faker
 
 class HomeViewModel(
     private val promotionRepository: FakePromotionRepository,
@@ -99,10 +97,16 @@ class FakeSessionRepository {
             db.add(
                 Session(
                     id = i.toLong(),
+                    title = if (i == 0) "KeyNote" else if (i % 2 == 0) "Kotlin Garbage Collection" else "Yet Another Architecture",
                     description = "Some short description",
                     room = "Room $i",
                     time = "10:5$i",
-                    imageUrl = "${R.drawable.dummy_session_image}"
+                    imageUrl = "${R.drawable.dummy_session_image}",
+                    speaker = Speaker(
+                        name = "Don Felker",
+                        work = "Software Developer / Podcast Host",
+                        imageUrl = Faker().avatar().image()
+                    )
                 )
             )
         }
