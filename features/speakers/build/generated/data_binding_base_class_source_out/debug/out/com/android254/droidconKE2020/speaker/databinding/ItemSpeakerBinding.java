@@ -4,8 +4,6 @@ package com.android254.droidconKE2020.speaker.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,24 +11,18 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import cn.gavinliu.android.lib.shapedimageview.ShapedImageView;
-import com.android254.droidconKE2020.repository.models.Speaker;
 import com.android254.droidconKE2020.speaker.R;
+import com.android254.droidconKE2020.speakers.models.Speaker;
 import com.google.android.material.chip.ChipGroup;
 import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class ItemSpeakerBinding extends ViewDataBinding {
   @NonNull
-  public final ImageView btnStar;
-
-  @NonNull
   public final ChipGroup cgSkills;
 
   @NonNull
   public final ShapedImageView imgContainer;
-
-  @NonNull
-  public final LinearLayout llStars;
 
   @NonNull
   public final TextView tvCompany;
@@ -41,14 +33,8 @@ public abstract class ItemSpeakerBinding extends ViewDataBinding {
   @NonNull
   public final TextView tvRole;
 
-  @NonNull
-  public final TextView tvStars;
-
   @Bindable
   protected Boolean mIsLoggedIn;
-
-  @Bindable
-  protected View.OnClickListener mAdjustStars;
 
   @Bindable
   protected View.OnClickListener mOpenSpeakerDetails;
@@ -57,17 +43,14 @@ public abstract class ItemSpeakerBinding extends ViewDataBinding {
   protected Speaker mSpeaker;
 
   protected ItemSpeakerBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageView btnStar, ChipGroup cgSkills, ShapedImageView imgContainer, LinearLayout llStars,
-      TextView tvCompany, TextView tvName, TextView tvRole, TextView tvStars) {
+      ChipGroup cgSkills, ShapedImageView imgContainer, TextView tvCompany, TextView tvName,
+      TextView tvRole) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.btnStar = btnStar;
     this.cgSkills = cgSkills;
     this.imgContainer = imgContainer;
-    this.llStars = llStars;
     this.tvCompany = tvCompany;
     this.tvName = tvName;
     this.tvRole = tvRole;
-    this.tvStars = tvStars;
   }
 
   public abstract void setIsLoggedIn(@Nullable Boolean isLoggedIn);
@@ -75,13 +58,6 @@ public abstract class ItemSpeakerBinding extends ViewDataBinding {
   @Nullable
   public Boolean getIsLoggedIn() {
     return mIsLoggedIn;
-  }
-
-  public abstract void setAdjustStars(@Nullable View.OnClickListener adjustStars);
-
-  @Nullable
-  public View.OnClickListener getAdjustStars() {
-    return mAdjustStars;
   }
 
   public abstract void setOpenSpeakerDetails(@Nullable View.OnClickListener openSpeakerDetails);

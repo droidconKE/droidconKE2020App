@@ -47,6 +47,7 @@
     <color name="colorBlack">#191d1d</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorYellow">#ffd858</color>
+    <color name="colorYellowFaded">#8DFFD858</color>
     <color name="superLightPurple">#0D843D95</color>
     <color name="colorAquaMarineFaded">#1D68DEA4</color>
     <color name="colorRevolver">#241527</color>

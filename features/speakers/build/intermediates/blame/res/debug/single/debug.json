@@ -20,8 +20,8 @@
         "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/font/roboto_slab_thin.xml"
     },
     {
-        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/layout-land_fragment_speaker_details.xml.flat",
-        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/layout-land/fragment_speaker_details.xml"
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_danger_outline.xml.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable/ic_danger_outline.xml"
     },
     {
         "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable-hdpi_img_speaker_header.png.flat",
@@ -44,16 +44,20 @@
         "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/layout/fragment_speakers.xml"
     },
     {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_right_outline.xml.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable/ic_right_outline.xml"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_action_back.xml.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable/ic_action_back.xml"
+    },
+    {
         "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable-xxhdpi_img_speaker_header.png.flat",
         "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable-xxhdpi/img_speaker_header.png"
     },
     {
         "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable-xxxhdpi_img_speaker_header.png.flat",
         "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable-xxxhdpi/img_speaker_header.png"
-    },
-    {
-        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_arrow_back_24px.xml.flat",
-        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable/ic_arrow_back_24px.xml"
     },
     {
         "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_background_toolbar.xml.flat",
@@ -68,12 +72,12 @@
         "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/layout/fragment_speaker_details.xml"
     },
     {
-        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_search_24px.xml.flat",
-        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable/ic_search_24px.xml"
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_search_outline.xml.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable/ic_search_outline.xml"
     },
     {
-        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_clear_24px.xml.flat",
-        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable/ic_clear_24px.xml"
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_left_outline.xml.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/src/main/res/drawable/ic_left_outline.xml"
     },
     {
         "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/res/merged/debug/drawable_ic_company_18dp.xml.flat",

@@ -7,7 +7,6 @@ import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakerDetailsBindingImpl;
-import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakerDetailsBindingLandImpl;
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakersBindingImpl;
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakersBindingLandImpl;
 import com.android254.droidconKE2020.speaker.databinding.ItemSpeakerBindingImpl;
@@ -48,9 +47,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         case  LAYOUT_FRAGMENTSPEAKERDETAILS: {
           if ("layout/fragment_speaker_details_0".equals(tag)) {
             return new FragmentSpeakerDetailsBindingImpl(component, view);
-          }
-          if ("layout-land/fragment_speaker_details_0".equals(tag)) {
-            return new FragmentSpeakerDetailsBindingLandImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for fragment_speaker_details is invalid. Received: " + tag);
         }
@@ -113,28 +109,26 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(10);
+    static final SparseArray<String> sKeys = new SparseArray<String>(9);
 
     static {
       sKeys.put(0, "_all");
-      sKeys.put(7929856, "adjustStars");
-      sKeys.put(7929857, "clearSearch");
-      sKeys.put(7929858, "goBack");
-      sKeys.put(7929859, "initiateEasterEgg");
-      sKeys.put(7929860, "isLoggedIn");
-      sKeys.put(7929861, "openProfile");
-      sKeys.put(7929862, "openSpeakerDetails");
-      sKeys.put(7929863, "speaker");
-      sKeys.put(7929864, "speakersViewModel");
+      sKeys.put(7929856, "clearSearch");
+      sKeys.put(7929857, "goBack");
+      sKeys.put(7929858, "initiateEasterEgg");
+      sKeys.put(7929859, "isLoggedIn");
+      sKeys.put(7929860, "openProfile");
+      sKeys.put(7929861, "openSpeakerDetails");
+      sKeys.put(7929862, "speaker");
+      sKeys.put(7929863, "speakersViewModel");
     }
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(5);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
 
     static {
       sKeys.put("layout/fragment_speaker_details_0", com.android254.droidconKE2020.speaker.R.layout.fragment_speaker_details);
-      sKeys.put("layout-land/fragment_speaker_details_0", com.android254.droidconKE2020.speaker.R.layout.fragment_speaker_details);
       sKeys.put("layout/fragment_speakers_0", com.android254.droidconKE2020.speaker.R.layout.fragment_speakers);
       sKeys.put("layout-land/fragment_speakers_0", com.android254.droidconKE2020.speaker.R.layout.fragment_speakers);
       sKeys.put("layout/item_speaker_0", com.android254.droidconKE2020.speaker.R.layout.item_speaker);

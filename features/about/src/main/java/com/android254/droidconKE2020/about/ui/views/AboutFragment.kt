@@ -5,14 +5,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.about.R
 import com.android254.droidconKE2020.about.databinding.FragmentAboutBinding
+import com.android254.droidconKE2020.about.di.aboutModule
+import com.android254.droidconKE2020.about.ui.viewmodel.AboutViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
+
+private val loadFeature by lazy { loadKoinModules(aboutModule) }
+private fun injectFeature() = loadFeature
 
 class AboutFragment : Fragment(R.layout.fragment_about) {
 
     private var _binding: FragmentAboutBinding? = null
     private val binding get() = _binding!!
+
+    private val aboutViewModel: AboutViewModel by viewModel()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        injectFeature()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,6 +36,7 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
+        _binding?.viewModel = aboutViewModel
         return binding.root
     }
 
@@ -30,26 +47,16 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
                 AboutFragmentDirections.actionAboutFragmentToOrganizerDetailsFragment()
             findNavController().navigate(organizerDetailsDirections)
         }
+
         binding.organizersList.adapter = adapter
-        adapter.updateData(createDummyData()) // TODO Remove use of dummy data
+        aboutViewModel.createDummyData() // TODO Remove use of dummy data
+        aboutViewModel.organizers.observe(viewLifecycleOwner, Observer {
+            adapter.updateData(it)
+        })
     }
 
     override fun onDestroyView() {
-        _binding = null
         super.onDestroyView()
-    }
-
-    private fun createDummyData(): List<Organizer> {
-        val list = mutableListOf<Organizer>()
-        for (i in 0 until 10) {
-            list.add(
-                Organizer(
-                    organizerId = i,
-                    name = requireContext().getString(R.string.organizer_name),
-                    title = requireContext().getString(R.string.organizer_title)
-                )
-            )
-        }
-        return list
+        _binding = null
     }
 }

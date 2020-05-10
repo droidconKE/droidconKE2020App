@@ -33,7 +33,7 @@ include(
     BuildModules.Libraries.App,
     BuildModules.Libraries.Test,
     BuildModules.Features.Feedback,
-    BuildModules.Features.Speaker,
+    BuildModules.Features.Speakers,
     BuildModules.Features.Auth,
     BuildModules.Features.Sessions,
     BuildModules.Features.About,

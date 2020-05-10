@@ -53,8 +53,8 @@ class SessionDetailViewModelTest : BaseViewModelTest() {
 
     @Test
     fun `test whether click speaker live data contains a speaker id when a user clicks a speaker name`() {
-        sessionDetailViewModel.onClickSpeaker(1001L)
-        assertThat(sessionDetailViewModel.clickSpeaker.getOrAwaitValue(), `is`(1001L))
+        sessionDetailViewModel.onClickSpeaker(1001)
+        assertThat(sessionDetailViewModel.clickSpeaker.getOrAwaitValue(), `is`(1001))
     }
 
     @Test

@@ -4,61 +4,41 @@ package com.android254.droidconKE2020.speaker.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.Guideline;
+import androidx.core.widget.NestedScrollView;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import cn.gavinliu.android.lib.shapedimageview.ShapedImageView;
-import com.android254.droidconKE2020.repository.models.Speaker;
 import com.android254.droidconKE2020.speaker.R;
+import com.android254.droidconKE2020.speakers.models.Speaker;
+import com.google.android.material.appbar.AppBarLayout;
 import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class FragmentSpeakerDetailsBinding extends ViewDataBinding {
   @NonNull
-  public final ShapedImageView circleImageView;
-
-  /**
-   * This binding is not available in all configurations.
-   * <p>
-   * Present:
-   * <ul>
-   *   <li>layout/</li>
-   * </ul>
-   *
-   * Absent:
-   * <ul>
-   *   <li>layout-land/</li>
-   * </ul>
-   */
-  @Nullable
-  public final View circleImageViewBg;
-
-  /**
-   * This binding is not available in all configurations.
-   * <p>
-   * Present:
-   * <ul>
-   *   <li>layout-land/</li>
-   * </ul>
-   *
-   * Absent:
-   * <ul>
-   *   <li>layout/</li>
-   * </ul>
-   */
-  @Nullable
-  public final ConstraintLayout clBioData;
+  public final AppBarLayout appBarLayout;
 
   @NonNull
-  public final ScrollView constraintLayout;
+  public final ImageButton btnNavBack;
+
+  @NonNull
+  public final ImageView btnToolbarIcon;
+
+  @NonNull
+  public final ShapedImageView circleImageView;
+
+  @NonNull
+  public final View circleImageViewBg;
+
+  @NonNull
+  public final NestedScrollView constraintLayout;
 
   @NonNull
   public final ImageView copyIcon;
@@ -67,16 +47,16 @@ public abstract class FragmentSpeakerDetailsBinding extends ViewDataBinding {
   public final ImageView imgSpeakerToolbar;
 
   @NonNull
-  public final ImageView imgTwitter;
+  public final ImageView imgToolbarLogo;
 
   @NonNull
-  public final LinearLayout llCards;
+  public final ImageView imgTwitter;
 
   @NonNull
   public final ConstraintLayout rlSpeakerHandle;
 
   @NonNull
-  public final TextView sessionsLabel;
+  public final View spanView;
 
   @NonNull
   public final TextView textView;
@@ -99,76 +79,36 @@ public abstract class FragmentSpeakerDetailsBinding extends ViewDataBinding {
   @NonNull
   public final TextView tvSpeakerRole;
 
-  /**
-   * This binding is not available in all configurations.
-   * <p>
-   * Present:
-   * <ul>
-   *   <li>layout/</li>
-   * </ul>
-   *
-   * Absent:
-   * <ul>
-   *   <li>layout-land/</li>
-   * </ul>
-   */
-  @Nullable
+  @NonNull
   public final TextView tvTopTwitterHandle;
 
-  /**
-   * This binding is not available in all configurations.
-   * <p>
-   * Present:
-   * <ul>
-   *   <li>layout/</li>
-   * </ul>
-   *
-   * Absent:
-   * <ul>
-   *   <li>layout-land/</li>
-   * </ul>
-   */
-  @Nullable
+  @NonNull
   public final TextView tvTwitterHandleLabel;
-
-  /**
-   * This binding is not available in all configurations.
-   * <p>
-   * Present:
-   * <ul>
-   *   <li>layout-land/</li>
-   * </ul>
-   *
-   * Absent:
-   * <ul>
-   *   <li>layout/</li>
-   * </ul>
-   */
-  @Nullable
-  public final Guideline verticalGuideline;
 
   @Bindable
   protected Speaker mSpeaker;
 
   protected FragmentSpeakerDetailsBinding(Object _bindingComponent, View _root,
-      int _localFieldCount, ShapedImageView circleImageView, View circleImageViewBg,
-      ConstraintLayout clBioData, ScrollView constraintLayout, ImageView copyIcon,
-      ImageView imgSpeakerToolbar, ImageView imgTwitter, LinearLayout llCards,
-      ConstraintLayout rlSpeakerHandle, TextView sessionsLabel, TextView textView,
-      TextView tvSpeakerBio, TextView tvSpeakerBioLabel, TextView tvSpeakerCompany,
-      TextView tvSpeakerHandle, TextView tvSpeakerName, TextView tvSpeakerRole,
-      TextView tvTopTwitterHandle, TextView tvTwitterHandleLabel, Guideline verticalGuideline) {
+      int _localFieldCount, AppBarLayout appBarLayout, ImageButton btnNavBack,
+      ImageView btnToolbarIcon, ShapedImageView circleImageView, View circleImageViewBg,
+      NestedScrollView constraintLayout, ImageView copyIcon, ImageView imgSpeakerToolbar,
+      ImageView imgToolbarLogo, ImageView imgTwitter, ConstraintLayout rlSpeakerHandle,
+      View spanView, TextView textView, TextView tvSpeakerBio, TextView tvSpeakerBioLabel,
+      TextView tvSpeakerCompany, TextView tvSpeakerHandle, TextView tvSpeakerName,
+      TextView tvSpeakerRole, TextView tvTopTwitterHandle, TextView tvTwitterHandleLabel) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.appBarLayout = appBarLayout;
+    this.btnNavBack = btnNavBack;
+    this.btnToolbarIcon = btnToolbarIcon;
     this.circleImageView = circleImageView;
     this.circleImageViewBg = circleImageViewBg;
-    this.clBioData = clBioData;
     this.constraintLayout = constraintLayout;
     this.copyIcon = copyIcon;
     this.imgSpeakerToolbar = imgSpeakerToolbar;
+    this.imgToolbarLogo = imgToolbarLogo;
     this.imgTwitter = imgTwitter;
-    this.llCards = llCards;
     this.rlSpeakerHandle = rlSpeakerHandle;
-    this.sessionsLabel = sessionsLabel;
+    this.spanView = spanView;
     this.textView = textView;
     this.tvSpeakerBio = tvSpeakerBio;
     this.tvSpeakerBioLabel = tvSpeakerBioLabel;
@@ -178,7 +118,6 @@ public abstract class FragmentSpeakerDetailsBinding extends ViewDataBinding {
     this.tvSpeakerRole = tvSpeakerRole;
     this.tvTopTwitterHandle = tvTopTwitterHandle;
     this.tvTwitterHandleLabel = tvTwitterHandleLabel;
-    this.verticalGuideline = verticalGuideline;
   }
 
   public abstract void setSpeaker(@Nullable Speaker speaker);

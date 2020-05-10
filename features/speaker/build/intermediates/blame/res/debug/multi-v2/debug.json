@@ -1,0 +1,75 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/values/preloaded_fonts.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "202"
+                    },
+                    "to": {
+                        "startLines": "16",
+                        "startColumns": "4",
+                        "startOffsets": "3572",
+                        "endLines": "19",
+                        "endColumns": "12",
+                        "endOffsets": "3719"
+                    }
+                },
+                {
+                    "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "13,11,7,2,4,10,6,8,9,5,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1028,902,640,55,455,837,579,704,762,510,974",
+                        "endLines": "13,11,7,3,4,10,6,8,9,5,12",
+                        "endColumns": "47,71,63,152,54,64,60,57,74,68,53",
+                        "endOffsets": "1071,969,699,450,505,897,635,757,832,574,1023"
+                    },
+                    "to": {
+                        "startLines": "31,32,33,34,36,37,38,39,40,41,42",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4232,4280,4352,4416,4816,4871,4936,4997,5055,5130,5199",
+                        "endLines": "31,32,33,35,36,37,38,39,40,41,42",
+                        "endColumns": "47,71,63,152,54,64,60,57,74,68,53",
+                        "endOffsets": "4275,4347,4411,4811,4866,4931,4992,5050,5125,5194,5248"
+                    }
+                },
+                {
+                    "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/values/dimens.xml",
+                    "from": {
+                        "startLines": "5,10,8,6,7,9,4,3,2,12,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "193,424,337,236,287,379,147,102,55,517,468",
+                        "endColumns": "42,43,41,50,49,44,45,44,46,45,48",
+                        "endOffsets": "231,463,374,282,332,419,188,142,97,558,512"
+                    },
+                    "to": {
+                        "startLines": "20,21,22,23,24,25,26,27,28,29,30",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3724,3767,3811,3853,3904,3954,3999,4045,4090,4137,4183",
+                        "endColumns": "42,43,41,50,49,44,45,44,46,45,48",
+                        "endOffsets": "3762,3806,3848,3899,3949,3994,4040,4085,4132,4178,4227"
+                    }
+                },
+                {
+                    "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/values/font_certs.xml",
+                    "from": {
+                        "startLines": "2,6,11",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,257,1982",
+                        "endLines": "5,10,15",
+                        "endColumns": "12,19,19",
+                        "endOffsets": "252,1977,3567"
+                    }
+                }
+            ]
+        }
+    ]
+}

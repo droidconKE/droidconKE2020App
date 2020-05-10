@@ -14,12 +14,11 @@ import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
-import com.android254.droidconKE2020.home.di.homeRepositories
 import com.android254.droidconKE2020.home.di.homeViewModels
-import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
+import com.android254.droidconKE2020.home.domain.Speaker
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -33,7 +32,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 private val loadFeature by lazy {
-    loadKoinModules(listOf(homeViewModels, homeRepositories, browserModule))
+    loadKoinModules(listOf(homeViewModels, browserModule))
 }
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -69,10 +68,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showOrganizers()
     }
 
-    private fun onSpeakerClicked() {
-        val speakerDetailsAction =
-            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
-        findNavController().navigate(speakerDetailsAction)
+    private fun viewAllSessionsClicked() {
+        val action =
+            HomeFragmentDirections.actionHomeFragmentToSessionsFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun viewAllSpeakersClicked() {
+        val action =
+            HomeFragmentDirections.actionHomeFragmentToSpeakersFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun onSpeakerClicked(speakerId: Int) {
+        val action =
+            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment(speakerId)
+        findNavController().navigate(action)
     }
 
     private fun launchBrowser(webUrl: String) {
@@ -94,7 +105,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         homeViewModel.activePromo.observe(viewLifecycleOwner, Observer { promo ->
             binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
             promo?.let {
-                binding.promoImg.load(promo.imageUrl.toInt())
+                binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
                 binding.promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
             }
         })
@@ -124,11 +135,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             } else {
                 binding.keynoteSpeakerImg.also {
                     it.load(keynoteSpeaker.imageUrl)
-                    it.setOnClickListener { onSpeakerClicked() }
+                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
                 binding.keynoteSpeakerLbl.also {
                     it.text = keynoteSpeaker.name
-                    it.setOnClickListener { onSpeakerClicked() }
+                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
                 }
                 binding.keynoteLblBecomeSpeaker.setOnClickListener {
                     launchBrowser(homeViewModel.callForSpeakerUrl)
@@ -138,15 +149,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSessionsList() {
-        binding.viewSessionsBtn.setOnClickListener {
-            val sessionsFragmentAction =
-                HomeFragmentDirections.actionHomeFragmentToSessionsFragment()
-            findNavController().navigate(sessionsFragmentAction)
-        }
+        binding.viewSessionsBtn.setOnClickListener { viewAllSessionsClicked() }
 
         val adapter = SessionAdapter()
         binding.sessionsList.adapter = adapter
-        binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(20))
+        binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(30))
 
         homeViewModel.sessionList.observe(viewLifecycleOwner, Observer { sessions ->
             if (sessions == null) {
@@ -165,22 +172,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSpeakersList() {
-        homeViewModel.setIsShowingAllSpeakers(false)
-        homeViewModel.isShowingAllSpeakers.observe(viewLifecycleOwner, Observer { isShowing ->
-            binding.viewSpeakersBtn.text =
-                getString(if (isShowing == true) R.string.view_less else R.string.view_all)
-            binding.viewSpeakersBtn.setOnClickListener {
-                if (isShowing == true) {
-                    // ToDo: Show one row of speakers
-                } else {
-                    // ToDo: Set layoutManager to a grid and show all speakers
-                }
-                homeViewModel.setIsShowingAllSpeakers(isShowing != true)
-            }
-        })
+        binding.viewSpeakersBtn.setOnClickListener { viewAllSpeakersClicked() }
 
-        val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked() }
-
+        val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked(it.id) }
         val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = adapter
         binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))

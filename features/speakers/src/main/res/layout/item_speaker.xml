@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isLoggedIn"
+            type="Boolean" />
+
+        <variable
+            name="openSpeakerDetails"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="speaker"
+            type="com.android254.droidconKE2020.speakers.models.Speaker" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Theme.DroidConKe.ListCard"
+        android:onClick="@{openSpeakerDetails}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+                android:id="@+id/imgContainer"
+                imageUrl="@{speaker.imageUrl}"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_margin="6dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shape_mode="circle"
+                app:stroke_color="@color/colorAquaMarine"
+                app:stroke_width="2dp"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardMarginHorizontal"
+                android:layout_marginEnd="@dimen/cardMarginHorizontal"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:maxLines="1"
+                android:text="@{speaker.name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintBottom_toTopOf="@id/tvRole"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgContainer"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/tvRole"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_work_18dp"
+                android:drawablePadding="@dimen/rvSpeakerItemMargin"
+                android:drawableTint="@color/colorOnSurface"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/rvSpeakerItemMargin"
+                android:text="@{speaker.work}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintBottom_toTopOf="@id/cgSkills"
+                app:layout_constraintEnd_toStartOf="@id/tvCompany"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/tvCompany"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_company_18dp"
+                android:drawablePadding="@dimen/rvSpeakerItemMargin"
+                android:drawableTint="@color/colorOnSurface"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/rvSpeakerItemMargin"
+                android:text="@{speaker.company}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintBottom_toBottomOf="@id/tvRole"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvRole"
+                app:layout_constraintTop_toTopOf="@id/tvRole"
+                tools:text="@tools:sample/lorem" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgSkills"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgContainer" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -4,7 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.*
-import kotlin.random.Random
+import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
+import com.github.javafaker.Faker
 
 class HomeViewModel(
     private val promotionRepository: FakePromotionRepository,
@@ -40,12 +41,6 @@ class HomeViewModel(
     /**
      * Speaker stuff
      * */
-    private val _isShowingAllSpeakers = MutableLiveData<Boolean>()
-    val isShowingAllSpeakers get() = _isShowingAllSpeakers
-    fun setIsShowingAllSpeakers(isShowingAll: Boolean) {
-        _isShowingAllSpeakers.value = isShowingAll
-    }
-
     val keynoteSpeaker get() = speakerRepository.keynoteSpeaker
     val speakerList get() = speakerRepository.sessionSpeakers
     fun retrieveSpeakerList() {
@@ -98,38 +93,20 @@ class FakeSessionRepository {
             db.add(
                 Session(
                     id = i.toLong(),
+                    title = if (i == 0) "KeyNote" else if (i % 2 == 0) "Kotlin Garbage Collection" else "Yet Another Architecture",
                     description = "Some short description",
                     room = "Room $i",
                     time = "10:5$i",
-                    imageUrl = "${R.drawable.dummy_session_image}"
+                    imageUrl = "${R.drawable.dummy_session_image}",
+                    speaker = Speaker(
+                        name = "Don Felker",
+                        work = "Software Developer / Podcast Host",
+                        imageUrl = Faker().avatar().image()
+                    )
                 )
             )
         }
         sessions.postValue(db)
-    }
-}
-
-class FakeSpeakerRepository {
-    private val db = mutableListOf<Speaker>()
-    val keynoteSpeaker = MutableLiveData<Speaker>()
-    val sessionSpeakers = MutableLiveData<List<Speaker>>()
-
-    fun refreshSpeakers() {
-        db.clear()
-
-        for (i in 0 until 10) {
-            db.add(
-                Speaker(
-                    id = Random.nextInt(),
-                    name = "Person $i",
-                    imageUrl = "https://loremflickr.com/320/320/dog",
-                    isKeynoteSpeaker = i == 0
-                )
-            )
-        }
-
-        keynoteSpeaker.postValue(db.removeAt(0))
-        sessionSpeakers.postValue(db)
     }
 }
 

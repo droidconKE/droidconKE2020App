@@ -14,51 +14,59 @@ public class FragmentSpeakerDetailsBindingImpl extends FragmentSpeakerDetailsBin
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.imgSpeakerToolbar, 8);
-        sViewsWithIds.put(R.id.circleImageViewBg, 9);
-        sViewsWithIds.put(R.id.imgTwitter, 10);
-        sViewsWithIds.put(R.id.tvSpeakerBioLabel, 11);
-        sViewsWithIds.put(R.id.sessionsLabel, 12);
-        sViewsWithIds.put(R.id.llCards, 13);
-        sViewsWithIds.put(R.id.tvTwitterHandleLabel, 14);
-        sViewsWithIds.put(R.id.rlSpeakerHandle, 15);
-        sViewsWithIds.put(R.id.copyIcon, 16);
-        sViewsWithIds.put(R.id.textView, 17);
+        sViewsWithIds.put(R.id.appBarLayout, 8);
+        sViewsWithIds.put(R.id.imgSpeakerToolbar, 9);
+        sViewsWithIds.put(R.id.btn_nav_back, 10);
+        sViewsWithIds.put(R.id.imgToolbarLogo, 11);
+        sViewsWithIds.put(R.id.btnToolbarIcon, 12);
+        sViewsWithIds.put(R.id.constraintLayout, 13);
+        sViewsWithIds.put(R.id.spanView, 14);
+        sViewsWithIds.put(R.id.circleImageViewBg, 15);
+        sViewsWithIds.put(R.id.imgTwitter, 16);
+        sViewsWithIds.put(R.id.tvSpeakerBioLabel, 17);
+        sViewsWithIds.put(R.id.tvTwitterHandleLabel, 18);
+        sViewsWithIds.put(R.id.rlSpeakerHandle, 19);
+        sViewsWithIds.put(R.id.copyIcon, 20);
+        sViewsWithIds.put(R.id.textView, 21);
     }
     // views
+    @NonNull
+    private final androidx.coordinatorlayout.widget.CoordinatorLayout mboundView0;
     // variables
     // values
     // listeners
     // Inverse Binding Event Handlers
 
     public FragmentSpeakerDetailsBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 18, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 22, sIncludes, sViewsWithIds));
     }
     private FragmentSpeakerDetailsBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
+            , (com.google.android.material.appbar.AppBarLayout) bindings[8]
+            , (android.widget.ImageButton) bindings[10]
+            , (android.widget.ImageView) bindings[12]
             , (cn.gavinliu.android.lib.shapedimageview.ShapedImageView) bindings[1]
-            , (android.view.View) bindings[9]
-            , null
-            , (android.widget.ScrollView) bindings[0]
+            , (android.view.View) bindings[15]
+            , (androidx.core.widget.NestedScrollView) bindings[13]
+            , (android.widget.ImageView) bindings[20]
+            , (android.widget.ImageView) bindings[9]
+            , (android.widget.ImageView) bindings[11]
             , (android.widget.ImageView) bindings[16]
-            , (android.widget.ImageView) bindings[8]
-            , (android.widget.ImageView) bindings[10]
-            , (android.widget.LinearLayout) bindings[13]
-            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[15]
-            , (android.widget.TextView) bindings[12]
-            , (android.widget.TextView) bindings[17]
+            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[19]
+            , (android.view.View) bindings[14]
+            , (android.widget.TextView) bindings[21]
             , (android.widget.TextView) bindings[6]
-            , (android.widget.TextView) bindings[11]
+            , (android.widget.TextView) bindings[17]
             , (android.widget.TextView) bindings[4]
             , (android.widget.TextView) bindings[7]
             , (android.widget.TextView) bindings[2]
             , (android.widget.TextView) bindings[3]
             , (android.widget.TextView) bindings[5]
-            , (android.widget.TextView) bindings[14]
-            , null
+            , (android.widget.TextView) bindings[18]
             );
         this.circleImageView.setTag(null);
-        this.constraintLayout.setTag(null);
+        this.mboundView0 = (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0];
+        this.mboundView0.setTag(null);
         this.tvSpeakerBio.setTag(null);
         this.tvSpeakerCompany.setTag(null);
         this.tvSpeakerHandle.setTag(null);
@@ -92,7 +100,7 @@ public class FragmentSpeakerDetailsBindingImpl extends FragmentSpeakerDetailsBin
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.speaker == variableId) {
-            setSpeaker((com.android254.droidconKE2020.repository.models.Speaker) variable);
+            setSpeaker((com.android254.droidconKE2020.speakers.models.Speaker) variable);
         }
         else {
             variableSet = false;
@@ -100,7 +108,7 @@ public class FragmentSpeakerDetailsBindingImpl extends FragmentSpeakerDetailsBin
             return variableSet;
     }
 
-    public void setSpeaker(@Nullable com.android254.droidconKE2020.repository.models.Speaker Speaker) {
+    public void setSpeaker(@Nullable com.android254.droidconKE2020.speakers.models.Speaker Speaker) {
         this.mSpeaker = Speaker;
         synchronized(this) {
             mDirtyFlags |= 0x1L;
@@ -125,8 +133,8 @@ public class FragmentSpeakerDetailsBindingImpl extends FragmentSpeakerDetailsBin
         }
         java.lang.String speakerWork = null;
         java.lang.String javaLangStringSpeakerSocialMediaTwitter = null;
-        com.android254.droidconKE2020.repository.models.Speaker speaker = mSpeaker;
-        com.android254.droidconKE2020.repository.models.SocialMedia speakerSocialMedia = null;
+        com.android254.droidconKE2020.speakers.models.Speaker speaker = mSpeaker;
+        com.android254.droidconKE2020.speakers.models.SocialMedia speakerSocialMedia = null;
         java.lang.String speakerBio = null;
         java.lang.String speakerName = null;
         java.lang.String speakerImageUrl = null;

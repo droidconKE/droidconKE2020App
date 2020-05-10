@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/drawable_profile_img_background.xml.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/drawable/profile_img_background.xml"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/layout_fragment_speaker_details.xml.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/layout/fragment_speaker_details.xml"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/drawable-mdpi_img_speaker_header.png.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/drawable-mdpi/img_speaker_header.png"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/font_roboto_slab_thin.xml.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/font/roboto_slab_thin.xml"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/drawable-xxxhdpi_img_speaker_header.png.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/drawable-xxxhdpi/img_speaker_header.png"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/drawable-xhdpi_img_speaker_header.png.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/drawable-xhdpi/img_speaker_header.png"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/drawable_greg.jpg.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/drawable/greg.jpg"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/drawable-hdpi_img_speaker_header.png.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/drawable-hdpi/img_speaker_header.png"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/drawable-ldpi_img_speaker_header.png.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/drawable-ldpi/img_speaker_header.png"
+    },
+    {
+        "merged": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/res/merged/debug/drawable-xxhdpi_img_speaker_header.png.flat",
+        "source": "/home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/src/main/res/drawable-xxhdpi/img_speaker_header.png"
+    }
+]

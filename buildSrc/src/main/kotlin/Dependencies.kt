@@ -1,10 +1,10 @@
 object Versions {
     const val name = "1.0"
     const val code = 1
-
     const val kotlin = "1.3.61"
     const val coroutines = "1.3.3"
     const val buildToolsVersion = "3.6.0"
+
     const val jetPack = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val ktx = "1.1.0"
@@ -25,6 +25,7 @@ object Versions {
     const val testRunner = "1.1.1"
     const val rules = "1.1.1"
     const val espresso = "3.2.0"
+
     const val annotation = "1.1.0"
     const val mockk = "1.9"
     const val safeArgsPlugin = "2.2.1"
@@ -37,6 +38,7 @@ object Versions {
     const val ktlint = "9.2.1"
     const val dekt = "1.7.4"
     const val navVersion = "2.3.0-alpha01"
+    const val fakeit = "1.0.2"
 }
 
 object BuildPlugins {
@@ -99,12 +101,16 @@ object Libraries {
 
     // Browser
     const val browser = "androidx.browser:browser:${Versions.browser}"
+
+    // Fake Data
+    const val fakeit = "com.github.javafaker:javafaker:${Versions.fakeit}"
 }
 
 object APIs {
     const val ktxCore = "androidx.core:core-ktx:1.2.0"
     const val kotlinStandardLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
-    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
+    const val navigationFragment =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}"
     const val navigationDynamicFeature =
         "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navVersion}"
@@ -138,7 +144,7 @@ object BuildModules {
         const val Feed = ":features:feed"
         const val Sessions = ":features:sessions"
         const val Auth = ":features:auth"
-        const val Speaker = ":features:speaker"
+        const val Speakers = ":features:speakers"
         const val Feedback = ":features:feedback"
         const val About = ":features:about"
     }
