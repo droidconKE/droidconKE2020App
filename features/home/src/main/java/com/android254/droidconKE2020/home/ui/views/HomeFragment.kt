@@ -69,7 +69,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showOrganizers()
     }
 
-    private fun onSpeakerClicked(speakerId: Int) {
+    private fun onSpeakerClicked() {
         val speakerDetailsAction =
             HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment()
         findNavController().navigate(speakerDetailsAction)
@@ -124,11 +124,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             } else {
                 binding.keynoteSpeakerImg.also {
                     it.load(keynoteSpeaker.imageUrl)
-                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
+                    it.setOnClickListener { onSpeakerClicked() }
                 }
                 binding.keynoteSpeakerLbl.also {
                     it.text = keynoteSpeaker.name
-                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
+                    it.setOnClickListener { onSpeakerClicked() }
                 }
                 binding.keynoteLblBecomeSpeaker.setOnClickListener {
                     launchBrowser(homeViewModel.callForSpeakerUrl)
@@ -179,7 +179,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         })
 
-        val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked(it.id) }
+        val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked() }
 
         val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.speakersList.adapter = adapter

@@ -40,12 +40,12 @@ class OtherSponsorAdapter(private var onSponsorClickedEvent: (Sponsor) -> Unit) 
 
     class SponsorDiffCallback : DiffUtil.ItemCallback<Sponsor>() {
 
-        override fun areItemsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean {
-            return oldItem.id == newItem.id
-        }
+        override fun areItemsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean =
+            oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean {
-            return oldItem == newItem
-        }
+
+        override fun areContentsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean =
+            oldItem == newItem
+
     }
 }

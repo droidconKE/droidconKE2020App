@@ -12,9 +12,7 @@ internal class ShareSessionBottomFragment() : BottomSheetDialogFragment() {
 
     constructor(session: DummySessionDetail) : this()
 
-    override fun getTheme(): Int {
-        return R.style.Theme_Sessions_BottomSheetDialog
-    }
+    override fun getTheme(): Int = R.style.Theme_Sessions_BottomSheetDialog
 
     override fun onCreateView(
         inflater: LayoutInflater,

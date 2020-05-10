@@ -168,22 +168,22 @@ class FakeSponsorRepository {
                     6,
                     "https://img.favpng.com/12/24/19/pied-piper-of-hamelin-computer-icons-clip-art-" +
                             "png-favpng-HCANn6weBGtG9BLp5BJkLqwYx.jpg",
-                    "https://www.jetbrains.com"
+                    "https://www.google.com"
                 ), Sponsor(
                     7,
                     "https://vignette.wikia.nocookie.net/silicon-valley/images/f/f0/Hooli.png/revision" +
                             "/latest/scale-to-width-down/340?cb=20160811201728",
-                    "https://www.jetbrains.com"
+                    "https://www.material.io"
                 ), Sponsor(
                     8,
                     "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256," +
                             "f_auto,q_auto:eco/v1507291476/i6rr6zn0myh1bg1y6jan.jpg",
-                    "https://www.jetbrains.com"
+                    "https://www.droidcon.co.ke"
                 ), Sponsor(
                     9,
                     "https://media-exp1.licdn.com/dms/image/C560BAQFi15PqkUndWg/company-logo_200_200/0?e=" +
                             "2159024400&v=beta&t=1snlZD0vqCn6hgvJ_FsYxTAFCddq22hbdxWujzCIvaY",
-                    "https://www.jetbrains.com", true
+                    "https://www.droidcon.com", true
                 )
             )
         )

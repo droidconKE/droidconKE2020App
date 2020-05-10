@@ -24,7 +24,7 @@ class SessionDetailViewModel : ViewModel() {
         get() = _navigateBack
 
     fun getSessionDetails(sessionId: Long) {
-        _sessionDetails.value = FakeRepository.getSession(sessionId)
+        _sessionDetails.value = FakeRepository.getSession()
     }
 
     fun onClickSaveSession(dummySessionDetail: DummySessionDetail) {
@@ -61,7 +61,7 @@ class SessionDetailViewModel : ViewModel() {
 }
 
 object FakeRepository {
-    fun getSession(sessionId: Long): DummySessionDetail {
+    fun getSession(): DummySessionDetail {
         return DummySessionDetail(
             sessionDuration = "9:30 AM - 10:30 AM",
             sessionDescription = "A guide to asynchronous programming with Kotlin",
