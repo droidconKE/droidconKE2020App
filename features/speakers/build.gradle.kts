@@ -39,14 +39,13 @@ dependencies {
     implementation(Libraries.shapedImageView)
 
     // Koin
-    implementation (Libraries.koinAndroid)
-    implementation (Libraries.koinExt)
-    implementation (Libraries.koinScope)
-    implementation (Libraries.koinViewModel)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
 
-    //Test
+    // Test
     testImplementation(TestLibraries.junit4)
     testImplementation(project(":test-utils", "testDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
-
 }

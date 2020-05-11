@@ -14,7 +14,6 @@ class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : 
     val searchPhrase get() = _searchPhrase
     fun clearSearch() = _searchPhrase.postValue("")
 
-
     /**
      * Speaker stuff
      * */
@@ -23,5 +22,4 @@ class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : 
         if (searchPhrase.isNullOrBlank()) speakerRepository.refreshSpeakers()
         else speakerRepository.searchSpeakers(searchPhrase.toLowerCase(Locale.ROOT))
     }
-
 }

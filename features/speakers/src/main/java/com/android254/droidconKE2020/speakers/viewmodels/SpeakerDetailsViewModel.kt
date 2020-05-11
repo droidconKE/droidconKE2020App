@@ -12,5 +12,4 @@ class SpeakerDetailsViewModel(private val speakerRepository: FakeSpeakerReposito
     fun fetchSpeakerDetails(speakerId: Int) {
         _speaker.postValue(speakerRepository.retrieveSpeaker(speakerId))
     }
-
 }

@@ -2,9 +2,7 @@ package com.android254.droidconKE2020.about.ui.views
 
 import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -14,7 +12,6 @@ import org.hamcrest.core.AllOf.allOf
 import org.hamcrest.core.IsInstanceOf.instanceOf
 import org.junit.Assert.*
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -36,7 +33,7 @@ class OrganizerItemSelectionTest {
 
     @Test
     fun organizerSelected() {
-        scenario.onFragment {  fragment ->
+        scenario.onFragment { fragment ->
             viewModel.createDummyData()
             viewModel.organizers.observe(fragment, Observer {
                 organizerList = it

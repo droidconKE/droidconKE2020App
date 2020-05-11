@@ -2,7 +2,6 @@ package com.android254.droidconKE2020.about.di
 
 import com.android254.droidconKE2020.about.ui.viewmodel.AboutViewModel
 import com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel
-import com.android254.droidconKE2020.about.ui.views.OrganizerDetailsFragment
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module

@@ -13,5 +13,4 @@ class AuthDialog : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.dialog_authenticate, container)
-
 }

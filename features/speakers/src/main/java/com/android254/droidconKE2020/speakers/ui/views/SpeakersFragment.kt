@@ -60,7 +60,6 @@ class SpeakersFragment : Fragment() {
         findNavController().navigate(speakerDetailsAction)
     }
 
-
     private fun fetchSpeakers(searchPhrase: String?) {
         speakersViewModel.retrieveSpeakerList(searchPhrase)
     }
@@ -85,5 +84,4 @@ class SpeakersFragment : Fragment() {
             fetchSpeakers(searchPhrase)
         })
     }
-
 }

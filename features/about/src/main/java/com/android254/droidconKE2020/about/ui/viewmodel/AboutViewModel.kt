@@ -1,6 +1,5 @@
 package com.android254.droidconKE2020.about.ui.viewmodel
 
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.about.ui.views.Organizer

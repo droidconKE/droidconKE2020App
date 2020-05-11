@@ -97,4 +97,3 @@ dependencies {
     // Mock data
     api(Libraries.fakeit)
 }
-

@@ -1,10 +1,7 @@
 package com.android254.droidconKE2020.about.ui.views
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.about.databinding.ItemOrganizerBinding
 import com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel

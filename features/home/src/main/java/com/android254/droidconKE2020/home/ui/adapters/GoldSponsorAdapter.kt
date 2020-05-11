@@ -43,9 +43,7 @@ class GoldSponsorAdapter(private var onSponsorClickedEvent: (Sponsor) -> Unit) :
         override fun areItemsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean =
             oldItem.id == newItem.id
 
-
         override fun areContentsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean =
             oldItem == newItem
-
     }
 }

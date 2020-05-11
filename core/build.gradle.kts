@@ -4,7 +4,6 @@ plugins {
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.ktlintPlugin)
     id(BuildPlugins.kotlinKapt)
-
 }
 
 android {

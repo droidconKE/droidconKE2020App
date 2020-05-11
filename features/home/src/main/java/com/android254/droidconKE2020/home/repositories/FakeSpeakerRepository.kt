@@ -61,4 +61,3 @@ class FakeSpeakerRepository {
         sessionSpeakers.postValue(db)
     }
 }
- 

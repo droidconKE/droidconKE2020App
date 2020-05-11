@@ -16,7 +16,6 @@ class ShareFragment : RoundedBottomSheetFragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_share, container, false)
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         twitterShare.setOnClickListener {

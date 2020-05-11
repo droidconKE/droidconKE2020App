@@ -41,7 +41,6 @@ class PreferencesImpl(context: Context) : Preferences {
 
     override fun isSignedIn(): Boolean = sharedPref.getBoolean("signedIn", false)
 
-
     override fun setSignedIn(value: Boolean) {
         editSharedPref {
             it.putBoolean("signedIn", value)
