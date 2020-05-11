@@ -50,9 +50,7 @@ class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
         override fun areItemsTheSame(oldItem: Speaker, newItem: Speaker): Boolean =
             oldItem.id == newItem.id
 
-
         override fun areContentsTheSame(oldItem: Speaker, newItem: Speaker): Boolean =
             oldItem == newItem
-
     }
 }
