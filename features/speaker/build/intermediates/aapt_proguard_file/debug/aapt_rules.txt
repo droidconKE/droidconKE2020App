@@ -1,6 +1,0 @@
-# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speaker_details.xml:23
--keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(...); }
-
-# Referenced at /home/harun/AndroidStudioProjects/droidconKE2020App/features/speaker/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_speaker_details.xml:48
--keep class cn.gavinliu.android.lib.shapedimageview.ShapedImageView { <init>(...); }
-

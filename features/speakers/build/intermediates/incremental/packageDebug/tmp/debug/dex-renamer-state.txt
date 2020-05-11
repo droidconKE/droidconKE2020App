@@ -1,4 +1,4 @@
-#Mon May 11 01:33:18 EAT 2020
+#Mon May 11 16:00:32 EAT 2020
 base.0=/home/harun/AndroidStudioProjects/droidconKE2020App/features/speakers/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
