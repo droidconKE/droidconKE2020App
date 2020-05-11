@@ -19,7 +19,10 @@ class SpeakersViewModel(private val speakerRepository: FakeSpeakerRepository) : 
      * */
     val speakerList get() = speakerRepository.sessionSpeakers
     fun retrieveSpeakerList(searchPhrase: String?) {
-        if (searchPhrase.isNullOrBlank()) speakerRepository.refreshSpeakers()
-        else speakerRepository.searchSpeakers(searchPhrase.toLowerCase(Locale.ROOT))
+        if (searchPhrase.isNullOrBlank()) {
+            speakerRepository.refreshSpeakers()
+        } else {
+            speakerRepository.searchSpeakers(searchPhrase.toLowerCase(Locale.ROOT))
+        }
     }
 }

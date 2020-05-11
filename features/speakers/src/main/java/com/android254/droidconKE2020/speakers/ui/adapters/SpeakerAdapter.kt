@@ -47,12 +47,12 @@ class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
 
     class SpeakerDiffCallback : DiffUtil.ItemCallback<Speaker>() {
 
-        override fun areItemsTheSame(oldItem: Speaker, newItem: Speaker): Boolean {
-            return oldItem.id == newItem.id
-        }
+        override fun areItemsTheSame(oldItem: Speaker, newItem: Speaker): Boolean =
+            oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: Speaker, newItem: Speaker): Boolean {
-            return oldItem == newItem
-        }
+
+        override fun areContentsTheSame(oldItem: Speaker, newItem: Speaker): Boolean =
+            oldItem == newItem
+
     }
 }

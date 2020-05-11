@@ -69,8 +69,9 @@ class SpeakersFragment : Fragment() {
         binding.rvSpeakers.adapter = adapter
 
         speakersViewModel.speakerList.observe(viewLifecycleOwner, Observer { speakers ->
-            if (speakers != null) adapter.submitList(speakers)
-            else {
+            if (speakers != null) {
+                adapter.submitList(speakers)
+            } else {
                 // ToDo: show shimmer for the first time and null views for conseq times.
                 //  This can be null due to the search functionality
             }
