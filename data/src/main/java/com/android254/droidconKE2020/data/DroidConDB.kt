@@ -8,5 +8,4 @@ import androidx.room.RoomDatabase
  * @author bernard
  */
 @Database(entities = [ExampleEntity::class], version = 1, exportSchema = false)
-abstract class DroidConDB: RoomDatabase() {
-}
+abstract class DroidConDB : RoomDatabase()

@@ -3,6 +3,7 @@ plugins {
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.safeArgs)
+    id(BuildPlugins.ktlintPlugin)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
@@ -88,15 +89,11 @@ dependencies {
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
 
-    androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.testRules)
     androidTestImplementation(TestLibraries.koin)
     debugImplementation(TestLibraries.fragment)
     androidTestImplementation(TestLibraries.kakao)
-
-    //Google services
     implementation(Libraries.googleServices)
-
     // Mock data
     api(Libraries.fakeit)
 }

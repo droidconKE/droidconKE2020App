@@ -12,7 +12,6 @@ class OrganizerAdapter : RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHold
 
     private val organizers = mutableListOf<Organizer>()
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizerViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.home_item_organizer, parent, false)
@@ -37,7 +36,6 @@ class OrganizerAdapter : RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHold
 
         fun bindOrg(organizer: Organizer) {
             with(organizer) {
-
             }
         }
     }

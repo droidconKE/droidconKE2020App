@@ -2,6 +2,7 @@ plugins {
     id(BuildPlugins.dynamicFeature)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
+    id(BuildPlugins.ktlintPlugin)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
@@ -35,11 +36,11 @@ dependencies {
     testImplementation(TestLibraries.junit4)
 
     // Koin
-    implementation (Libraries.koinAndroid)
-    implementation (Libraries.koinExt)
-    implementation (Libraries.koinScope)
-    implementation (Libraries.koinViewModel)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
 
-    //Test
+    // Test
     testImplementation(project(":test-utils", "testDependencies"))
 }

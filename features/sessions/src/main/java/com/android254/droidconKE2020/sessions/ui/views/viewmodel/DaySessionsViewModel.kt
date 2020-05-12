@@ -88,6 +88,4 @@ class DaySessionsViewModel : ViewModel() {
     fun onSessionItemSaved() {
         _saveSessionItem.value = null
     }
-
-
 }

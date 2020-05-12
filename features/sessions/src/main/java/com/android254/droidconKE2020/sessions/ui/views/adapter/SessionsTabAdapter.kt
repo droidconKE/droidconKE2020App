@@ -55,5 +55,4 @@ class SessionsTabAdapter(fragmentManager: FragmentManager, private val context: 
             context.resources.getDrawable(R.drawable.tab_selected, null)
         return tabView
     }
-
 }

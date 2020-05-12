@@ -33,18 +33,18 @@ class HomeActivity : AppCompatActivity() {
             feedback()
         }
         toolbar.nightModeHandler = {
-            Toast.makeText(applicationContext,"Night",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Night", Toast.LENGTH_SHORT).show()
             toggleDarkTheme()
         }
     }
 
-    //Set up bottom navigation
+    // Set up bottom navigation
     private fun setUpBottomNavigation() {
-        //Retrieve fragment container view as nav host fragment
+        // Retrieve fragment container view as nav host fragment
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.findNavController()
-        //Setup bottom navigation view with nav controller for dynamic navigation
+        // Setup bottom navigation view with nav controller for dynamic navigation
         bottomNavigation.setupWithNavController(navController = navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             toolbar.onDestinationChanged(destination.id, destination.label as String)

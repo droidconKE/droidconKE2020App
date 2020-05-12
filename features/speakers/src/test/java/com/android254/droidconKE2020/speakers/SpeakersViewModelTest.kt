@@ -79,5 +79,4 @@ class SpeakersViewModelTest : KoinTest {
 
         println("######## \n")
     }
-
 }

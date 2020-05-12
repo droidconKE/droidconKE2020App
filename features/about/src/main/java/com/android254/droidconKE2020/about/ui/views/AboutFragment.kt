@@ -42,8 +42,9 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = OrganizerAdapter{
-            val organizerDetailsDirections = AboutFragmentDirections.actionAboutFragmentToOrganizerDetailsFragment()
+        val adapter = OrganizerAdapter {
+            val organizerDetailsDirections =
+                AboutFragmentDirections.actionAboutFragmentToOrganizerDetailsFragment()
             findNavController().navigate(organizerDetailsDirections)
         }
 

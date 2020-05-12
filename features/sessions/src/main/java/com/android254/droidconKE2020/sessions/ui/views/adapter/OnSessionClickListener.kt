@@ -2,7 +2,6 @@ package com.android254.droidconKE2020.sessions.ui.views.adapter
 
 import android.view.View
 
-
 class SessionClickListener(val clickListener: (sessionId: Long) -> Unit) {
     fun onClick(session: DummySession) = clickListener(session.sessionId)
 }

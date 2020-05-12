@@ -24,8 +24,8 @@ internal class FilterFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        (0..2).forEach {
-            roomsTestList.add("Room $it")
+        for (i in 0..2) {
+            roomsTestList.add("Room $i")
         }
         roomsTestList.forEach { roomName ->
             val chip =
@@ -33,7 +33,7 @@ internal class FilterFragment : Fragment() {
             chip.text = roomName
             roomsChipGroup.addView(chip)
         }
-        (0..2).forEach {
+        for (i in 0..2) {
             levelsTestList.add("Advanced")
         }
         levelsTestList.forEach {
@@ -44,10 +44,9 @@ internal class FilterFragment : Fragment() {
         }
         buttonCancel.setOnClickListener {
             findNavController().navigate(FilterFragmentDirections.actionFilterFragmentToSessionsFragment())
-
         }
-        (0..6).forEach {
-            topicsTestList.add("Topic $it")
+        for (i in 0..6) {
+            topicsTestList.add("Topic $i")
         }
         topicsTestList.forEach {
             val chip =
@@ -55,10 +54,10 @@ internal class FilterFragment : Fragment() {
             chip.text = it
             topicChipGroup.addView(chip)
         }
-
-        (0..3).forEach {
-            sessionTypeList.add("Topic $it")
+        for (i in 0..3) {
+            sessionTypeList.add("Topic $i")
         }
+
         sessionTypeList.forEach {
             val chip =
                 LayoutInflater.from(requireContext()).inflate(R.layout.filter_chip, null) as Chip

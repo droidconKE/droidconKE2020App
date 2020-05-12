@@ -50,4 +50,3 @@ class OrganizerDetailsFragment : Fragment(R.layout.fragment_organizer_details) {
         return binding.root
     }
 }
-

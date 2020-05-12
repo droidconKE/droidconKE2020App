@@ -35,6 +35,9 @@ object Versions {
     const val kakao = "2.3.0"
     const val flexBox = "2.0.1"
     const val browser = "1.2.0"
+    const val ktlint = "9.2.1"
+    const val dekt = "1.7.4"
+    const val navVersion = "2.3.0-alpha01"
     const val fakeit = "1.0.2"
 }
 
@@ -42,14 +45,18 @@ object BuildPlugins {
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.buildToolsVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val androidApplication = "com.android.application"
-    const val kotlinAndroid = "kotlin-android"
-    const val kotlinAndroidExtensions = "kotlin-android-extensions"
+    const val kotlinAndroid = "org.jetbrains.kotlin.android"
+    const val kotlinAndroidExtensions = "org.jetbrains.kotlin.android.extensions"
     const val dynamicFeature = "com.android.dynamic-feature"
     const val androidLibrary = "com.android.library"
     const val kotlinKapt = "kotlin-kapt"
-    const val safeArgs = "androidx.navigation.safeargs"
+    const val safeArgs = "androidx.navigation.safeargs.kotlin"
     const val safeArgsGradlePlugin =
-        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.safeArgsPlugin}"
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navVersion}"
+    const val kapt = "kotlin-kapt"
+    const val ktlintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle"
+    const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
+    const val dektPlugin = "io.gitlab.arturbosch.detekt"
 }
 
 object Libraries {
@@ -100,13 +107,13 @@ object Libraries {
 }
 
 object APIs {
-    private const val navVersion = "2.3.0-alpha01"
     const val ktxCore = "androidx.core:core-ktx:1.2.0"
     const val kotlinStandardLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
-    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${navVersion}"
-    const val navigationUI = "androidx.navigation:navigation-ui-ktx:$navVersion"
+    const val navigationFragment =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
+    const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}"
     const val navigationDynamicFeature =
-        "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
+        "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navVersion}"
     const val fragments = "androidx.fragment:fragment-ktx:${Versions.fragments}"
 }
 

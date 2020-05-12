@@ -26,7 +26,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
  */
 class DaySessions : Fragment(R.layout.fragment_day_sessions) {
 
-
     private fun injectFeatures() = loadModules
     private val daySessionsViewModel: DaySessionsViewModel by viewModel()
     private var _binding: FragmentDaySessionsBinding? = null
@@ -127,10 +126,8 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
             it.arguments = args
         }
     }
-
 }
 
 fun Context.displayToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, duration).show()
 }
-

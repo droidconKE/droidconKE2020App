@@ -1,17 +1,15 @@
 package com.android254.droidconKE2020.about.ui.views
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.about.databinding.ItemOrganizerBinding
 import com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel
 import kotlinx.android.synthetic.main.item_organizer.view.*
 
-typealias ClickListener =(Organizer) -> Unit
-class OrganizerAdapter(private val clickListener : ClickListener) :
+typealias ClickListener = (Organizer) -> Unit
+
+class OrganizerAdapter(private val clickListener: ClickListener) :
 
     RecyclerView.Adapter<OrganizerAdapter.OrganizerViewHolder>() {
 
@@ -36,7 +34,8 @@ class OrganizerAdapter(private val clickListener : ClickListener) :
         notifyDataSetChanged()
     }
 
-    inner class OrganizerViewHolder(binding: ItemOrganizerBinding, clickListener : ClickListener) : RecyclerView.ViewHolder(binding.root) {
+    inner class OrganizerViewHolder(binding: ItemOrganizerBinding, clickListener: ClickListener) :
+        RecyclerView.ViewHolder(binding.root) {
         private val organizerViewModel = OrganizerViewModel()
 
         fun bindOrganizer(organizer: Organizer) {

@@ -14,7 +14,6 @@ import com.android254.droidconKE2020.home.domain.Sponsor
 class OtherSponsorAdapter(private var onSponsorClickedEvent: (Sponsor) -> Unit) :
     ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view =
             LayoutInflater.from(parent.context)
@@ -26,7 +25,6 @@ class OtherSponsorAdapter(private var onSponsorClickedEvent: (Sponsor) -> Unit) 
         val sponsor = getItem(position)
         (holder as SponsorViewHolder).bind(sponsor)
     }
-
 
     inner class SponsorViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
@@ -40,15 +38,12 @@ class OtherSponsorAdapter(private var onSponsorClickedEvent: (Sponsor) -> Unit) 
         }
     }
 
-
     class SponsorDiffCallback : DiffUtil.ItemCallback<Sponsor>() {
 
-        override fun areItemsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean {
-            return oldItem.id == newItem.id
-        }
+        override fun areItemsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean =
+            oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean {
-            return oldItem == newItem
-        }
+        override fun areContentsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean =
+            oldItem == newItem
     }
 }

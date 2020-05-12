@@ -39,8 +39,11 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
 
         fun bindSession(session: Session, position: Int) {
             view.sessionImg.apply {
-                val colorId = if (position % 2 == 0) appR.color.colorBermudaFaded
-                else appR.color.colorYellowFaded
+                val colorId = if (position % 2 == 0) {
+                    appR.color.colorBermudaFaded
+                } else {
+                    appR.color.colorYellowFaded
+                }
 
                 val bgColor = ContextCompat.getColor(context, colorId)
                 setBackgroundColor(bgColor)

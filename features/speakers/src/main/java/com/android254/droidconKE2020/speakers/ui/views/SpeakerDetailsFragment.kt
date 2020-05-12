@@ -8,7 +8,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android254.droidconKE2020.speaker.databinding.FragmentSpeakerDetailsBinding
@@ -26,14 +25,12 @@ class SpeakerDetailsFragment : Fragment() {
     private val speakerDetailsViewModel: SpeakerDetailsViewModel by viewModel()
 
     private var callback: OnBackPressedCallback? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         injectFeature()
 
         callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
             isEnabled = true
-
             findNavController().navigateUp()
         }
     }
@@ -54,10 +51,8 @@ class SpeakerDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         observeSpeakerDetails()
         getSpeakerDetails()
-
     }
 
     private fun observeSpeakerDetails() {

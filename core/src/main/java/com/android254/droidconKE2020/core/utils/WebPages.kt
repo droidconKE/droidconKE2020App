@@ -17,7 +17,7 @@ class WebPages(private val context: Context) {
         builder.setStartAnimations(context, android.R.anim.fade_out, android.R.anim.fade_in)
         builder.setExitAnimations(context, android.R.anim.fade_in, android.R.anim.fade_out)
 
-        // FixMe: Color not set correctly after passing context with di and introducing FLAG_ACTIVITY_NEW_TASK intent flags
+        //  Color not set correctly after passing context with di and introducing FLAG_ACTIVITY_NEW_TASK intent flags
         builder.setToolbarColor(getColor(context, R.color.browserToolbarColor))
         builder.setShowTitle(true)
 

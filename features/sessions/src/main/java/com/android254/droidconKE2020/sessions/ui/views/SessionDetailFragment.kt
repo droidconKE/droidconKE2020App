@@ -1,6 +1,5 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,7 +14,6 @@ import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionDetailViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.android254.droidconKE2020.R as AppR
-
 
 /**
  * A simple [Fragment] subclass.
@@ -89,7 +87,9 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
             navigateBack?.let {
                 if (navigateBack) {
                     sessionDetailViewModel.onNavigatedBack()
-                    findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSessionsFragment())
+                    findNavController().navigate(
+                        SessionDetailFragmentDirections.actionSessionDetailsFragmentToSessionsFragment()
+                    )
                 }
             }
         })

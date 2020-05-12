@@ -2,6 +2,7 @@ plugins {
     id(BuildPlugins.dynamicFeature)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
+    id(BuildPlugins.ktlintPlugin)
 }
 
 tasks.withType<Test> {
@@ -83,7 +84,6 @@ android {
     (kotlinOptions as org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions).apply {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
-
 }
 
 dependencies {
@@ -98,9 +98,8 @@ dependencies {
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
 
-    //Test
+    // Test
     testImplementation(TestLibraries.junit4)
     testImplementation(project(":test-utils", "testDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
-
 }

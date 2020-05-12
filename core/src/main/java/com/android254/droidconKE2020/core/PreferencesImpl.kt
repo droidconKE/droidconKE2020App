@@ -17,9 +17,7 @@ class PreferencesImpl(context: Context) : Preferences {
         }
     }
 
-    override fun getShowSplashScreen(): Boolean {
-        return sharedPref.getBoolean("showSplashScreen", true)
-    }
+    override fun getShowSplashScreen(): Boolean = sharedPref.getBoolean("showSplashScreen", true)
 
     override fun setShowSplashScreen(showSplashScreen: Boolean) {
         editSharedPref {
@@ -41,9 +39,7 @@ class PreferencesImpl(context: Context) : Preferences {
         }
     }
 
-    override fun isSignedIn(): Boolean {
-        return sharedPref.getBoolean("signedIn", false)
-    }
+    override fun isSignedIn(): Boolean = sharedPref.getBoolean("signedIn", false)
 
     override fun setSignedIn(value: Boolean) {
         editSharedPref {

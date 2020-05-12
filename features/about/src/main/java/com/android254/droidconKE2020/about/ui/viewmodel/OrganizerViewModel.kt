@@ -7,7 +7,7 @@ import com.android254.droidconKE2020.about.ui.views.Organizer
 /**
  * 11/04/20
  */
-class OrganizerViewModel: ViewModel() {
+class OrganizerViewModel : ViewModel() {
     private val _organizerTitle: MutableLiveData<String> = MutableLiveData()
     fun getOrganizerTitle(): MutableLiveData<String> =
         _organizerTitle

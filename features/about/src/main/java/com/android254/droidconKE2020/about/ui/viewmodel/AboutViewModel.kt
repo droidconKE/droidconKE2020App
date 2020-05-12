@@ -1,6 +1,5 @@
 package com.android254.droidconKE2020.about.ui.viewmodel
 
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.about.ui.views.Organizer
@@ -20,6 +19,7 @@ class AboutViewModel : ViewModel() {
         for (i in 0 until 12) {
             list.add(
                 Organizer(
+                    organizerId = i,
                     name = "Frank Tamre",
                     title = "Developer"
                 )
