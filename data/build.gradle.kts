@@ -2,6 +2,8 @@ plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
+    id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.ktlintPlugin)
 }
 
 android {
@@ -25,11 +27,23 @@ android {
 }
 
 dependencies {
-    implementation (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
-    implementation (Libraries.ktxCore)
-    testImplementation (TestLibraries.junit4)
-    androidTestImplementation (TestLibraries.testRunner)
-    androidTestImplementation (TestLibraries.espresso)
+    implementation(Libraries.ktxCore)
+    testImplementation(TestLibraries.junit4)
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.espresso)
+
+    // Room
+    testImplementation(Libraries.roomTesting)
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRuntime)
+    kapt(Libraries.roomCompiler)
+
+    // Koin
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinExt)
+    implementation(Libraries.koinScope)
+    implementation(Libraries.koinViewModel)
 }

@@ -93,7 +93,7 @@ check **"dependencies"** below
 
 **4. Build Project**
 
-**5. Incase of an error when building project, update your gradle version, Build Tools download**
+**5. In case of an error when building project, update your gradle version, Build Tools download**
 
 
 =======
@@ -141,7 +141,7 @@ Consists of classes and logic that is to be shared across the application. It co
 
 #### Modules To Be There:
 With the above in mind, here are the actual modules in the droidconKE2020 app following the guidelines laid above
-1. app 
+1. app
 2. core (library)
 3. data (library)
 4. features - directory for grouping all the feature modules together. It has the following dynamic feature modules:
@@ -156,7 +156,123 @@ With the above in mind, here are the actual modules in the droidconKE2020 app fo
  5. repository(library)
  6. network(library)
  
+#### Koin Integration & Guides
+Dependency injection is integrated into the project based on the
+project's architecture. Each modules gradle file has koin dependencies.
+
+**Data module**
+
+The data module define a databaseModule in Module.kt file. The module
+defines a room database like:
+
+    `single {
+        Room.databaseBuilder(
+                androidApplication(),
+                DroidConDB::class.java,
+                "droidCon.db")
+            .build()
+    }`
+
+Then define entity in its on directory. Each entity defines a Data
+Access Object interfaces and data sources. For example, the user
+directory includes; user model file, UserDao interface and a
+LocalUserDataSource file. To define dependencies follow these steps;
+
+Define a data access object like this;
+
+    `@Dao
+    interface UserDao {
+        @Query("SELECT * FROM user")
+        fun getUser(): User
+    }`
+
+Then define a koin dependency like this:
+
+    `factory { get<DroidConDB>().userDao() }`
+
+and a data source dependencies like this:
+
+    `factory { LocalUserDataSource(get()) }`
+
+**Network Module**
+
+The network module also defines individual entities which shall contain
+response and request bodies (DTOs), if they are necessary, api service
+interface and a data source.
+
+To inject dependencies for data sources, do this:
+
+    `factory { get<Retrofit>().create(UserAPIService::class.java) }`
+
+for api service interface dependency injection definition add this:
+
+    `factory { RemoteUserDataSource(get()) }`
+
+to define data source dependencies.
+
+**Repository Module**
+
+The repository is dependent on the network and data module. To define a
+repository dependency, do this:
+
+    `factory { UserRepository(get(), get()) }`
+
+The first parameter is the UserLocalDataSource from the data module and
+the second is the UserRemoteDataSource from the network module.
+
+**Features**
+
+Each feature depend on the repository module. ViewModel dependencies
+require repository dependencies. for viewmodel injection, follow this
+steps;
+
+create a class, for example LoginViewModel,
+
+    `class AuthViewModel(private val repository: UserRepository): ViewModel() {
+        fun login(username: String, password: String) {
+            repository.login(username, password) }  
+    }`
+
+Then in the features di directory, add a viewmodel injection like this:
+
+    `viewModel { AuthViewModel(get()) }`
+
+then inject the viewmodel into a fragment/activity
+
+    `class AuthFragment: Fragment() {
+        **val authFragment: AuthFragment by viewModel()**
+        
+        override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            return super.onCreateView(inflater, container, savedInstanceState)
+        }    
+    }`
+
+#### Gradle
+ The App uses Kotlin DSL for its gradle due to the obvious advantages Kotlin affords as compared to Groovy. 
+ The Dependencies.kt file under buildSrc is where we store all our App Dependencies and contains the following objects;
+ 1.	Versions; 
+     The versions object contains all the Application’s version code and version name as well as all the variable library version codes. 
+ 2.	BuildPlugins;
+     This object contains all the plugins required for the build process.
+ 3.	Libraries;
+     This object contains all the required imported application libraries.
+ 4.	APIs
+     This object contains all the required APIs
+ 5.	AndroidSDK
+     This object contains the minSDK, targetSDK and compileSDK version codes
+ 6.	TestLibraries
+     This object contains all the required Libraries for testing.
+ 7.	BuildModules 
+     This object is split into Libraries and Features. The Libraries contain the APP module and the other core Modules which are to be reused in different Dynamic features while the Features contain specific functionality of different aspects of the app.
  
+ To add a Dependency go to the Dependencies.kt file add it in the required object. Then go to the target build.gradle.kts file and add the code. E.g.;
+  	Implementation(ObjectName.Example)
+
+
  #### Navigation
  The app uses Single Activity Architecture. And follows [Navigation Principles](https://developer.android.com/guide/navigation/navigation-principles) from Jetpack. And since features are all dynamic modules, we have taken advantage of the introduction of the support of dynamic features in the navigation component in the latest [release](https://developer.android.com/jetpack/androidx/releases/navigation#2.3.0-alpha01). How this works is we use fragments in the feature modules and add the fragments to the main nav graph which has the support for adding destinations from dynamic feature modules. More on this is in the [Navigate with dynamic feature modules
 ](https://developer.android.com/guide/navigation/navigation-dynamic) tutorial. Note: Adding destinations might not work in AS version below 3.6 Release Candidate 3(RC3) and destination fragment name might be in red but no worries, app runs well as expected.
@@ -237,6 +353,28 @@ For any concerns kindly:
 - [Fork the project and send a pull request](https://github.com/droidconKE/droidconKE2020App/pulls).
 
 
+## Coding Convention
+
+- For any view id, ie. Buttons, Edit Texts etc., we will use camelCase ie. btnLogin, etName.
+
+- Classes name end with the name of the component e.g. MainActivity and MainViewModel
+
+- For layout xml files the name of the component comes first i.e. fragment_login
+
+- The parent layout container id is given a prefix layout_ e.g. layout_login
+
+- Value files should always be in plural ie. strings/colors/styles etc.
+
+- String values should be named as txt_login or err_failed and should not be in block and colors values should be in small ie. colorBlue
+
+- Recycler view layouts should start with the prefix item eg. item_sessions
+
+and xml attributes ie. background should be named as btn_login_bg.xml
+
+- Menu items should be named as activity_main it is repetitive to add the term menu since they are contained in the menu directory
+
+- Ideally, in the xml, the first attribute after the tag is id, then width, then height and then anything else android: followed by app and lastly tools:
+
 
 ## License
 
@@ -278,3 +416,4 @@ Auto-populated from:
 2.  https://github.com/VMadalin/kotlin-sample-app
 3.  https://github.com/DroidKaigi/conference-app-2020
 4.  https://proandroiddev.com/multiple-ways-of-defining-clean-architecture-layers-bbb70afa5d4a
+

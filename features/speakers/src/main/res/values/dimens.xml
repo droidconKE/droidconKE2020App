@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeSmaller">14sp</dimen>
+    <dimen name="textSizeSmall">16sp</dimen>
+    <dimen name="textSizeNormal">18sp</dimen>
+    <dimen name="mediumMargin">6dp</dimen>
+    <dimen name="speakerHandleRadius">24dp</dimen>
+    <dimen name="textSizeExtraSmall">12sp</dimen>
+    <dimen name="smallMargin">3dp</dimen>
+    <dimen name="textSizeLarge">20sp</dimen>
+    <dimen name="screenMargin">10dp</dimen>
+    <dimen name="twitter_handle_bg">24dp</dimen>
+    <dimen name="twitter_handle">24dp</dimen>
+
+    <dimen name="rvSpeakerItemLargerMargin">12dp</dimen>
+    <dimen name="rvSpeakerItemMargin">8dp</dimen>
+    <dimen name="rvSpeakerItemWidth">64dp</dimen>
+
+    <!-- Toolbar measurements -->
+    <dimen name="toolbarBigContentSize">40dp</dimen>
+    <dimen name="toolbarIconSize">32dp</dimen>
+    <dimen name="toolbarInsets">16dp</dimen>
+    <dimen name="toolbarContentMargin">5dp</dimen>
+
+    <!-- List cards measurements -->
+    <dimen name="cardCornerRadius">12dp</dimen>
+    <dimen name="cardElevation">8dp</dimen>
+    <dimen name="cardMarginVertical">8dp</dimen>
+    <dimen name="cardMarginHorizontal">16dp</dimen>
+    <dimen name="cardPadding">8dp</dimen>
+
+</resources>

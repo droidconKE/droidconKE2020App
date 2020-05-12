@@ -8,25 +8,141 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.android254.droidconKE2020.home.ui.views.HomeFragment"
+        android:label="Home"
         app:moduleName="home"
-        android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_speakersFragment"
+            app:destination="@id/speakersFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_SpeakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sessionDetailsFragment"
+            app:destination="@id/sessionDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sessionsFragment"
+            app:destination="@id/sessionsFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.android254.droidconKE2020.feed.ui.views.FeedFragment"
+        android:label="Feed"
         app:moduleName="feed"
-        android:label="FeedFragment"
-        tools:layout="@layout/fragment_feed"/>
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_feedFragment_to_shareFragment"
+            app:destination="@id/shareFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/shareFragment"
+        android:name="com.android254.droidconKE2020.feed.ui.views.ShareFragment"
+        android:label="Share Dialog"
+        app:moduleName="feed"
+        tools:layout="@layout/share_fragment" />
+
+
+    <fragment
+        android:id="@+id/feedBackFragment"
+        android:name="com.android254.droidconKE2020.feedback.ui.views.FeedbackFragment"
+        android:label="Feedback"
+        app:moduleName="feedback"
+        tools:layout="@layout/fragment_feedback" />
     <fragment
         android:id="@+id/sessionsFragment"
         android:name="com.android254.droidconKE2020.sessions.ui.views.SessionsFragment"
+        android:label="Sessions"
         app:moduleName="sessions"
-        android:label="SessionsFragment"
-        tools:layout="@layout/fragment_sessions"/>
+        tools:layout="@layout/fragment_sessions">
+        <action
+            android:id="@+id/action_sessionsFragment_to_sessionDetailFragment"
+            app:destination="@id/sessionDetailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/action_sessionsFragment_to_filterBottomSheet"
+            app:destination="@id/filterBottomSheet"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"/>
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.android254.droidconKE2020.about.ui.views.AboutFragment"
+        android:label="About"
         app:moduleName="about"
-        android:label="AboutFragment"
-        tools:layout="@layout/fragment_about"/>
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_aboutFragment_to_organizerDetailsFragment"
+            app:destination="@id/organizerDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/speakersFragment"
+        android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakersFragment"
+        android:label="Speakers"
+        app:moduleName="speakers"
+        tools:layout="@layout/fragment_speakers">
+        <action
+            android:id="@+id/action_speakersFragment_to_speakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/speakerDetailsFragment"
+        android:name="com.android254.droidconKE2020.speakers.ui.views.SpeakerDetailsFragment"
+        android:label="Speaker Details"
+        app:moduleName="speakers"
+        tools:layout="@layout/fragment_speaker_details">
+
+        <argument
+            android:name="speakerId"
+            app:argType="integer" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/organizerDetailsFragment"
+        android:name="com.android254.droidconKE2020.about.ui.views.OrganizerDetailsFragment"
+        android:label="Organizers"
+        app:moduleName="about"
+        tools:layout="@layout/fragment_organizer_details" />
+
+    <fragment
+        android:id="@+id/sessionDetailsFragment"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.SessionDetailFragment"
+        android:label="Sessions"
+        app:moduleName="sessions"
+        tools:layout="@layout/fragment_session_detail">
+        <action
+            android:id="@+id/action_sessionDetailsFragment_to_SpeakerDetailsFragment"
+            app:destination="@id/speakerDetailsFragment" />
+        <argument
+            android:name="sessionId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_sessionDetailsFragment_to_sessionsFragment"
+            app:destination="@id/sessionsFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/authDialog"
+        android:name="com.android254.droidconKE2020.auth.views.AuthDialog"
+        android:label="Signin"
+        app:moduleName="auth"
+        tools:layout="@layout/dialog_authenticate" />
+
+    <fragment
+        android:id="@+id/filterBottomSheet"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.FilterFragment"
+        android:label="Filter"
+        app:moduleName="sessions"
+        tools:layout="@layout/fragment_filter">
+        <action
+            android:id="@+id/action_filterFragment_to_SessionsFragment"
+            app:destination="@+id/sessionsFragment"
+            />
+    </fragment>
+
 </navigation>

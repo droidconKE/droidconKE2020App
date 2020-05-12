@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/thirty_dp"
+        android:layout_marginTop="@dimen/thirty_dp"
+        android:text="@string/cheers"
+        android:textSize="@dimen/eighteen_sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|left"
+        android:padding="20dp"
+        android:layout_marginLeft="@dimen/thirty_dp"
+        android:layout_marginRight="@dimen/thirty_dp"
+        android:background="@drawable/corner_radius"
+        android:hint="@string/type_here"
+        android:inputType="textMultiLine"
+        android:minLines="8" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rating"
+        android:paddingTop="@dimen/twenty_dp"
+        android:paddingBottom="20dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/colorLightGrey"
+            android:outlineAmbientShadowColor="@color/colorGrey"
+            android:progressTint="@color/colorGold"
+            android:textAlignment="center"
+            android:stepSize="1"
+            android:rating="1"
+            android:gravity="center_horizontal" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fifty_dp"
+        android:background="@drawable/btn_round_edge"
+        android:text="@string/submit_feedback"
+        android:textColor="@color/colorWhite"
+        android:paddingRight="@dimen/ten_dp"
+        android:drawableRight="@drawable/ic_send"
+        android:drawableTint="@android:color/white"
+        />
+</LinearLayout>

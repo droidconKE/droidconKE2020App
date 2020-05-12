@@ -1,0 +1,21 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_horizontal_about_page">20dp</dimen>
+    <dimen name="margin_top_about_page_content">30dp</dimen>
+    <dimen name="margin_bottom_about_page_content">20dp</dimen>
+    <dimen name="about_heading_text_size">18sp</dimen>
+    <dimen name="about_content_text_size">16sp</dimen>
+    <dimen name="team_icon_cardview_dimens">61dp</dimen>
+    <dimen name="team_icon_cardview_margin">12dp</dimen>
+    <dimen name="team_title_txt_size">10sp</dimen>
+    <dimen name="team_name_txt_size">12sp</dimen>
+    <dimen name="cv_margin_bottom">5dp</dimen>
+    <dimen name="cv_corner_radius">12dp</dimen>
+    <dimen name="card_elevation">0dp</dimen>
+    <dimen name="organized_by_txt_size">16sp</dimen>
+    <dimen name="rl_organizers_margin">10dp</dimen>
+    <dimen name="medium_textsize">14sp</dimen>
+    <dimen name="copy_handle_txt_size">9sp</dimen>
+    <dimen name="twitter_handle_bg">24dp</dimen>
+
+</resources>

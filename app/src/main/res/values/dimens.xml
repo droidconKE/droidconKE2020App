@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="twitter_handle_bg">24dp</dimen>
+    <dimen name="twitter_handle">24dp</dimen>
+
+    <dimen name="toolbarBigContentSize">40dp</dimen>
+    <dimen name="toolbarIconSize">32dp</dimen>
 </resources>

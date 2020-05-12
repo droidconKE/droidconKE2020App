@@ -4,19 +4,19 @@
     <item
         android:id="@+id/homeFragment"
         android:title="@string/title_home"
-        android:icon="@drawable/ic_android_black_24dp"/>
+        android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/feedFragment"
         android:title="@string/title_feed"
-        android:icon="@drawable/ic_android_black_24dp"/>
+        android:icon="@drawable/ic_bell"/>
 
     <item
         android:id="@+id/sessionsFragment"
         android:title="@string/title_sessions"
-        android:icon="@drawable/ic_android_black_24dp"/>
+        android:icon="@drawable/ic_time"/>
 
     <item
         android:id="@+id/aboutFragment"
         android:title="@string/title_about"
-        android:icon="@drawable/ic_android_black_24dp"/>
+        android:icon="@drawable/ic_flower"/>
 </menu>

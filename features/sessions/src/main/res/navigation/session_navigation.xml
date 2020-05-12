@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/session_navigation"
+    app:startDestination="@id/sessionsFragment">
+
+    <fragment
+        android:id="@+id/sessionsFragment"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.SessionsFragment"
+        android:label="SessionsFragment"
+        tools:layout="@layout/fragment_sessions">
+        <action
+            android:id="@+id/action_sessionsFragment_to_sessionDetailFragment"
+            app:destination="@id/sessionDetailFragment"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/sessionDetailFragment"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.SessionDetailFragment"
+        android:label="SessionDetailFragment"
+        tools:layout="@layout/fragment_session_detail" />
+</navigation>

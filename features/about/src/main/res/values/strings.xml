@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_content_string">About👷🔧🚧</string>
+    <string name="about_heading">About</string>
+    <string name="about_content">Droidcon is a global conference focused on the engineering of Android applications. Droidcon provides a forum for developers to network with other developers, share techniques, announce apps and products, and to learn and teach.
+        \n\nThis two-day developer focused gathering will be held in Nairobi Kenya on August 6th to 8th 2020 and will be the largest of its kind in Africa.
+        \n\nIt will have workshops and codelabs focused on the building of Android applications and will give participants an excellent chance to learn about the local Android development ecosystem, opportunities and services as well as meet the engineers and companies who work on them. </string>
+    <string name="organizing_team_heading">Organizing Team</string>
+    <string name="organizer_title">Developer</string>
+    <string name="organized_by_txt">Organized by;</string>
+    <string name="header_background">Organizer header background</string>
+    <string name="organizer_name">Frank Tamre</string>
+    <string name="organizerTitle">Kenya Partner Lead at droidcon Berlin </string>
+    <string name="organizerCompany">| Android | Kotlin | Flutter | C++</string>
+    <string name="organizer_role">Sponsorship Lead</string>
+    <string name="twitter_icon">Twitter Icon</string>
+    <string name="organizer_twitter_handle">PriestTamzi</string>
+    <string name="organizer_bio_label">Bio:</string>
+    <string name="organizer_bio"><![CDATA[Worked at Intel, co-Founded Moringa School, then started @earlycamp to train young children from 5-16 on how to solve problems with technology. Started 818interactive to tell African stories with Games to a global audience. Community wise I organize #Android & #Kotlin developers every month for a meetUp to chat about technology. I Lead a cool team in organizing #droidConKE the largest android developer focussed event in Sub Saharan Africa. I train people,mentor them, build things, am highly experimental, read alot and socialize vertically.]]></string>
+    <string name="twitter_handle_label">Twitter Handle</string>
+    <string name="copy_icon">Copy Icon</string>
+    <string name="tap_to_copy_handle">Tap to copy handle</string>
 </resources>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">droidconKE2020</string>
     <string name="action_settings">Settings</string>
+    <string name="action_feedback">Feedback</string>
     <string name="title_home">Home</string>
     <string name="title_feed">Feed</string>
     <string name="title_about">About</string>
@@ -8,4 +9,20 @@
     <string name="title_auth">Auth</string>
     <string name="title_speaker">Speaker</string>
     <string name="title_feedback">Feedback</string>
+    <string name="sign_in">Sign In</string>
+    <string name="text_toolbar_image_desc">Toolbar Image</string>
+    <string name="text_toolbar_icon_desc">Toolbar Account Icon</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="image">Image</string>
+    <string name="filter">Filter</string>
+    <string name="feed">Feed</string>
+    <string name="sessions">Sessions</string>
+    <string name="about">About</string>
+    <string name="text_button_feedback_label">Feedack</string>
+    <string name="text_days_number">194</string>
+    <string name="text_days_label">Days</string>
+    <string name="text_mins_label">Min</string>
+    <string name="text_mins_number">56</string>
+    <string name="text_hrs_label">Hrs</string>
+    <string name="text_hours_number">1</string>
 </resources>

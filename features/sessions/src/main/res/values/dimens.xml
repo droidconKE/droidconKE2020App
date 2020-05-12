@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sessionTitleFontSize">14sp</dimen>
+    <dimen name="dimenSessionItem">4dp</dimen>
+    <dimen name="dimen_filter_title_font_size">18sp</dimen>
+    <dimen name="filterButtonCornerRadius">20dp</dimen>
+</resources>

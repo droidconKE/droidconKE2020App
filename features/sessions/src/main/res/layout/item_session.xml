@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="session"
+            type="com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession" />
+
+        <variable
+            name="sessionClickListener"
+            type="com.android254.droidconKE2020.sessions.ui.views.adapter.SessionClickListener" />
+
+        <variable
+            name="saveSessionListener"
+            type="com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardViewSession"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> sessionClickListener.onClick(session)}"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textViewSessionStartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    android:text="@{session.sessionStartTime.replace(`AM`,``)}"
+                    android:textColor="@color/colorPurple"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="9:00" />
+
+                <TextView
+                    android:id="@+id/textViewTimeZone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    android:text="@{session.sessionTimeZone}"
+                    android:textColor="@color/colorPurple"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewSessionStartTime"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSessionStartTime"
+                    tools:text="AM" />
+
+                <TextView
+                    android:id="@+id/textViewSessionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    android:text="@{session.sessionTitle}"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="@dimen/sessionTitleFontSize"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewStarSession"
+                    app:layout_constraintStart_toEndOf="@+id/textViewSessionStartTime"
+                    app:layout_constraintTop_toTopOf="@+id/textViewSessionStartTime"
+                    tools:text="Keynote" />
+
+                <TextView
+                    android:id="@+id/textViewSessionDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@{session.sessionDescription}"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textViewSessionTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSessionTitle"
+                    tools:text="Community on a Global Scale" />
+
+                <TextView
+                    android:id="@+id/textViewSessionDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@{session.sessionStartTime + `-` + session.sessionEndTime}"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/textViewSessionDescription"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSessionDescription"
+                    tools:text="9:30AM - 10:15AM" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="1dp"
+                    android:layout_height="12dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/line_divider"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewSessionDuration"
+                    app:layout_constraintStart_toEndOf="@+id/textViewSessionDuration"
+                    app:layout_constraintTop_toTopOf="@+id/textViewSessionDuration" />
+
+                <TextView
+                    android:id="@+id/textViewSessionVenue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@{session.sessionVenue}"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/view"
+                    app:layout_constraintStart_toEndOf="@+id/view"
+                    app:layout_constraintTop_toTopOf="@+id/view"
+                    tools:text="ROOM 1" />
+
+                <TextView
+                    android:id="@+id/textViewSessionSpeaker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@{session.sessionSpeaker}"
+                    android:textColor="@color/colorGreen"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewSpeakerIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSessionDuration"
+                    tools:text="Greg Fawson" />
+
+                <ImageView
+                    android:id="@+id/imageViewSpeakerIcon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="@string/android_speaker_icon"
+                    android:tint="@color/colorGreen"
+                    app:layout_constraintStart_toStartOf="@+id/textViewSessionDuration"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSessionDuration"
+                    app:srcCompat="@drawable/ic_android_black_24dp" />
+
+                <ImageView
+                    android:id="@+id/imageViewStarSession"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:contentDescription="@string/star_session"
+                    android:onClick="@{(v) -> saveSessionListener.onSave(session,v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewSessionTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewSessionTitle"
+                    app:srcCompat="@drawable/ic_star_outline" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

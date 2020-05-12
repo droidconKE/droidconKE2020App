@@ -1,11 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_content_string"
-        android:layout_centerInParent="true"
-        />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.android254.droidconKE2020.about.ui.viewmodel.AboutViewModel" />
+    </data>
 
-</RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/about_page_image"
+                android:layout_width="match_parent"
+                android:layout_height="205dp"
+                android:background="@drawable/team"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_about_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal_about_page"
+                android:layout_marginTop="@dimen/margin_top_about_page_content"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/about_heading"
+                android:textColor="@color/colorAboutTitle"
+                android:textSize="@dimen/about_heading_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/txt_about_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_page_image" />
+
+            <TextView
+                android:id="@+id/txt_about_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_bottom_about_page_content"
+                android:layout_marginEnd= "20dp"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/about_content"
+                android:textSize="@dimen/about_content_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txt_about_heading"
+                app:layout_constraintTop_toBottomOf="@+id/txt_about_heading" />
+
+            <TextView
+                android:id="@+id/txt_team_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_about_page_content"
+                android:layout_marginBottom="@dimen/margin_bottom_about_page_content"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/organizing_team_heading"
+                android:textColor="@color/colorOnBackground"
+                android:textSize="@dimen/about_heading_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_about_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/organizersList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/margin_bottom_about_page_content"
+                android:layout_marginVertical="@dimen/margin_bottom_about_page_content"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_team_heading"
+                app:spanCount="3"
+                tools:listitem="@layout/item_organizer" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_organizers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/organizersList">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="@dimen/rl_organizers_margin">
+
+                    <!--                ToDo add other logos once available-->
+                    <TextView
+                        android:id="@+id/txt_organizers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_slab_bold"
+                        android:text="@string/organized_by_txt"
+                        android:textColor="@color/colorOnBackground"
+                        android:textSize="@dimen/organized_by_txt_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/img_ihub"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/ihub"
+                        app:layout_constraintEnd_toStartOf="@id/img_kotlin_kenya"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
+
+                    <ImageView
+                        android:id="@+id/img_kotlin_kenya"
+                        android:layout_width="62dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/kotlin"
+                        app:layout_constraintEnd_toStartOf="@id/img_k"
+                        app:layout_constraintStart_toEndOf="@id/img_ihub"
+                        app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
+
+                    <ImageView
+                        android:id="@+id/img_k"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/unnamed"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/img_kotlin_kenya"
+                        app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
+
+                    <ImageView
+                        android:id="@+id/img_early_camp"
+                        android:layout_width="18dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/earlycamp"
+                        app:layout_constraintEnd_toStartOf="@id/img_kragt"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img_ihub" />
+
+
+                    <ImageView
+                        android:id="@+id/img_kragt"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/kragtdigital"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/img_early_camp"
+                        app:layout_constraintTop_toBottomOf="@id/img_ihub" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

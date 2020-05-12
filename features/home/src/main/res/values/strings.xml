@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home_content_string">Home 👷🔧🚧</string>
+    <string name="promo_image">Promo image</string>
+    <string name="call_for_speakers">Call for Speakers</string>
+    <string name="apply_to_be_a_speaker">Apply to be a speaker</string>
+    <string name="cfp_image_pattern">CFP image pattern</string>
+    <string name="keynote_speaker">Keynote Speaker</string>
+    <string name="dummy_keynot_speaker">Greg Speaker</string>
+    <string name="become_a_speaker"><u>Become a speaker</u></string>
+    <string name="session_image">Session image</string>
+    <string name="time_icon">Time icon</string>
+    <string name="sessions">Sessions</string>
+    <string name="dummy_time">10:30</string>
+    <string name="dummy_description">Community on a global scale</string>
+    <string name="dummy_room">Room 1</string>
+    <string name="room_icon">Room icon</string>
+    <string name="dummy_session_count">+45</string>
+    <string name="view_all">View All</string>
+    <string name="speakers">Speakers</string>
+    <string name="sponsors">Sponsors</string>
+    <string name="become_a_sponsor"><u>Become a sponsor</u></string>
+    <string name="organized_by">Organized by:</string>
+    <string name="text_button_feedback_label">Feeback</string>
 </resources>

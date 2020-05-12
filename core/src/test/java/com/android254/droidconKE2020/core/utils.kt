@@ -11,7 +11,6 @@ import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
 
-
 @ExperimentalCoroutinesApi
 @ObsoleteCoroutinesApi
 class CoroutinesRule : TestRule {
@@ -26,7 +25,6 @@ class CoroutinesRule : TestRule {
         }
     }
 }
-
 
 class OneTimeObserver<T>(private val handler: (T) -> Unit) : Observer<T>, LifecycleOwner {
     private val lifecycle = LifecycleRegistry(this)
