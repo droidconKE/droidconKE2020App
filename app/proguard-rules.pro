@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-keepnames class androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
+-keepnames class androidx.navigation.fragment.NavHostFragment
+-keep class * extends androidx.fragment.app.Fragment{}
+-keep class com.github.javafaker.** { *; }
+-keep class * extends androidx.databinding.DataBinderMapper { *; }
