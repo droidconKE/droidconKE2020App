@@ -24,3 +24,4 @@
 -keep class * extends androidx.fragment.app.Fragment{}
 -keep class com.github.javafaker.** { *; }
 -keep class * extends androidx.databinding.DataBinderMapper { *; }
+-keep class com.android254.droidconKE2020.speakers.models.**{*;}
