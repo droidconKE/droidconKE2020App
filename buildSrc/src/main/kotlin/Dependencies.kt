@@ -39,6 +39,7 @@ object Versions {
     const val dekt = "1.7.4"
     const val navVersion = "2.3.0-alpha01"
     const val fakeit = "1.0.2"
+    const val gradleVersionsPlugin = "0.28.0"
 }
 
 object BuildPlugins {
@@ -57,6 +58,7 @@ object BuildPlugins {
     const val ktlintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle"
     const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
     const val dektPlugin = "io.gitlab.arturbosch.detekt"
+    const val gradleVersionsPlugin = "com.github.ben-manes.versions"
 }
 
 object Libraries {

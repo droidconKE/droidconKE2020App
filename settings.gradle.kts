@@ -9,6 +9,7 @@ pluginManagement {
         id(BuildPlugins.dektPlugin) version Versions.dekt
         id(BuildPlugins.ktlintPlugin) version Versions.ktlint
         id(BuildPlugins.safeArgs) version Versions.navVersion
+        id(BuildPlugins.gradleVersionsPlugin) version Versions.gradleVersionsPlugin
         id(BuildPlugins.androidApplication) version Versions.buildToolsVersion
         id(BuildPlugins.kotlinAndroid) version Versions.kotlin
         id(BuildPlugins.kotlinAndroidExtensions) version Versions.kotlin

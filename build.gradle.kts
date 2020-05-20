@@ -2,12 +2,14 @@
 plugins {
     id(BuildPlugins.ktlintPlugin)
     id(BuildPlugins.dektPlugin)
+    id(BuildPlugins.gradleVersionsPlugin)
     id(BuildPlugins.dynamicFeature) apply false
     id(BuildPlugins.androidLibrary) apply false
     id(BuildPlugins.androidApplication) apply false
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
     id(BuildPlugins.safeArgs) apply false
+
 }
 
 allprojects {
