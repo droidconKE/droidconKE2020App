@@ -1,9 +1,13 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.ktlintPlugin)
+    id(BuildPlugins.firebasePlugin)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
@@ -16,14 +20,17 @@ android {
         versionName = Versions.name
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    val keystorePropertiesFile = rootProject.file("keystore.properties")
+    val keystoreProperties = Properties()
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
     signingConfigs {
         create("release") {
-            storeFile = rootProject.file("/home/harun/keystores/droidconKE.jks")
-            storePassword = "droidconKE"
-            keyAlias = "droidconKE"
-            keyPassword ="droidconKE"
+            storeFile = file(keystoreProperties.getProperty("storeFile"))
+            keyAlias = keystoreProperties.getProperty("keyAlias")
+            keyPassword = keystoreProperties.getProperty("keyPassword")
+            storePassword = keystoreProperties.getProperty("storePassword")
         }
-
     }
     buildTypes {
         getByName("release") {
@@ -103,7 +110,10 @@ dependencies {
     androidTestImplementation(TestLibraries.koin)
     debugImplementation(TestLibraries.fragment)
     androidTestImplementation(TestLibraries.kakao)
-    implementation(Libraries.googleServices)
+    implementation(Libraries.googlePlayServices)
     // Mock data
     api(Libraries.fakeit)
+    api(Libraries.firebaseCrashlytics)
+    api(Libraries.firebaseAnalytics)
 }
+apply(plugin = BuildPlugins.googleServices)
