@@ -1,6 +1,6 @@
 object Versions {
-    const val name = "1.0"
-    const val code = 1
+    const val name = "1.0.1"
+    const val code = 2
     const val kotlin = "1.3.61"
     const val coroutines = "1.3.3"
     const val buildToolsVersion = "3.6.0"
@@ -18,8 +18,8 @@ object Versions {
     const val retrofit = "2.7.2"
     const val interceptor = "4.2.2"
     const val okHttp = "4.4.0"
-    const val googleAuth = "17.0.0"
-    const val googleServices = "9.2.1"
+    const val googleAuth = "18.0.0"
+    const val googlePlayServices = "17.0.0"
 
     const val junit4 = "4.12"
     const val testRunner = "1.1.1"
@@ -39,6 +39,10 @@ object Versions {
     const val dekt = "1.7.4"
     const val navVersion = "2.3.0-alpha01"
     const val fakeit = "1.0.2"
+    const val firebasePlugin = "2.1.0"
+    const val firebaseAnalytics = "17.4.1"
+    const val firebaseCrashlytics = "17.0.0"
+    const val googleServices = "4.3.1"
 }
 
 object BuildPlugins {
@@ -57,6 +61,11 @@ object BuildPlugins {
     const val ktlintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle"
     const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
     const val dektPlugin = "io.gitlab.arturbosch.detekt"
+    const val firebaseGradlePlugin =
+        "com.google.firebase:firebase-crashlytics-gradle:${Versions.firebasePlugin}"
+    const val firebasePlugin = "com.google.firebase.crashlytics"
+    const val googleServices = "com.google.gms.google-services"
+    const val googleServicesGradlePlugin = "com.google.gms:google-services:${Versions.googleServices}"
 }
 
 object Libraries {
@@ -94,7 +103,8 @@ object Libraries {
 
     //Auth
     const val googleAuth = "com.google.android.gms:play-services-auth:${Versions.googleAuth}"
-    const val googleServices = "com.google.android.gms:play-services:${Versions.googleServices}"
+    const val googlePlayServices =
+        "com.google.android.gms:play-services-plus:${Versions.googlePlayServices}"
 
     // Layouts
     const val flexBox = "com.google.android:flexbox:${Versions.flexBox}"
@@ -104,6 +114,10 @@ object Libraries {
 
     // Fake Data
     const val fakeit = "com.github.javafaker:javafaker:${Versions.fakeit}"
+    const val firebaseAnalytics =
+        "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
+    const val firebaseCrashlytics =
+        "com.google.firebase:firebase-crashlytics:${Versions.firebaseCrashlytics}"
 }
 
 object APIs {
