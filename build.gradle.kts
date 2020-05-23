@@ -11,7 +11,6 @@ plugins {
     id(BuildPlugins.safeArgs) apply false
     id(BuildPlugins.firebasePlugin) apply false
     id(BuildPlugins.googleServices) apply false
-
 }
 
 allprojects {
