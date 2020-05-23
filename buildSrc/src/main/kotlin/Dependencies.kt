@@ -39,6 +39,7 @@ object Versions {
     const val dekt = "1.7.4"
     const val navVersion = "2.3.0-alpha01"
     const val fakeit = "1.0.2"
+    const val gradleVersionsPlugin = "0.28.0"
     const val firebasePlugin = "2.1.0"
     const val firebaseAnalytics = "17.4.1"
     const val firebaseCrashlytics = "17.0.0"
@@ -61,6 +62,7 @@ object BuildPlugins {
     const val ktlintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle"
     const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
     const val dektPlugin = "io.gitlab.arturbosch.detekt"
+    const val gradleVersionsPlugin = "com.github.ben-manes.versions"
     const val firebaseGradlePlugin =
         "com.google.firebase:firebase-crashlytics-gradle:${Versions.firebasePlugin}"
     const val firebasePlugin = "com.google.firebase.crashlytics"

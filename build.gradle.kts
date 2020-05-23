@@ -2,6 +2,7 @@
 plugins {
     id(BuildPlugins.ktlintPlugin)
     id(BuildPlugins.dektPlugin)
+    id(BuildPlugins.gradleVersionsPlugin)
     id(BuildPlugins.dynamicFeature) apply false
     id(BuildPlugins.androidLibrary) apply false
     id(BuildPlugins.androidApplication) apply false
