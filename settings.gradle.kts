@@ -15,6 +15,8 @@ pluginManagement {
         id(BuildPlugins.kotlinAndroidExtensions) version Versions.kotlin
         id(BuildPlugins.dynamicFeature) version Versions.buildToolsVersion
         id(BuildPlugins.androidLibrary) version Versions.buildToolsVersion
+        id(BuildPlugins.firebasePlugin) version Versions.firebasePlugin
+        id(BuildPlugins.googleServices) version Versions.googleServices
     }
     resolutionStrategy {
         eachPlugin {
@@ -22,6 +24,8 @@ pluginManagement {
                 BuildPlugins.androidApplication, BuildPlugins.androidLibrary,
                 BuildPlugins.dynamicFeature -> useModule(BuildPlugins.androidGradlePlugin)
                 BuildPlugins.safeArgs -> useModule(BuildPlugins.safeArgsGradlePlugin)
+                BuildPlugins.firebasePlugin -> useModule(BuildPlugins.firebaseGradlePlugin)
+                BuildPlugins.googleServices -> useModule(BuildPlugins.googleServicesGradlePlugin)
             }
         }
     }

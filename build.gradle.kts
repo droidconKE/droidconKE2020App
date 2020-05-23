@@ -9,6 +9,8 @@ plugins {
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
     id(BuildPlugins.safeArgs) apply false
+    id(BuildPlugins.firebasePlugin) apply false
+    id(BuildPlugins.googleServices) apply false
 
 }
 
