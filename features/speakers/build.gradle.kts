@@ -44,7 +44,8 @@ dependencies {
     implementation(Libraries.koinViewModel)
 
     // Test
-    testImplementation(TestLibraries.junit4)
-    testImplementation(project(":test-utils", "testDependencies"))
-    androidTestImplementation(project(":app", "intTestDependencies"))
+//    testImplementation(TestLibraries.junit4)
+//    testImplementation(project(":test-utils"))
+    testImplementation(project(":app", "testDependencies"))
+//    androidTestImplementation(project(":test-utils"))
 }

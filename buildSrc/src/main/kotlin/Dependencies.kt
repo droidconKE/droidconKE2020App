@@ -3,7 +3,7 @@ object Versions {
     const val code = 2
     const val kotlin = "1.3.61"
     const val coroutines = "1.3.3"
-    const val buildToolsVersion = "3.6.0"
+    const val buildToolsVersion = "4.0.0"
 
     const val jetPack = "1.1.0"
     const val constraintLayout = "1.1.3"

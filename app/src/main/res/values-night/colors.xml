@@ -5,7 +5,7 @@
     <color name="colorSurface">@color/colorBlack</color>
     <color name="colorOnBackground">@color/colorWhite</color>
     <color name="colorOnSurface">@color/colorWhite</color>
-    <color name="colorIconBackground">#ffffffff</color>
+    <color name="colorIconBackground">@color/colorWhite</color>
     <color name="colorStatusBar">@color/colorBlack</color>
 
     <!--  Home Screen-->
