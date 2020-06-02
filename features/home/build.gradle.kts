@@ -69,7 +69,7 @@ android {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.android254.droidconKE2020.test_utils.KoinRunner"
     }
 
     viewBinding {
@@ -89,17 +89,10 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":app"))
-
+    implementation(project(":app", "debugDependencies"))
     implementation(Libraries.flexBox)
 
-    // Koin
-    implementation(Libraries.koinAndroid)
-    implementation(Libraries.koinExt)
-    implementation(Libraries.koinScope)
-    implementation(Libraries.koinViewModel)
-
     // Test
-    testImplementation(TestLibraries.junit4)
-    testImplementation(project(":test-utils", "testDependencies"))
+    testImplementation(project(":app", "testDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
 }
