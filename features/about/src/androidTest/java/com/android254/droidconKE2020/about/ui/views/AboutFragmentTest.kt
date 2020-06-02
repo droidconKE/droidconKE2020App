@@ -13,7 +13,6 @@ import com.android254.droidconKE2020.R as AppR
 @LargeTest
 class AboutFragmentTest {
 
-
     @Test
     fun testCoverImage_IsDisplayed() {
         val scenario = launchFragmentInContainer<AboutFragment>(themeResId = AppR.style.Theme_DroidConKe)

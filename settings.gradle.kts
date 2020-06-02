@@ -16,7 +16,7 @@ pluginManagement {
         id("com.android.library") version "4.0.0"
         id("com.google.firebase.crashlytics") version "2.1.0"
         id("com.google.gms.google-services") version "4.3.1"
-        id ("com.github.ben-manes.versions") version "0.28.0"
+        id("com.github.ben-manes.versions") version "0.28.0"
     }
     resolutionStrategy {
         eachPlugin {

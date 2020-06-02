@@ -238,8 +238,8 @@ formatting:
     active: true
     autoCorrect: true
   PackageName:
-    active: true
-    autoCorrect: true
+    active: false
+    autoCorrect: false
   ParameterListWrapping:
     active: true
     autoCorrect: true
@@ -327,7 +327,7 @@ naming:
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
     privatePropertyPattern: '(_)?[A-Za-z][_A-Za-z0-9]*'
   PackageNaming:
-    active: true
+    active: false
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     packagePattern: '^[a-z]+(\.[a-z][A-Za-z0-9]*)*$'
   TopLevelPropertyNaming:
@@ -419,7 +419,7 @@ style:
   ExplicitItLambdaParameter:
     active: true
   ExpressionBodySyntax:
-    active: true
+    active: false
     includeLineWrapping: false
   ForbiddenComment:
     active: true

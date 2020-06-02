@@ -19,11 +19,9 @@ class KoinTestApp : Application() {
         }
     }
 
-
     fun loadModules(module: Module, block: () -> Unit) {
         loadKoinModules(module)
         block()
         unloadKoinModules(module)
     }
-
 }

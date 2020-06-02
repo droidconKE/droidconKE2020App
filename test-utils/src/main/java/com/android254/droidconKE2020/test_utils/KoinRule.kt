@@ -5,7 +5,7 @@ import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
 
-class KoinRule: TestRule {
+class KoinRule : TestRule {
 
     val app = InstrumentationRegistry.getInstrumentation().targetContext.applicationContext as KoinTestApp
 
