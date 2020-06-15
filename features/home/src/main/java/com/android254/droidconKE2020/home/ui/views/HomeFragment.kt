@@ -15,10 +15,10 @@ import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeViewModels
+import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
-import com.android254.droidconKE2020.home.domain.Speaker
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -238,6 +238,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         val adapter = OrganizerAdapter()
         binding.organizersList.adapter = adapter
+        binding.organizersList.suppressLayout(true)
 
         homeViewModel.organizerList.observe(viewLifecycleOwner, Observer { organizers ->
             if (organizers == null) {
