@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="?attr/actionBarSize"
+    android:layout_marginBottom="12dp"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,9 +56,9 @@
             android:maxHeight="100dp"
             android:minHeight="80dp"
             app:cardBackgroundColor="@color/colorCfpBackground"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp"
-            app:contentPadding="16dp"
+            app:cardCornerRadius="@dimen/cardRadius"
+            app:cardElevation="@dimen/cardElevation"
+            app:contentPadding="@dimen/cardPadding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/promoImg">
@@ -133,9 +133,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp"
-            app:contentPadding="16dp"
+            app:cardCornerRadius="@dimen/cardRadius"
+            app:cardElevation="@dimen/cardElevation"
+            app:contentPadding="@dimen/cardPadding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cfpCard">
@@ -336,9 +336,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp"
-            app:contentPadding="16dp"
+            app:cardCornerRadius="@dimen/cardRadius"
+            app:cardElevation="@dimen/cardElevation"
+            app:contentPadding="@dimen/cardPadding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/speakersLayout">
@@ -404,11 +404,13 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp"
-            app:contentPadding="16dp"
+            android:layout_marginBottom="@dimen/bottomNavHeight"
+            app:cardCornerRadius="@dimen/cardRadius"
+            app:cardElevation="@dimen/cardElevation"
+            app:contentPadding="@dimen/cardPadding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sponsorsCard">
 
             <LinearLayout
