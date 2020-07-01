@@ -15,9 +15,9 @@ object Versions {
     const val coil = "0.9.5"
     const val koin = "2.1.4"
     const val room = "2.2.4"
-    const val retrofit = "2.7.2"
-    const val interceptor = "4.2.2"
-    const val okHttp = "4.4.0"
+    const val retrofit = "2.9.0"
+    const val interceptor = "4.4.1"
+    const val okHttp = "4.7.2"
     const val googleAuth = "18.0.0"
     const val googlePlayServices = "17.0.0"
 
@@ -152,6 +152,7 @@ object TestLibraries {
     const val koin = "org.koin:koin-test:${Versions.koin}"
     const val fragment = "androidx.fragment:fragment-testing:${Versions.fragmentsTesting}"
     const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
+    const val mockServer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
 }
 
 object BuildModules {

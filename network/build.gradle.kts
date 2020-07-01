@@ -41,12 +41,15 @@ dependencies {
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
     testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.mockServer)
+    testImplementation(TestLibraries.koin)
+    testImplementation(TestLibraries.coroutines)
+    testImplementation(TestLibraries.mockk)
     androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.espresso)
 
     // Retrofit
     implementation(Libraries.retrofit)
-    implementation(Libraries.okHttp3)
     implementation(Libraries.gsonConverter)
     implementation(Libraries.loggingInterceptor)
 
