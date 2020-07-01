@@ -2,38 +2,45 @@ package com.android254.droidconKE2020.network
 
 import com.android254.droidconKE2020.network.di.Constants.BASE_URL
 import com.google.gson.GsonBuilder
-import java.lang.reflect.Modifier
+import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrl
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-/**
- * 16/03/20
- * @author bernard
- */
+
 val networkModule = module {
 
     single {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .client(get())
-            .addConverterFactory(get())
-            .build()
+        BASE_URL.toHttpUrl()
     }
 
     single {
-        GsonBuilder()
-            .excludeFieldsWithModifiers(Modifier.PRIVATE)
+        val gson = GsonBuilder()
+            .excludeFieldsWithoutExposeAnnotation()
+            .create()
+        val gsonFactory = GsonConverterFactory.create(gson)
+        Retrofit.Builder()
+            .baseUrl(get<HttpUrl>())
+            .client(get())
+            .addConverterFactory(gsonFactory)
+            .build()
     }
 
     single {
         OkHttpClient.Builder()
-            .addInterceptor(get<HttpLoggingInterceptor>())
+            .addInterceptor(get<Interceptor>())
             .build()
     }
 
-    single {
+    single<Interceptor> {
         HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
+    }
+
+    single {
+        ApiService(get())
     }
 }
