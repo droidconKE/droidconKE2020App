@@ -13,7 +13,7 @@ object Versions {
     const val androidAnimation = "0.2.0"
     const val shapedImageView = "0.9.0"
     const val coil = "1.0.0"
-    const val koin = "3.0.0-alpha-4"
+    const val koin = "2.2.0-rc-4"
     const val room = "2.3.0-alpha03"
     const val retrofit = "2.9.0"
     const val interceptor = "4.10.0-RC1"

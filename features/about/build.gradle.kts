@@ -15,14 +15,6 @@ android {
         testInstrumentationRunner = "com.android254.droidconKE2020.test_utils.KoinRunner"
     }
 
-    viewBinding {
-        isEnabled = true
-    }
-
-    dataBinding {
-        isEnabled = true
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
