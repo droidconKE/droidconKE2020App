@@ -36,3 +36,9 @@ dependencies {
     // Google auth
     implementation(Libraries.googleAuth)
 }
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
+}

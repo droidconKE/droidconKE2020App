@@ -92,3 +92,9 @@ dependencies {
 
 //    androidTestImplementation(project(":test-utils"))
 }
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
+}

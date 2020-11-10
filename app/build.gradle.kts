@@ -114,3 +114,9 @@ dependencies {
     androidTestApi(project(BuildModules.Libraries.Test))
 }
 apply(plugin = BuildPlugins.googleServices)
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
+}

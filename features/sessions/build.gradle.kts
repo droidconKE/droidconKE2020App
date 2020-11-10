@@ -38,3 +38,9 @@ dependencies {
 //    testImplementation(project(":test-utils"))
     testImplementation(project(":app", "testDependencies"))
 }
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
+}

@@ -94,3 +94,9 @@ dependencies {
     testImplementation(project(":app", "testDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
 }
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
+}

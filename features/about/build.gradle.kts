@@ -8,7 +8,7 @@ plugins {
 android {
     compileSdkVersion(AndroidSDK.compile)
 
-    this.defaultConfig {
+    defaultConfig {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
 
@@ -34,4 +34,10 @@ dependencies {
     // Testing Libraries
     testImplementation(project(":app", "testDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
 }

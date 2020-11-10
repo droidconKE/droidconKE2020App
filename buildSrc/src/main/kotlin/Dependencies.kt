@@ -22,9 +22,9 @@ object Versions {
     const val googlePlayServices = "17.0.0"
 
     const val junit4 = "4.13.1"
-    const val testRunner = "1.1.3-alpha02"
-    const val rules = "1.3.1-alpha02"
-    const val espresso = "3.4.0-alpha02"
+    const val testRunner = "1.1.0"
+    const val rules = "1.1.0"
+    const val espresso = "3.3.0"
 
     const val annotation = "1.2.0-alpha01"
     const val mockk = "1.10.2"
