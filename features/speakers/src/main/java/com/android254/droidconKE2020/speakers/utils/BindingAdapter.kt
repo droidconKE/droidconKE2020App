@@ -16,8 +16,11 @@ fun droidconLogoImageResource(imageView: ImageView, isSearchViewEmpty: Boolean) 
 
     with(imageView) {
         setImageDrawable(ContextCompat.getDrawable(imageView.context, imgResource))
-        if (!isSearchViewEmpty) imageTintList = ContextCompat.getColorStateList(
-            context, com.android254.droidconKE2020.R.color.colorOnSurface
-        )
+        if (!isSearchViewEmpty) {
+            imageTintList = ContextCompat.getColorStateList(
+                context,
+                com.android254.droidconKE2020.R.color.colorOnSurface
+            )
+        }
     }
 }

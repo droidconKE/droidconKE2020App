@@ -50,11 +50,14 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
     }
 
     private fun observeDaySessions() {
-        daySessionsViewModel.daySessions.observe(viewLifecycleOwner, Observer { sessions ->
-            if (sessions.isNotEmpty()) {
-                setUpRvSessions(sessions)
+        daySessionsViewModel.daySessions.observe(
+            viewLifecycleOwner,
+            Observer { sessions ->
+                if (sessions.isNotEmpty()) {
+                    setUpRvSessions(sessions)
+                }
             }
-        })
+        )
     }
 
     private fun observeNavigateToSessionDetail() {
@@ -69,21 +72,25 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
                     findNavController().navigate(sessionsFragmentDirections)
                     daySessionsViewModel.onSessionDetailNavigated()
                 }
-            })
+            }
+        )
     }
 
     private fun observeSaveSessionItem() {
-        daySessionsViewModel.saveSessionItem.observe(viewLifecycleOwner, Observer { session ->
-            session?.let {
-                if (session.isSessionSaved) {
-                    requireContext().displayToast(" ${session.sessionTitle} Unsaved")
-                    daySessionsViewModel.onSessionItemSaved()
-                } else {
-                    requireContext().displayToast(" ${session.sessionTitle} Saved")
-                    daySessionsViewModel.onSessionItemSaved()
+        daySessionsViewModel.saveSessionItem.observe(
+            viewLifecycleOwner,
+            Observer { session ->
+                session?.let {
+                    if (session.isSessionSaved) {
+                        requireContext().displayToast(" ${session.sessionTitle} Unsaved")
+                        daySessionsViewModel.onSessionItemSaved()
+                    } else {
+                        requireContext().displayToast(" ${session.sessionTitle} Saved")
+                        daySessionsViewModel.onSessionItemSaved()
+                    }
                 }
             }
-        })
+        )
     }
 
     private fun setUpRvSessions(sessions: List<DummySession>) {
@@ -111,7 +118,8 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
             },
             sessionClickListener = SessionClickListener { sessionId ->
                 daySessionsViewModel.onSessionItemClicked(sessionId = sessionId)
-            })
+            }
+        )
         binding.rvSessions.adapter = sessionsAdapter
     }
 

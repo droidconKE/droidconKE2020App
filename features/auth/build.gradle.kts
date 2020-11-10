@@ -17,10 +17,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
-    dataBinding {
-        isEnabled = true
-    }
 }
 
 dependencies {
@@ -39,4 +35,10 @@ dependencies {
 
     // Google auth
     implementation(Libraries.googleAuth)
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
 }

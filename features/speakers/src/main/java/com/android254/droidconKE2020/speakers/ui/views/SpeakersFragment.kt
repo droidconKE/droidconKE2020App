@@ -68,21 +68,27 @@ class SpeakersFragment : Fragment() {
         val adapter = SpeakerAdapter(onSpeakerClicked)
         binding.rvSpeakers.adapter = adapter
 
-        speakersViewModel.speakerList.observe(viewLifecycleOwner, Observer { speakers ->
-            if (speakers != null) {
-                adapter.submitList(speakers)
-            } else {
-                // ToDo: show shimmer for the first time and null views for conseq times.
-                //  This can be null due to the search functionality
+        speakersViewModel.speakerList.observe(
+            viewLifecycleOwner,
+            Observer { speakers ->
+                if (speakers != null) {
+                    adapter.submitList(speakers)
+                } else {
+                    // ToDo: show shimmer for the first time and null views for conseq times.
+                    //  This can be null due to the search functionality
+                }
             }
-        })
+        )
     }
 
     private fun listenForSearchEvent() {
         speakersViewModel.clearSearch()
-        speakersViewModel.searchPhrase.observe(viewLifecycleOwner, Observer { searchPhrase ->
-            binding.tvSearch.isCursorVisible = !searchPhrase.isNullOrEmpty()
-            fetchSpeakers(searchPhrase)
-        })
+        speakersViewModel.searchPhrase.observe(
+            viewLifecycleOwner,
+            Observer { searchPhrase ->
+                binding.tvSearch.isCursorVisible = !searchPhrase.isNullOrEmpty()
+                fetchSpeakers(searchPhrase)
+            }
+        )
     }
 }

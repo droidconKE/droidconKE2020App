@@ -7,7 +7,6 @@ plugins {
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
-
     defaultConfig {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
@@ -18,16 +17,15 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    dataBinding {
+        isEnabled
+    }
+    viewBinding {
+        isEnabled
+    }
+
     (kotlinOptions as org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions).apply {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-
-    dataBinding {
-        isEnabled = true
-    }
-
-    viewBinding {
-        isEnabled = true
     }
 }
 
@@ -48,4 +46,10 @@ dependencies {
 //    testImplementation(project(":test-utils"))
     testImplementation(project(":app", "testDependencies"))
 //    androidTestImplementation(project(":test-utils"))
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
 }

@@ -23,7 +23,8 @@ class SessionDetailViewModelTest : BaseViewModelTest() {
     fun `test whether save session live data contains a session when a user saves a session`() {
         sessionDetailViewModel.onClickSaveSession(testSessionDetail)
         assertThat(
-            sessionDetailViewModel.saveSession.getOrAwaitValue().sessionTitle, `is`(
+            sessionDetailViewModel.saveSession.getOrAwaitValue().sessionTitle,
+            `is`(
                 testSessionDetail.sessionTitle
             )
         )
@@ -39,7 +40,8 @@ class SessionDetailViewModelTest : BaseViewModelTest() {
     fun `test whether share session contains a session when user shares a session`() {
         sessionDetailViewModel.onClickShareSession(testSessionDetail)
         assertThat(
-            sessionDetailViewModel.shareSession.getOrAwaitValue().sessionTitle, `is`(
+            sessionDetailViewModel.shareSession.getOrAwaitValue().sessionTitle,
+            `is`(
                 testSessionDetail.sessionTitle
             )
         )

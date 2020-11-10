@@ -117,55 +117,65 @@ class FakeSponsorRepository {
 
     fun refreshSponsors() {
         db.clear()
-        db.addAll(
-            listOf(
-                Sponsor(
-                    1,
-                    "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-                    "https://www.google.com", true
-                ), Sponsor(
-                    2,
-                    "https://hire.andela.com/hs-fs/hubfs/Images_Feb_Folder/Andela-logo-landscape-blue-400px." +
-                            "png?width=3163&height=923&name=Andela-logo-landscape-blue-400px.png",
-                    "https://andela.com"
-                ), Sponsor(
-                    3,
-                    "https://avatars0.githubusercontent.com/u/16653668?s=280&v=4",
-                    "https://www.hover.com"
-                ), Sponsor(
-                    4,
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/JetBrains_Logo_2016." +
-                            "svg/1200px-JetBrains_Logo_2016.svg.png",
-                    "https://www.jetbrains.com"
-                ), Sponsor(
-                    5,
-                    "https://miro.medium.com/max/2370/1*a1Sy9bAOy6vZzILhvhSYjA.png",
-                    "https://www.facebook.com"
-                ), Sponsor(
-                    6,
-                    "https://img.favpng.com/12/24/19/pied-piper-of-hamelin-computer-icons-clip-art-" +
-                            "png-favpng-HCANn6weBGtG9BLp5BJkLqwYx.jpg",
-                    "https://www.google.com"
-                ), Sponsor(
-                    7,
-                    "https://vignette.wikia.nocookie.net/silicon-valley/images/f/f0/Hooli.png/revision" +
-                            "/latest/scale-to-width-down/340?cb=20160811201728",
-                    "https://www.material.io"
-                ), Sponsor(
-                    8,
-                    "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256," +
-                            "f_auto,q_auto:eco/v1507291476/i6rr6zn0myh1bg1y6jan.jpg",
-                    "https://www.droidcon.co.ke"
-                ), Sponsor(
-                    9,
-                    "https://media-exp1.licdn.com/dms/image/C560BAQFi15PqkUndWg/company-logo_200_200/0?e=" +
-                            "2159024400&v=beta&t=1snlZD0vqCn6hgvJ_FsYxTAFCddq22hbdxWujzCIvaY",
-                    "https://www.droidcon.com", true
-                )
-            )
-        )
+        db.addAll(generateSponsors())
         sponsors.postValue(db)
     }
+
+    private fun generateSponsors() =    listOf(
+        Sponsor(
+            1,
+            "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+            "https://www.google.com",
+            true
+        ),
+        Sponsor(
+            2,
+            "https://hire.andela.com/hs-fs/hubfs/Images_Feb_Folder/Andela-logo-landscape-blue-400px." +
+                    "png?width=3163&height=923&name=Andela-logo-landscape-blue-400px.png",
+            "https://andela.com"
+        ),
+        Sponsor(
+            3,
+            "https://avatars0.githubusercontent.com/u/16653668?s=280&v=4",
+            "https://www.hover.com"
+        ),
+        Sponsor(
+            4,
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/JetBrains_Logo_2016." +
+                    "svg/1200px-JetBrains_Logo_2016.svg.png",
+            "https://www.jetbrains.com"
+        ),
+        Sponsor(
+            5,
+            "https://miro.medium.com/max/2370/1*a1Sy9bAOy6vZzILhvhSYjA.png",
+            "https://www.facebook.com"
+        ),
+        Sponsor(
+            6,
+            "https://img.favpng.com/12/24/19/pied-piper-of-hamelin-computer-icons-clip-art-" +
+                    "png-favpng-HCANn6weBGtG9BLp5BJkLqwYx.jpg",
+            "https://www.google.com"
+        ),
+        Sponsor(
+            7,
+            "https://vignette.wikia.nocookie.net/silicon-valley/images/f/f0/Hooli.png/revision" +
+                    "/latest/scale-to-width-down/340?cb=20160811201728",
+            "https://www.material.io"
+        ),
+        Sponsor(
+            8,
+            "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256," +
+                    "f_auto,q_auto:eco/v1507291476/i6rr6zn0myh1bg1y6jan.jpg",
+            "https://www.droidcon.co.ke"
+        ),
+        Sponsor(
+            9,
+            "https://media-exp1.licdn.com/dms/image/C560BAQFi15PqkUndWg/company-logo_200_200/0?e=" +
+                    "2159024400&v=beta&t=1snlZD0vqCn6hgvJ_FsYxTAFCddq22hbdxWujzCIvaY",
+            "https://www.droidcon.com",
+            true
+        )
+    )
 }
 
 class FakeOrganizerRepository {

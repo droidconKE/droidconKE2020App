@@ -10,9 +10,12 @@ import com.android254.droidconKE2020.feed.R
 
 class FeedViewModel(private val context: Context) : ViewModel() {
     val feeds = MutableLiveData<List<Feed>>()
-    val blank: LiveData<Boolean> = Transformations.map(feeds, Function {
-        return@Function it.isEmpty()
-    })
+    val blank: LiveData<Boolean> = Transformations.map(
+        feeds,
+        Function {
+            return@Function it.isEmpty()
+        }
+    )
 
     init {
         feeds.value = createDummyData()

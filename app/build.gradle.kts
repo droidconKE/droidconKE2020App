@@ -8,7 +8,6 @@ plugins {
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
-    buildToolsVersion("29.0.2")
     defaultConfig {
         applicationId = "com.android254.droidconKE2020"
         minSdkVersion(AndroidSDK.min)
@@ -50,12 +49,9 @@ android {
         BuildModules.Features.Feedback
     )
 
-    viewBinding {
-        isEnabled = true
-    }
-
-    dataBinding {
-        isEnabled = true
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 
     compileOptions {
@@ -118,3 +114,9 @@ dependencies {
     androidTestApi(project(BuildModules.Libraries.Test))
 }
 apply(plugin = BuildPlugins.googleServices)
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
+}
