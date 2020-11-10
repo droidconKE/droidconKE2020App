@@ -8,7 +8,7 @@ plugins {
 android {
     compileSdkVersion(AndroidSDK.compile)
 
-    defaultConfig {
+    this.defaultConfig {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
 

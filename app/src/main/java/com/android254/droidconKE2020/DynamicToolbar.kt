@@ -10,9 +10,11 @@ import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.android254.droidconKE2020.core.Preferences
 import com.google.android.material.appbar.MaterialToolbar
+import org.koin.core.component.KoinApiExtension
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
+@KoinApiExtension
 class DynamicToolbar @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

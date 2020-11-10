@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Session
 import com.android254.droidconKE2020.home.ui.views.HomeFragmentDirections

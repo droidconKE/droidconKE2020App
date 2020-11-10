@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Speaker
 import kotlinx.android.synthetic.main.home_item_speaker.view.*
