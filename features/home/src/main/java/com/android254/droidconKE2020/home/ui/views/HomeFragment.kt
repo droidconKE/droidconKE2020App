@@ -102,13 +102,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun showPromoCard() {
         // Check for any available promos
-        homeViewModel.activePromo.observe(viewLifecycleOwner, Observer { promo ->
-            binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
-            promo?.let {
-                binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
-                binding.promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
+        homeViewModel.activePromo.observe(
+            viewLifecycleOwner,
+            Observer { promo ->
+                binding.promoImg.visibility = if (promo != null) View.VISIBLE else View.GONE
+                promo?.let {
+                    binding.promoImg.load(promo.imageUrl.toInt()) // ToDo: Remove the int cast upon introducing real data
+                    binding.promoImg.setOnClickListener { launchBrowser(promo.webUrl) }
+                }
             }
-        })
+        )
 
         // Check for new promos after every minute
         CoroutineScope(Dispatchers.IO).launch {
@@ -129,23 +132,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun showKeynoteInfoCard() {
         homeViewModel.retrieveSpeakerList()
 
-        homeViewModel.keynoteSpeaker.observe(viewLifecycleOwner, Observer { keynoteSpeaker ->
-            if (keynoteSpeaker == null) {
-                // ToDo: Show shimmer effect. No need to hide since this will always be available
-            } else {
-                binding.keynoteSpeakerImg.also {
-                    it.load(keynoteSpeaker.imageUrl)
-                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
-                }
-                binding.keynoteSpeakerLbl.also {
-                    it.text = keynoteSpeaker.name
-                    it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
-                }
-                binding.keynoteLblBecomeSpeaker.setOnClickListener {
-                    launchBrowser(homeViewModel.callForSpeakerUrl)
+        homeViewModel.keynoteSpeaker.observe(
+            viewLifecycleOwner,
+            Observer { keynoteSpeaker ->
+                if (keynoteSpeaker == null) {
+                    // ToDo: Show shimmer effect. No need to hide since this will always be available
+                } else {
+                    binding.keynoteSpeakerImg.also {
+                        it.load(keynoteSpeaker.imageUrl)
+                        it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
+                    }
+                    binding.keynoteSpeakerLbl.also {
+                        it.text = keynoteSpeaker.name
+                        it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
+                    }
+                    binding.keynoteLblBecomeSpeaker.setOnClickListener {
+                        launchBrowser(homeViewModel.callForSpeakerUrl)
+                    }
                 }
             }
-        })
+        )
     }
 
     private fun showSessionsList() {
@@ -155,18 +161,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.sessionsList.adapter = adapter
         binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(30))
 
-        homeViewModel.sessionList.observe(viewLifecycleOwner, Observer { sessions ->
-            if (sessions == null) {
-                binding.sessionCountChip.visibility = View.GONE
+        homeViewModel.sessionList.observe(
+            viewLifecycleOwner,
+            Observer { sessions ->
+                if (sessions == null) {
+                    binding.sessionCountChip.visibility = View.GONE
 
-                // ToDo: Show shimmer effect. No need to hide since this will always be available
-            } else {
-                binding.sessionCountChip.visibility = View.VISIBLE
-                val totalSessions = "+${sessions.size}"
-                binding.sessionCountChip.text = totalSessions
-                adapter.updateData(sessions)
+                    // ToDo: Show shimmer effect. No need to hide since this will always be available
+                } else {
+                    binding.sessionCountChip.visibility = View.VISIBLE
+                    val totalSessions = "+${sessions.size}"
+                    binding.sessionCountChip.text = totalSessions
+                    adapter.updateData(sessions)
+                }
             }
-        })
+        )
 
         homeViewModel.retrieveSessionList()
     }
@@ -179,19 +188,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.speakersList.adapter = adapter
         binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
 
-        homeViewModel.speakerList.observe(viewLifecycleOwner, Observer
-        { speakers ->
-            if (speakers == null) {
-                binding.speakersCountChip.visibility = View.GONE
+        homeViewModel.speakerList.observe(
+            viewLifecycleOwner,
+            Observer
+            { speakers ->
+                if (speakers == null) {
+                    binding.speakersCountChip.visibility = View.GONE
 
-                // ToDo: Show shimmer effect. No need to hide since this will always be available
-            } else {
-                binding.speakersCountChip.visibility = View.VISIBLE
-                val totalSpeakers = "+${speakers.size}"
-                binding.speakersCountChip.text = totalSpeakers
-                adapter.updateData(speakers)
+                    // ToDo: Show shimmer effect. No need to hide since this will always be available
+                } else {
+                    binding.speakersCountChip.visibility = View.VISIBLE
+                    val totalSpeakers = "+${speakers.size}"
+                    binding.speakersCountChip.text = totalSpeakers
+                    adapter.updateData(speakers)
+                }
             }
-        })
+        )
 
         homeViewModel.retrieveSpeakerList()
     }
@@ -220,17 +232,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             it.justifyContent = JustifyContent.SPACE_EVENLY
         }
 
-        homeViewModel.sponsors.observe(viewLifecycleOwner, Observer { sponsors ->
-            sponsors?.let {
-                val goldSponsors = mutableListOf<Sponsor>()
-                val otherSponsors = mutableListOf<Sponsor>()
+        homeViewModel.sponsors.observe(
+            viewLifecycleOwner,
+            Observer { sponsors ->
+                sponsors?.let {
+                    val goldSponsors = mutableListOf<Sponsor>()
+                    val otherSponsors = mutableListOf<Sponsor>()
 
-                sponsors.forEach { if (it.isGold) goldSponsors.add(it) else otherSponsors.add(it) }
+                    sponsors.forEach { if (it.isGold) goldSponsors.add(it) else otherSponsors.add(it) }
 
-                goldAdapter.submitList(goldSponsors)
-                otherAdapter.submitList(otherSponsors)
+                    goldAdapter.submitList(goldSponsors)
+                    otherAdapter.submitList(otherSponsors)
+                }
             }
-        })
+        )
         homeViewModel.retrieveSponsors()
     }
 
@@ -240,13 +255,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.organizersList.adapter = adapter
         binding.organizersList.suppressLayout(true)
 
-        homeViewModel.organizerList.observe(viewLifecycleOwner, Observer { organizers ->
-            if (organizers == null) {
-                // ToDo: Show shimmer effect. No need to hide since this will always be available
-            } else {
-                adapter.updateData(organizers)
+        homeViewModel.organizerList.observe(
+            viewLifecycleOwner,
+            Observer { organizers ->
+                if (organizers == null) {
+                    // ToDo: Show shimmer effect. No need to hide since this will always be available
+                } else {
+                    adapter.updateData(organizers)
+                }
             }
-        })
+        )
 
         homeViewModel.retrieveOrganizerList()
     }

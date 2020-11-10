@@ -32,14 +32,16 @@ tasks.withType<Test> {
         info.events = debug.events
         info.exceptionFormat = debug.exceptionFormat
 
-        addTestListener(object : TestListener {
-            override fun beforeTest(p0: TestDescriptor?) = Unit
-            override fun beforeSuite(p0: TestDescriptor?) = Unit
-            override fun afterTest(desc: TestDescriptor, result: TestResult) = Unit
-            override fun afterSuite(desc: TestDescriptor, result: TestResult) {
-                printResults(desc, result)
+        addTestListener(
+            object : TestListener {
+                override fun beforeTest(p0: TestDescriptor?) = Unit
+                override fun beforeSuite(p0: TestDescriptor?) = Unit
+                override fun afterTest(desc: TestDescriptor, result: TestResult) = Unit
+                override fun afterSuite(desc: TestDescriptor, result: TestResult) {
+                    printResults(desc, result)
+                }
             }
-        })
+        )
     }
 }
 
@@ -47,11 +49,11 @@ fun printResults(desc: TestDescriptor, result: TestResult) {
     if (desc.parent != null) {
         val output = result.run {
             "Results: $resultType (" +
-                    "$testCount tests, " +
-                    "$successfulTestCount successes, " +
-                    "$failedTestCount failures, " +
-                    "$skippedTestCount skipped" +
-                    ")"
+                "$testCount tests, " +
+                "$successfulTestCount successes, " +
+                "$failedTestCount failures, " +
+                "$skippedTestCount skipped" +
+                ")"
         }
         val testResultLine = "|  $output  |"
         val repeatLength = testResultLine.length

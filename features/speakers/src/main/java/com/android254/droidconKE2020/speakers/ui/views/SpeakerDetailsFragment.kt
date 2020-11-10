@@ -59,26 +59,29 @@ class SpeakerDetailsFragment : Fragment() {
     }
 
     private fun observeSpeakerDetails() {
-        speakerDetailsViewModel.speakerDetails.observe(viewLifecycleOwner, Observer { speaker ->
-            if (speaker != null) {
-                binding.speaker = speaker
-            } else {
-                binding.speaker = Speaker(
-                    0,
-                    "John Doe",
-                    getString(R.string.text_speaker_bio),
-                    "Developer",
-                    "Google",
-                    listOf("Android"),
-                    "https://firebasestorage.googleapis.com/v0/b/" +
+        speakerDetailsViewModel.speakerDetails.observe(
+            viewLifecycleOwner,
+            Observer { speaker ->
+                if (speaker != null) {
+                    binding.speaker = speaker
+                } else {
+                    binding.speaker = Speaker(
+                        0,
+                        "John Doe",
+                        getString(R.string.text_speaker_bio),
+                        "Developer",
+                        "Google",
+                        listOf("Android"),
+                        "https://firebasestorage.googleapis.com/v0/b/" +
                             "droidconke-70d60.appspot.com/o/notification.png?alt=media&token=255010eb-ec70-" +
                             "46dd-8a9a-b4a2d436b229",
-                    listOf(2, 3),
-                    SocialMedia("johndoe"),
-                    false
-                )
+                        listOf(2, 3),
+                        SocialMedia("johndoe"),
+                        false
+                    )
+                }
             }
-        })
+        )
     }
 
     private fun getSpeakerDetails() {

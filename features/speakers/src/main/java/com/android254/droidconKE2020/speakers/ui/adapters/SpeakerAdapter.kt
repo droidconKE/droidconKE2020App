@@ -6,8 +6,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.android254.droidconKE2020.speakers.models.Speaker
 import com.android254.droidconKE2020.speaker.databinding.ItemSpeakerBinding
+import com.android254.droidconKE2020.speakers.models.Speaker
 import com.google.android.material.chip.Chip
 
 class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
@@ -31,16 +31,18 @@ class SpeakerAdapter(val onSpeakerClicked: (Speaker) -> Unit) :
             binding.setOpenSpeakerDetails { onSpeakerClicked.invoke(item) }
 
             item.skills.forEach { skill ->
-                binding.cgSkills.addView(Chip(binding.cgSkills.context)
-                    .also {
-                        it.text = skill
-                        it.isClickable = false
-                        it.setTextAppearance(android.R.style.TextAppearance_Material_Caption)
-                        it.chipBackgroundColor = ContextCompat.getColorStateList(
-                            it.context,
-                            com.android254.droidconKE2020.R.color.colorAquaMarineFaded
-                        )
-                    })
+                binding.cgSkills.addView(
+                    Chip(binding.cgSkills.context)
+                        .also {
+                            it.text = skill
+                            it.isClickable = false
+                            it.setTextAppearance(android.R.style.TextAppearance_Material_Caption)
+                            it.chipBackgroundColor = ContextCompat.getColorStateList(
+                                it.context,
+                                com.android254.droidconKE2020.R.color.colorAquaMarineFaded
+                            )
+                        }
+                )
             }
         }
     }

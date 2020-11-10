@@ -45,8 +45,11 @@ class FeedFragment : Fragment() {
         }
         val adapter = FeedAdapter(onSharedClicked)
         binding.feedsList.adapter = adapter
-        viewModel.feeds.observe(viewLifecycleOwner, Observer {
-            adapter.updateData(it)
-        })
+        viewModel.feeds.observe(
+            viewLifecycleOwner,
+            Observer {
+                adapter.updateData(it)
+            }
+        )
     }
 }

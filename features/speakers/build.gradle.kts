@@ -7,7 +7,6 @@ plugins {
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
-
     defaultConfig {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
@@ -16,6 +15,13 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        isEnabled
+    }
+    viewBinding {
+        isEnabled
     }
 
     (kotlinOptions as org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions).apply {

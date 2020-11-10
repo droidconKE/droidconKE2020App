@@ -7,5 +7,4 @@ interface EventEndpoints {
 
     @GET("events/droidconke2020-645/sponsors")
     suspend fun getSponsors(): Sponsors
-
 }
