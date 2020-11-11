@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
@@ -14,25 +17,26 @@ android {
         targetSdkVersion(AndroidSDK.target)
         versionCode = Versions.code
         versionName = Versions.name
+        setProperty("archivesBaseName", "DroidconKe2021")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-//    val keystorePropertiesFile = rootProject.file("keystore.properties")
-//    val keystoreProperties = Properties()
-//    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-//
-//    signingConfigs {
-//        create("release") {
-//            storeFile = file(keystoreProperties.getProperty("storeFile"))
-//            keyAlias = keystoreProperties.getProperty("keyAlias")
-//            keyPassword = keystoreProperties.getProperty("keyPassword")
-//            storePassword = keystoreProperties.getProperty("storePassword")
-//        }
-//    }
+    val keystorePropertiesFile = rootProject.file("keystore.properties")
+    val keystoreProperties = Properties()
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+    signingConfigs {
+        create("release") {
+            storeFile = file(keystoreProperties.getProperty("storeFile"))
+            keyAlias = keystoreProperties.getProperty("keyAlias")
+            keyPassword = keystoreProperties.getProperty("keyPassword")
+            storePassword = keystoreProperties.getProperty("storePassword")
+        }
+    }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
-//            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
