@@ -117,7 +117,7 @@ jobs:
         with:
           path: ~/.gradle/caches
           key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle.kts') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/src/main/kotlin/Dependencies.kt') }}
-      - name: Unit tests
+      - name: Build bundle
         run: ./gradlew -Pci --console=plain bundleRelease
 
       - uses: AChep/upload-google-play@patch-1
