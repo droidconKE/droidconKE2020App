@@ -7,7 +7,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.android254.droidconKE2020.feed.R
 import kotlinx.android.synthetic.main.item_feeds.view.*

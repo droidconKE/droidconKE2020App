@@ -6,38 +6,42 @@ pluginManagement {
     }
 
     plugins {
-        id(BuildPlugins.dektPlugin) version Versions.dekt
-        id(BuildPlugins.ktlintPlugin) version Versions.ktlint
-        id(BuildPlugins.safeArgs) version Versions.navVersion
-        id(BuildPlugins.androidApplication) version Versions.buildToolsVersion
-        id(BuildPlugins.kotlinAndroid) version Versions.kotlin
-        id(BuildPlugins.kotlinAndroidExtensions) version Versions.kotlin
-        id(BuildPlugins.dynamicFeature) version Versions.buildToolsVersion
-        id(BuildPlugins.androidLibrary) version Versions.buildToolsVersion
+        id("io.gitlab.arturbosch.detekt") version "1.14.2"
+        id("org.jlleitschuh.gradle.ktlint") version "9.4.1"
+        id("androidx.navigation.safeargs.kotlin") version "2.3.1"
+        id("com.android.application") version "4.1.0"
+        id("org.jetbrains.kotlin.android") version "1.4.10"
+        id("org.jetbrains.kotlin.android.extensions") version "1.4.10"
+        id("com.android.dynamic-feature") version "4.1.0"
+        id("com.android.library") version "4.1.0"
+        id("com.google.firebase.crashlytics") version "2.3.0"
+        id("com.google.gms.google-services") version "4.3.1"
+        id("com.github.ben-manes.versions") version "0.36.0"
     }
     resolutionStrategy {
         eachPlugin {
             when (requested.id.id) {
-                BuildPlugins.androidApplication, BuildPlugins.androidLibrary,
-                BuildPlugins.dynamicFeature -> useModule(BuildPlugins.androidGradlePlugin)
-                BuildPlugins.safeArgs -> useModule(BuildPlugins.safeArgsGradlePlugin)
+                "com.android.application", "com.android.library",
+                "com.android.dynamic-feature" -> useModule("com.android.tools.build:gradle:4.1.0")
+                "androidx.navigation.safeargs.kotlin" -> useModule("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.1")
+                "com.google.firebase.crashlytics" -> useModule("com.google.firebase:firebase-crashlytics-gradle:2.3.0")
+                "com.google.gms.google-services" -> useModule("com.google.gms:google-services:4.3.4")
             }
         }
     }
 }
 include(
-    BuildModules.Libraries.Core,
-    BuildModules.Libraries.Repository,
-    BuildModules.Libraries.Network,
-    BuildModules.Libraries.Data,
-    BuildModules.Libraries.App,
-    BuildModules.Libraries.Test,
-    BuildModules.Features.Feedback,
-    BuildModules.Features.Speakers,
-    BuildModules.Features.Auth,
-    BuildModules.Features.Sessions,
-    BuildModules.Features.About,
-    BuildModules.Features.Feed,
-    BuildModules.Features.Home
+    ":core",
+    ":repository",
+    ":network",
+    ":data",
+    ":app",
+    ":test-utils",
+    ":features:feedback",
+    ":features:speakers",
+    ":features:auth",
+    ":features:sessions",
+    ":features:about",
+    ":features:feed",
+    ":features:home"
 )
-rootProject.name = "droidconKE2020"

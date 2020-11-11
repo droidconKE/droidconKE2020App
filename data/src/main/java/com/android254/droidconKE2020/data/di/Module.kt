@@ -13,9 +13,10 @@ val databaseModule = module {
 
     single {
         Room.databaseBuilder(
-                androidApplication(),
-                DroidConDB::class.java,
-                "droidCon.db")
+            androidApplication(),
+            DroidConDB::class.java,
+            "droidCon.db"
+        )
             .build()
     }
 }

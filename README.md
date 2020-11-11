@@ -20,19 +20,20 @@
 **5 [Contributing](#contributing)**<br>
 **6 [License](#license)**<br>
 **7 [Versions](#versions)**<br>
-**8 [Contributers](#contributers)**<br>
+**8 [Contributors](#contributors)**<br>
 
 :point_down: :point_down: :point_down: :point_down: :point_down:
 
 
 ## About the App
-Android app for the 3rd Android Developer conference- droidcon to be held in Nairobi from Auguts 6-8th 2020.
+Android app for the 3rd Android Developer conference- droidcon to be held in Nairobi from August 6-8th 2020.
 
 This project is the Android app for the conference. The app supports devices running Android 5.0+, and is optimized for phones and tablets of all shapes and sizes.
-The source reflects teh app as at droidconKE 2020!
+The source reflects the app as at droidconKE 2020!
 
 ### Features
 =======
+
 ### droidconKE 2020 Android App
 
 Android app for the third Android Developer conference-droidcon in Nairobi 2020
@@ -147,11 +148,11 @@ With the above in mind, here are the actual modules in the droidconKE2020 app fo
 4. features - directory for grouping all the feature modules together. It has the following dynamic feature modules:
 
     - about - has the details of the event,  team members and their details that is when each team member card is clicked
-    - auth - has the signup,signin, forgot password and reset password logic
+    - auth - has the sign-up, sign-in, forgot password and reset password logic
     - feed - has a #droidconKE newsfeed
     - feedback - has session and event feedback logic
-    - home - shows sponsors,promoted stuff,organizers and changes according to time ie before and during the event
-    - sessions - shows each days sessions(day one,day two, day three) session details, and also has filter sessions logic and show a user's favorited sessions
+    - home - shows sponsors, promoted stuff, organizers and changes according to time ie before and during the event
+    - sessions - shows each days sessions(day one, day two, day three) session details, and also has filter sessions logic and show a user's favorited sessions
     - speaker  - shows speaker details
  5. repository(library)
  6. network(library)
@@ -305,7 +306,7 @@ then inject the viewmodel into a fragment/activity
 
 ### Feature Modules:
 
-Each module have its own domain,data,and presentation or how do we approach this
+Each module have its own domain, data and presentation or how do we approach this
 
 #### Permissions
  TBA
@@ -323,7 +324,7 @@ Each module have its own domain,data,and presentation or how do we approach this
 =======
 	- Ktlint [https://ktlint.github.io/]
 
-On Feature Modules: Does each module have its own domain,data,and presentation or how do we approach this
+On Feature Modules: Does each module have its own domain, data and presentation or how do we approach this
 
 ###  \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️ 🚧 \]
 
@@ -400,7 +401,7 @@ and xml attributes ie. background should be named as btn_login_bg.xml
 Version 1.0   TBR (To Be Released)
 
 
-## Contributers
+## Contributors
 Auto-populated from:
 [contributors-img](https://contributors-img.firebaseapp.com/image?repo=droidconke/droidconKE2020App)
 
@@ -416,4 +417,3 @@ Auto-populated from:
 2.  https://github.com/VMadalin/kotlin-sample-app
 3.  https://github.com/DroidKaigi/conference-app-2020
 4.  https://proandroiddev.com/multiple-ways-of-defining-clean-architecture-layers-bbb70afa5d4a
-

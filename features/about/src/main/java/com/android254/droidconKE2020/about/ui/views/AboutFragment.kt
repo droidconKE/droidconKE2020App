@@ -49,10 +49,14 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         }
 
         binding.organizersList.adapter = adapter
+        binding.organizersList.suppressLayout(true)
         aboutViewModel.createDummyData() // TODO Remove use of dummy data
-        aboutViewModel.organizers.observe(viewLifecycleOwner, Observer {
-            adapter.updateData(it)
-        })
+        aboutViewModel.organizers.observe(
+            viewLifecycleOwner,
+            Observer {
+                adapter.updateData(it)
+            }
+        )
     }
 
     override fun onDestroyView() {

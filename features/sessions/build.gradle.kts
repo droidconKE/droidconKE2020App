@@ -18,14 +18,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    viewBinding {
-        isEnabled = true
-    }
-    dataBinding {
-        isEnabled = true
-    }
 }
-
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":app"))
@@ -42,5 +35,12 @@ dependencies {
     implementation(Libraries.koinViewModel)
 
     // Test
-    testImplementation(project(":test-utils", "testDependencies"))
+//    testImplementation(project(":test-utils"))
+    testImplementation(project(":app", "testDependencies"))
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
 }

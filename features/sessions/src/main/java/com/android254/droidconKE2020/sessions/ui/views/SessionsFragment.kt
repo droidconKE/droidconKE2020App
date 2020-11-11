@@ -44,11 +44,14 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
     }
 
     private fun observeDaySessions() {
-        sessionsViewModel.daySessions.observe(viewLifecycleOwner, Observer { daySessions ->
-            if (daySessions.isNotEmpty()) {
-                setUpTabs(daySessions)
+        sessionsViewModel.daySessions.observe(
+            viewLifecycleOwner,
+            Observer { daySessions ->
+                if (daySessions.isNotEmpty()) {
+                    setUpTabs(daySessions)
+                }
             }
-        })
+        )
     }
 
     private fun getDaySessions() {
@@ -76,19 +79,21 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         }
         tabLayout.getTabAt(0)?.customView = null
         tabLayout.getTabAt(0)?.customView = sessionsTabAdapter.getSelectedTabView(0)
-        viewPagerSessions.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {}
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-            }
+        viewPagerSessions.addOnPageChangeListener(
+            object : ViewPager.OnPageChangeListener {
+                override fun onPageScrollStateChanged(state: Int) {}
+                override fun onPageScrolled(
+                    position: Int,
+                    positionOffset: Float,
+                    positionOffsetPixels: Int
+                ) {
+                }
 
-            override fun onPageSelected(position: Int) {
-                highlightTab(position)
+                override fun onPageSelected(position: Int) {
+                    highlightTab(position)
+                }
             }
-        })
+        )
     }
 
     private fun highlightTab(position: Int) {
@@ -137,8 +142,10 @@ class ZoomOutPageTransformer : ViewPager.PageTransformer {
                     scaleY = scaleFactor
 
                     // Fade the page relative to its size.
-                    alpha = (MIN_ALPHA +
-                            (((scaleFactor - MIN_SCALE) / (1 - MIN_SCALE)) * (1 - MIN_ALPHA)))
+                    alpha = (
+                        MIN_ALPHA +
+                            (((scaleFactor - MIN_SCALE) / (1 - MIN_SCALE)) * (1 - MIN_ALPHA))
+                        )
                 }
                 else -> { // (1,+Infinity]
                     // This page is way off-screen to the right.

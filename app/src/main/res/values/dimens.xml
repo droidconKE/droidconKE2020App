@@ -5,4 +5,9 @@
 
     <dimen name="toolbarBigContentSize">40dp</dimen>
     <dimen name="toolbarIconSize">32dp</dimen>
+    <dimen name="cardElevation">8dp</dimen>
+    <dimen name="cardRadius">8dp</dimen>
+    <dimen name="cardPadding">16dp</dimen>
+    <dimen name="cardMarginY">8dp</dimen>
+    <dimen name="bottomNavHeight">56dp</dimen>
 </resources>

@@ -32,3 +32,9 @@ dependencies {
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
 }
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
+}

@@ -4,7 +4,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-import coil.api.load
+import coil.load
 import coil.transform.RoundedCornersTransformation
 
 @BindingAdapter("imageUrl")

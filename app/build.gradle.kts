@@ -1,24 +1,42 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.ktlintPlugin)
+    id(BuildPlugins.firebasePlugin)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
-    buildToolsVersion("29.0.2")
     defaultConfig {
         applicationId = "com.android254.droidconKE2020"
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
         versionCode = Versions.code
         versionName = Versions.name
+        setProperty("archivesBaseName", "DroidconKe2021")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    val keystorePropertiesFile = rootProject.file("keystore.properties")
+    val keystoreProperties = Properties()
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+    signingConfigs {
+        create("release") {
+            storeFile = file(keystoreProperties.getProperty("storeFile"))
+            keyAlias = keystoreProperties.getProperty("keyAlias")
+            keyPassword = keystoreProperties.getProperty("keyPassword")
+            storePassword = keystoreProperties.getProperty("storePassword")
+        }
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -35,12 +53,9 @@ android {
         BuildModules.Features.Feedback
     )
 
-    viewBinding {
-        isEnabled = true
-    }
-
-    dataBinding {
-        isEnabled = true
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 
     compileOptions {
@@ -53,8 +68,16 @@ android {
     }
 }
 
+val debugDependencies by configurations.creating {
+    extendsFrom(configurations["debugApi"])
+}
+
 val intTestDependencies by configurations.creating {
-    extendsFrom(configurations["androidTestImplementation"])
+    extendsFrom(configurations["androidTestApi"])
+}
+
+val testDependencies by configurations.creating {
+    extendsFrom(configurations["testApi"])
 }
 
 dependencies {
@@ -71,29 +94,33 @@ dependencies {
     api(APIs.fragments)
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
-    implementation(Libraries.appCompat)
-    implementation(Libraries.ktxCore)
+    api(Libraries.appCompat)
     api(Libraries.constraintLayout)
     api(Libraries.materialComponents)
     implementation(Libraries.androidAnimation)
     api(Libraries.coil)
     api(Libraries.shapedImageView)
-    testImplementation(TestLibraries.junit4)
-    androidTestImplementation(TestLibraries.testRunner)
-    androidTestImplementation(TestLibraries.espresso)
-    androidTestImplementation(TestLibraries.annotation)
 
     // Koin
-    implementation(Libraries.koinAndroid)
-    implementation(Libraries.koinExt)
-    implementation(Libraries.koinScope)
-    implementation(Libraries.koinViewModel)
+    api(Libraries.koinAndroid)
+    api(Libraries.koinExt)
+    api(Libraries.koinScope)
+    api(Libraries.koinViewModel)
 
-    androidTestImplementation(TestLibraries.testRules)
-    androidTestImplementation(TestLibraries.koin)
-    debugImplementation(TestLibraries.fragment)
-    androidTestImplementation(TestLibraries.kakao)
-    implementation(Libraries.googleServices)
+    implementation(Libraries.googlePlayServices)
     // Mock data
     api(Libraries.fakeit)
+    api(Libraries.firebaseCrashlytics)
+    api(Libraries.firebaseAnalytics)
+
+    debugApi(TestLibraries.fragment)
+    testApi(project(BuildModules.Libraries.Test))
+    androidTestApi(project(BuildModules.Libraries.Test))
+}
+apply(plugin = BuildPlugins.googleServices)
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
 }

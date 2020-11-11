@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "268422506080",
+    "firebase_url": "https://droidconke2020.firebaseio.com",
+    "project_id": "droidconke2020",
+    "storage_bucket": "droidconke2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268422506080:android:b78a29ef138d21ef14c505",
+        "android_client_info": {
+          "package_name": "com.android254.droidconKE2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268422506080-6rrlu1ur8onpbs7jkdgmih63dtmpd9h2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android254.droidconKE2020",
+            "certificate_hash": "20ef2db1fc7dcaf0c45282ec1b17f0baf188a284"
+          }
+        },
+        {
+          "client_id": "268422506080-eqkaq0s8j8jj72a9d45brbosulcroe39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCljV5khod2L0vNaNuTzA6BYgZhu-UcUHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268422506080-eqkaq0s8j8jj72a9d45brbosulcroe39.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "268422506080-87tod8edsnmvgq6td834ek5v6s09e0o3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ke.co.droidcon.flutterApp2020"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268422506080:android:568de94d7c3a158e14c505",
+        "android_client_info": {
+          "package_name": "ke.co.droidcon.flutterAndroid2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268422506080-eqkaq0s8j8jj72a9d45brbosulcroe39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCljV5khod2L0vNaNuTzA6BYgZhu-UcUHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268422506080-eqkaq0s8j8jj72a9d45brbosulcroe39.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "268422506080-87tod8edsnmvgq6td834ek5v6s09e0o3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ke.co.droidcon.flutterApp2020"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

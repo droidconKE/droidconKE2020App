@@ -17,10 +17,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
-    dataBinding {
-        isEnabled = true
-    }
 }
 
 dependencies {
@@ -35,8 +31,14 @@ dependencies {
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
 
-    androidTestImplementation(project(":app", "intTestDependencies"))
+//    androidTestImplementation(project(":test-utils"))
 
     // Google auth
     implementation(Libraries.googleAuth)
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
 }

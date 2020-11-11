@@ -12,15 +12,7 @@ android {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    viewBinding {
-        isEnabled = true
-    }
-
-    dataBinding {
-        isEnabled = true
+        testInstrumentationRunner = "com.android254.droidconKE2020.test_utils.KoinRunner"
     }
 
     compileOptions {
@@ -36,17 +28,16 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":app"))
+    implementation(project(":app", "debugDependencies"))
     implementation(project(":core"))
-    implementation(Libraries.constraintLayout)
 
     // Testing Libraries
-    testImplementation(project(":test-utils", "testDependencies"))
+    testImplementation(project(":app", "testDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
-    debugImplementation(TestLibraries.fragment)
+}
 
-    // Koin
-    implementation(Libraries.koinAndroid)
-    implementation(Libraries.koinExt)
-    implementation(Libraries.koinScope)
-    implementation(Libraries.koinViewModel)
+configurations.all {
+    resolutionStrategy {
+        force("org.objenesis:objenesis:2.6")
+    }
 }

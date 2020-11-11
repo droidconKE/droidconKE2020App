@@ -43,9 +43,9 @@ class FakeSpeakerRepository {
                     id = i,
                     name = faker.funnyName().name(),
                     bio = faker.backToTheFuture().quote() + " " +
-                            faker.gameOfThrones().quote() + " " +
-                            faker.harryPotter().quote() + " " +
-                            faker.shakespeare().romeoAndJulietQuote(),
+                        faker.gameOfThrones().quote() + " " +
+                        faker.harryPotter().quote() + " " +
+                        faker.shakespeare().romeoAndJulietQuote(),
                     work = faker.job().title(),
                     company = faker.company().name(),
                     skills = faker.job().keySkills().split(","),
