@@ -12,7 +12,7 @@ jobs:
   bundle-check:
     name: Bundle check
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' || github.event.pull_request.base.ref == 'develop'
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
   lint-check:
     name: Lint check
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' || github.event.pull_request.base.ref == 'develop'
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
@@ -46,7 +46,7 @@ jobs:
   unit-tests:
     name: Unit tests
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' || github.event.pull_request.base.ref == 'develop'
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
@@ -64,7 +64,7 @@ jobs:
   instrumented-tests:
     name: Instrumentation tests
     runs-on: macOS-latest
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' || github.event.pull_request.base.ref == 'develop'
     timeout-minutes: 60
     strategy:
       fail-fast: true
