@@ -16,6 +16,8 @@ internal class FilterFragment : Fragment() {
     private val topicsTestList = mutableListOf<String>()
     private val sessionTypeList = mutableListOf<String>()
 
+    //TODO: This could be the place I need to filter for bookmarked sessions
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -1,5 +1,6 @@
 package com.android254.droidconKE2020.sessions.ui.views.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -90,6 +91,7 @@ class DaySessionsViewModel : ViewModel() {
     }
 
     fun onSessionItemSaved() {
+        Log.d("Saved", "Test")
         _saveSessionItem.value = DummySession(0L,"","","",
             "","","","",false)
     }

@@ -2,6 +2,7 @@ package com.android254.droidconKE2020.sessions.ui.views
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,12 +71,12 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
                             sessionId
                         )
                     findNavController().navigate(sessionsFragmentDirections)
-                    daySessionsViewModel.onSessionDetailNavigated()
+                    //daySessionsViewModel.onSessionDetailNavigated()
                 }
             }
         )
     }
-
+    // Looks like what I'm looking for
     private fun observeSaveSessionItem() {
         daySessionsViewModel.saveSessionItem.observe(
             viewLifecycleOwner,
@@ -93,7 +94,9 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
         )
     }
 
+    //TODO: Find out why The app is crashing when I try to bookmark a seeion
     private fun setUpRvSessions(sessions: List<DummySession>) {
+        Log.d("Testing 1", "Saving sessions")
         val sessionsAdapter = SessionsAdapter(
             sessions = sessions,
             saveSessionListener = SaveSessionListener { session, view ->
@@ -122,7 +125,7 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
         )
         binding.rvSessions.adapter = sessionsAdapter
     }
-
+// End of what I'm looking for
     private fun getDaySessions() {
         daySessionsViewModel.getDaySessions(arguments?.getString("day").orEmpty())
     }
