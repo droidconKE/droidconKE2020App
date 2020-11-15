@@ -113,7 +113,7 @@ dependencies {
     api(Libraries.firebaseCrashlytics)
     api(Libraries.firebaseAnalytics)
 
-//    debugApi(TestLibraries.fragment)
+    debugApi(TestLibraries.fragment)
     testApi(project(BuildModules.Libraries.Test))
     androidTestApi(project(BuildModules.Libraries.Test))
 }
