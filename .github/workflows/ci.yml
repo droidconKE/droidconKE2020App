@@ -24,7 +24,7 @@ jobs:
         with:
           path: ~/.gradle/caches
           key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle.kts') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/src/main/kotlin/Dependencies.kt') }}
-      - name: Unit tests
+      - name: Bundle check
         run: ./gradlew -Pci --console=plain bundleDebug
   lint-check:
     name: Lint check
