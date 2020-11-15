@@ -2,54 +2,74 @@ package com.android254.droidconKE2020
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.updatePadding
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android254.droidconKE2020.core.Preferences
-import kotlinx.android.synthetic.main.activity_home.*
+import com.android254.droidconKE2020.databinding.ActivityHomeBinding
 import org.koin.android.ext.android.inject
 
 class HomeActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityHomeBinding
     val sharedPrefs: Preferences by inject()
 
     lateinit var toolbar: DynamicToolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+        binding.root.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 
+
+        setUpAppbar()
         setUpBottomNavigation()
-        toolbar.authHandler = {
+        binding.toolbar.authHandler = {
             signIn()
         }
-        toolbar.feedbackHandler = {
+        binding.toolbar.feedbackHandler = {
             feedback()
         }
-        toolbar.nightModeHandler = {
+        binding.toolbar.nightModeHandler = {
             toggleDarkTheme()
+        }
+    }
+
+    private fun setUpAppbar() {
+        setSupportActionBar(binding.toolbar)
+        binding.activityHomeAppbar.setOnApplyWindowInsetsListener { v, insets ->
+            v.updatePadding(top = insets.systemWindowInsetTop)
+            insets
         }
     }
 
     // Set up bottom navigation
     private fun setUpBottomNavigation() {
+        binding.bottomNavigation.setOnApplyWindowInsetsListener { v, insets ->
+            v.updatePadding(bottom = insets.systemWindowInsetBottom)
+            insets
+        }
+
         // Retrieve fragment container view as nav host fragment
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.findNavController()
         // Setup bottom navigation view with nav controller for dynamic navigation
-        bottomNavigation.setupWithNavController(navController = navController)
+        binding.bottomNavigation.setupWithNavController(navController = navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            toolbar.onDestinationChanged(destination.id, destination.label as String)
+            binding.toolbar.onDestinationChanged(destination.id, destination.label as String)
             when (destination.id) {
                 R.id.aboutFragment, R.id.homeFragment, R.id.feedFragment, R.id.sessionsFragment -> {
-                    bottomNavigation.visibility = View.VISIBLE
+                    binding.bottomNavigation.visibility = View.VISIBLE
                 }
-                else -> bottomNavigation.visibility = View.GONE
+                else -> binding.bottomNavigation.visibility = View.GONE
             }
         }
     }

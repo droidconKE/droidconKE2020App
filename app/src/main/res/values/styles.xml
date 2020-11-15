@@ -14,8 +14,9 @@
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
 
-       <!--   Sets status bar color-->
-        <item name="colorPrimaryDark">@color/colorStatusBar</item>
+        <!--   Sets status bar color-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
 
         <item name="colorAccent">@color/colorSecondary</item>
         <item name="colorSecondary">@color/colorSecondary</item>
