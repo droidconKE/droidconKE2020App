@@ -19,7 +19,9 @@ object Versions {
     const val interceptor = "4.10.0-RC1"
     const val okHttp = "4.10.0-RC1"
     const val googleAuth = "19.0.0"
+    const val googeButton = "1.1.0"
     const val googlePlayServices = "17.0.0"
+    const val coroutinePlayServices = "1.3.9"
 
     const val junit4 = "4.13.1"
     const val testRunner = "1.1.0"
@@ -105,8 +107,11 @@ object Libraries {
 
     //Auth
     const val googleAuth = "com.google.android.gms:play-services-auth:${Versions.googleAuth}"
+    const val googleButton = "com.shobhitpuri.custombuttons:google-signin:${Versions.googeButton}"
     const val googlePlayServices =
         "com.google.android.gms:play-services-plus:${Versions.googlePlayServices}"
+    const val coroutinePlayServices =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.coroutinePlayServices}"
 
     // Layouts
     const val flexBox = "com.google.android:flexbox:${Versions.flexBox}"

@@ -116,7 +116,8 @@ dependencies {
     api(Libraries.koinScope)
     api(Libraries.koinViewModel)
 
-    implementation(Libraries.googlePlayServices)
+    api(Libraries.googlePlayServices)
+    api(Libraries.googleAuth)
     // Mock data
     api(Libraries.fakeit)
     api(Libraries.firebaseCrashlytics)
