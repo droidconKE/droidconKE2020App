@@ -50,4 +50,8 @@ val networkModule = module {
     single {
         ApiService(get())
     }
+
+    single {
+        GoogleService()
+    }
 }

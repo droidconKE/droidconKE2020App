@@ -25,9 +25,11 @@ android {
     localProperties.load(FileInputStream(rootProject.file("local.properties")))
 
     buildTypes {
-        getByName("debug") {
-            val clientId = localProperties.getProperty("clientId", "Missing client id")
-            resValue("string", "server_client_id", clientId)
+        val clientId = localProperties.getProperty("clientId", "Missing client id")
+        val clientSecret = localProperties.getProperty("clientSecret", "Missing client secret")
+        this.forEach {
+            it.resValue("string", "server_client_id", clientId)
+            it.resValue("string", "server_client_secret", clientSecret)
         }
     }
 }

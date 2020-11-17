@@ -15,7 +15,6 @@ import org.koin.test.KoinTestRule
 import org.koin.test.inject
 import org.koin.test.mock.declare
 
-
 class EndpointsTest : KoinTest {
 
     @get:Rule
@@ -50,14 +49,13 @@ class EndpointsTest : KoinTest {
 
     @Test
     fun testGetAccessToken() = runBlocking {
-        server.enqueue(MockResponse().setBody("""{"type": "bearer", "bearer": {"token": "abc"}}"""))
+        server.enqueue(MockResponse().setBody("""{"token": "abc", "user": {"name": "abc"}}"""))
         server.start()
         declare {
             server.url("/")
         }
         val token = service.auth.googleLogin(GoogleToken("some token"))
-        assertThat(token.bearer.token, `is`("abc"))
-
+        assertThat(token.token, `is`("abc"))
     }
 
     @Test
@@ -69,6 +67,5 @@ class EndpointsTest : KoinTest {
         }
         val message = service.auth.logout()
         assertThat(message.message, `is`("Success"))
-
     }
 }

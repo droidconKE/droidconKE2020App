@@ -37,7 +37,6 @@ class FakePreferences : Preferences {
     override fun setAccessToken(value: String) {
         TODO("Not yet implemented")
     }
-
 }
 
 val fakeModule = module {

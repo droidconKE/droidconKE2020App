@@ -7,8 +7,7 @@ import com.android254.droidconKE2020.auth.viewModels.GoogleAuthFlow
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-
 val authModule = module {
-    viewModel { AuthViewModel(get()) }
-    single<AuthFlow> { (context: Context) -> GoogleAuthFlow(context) }
+    viewModel { AuthViewModel(get(), get()) }
+    single<AuthFlow> { (context: Context) -> GoogleAuthFlow(context, get()) }
 }

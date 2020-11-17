@@ -44,7 +44,20 @@
             android:onClick="@{viewModel::initiateSignIn}"
             android:text="@string/google_sign_in"
             android:visibility="@{!safeUnbox(viewModel.isSignedIn) ? View.VISIBLE : View.GONE }"
+            android:enabled="@{!safeUnbox(viewModel.isLoading)}"
             app:isDarkTheme="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signOutButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:enabled="@{!safeUnbox(viewModel.isLoading)}"
+            android:onClick="@{viewModel::signOut}"
+            android:text="@string/sign_out"
+            android:visibility="@{safeUnbox(viewModel.isSignedIn) ? View.VISIBLE : View.GONE }" />
 
         <ImageView
             android:layout_width="match_parent"

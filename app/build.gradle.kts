@@ -37,7 +37,6 @@ android {
                 storePassword = keystoreProperties.getProperty("storePassword")
             }
         }
-
     }
     buildTypes {
         getByName("release") {

@@ -15,13 +15,16 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
         if (hasActiveObservers()) {
             Log.w(TAG, "Multiple observers registered but only one will be notified of changes.")
         }
-        super.observe(owner, object : Observer<T> {
-            override fun onChanged(t: T) {
-                if (mPending.compareAndSet(true, false)) {
-                    observer.onChanged(t)
+        super.observe(
+            owner,
+            object : Observer<T> {
+                override fun onChanged(t: T) {
+                    if (mPending.compareAndSet(true, false)) {
+                        observer.onChanged(t)
+                    }
                 }
             }
-        })
+        )
     }
 
     @MainThread
@@ -39,6 +42,6 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     }
 
     companion object {
-        private val TAG = "SingleLiveEvent"
+        private const val TAG = "SingleLiveEvent"
     }
 }

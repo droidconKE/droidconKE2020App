@@ -90,7 +90,9 @@ class DaySessionsViewModel : ViewModel() {
     }
 
     fun onSessionItemSaved() {
-        _saveSessionItem.value = DummySession(0L,"","","",
-            "","","","",false)
+        _saveSessionItem.value = DummySession(
+            0L, "", "", "",
+            "", "", "", "", false
+        )
     }
 }
