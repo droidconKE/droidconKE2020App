@@ -16,6 +16,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
+      - run: touch local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
@@ -33,6 +34,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
+      - run: touch local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
@@ -50,6 +52,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
+      - run: touch local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
@@ -72,6 +75,7 @@ jobs:
         api-level: [21, 29]
     steps:
       - uses: actions/checkout@v2
+      - run: touch local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
@@ -109,6 +113,7 @@ jobs:
           echo "${{ secrets.RELEASE_KEYSTORE }}" > droidconKE.jks.asc
           gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch droidconKE.jks.asc > droidconKE.jks
           echo "${{ secrets.KEYSTORE_PROPERTY_FILE }}" > keystore.properties
+          echo "${{ secrets.GRADLE_LOCAL_PROPERTIES }} > local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
