@@ -42,6 +42,7 @@ dependencies {
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
+    implementation(project(BuildModules.Libraries.Core))
     testImplementation(TestLibraries.junit4)
     testImplementation(TestLibraries.mockServer)
     testImplementation(TestLibraries.koin)

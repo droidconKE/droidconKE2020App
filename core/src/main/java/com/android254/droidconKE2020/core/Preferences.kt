@@ -13,4 +13,7 @@ interface Preferences {
 
     fun isSignedIn(): Boolean
     fun setSignedIn(value: Boolean)
+
+    fun getAccessToken(): String
+    fun setAccessToken(value: String)
 }
