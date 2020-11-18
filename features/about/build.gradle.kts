@@ -28,8 +28,9 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":app"))
-    implementation(project(":app", "debugDependencies"))
     implementation(project(":core"))
+
+    debugImplementation(project(":app", "debugDependencies"))
 
     // Testing Libraries
     testImplementation(project(":app", "testDependencies"))
