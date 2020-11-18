@@ -121,7 +121,7 @@ class FakeSponsorRepository {
         sponsors.postValue(db)
     }
 
-    private fun generateSponsors() =    listOf(
+    private fun generateSponsors() = listOf(
         Sponsor(
             1,
             "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",

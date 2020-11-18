@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     id(BuildPlugins.dynamicFeature)
     id(BuildPlugins.kotlinAndroid)
@@ -17,6 +20,18 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    val localProperties = Properties()
+    localProperties.load(FileInputStream(rootProject.file("local.properties")))
+
+    buildTypes {
+        val clientId = localProperties.getProperty("clientId", "Missing client id")
+        val clientSecret = localProperties.getProperty("clientSecret", "Missing client secret")
+        this.forEach {
+            it.resValue("string", "server_client_id", clientId)
+            it.resValue("string", "server_client_secret", clientSecret)
+        }
+    }
 }
 
 dependencies {
@@ -34,7 +49,8 @@ dependencies {
 //    androidTestImplementation(project(":test-utils"))
 
     // Google auth
-    implementation(Libraries.googleAuth)
+    implementation(Libraries.googleButton)
+    implementation(Libraries.coroutinePlayServices)
 }
 
 configurations.all {

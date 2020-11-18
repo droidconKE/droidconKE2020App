@@ -1,21 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_margin="10dp"
-    android:minWidth="300dp"
-    android:minHeight="200dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/signInButton"
-        android:layout_width="0dp"
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.android254.droidconKE2020.auth.viewModels.AuthViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="@color/colorLightGrey"
+        android:minWidth="320dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.progressindicator.ProgressIndicator
+            style="@style/Widget.MaterialComponents.ProgressIndicator.Linear.Indeterminate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE }"
+            app:indicatorColor="?attr/colorPrimary" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/droidconke_logo"
+            app:srcCompat="@drawable/app" />
+
+        <com.shobhitpuri.custombuttons.GoogleSignInButton
+            android:id="@+id/signInButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:onClick="@{viewModel::initiateSignIn}"
+            android:text="@string/google_sign_in"
+            android:visibility="@{!safeUnbox(viewModel.isSignedIn) ? View.VISIBLE : View.GONE }"
+            android:enabled="@{!safeUnbox(viewModel.isLoading)}"
+            app:isDarkTheme="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signOutButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:enabled="@{!safeUnbox(viewModel.isLoading)}"
+            android:onClick="@{viewModel::signOut}"
+            android:text="@string/sign_out"
+            android:visibility="@{safeUnbox(viewModel.isSignedIn) ? View.VISIBLE : View.GONE }" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/nairobi_image"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/bottom_image" />
+
+    </LinearLayout>
+</layout>

@@ -54,15 +54,10 @@ class DynamicToolbar @JvmOverloads constructor(
             }
             addView(view)
         } else {
-            val view = LayoutInflater.from(context).inflate(
-                R.layout.home_signed_out_toolbar,
-                this,
-                false
-            )
+            val view = getView(R.layout.home_signed_out_toolbar)
             val droidconIcon = view.findViewById<ImageView>(R.id.imgToolbarLogo)
             droidconIcon.setOnClickListener {
                 nightModeHandler?.invoke()
-                true
             }
             addView(view)
         }

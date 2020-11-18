@@ -14,7 +14,7 @@ import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
-import com.android254.droidconKE2020.home.di.homeViewModels
+import com.android254.droidconKE2020.home.di.homeModule
 import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
@@ -32,7 +32,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 private val loadFeature by lazy {
-    loadKoinModules(listOf(homeViewModels, browserModule))
+    loadKoinModules(listOf(homeModule, browserModule))
 }
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
