@@ -1,6 +1,7 @@
-package com.android254.droidconKE2020.network
+package com.android254.droidconKE2020.network.utils
 
 import com.android254.droidconKE2020.core.Preferences
+import com.android254.droidconKE2020.network.BuildConfig
 import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.CompletionHandler
 import kotlinx.coroutines.suspendCancellableCoroutine
