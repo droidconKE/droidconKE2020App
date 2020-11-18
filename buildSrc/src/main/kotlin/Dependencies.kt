@@ -46,6 +46,9 @@ object Versions {
     const val firebaseAnalytics = "18.0.0"
     const val firebaseCrashlytics = "17.2.2"
     const val googleServices = "4.3.1"
+
+    // Paging 3.0
+    const val paging = "3.0.0-alpha09"
 }
 
 object BuildPlugins {
@@ -125,6 +128,9 @@ object Libraries {
         "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
     const val firebaseCrashlytics =
         "com.google.firebase:firebase-crashlytics:${Versions.firebaseCrashlytics}"
+
+    // Paging 3.0
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
 }
 
 object APIs {

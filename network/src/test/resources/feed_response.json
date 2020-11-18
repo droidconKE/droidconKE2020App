@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "title": "Test",
+      "body": "Good one",
+      "topic": "droidconweb",
+      "url": "https://droidcon.co.ke",
+      "image": "http://localhost:8000/upload/event/feeds/dangyntvmaet8jgjpg.jpg",
+      "created_at": "2020-03-19 18:45:49"
+    },
+    {
+      "title": "niko fine",
+      "body": "this is a test",
+      "topic": "droidconweb",
+      "url": "https://droidcon.co.ke",
+      "image": null,
+      "created_at": "2020-03-19 18:43:38"
+    }
+  ],
+  "meta": {
+    "paginator": {
+      "count": 2,
+      "per_page": "10",
+      "current_page": 1,
+      "next_page": null,
+      "has_more_pages": false,
+      "next_page_url": null,
+      "previous_page_url": null
+    }
+  }
+}

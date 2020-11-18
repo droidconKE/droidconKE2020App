@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Feed (
   @SerializedName("data")
-  val feedItem: List<FeedItem>,
+  val feedItems: List<FeedItem>,
   @SerializedName("meta")
   val meta: Meta
 )
@@ -37,11 +37,11 @@ data class Paginator(
     @SerializedName("has_more_pages")
     val hasMorePages: Boolean,
     @SerializedName("next_page")
-    val nextPage: Any,
+    val nextPage: Int,
     @SerializedName("next_page_url")
-    val nextPageUrl: Any,
+    val nextPageUrl: String,
     @SerializedName("per_page")
     val perPage: String,
     @SerializedName("previous_page_url")
-    val previousPageUrl: Any
+    val previousPageUrl: String
 )
