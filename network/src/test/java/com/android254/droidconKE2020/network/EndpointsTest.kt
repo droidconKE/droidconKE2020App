@@ -69,4 +69,37 @@ class EndpointsTest : KoinTest {
         val message = service.auth.logout()
         assertThat(message.message, `is`("Success"))
     }
+
+    @Test
+    fun testGetFeed() = runBlocking {
+        server.enqueue(MockResponse().setBody("""{
+  "data": [
+    {
+      "title": "Test",
+      "body": "Good one",
+      "topic": "droidconweb",
+      "url": "https://droidcon.co.ke",
+      "image": "http://localhost:8000/upload/event/feeds/dangyntvmaet8jgjpg.jpg",
+      "created_at": "2020-03-19 18:45:49"
+    }
+  ],
+  "meta": {
+    "paginator": {
+      "count": 2,
+      "per_page": "10",
+      "current_page": 1,
+      "next_page": null,
+      "has_more_pages": false,
+      "next_page_url": null,
+      "previous_page_url": null
+    }
+  }
+}"""))
+        server.start()
+        declare {
+            server.url("/")
+        }
+        val feed = service.feed.fetchFeeds(10)
+        assertThat(feed.feedItems,`is`(sampleFeed))
+    }
 }
