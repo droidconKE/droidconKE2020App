@@ -56,6 +56,7 @@ class SessionDetailViewModel : ViewModel() {
     }
 
     fun onNavigatedBack() {
+        _navigateBack.value = false
 
     }
 }
