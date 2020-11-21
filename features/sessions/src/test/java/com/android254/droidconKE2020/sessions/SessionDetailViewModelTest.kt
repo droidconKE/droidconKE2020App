@@ -72,8 +72,8 @@ class SessionDetailViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test whether navigate back live data is set to null after user has navigated back`() {
+    fun `test navigate back live data is set to false after user has navigated back`() {
         sessionDetailViewModel.onNavigatedBack()
-        assertNull(sessionDetailViewModel.navigateBack.getOrAwaitValue())
+        assertThat(sessionDetailViewModel.navigateBack.getOrAwaitValue(),`is`(false))
     }
 }
