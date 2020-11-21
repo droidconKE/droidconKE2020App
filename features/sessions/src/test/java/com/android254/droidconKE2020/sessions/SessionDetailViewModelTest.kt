@@ -31,12 +31,6 @@ class SessionDetailViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test whether save session live data is set to null after user saves a session`() {
-        sessionDetailViewModel.onSessionSaved()
-        assertNull(sessionDetailViewModel.saveSession.getOrAwaitValue())
-    }
-
-    @Test
     fun `test whether share session contains a session when user shares a session`() {
         sessionDetailViewModel.onClickShareSession(testSessionDetail)
         assertThat(
@@ -47,22 +41,11 @@ class SessionDetailViewModelTest : BaseViewModelTest() {
         )
     }
 
-    @Test
-    fun `test whether share session live data is set to null after a session is shared`() {
-        sessionDetailViewModel.onSessionShared()
-        assertNull(sessionDetailViewModel.shareSession.getOrAwaitValue())
-    }
 
     @Test
     fun `test whether click speaker live data contains a speaker id when a user clicks a speaker name`() {
         sessionDetailViewModel.onClickSpeaker(1001)
         assertThat(sessionDetailViewModel.clickSpeaker.getOrAwaitValue(), `is`(1001))
-    }
-
-    @Test
-    fun `test whether click speaker live data is set to null after speaker details are displayed`() {
-        sessionDetailViewModel.onSpeakerClicked()
-        assertNull(sessionDetailViewModel.clickSpeaker.getOrAwaitValue())
     }
 
     @Test
