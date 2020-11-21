@@ -35,7 +35,7 @@
                     android:background="@android:color/transparent"
                     android:soundEffectsEnabled="true"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+                    app:layout_constraintTop_toBottomOf="parent"
                     app:tabGravity="center"
 
                     app:tabIndicatorAnimationDuration="2000"
@@ -52,7 +52,7 @@
                     android:theme="@style/SwitchTheme"
                     android:thumb="@drawable/ic_favorite_outline"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+                    app:layout_constraintTop_toBottomOf="parent" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -80,52 +80,7 @@
                 app:layout_collapseMode="pin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-                        android:id="@+id/imageViewAppIcon"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_droidcon_logo"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:shape_mode="circle" />
-
-
-                    <LinearLayout
-                        android:id="@+id/filterLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="16dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_slab"
-                            android:text="@string/filter"
-                            android:textSize="18sp" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="24dp"
-                            android:layout_marginStart="2dp"
-                            android:contentDescription="@string/image"
-                            android:src="@drawable/ic_filter_outline"
-                            android:tint="@color/colorPurple" />
-
-                    </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.Toolbar>
+                app:layout_constraintTop_toTopOf="parent"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 

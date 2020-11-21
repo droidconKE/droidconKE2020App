@@ -38,9 +38,6 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         super.onViewCreated(view, savedInstanceState)
         observeDaySessions()
         getDaySessions()
-        binding.filterLayout.setOnClickListener {
-            findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToFilterBottomSheet())
-        }
     }
 
     private fun observeDaySessions() {
