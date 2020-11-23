@@ -41,7 +41,7 @@
         android:name="com.android254.droidconKE2020.feed.ui.views.ShareFragment"
         android:label="Share Dialog"
         app:moduleName="feed"
-        tools:layout="@layout/share_fragment" />
+        tools:layout="@layout/fragment_share" />
 
 
     <fragment

@@ -23,7 +23,7 @@ android {
     localProperties.load(FileInputStream(rootProject.file("local.properties")))
 
     buildTypes {
-        val apiKey = localProperties.getProperty("apiKey", "Missing api key")
+        val apiKey = localProperties.getProperty("apiKey")
         this.forEach {
             it.buildConfigField("String", "API_KEY", "\"${apiKey}\"")
         }

@@ -99,7 +99,7 @@ class EndpointsTest : KoinTest {
         declare {
             server.url("/")
         }
-        val feed = service.feed.fetchFeeds(10)
+        val feed = service.feed.fetchFeeds()
         assertThat(feed.feedItems,`is`(sampleFeed))
     }
 }
