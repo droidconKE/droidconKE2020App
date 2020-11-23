@@ -122,6 +122,10 @@ jobs:
         with:
           path: ~/.gradle/caches
           key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle.kts') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/src/main/kotlin/Dependencies.kt') }}
+      - uses: nathanmkaya/android-version-code-update@v0.1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          packageName: com.android254.droidconKE2020
       - name: Build bundle
         run: ./gradlew -Pci --console=plain bundleRelease
 

@@ -96,6 +96,15 @@ check **"dependencies"** below
 
 **5. In case of an error when building project, update your gradle version, Build Tools download**
 
+**6. Add the following credentials to your** `local.properties`
+```
+clientId=GOOGLE CLIENT ID
+clientSecret=GOOGLE CLIENT SECRET
+apiKey=SERVER API KEY
+```
+
+**Note:** Reache out to **@wangerekaharun** or **@michaelbukachi** to obtain credentials
+
 
 =======
 ### Development Environment
