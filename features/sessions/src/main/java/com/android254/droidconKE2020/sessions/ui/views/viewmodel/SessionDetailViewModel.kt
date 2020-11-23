@@ -32,7 +32,6 @@ class SessionDetailViewModel : ViewModel() {
     }
 
     fun onSessionSaved() {
-        _saveSession.value = null
     }
 
     fun onClickShareSession(dummySessionDetail: DummySessionDetail) {
@@ -40,7 +39,6 @@ class SessionDetailViewModel : ViewModel() {
     }
 
     fun onSessionShared() {
-        _shareSession.value = null
     }
 
     fun onClickSpeaker(speakerId: Int) {
@@ -48,7 +46,6 @@ class SessionDetailViewModel : ViewModel() {
     }
 
     fun onSpeakerClicked() {
-        _clickSpeaker.value = null
     }
 
     fun onNavigateBack() {
@@ -56,7 +53,7 @@ class SessionDetailViewModel : ViewModel() {
     }
 
     fun onNavigatedBack() {
-        _navigateBack.value = null
+        _navigateBack.value = false
     }
 }
 
