@@ -2,21 +2,22 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewModel"
             type="com.android254.droidconKE2020.about.ui.viewmodel.AboutViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/about_page_image"
@@ -46,7 +47,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_bottom_about_page_content"
-                android:layout_marginEnd= "20dp"
+                android:layout_marginEnd="20dp"
                 android:fontFamily="@font/roboto_light"
                 android:text="@string/about_content"
                 android:textSize="@dimen/about_content_text_size"
@@ -85,10 +86,8 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_organizers"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/margin_horizontal_about_page"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="80dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_horizontal_about_page"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -160,5 +159,5 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>

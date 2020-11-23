@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.R
-import com.android254.droidconKE2020.R as AppR
 import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding
 import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
 import com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener
@@ -20,6 +19,7 @@ import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.DaySessionsViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
+import com.android254.droidconKE2020.R as AppR
 
 /**
  * A simple [Fragment] subclass.
@@ -70,7 +70,6 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
                             sessionId
                         )
                     findNavController().navigate(sessionsFragmentDirections)
-                    daySessionsViewModel.onSessionDetailNavigated()
                 }
             }
         )

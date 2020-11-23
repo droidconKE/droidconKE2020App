@@ -46,4 +46,12 @@ class PreferencesImpl(context: Context) : Preferences {
             it.putBoolean("signedIn", value)
         }
     }
+
+    override fun getAccessToken(): String = sharedPref.getString("accessToken", "") ?: ""
+
+    override fun setAccessToken(value: String) {
+        editSharedPref {
+            it.putString("accessToken", value)
+        }
+    }
 }
