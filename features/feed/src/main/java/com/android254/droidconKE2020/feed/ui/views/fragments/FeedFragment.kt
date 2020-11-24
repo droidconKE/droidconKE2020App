@@ -53,8 +53,8 @@ class FeedFragment : Fragment() {
         binding.feedsList.adapter = feedAdapter
         getFeeds()
 
-        lifecycleScope.launchWhenStarted {
-            viewModel.getFeeds().collectLatest { pagingData ->
+        viewModel.getFeeds().observe(viewLifecycleOwner) { pagingData ->
+            lifecycleScope.launchWhenStarted {
                 feedAdapter.submitData(pagingData)
             }
         }

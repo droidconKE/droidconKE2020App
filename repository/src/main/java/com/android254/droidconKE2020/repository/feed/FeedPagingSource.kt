@@ -15,10 +15,11 @@ class FeedPagingSource(private val apiService : ApiService) :PagingSource<Int,Fe
         val position = params.key ?: PAGE_NUMBER
         return try {
             val response = apiService.feed.fetchFeeds(params.loadSize)
+            val feeds = response.feedItems.toFeedUIModels()
             LoadResult.Page(
-                data = response.feedItems.toFeedUIModels(),
+                data = feeds,
                 prevKey = if (position == PAGE_NUMBER) null else position - 1,
-                nextKey = response.meta.paginator.nextPage
+                nextKey = if (response.feedItems.isEmpty()) null else position + 1
             )
 
         }catch (exception: IOException) {

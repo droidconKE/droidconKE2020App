@@ -23,7 +23,7 @@ class FeedAdapter(private val onSharedClicked: (FeedUIModel) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemFeedsBinding.inflate(inflater)
+        val binding = ItemFeedsBinding.inflate(inflater, parent, false)
         return FeedViewHolder(binding)
     }
 
