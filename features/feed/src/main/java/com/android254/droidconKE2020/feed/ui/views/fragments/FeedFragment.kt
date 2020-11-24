@@ -15,20 +15,19 @@ import com.android254.droidconKE2020.feed.databinding.FragmentFeedBinding
 import com.android254.droidconKE2020.feed.di.feedModule
 import com.android254.droidconKE2020.feed.ui.adapters.FeedAdapter
 import com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel
+import com.android254.droidconKE2020.repository.repoModule
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
-private val loadFeature by lazy { loadKoinModules(feedModule) }
+private val loadFeature by lazy { loadKoinModules(listOf(feedModule, repoModule)) }
 private fun injectFeature() = loadFeature
 
-val navController: (fragment: Fragment) -> NavController = {
-    NavHostFragment.findNavController(it)
-}
-
 class FeedFragment : Fragment() {
-
     private val viewModel: FeedViewModel by viewModel()
     lateinit var feedAdapter: FeedAdapter
+    private var _binding : FragmentFeedBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,28 +38,34 @@ class FeedFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_feed, container, false)
+    ): View {
+        _binding = FragmentFeedBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentFeedBinding.bind(view)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         feedAdapter = FeedAdapter {
-            findNavController().navigate(R.id.action_feedFragment_to_shareFragment)
+            findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
         }
         binding.feedsList.adapter = feedAdapter
         getFeeds()
 
-        viewModel.feeds.observe(viewLifecycleOwner){pagingData ->
-            lifecycleScope.launchWhenStarted {
+        lifecycleScope.launchWhenStarted {
+            viewModel.getFeeds().collectLatest { pagingData ->
                 feedAdapter.submitData(pagingData)
             }
         }
-
     }
 
     private fun getFeeds() {
         viewModel.getFeeds()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -9,11 +9,11 @@ import com.android254.droidconKE2020.network.responses.FeedItem
 import kotlinx.coroutines.flow.Flow
 
 interface FeedRepository {
-    suspend fun getFeed() : Flow<PagingData<FeedUIModel>>
+    fun getFeed() : Flow<PagingData<FeedUIModel>>
 }
 
 class FeedRepositoryImpl(private val apiService: ApiService) : FeedRepository {
-    override suspend fun getFeed(): Flow<PagingData<FeedUIModel>> {
+    override fun getFeed(): Flow<PagingData<FeedUIModel>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 10,

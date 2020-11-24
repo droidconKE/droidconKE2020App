@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.android254.droidconKE2020.feed.ui.views.FeedFragment"
+        android:name="com.android254.droidconKE2020.feed.ui.views.fragments.FeedFragment"
         android:label="Feed"
         app:moduleName="feed"
         tools:layout="@layout/fragment_feed">
