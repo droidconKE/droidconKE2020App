@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.feed.R
 import com.android254.droidconKE2020.feed.databinding.FragmentFeedBinding
 import com.android254.droidconKE2020.feed.di.feedModule
@@ -26,6 +28,7 @@ val navController: (fragment: Fragment) -> NavController = {
 class FeedFragment : Fragment() {
 
     private val viewModel: FeedViewModel by viewModel()
+    lateinit var feedAdapter: FeedAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,16 +46,21 @@ class FeedFragment : Fragment() {
         val binding = FragmentFeedBinding.bind(view)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-//        val onSharedClicked: (Feed) -> Unit = {
-//            navController(this).navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
-//        }
-//        val adapter = FeedAdapter(onSharedClicked)
-//        binding.feedsList.adapter = adapter
-//        viewModel.feeds.observe(
-//            viewLifecycleOwner,
-//            Observer {
-//                adapter.updateData(it)
-//            }
-//        )
+        feedAdapter = FeedAdapter {
+            findNavController().navigate(R.id.action_feedFragment_to_shareFragment)
+        }
+        binding.feedsList.adapter = feedAdapter
+        getFeeds()
+
+        viewModel.feeds.observe(viewLifecycleOwner){pagingData ->
+            lifecycleScope.launchWhenStarted {
+                feedAdapter.submitData(pagingData)
+            }
+        }
+
+    }
+
+    private fun getFeeds() {
+        viewModel.getFeeds()
     }
 }
