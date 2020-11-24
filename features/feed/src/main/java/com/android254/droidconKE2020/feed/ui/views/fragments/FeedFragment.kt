@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
+import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.feed.R
 import com.android254.droidconKE2020.feed.databinding.FragmentFeedBinding
 import com.android254.droidconKE2020.feed.di.feedModule
@@ -47,15 +50,32 @@ class FeedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        feedAdapter = FeedAdapter {
-            findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
-        }
-        binding.feedsList.adapter = feedAdapter
+        initAdapter()
         getFeeds()
 
         viewModel.getFeeds().observe(viewLifecycleOwner) { pagingData ->
             lifecycleScope.launchWhenStarted {
                 feedAdapter.submitData(pagingData)
+            }
+        }
+    }
+
+    private fun initAdapter() {
+        feedAdapter = FeedAdapter {
+            findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
+        }
+        binding.feedsList.adapter = feedAdapter
+        feedAdapter.addLoadStateListener { loadState ->
+            binding.feedsList.isVisible = loadState.refresh is LoadState.NotLoading
+            binding.noFeeds.isVisible = loadState.refresh is LoadState.Error
+            binding.progressBar.isVisible = loadState.refresh is LoadState.Loading
+
+            val errorState = loadState.source.append as? LoadState.Error
+                ?: loadState.source.prepend as? LoadState.Error
+                ?: loadState.append as? LoadState.Error
+                ?: loadState.prepend as? LoadState.Error
+            errorState?.let {
+                requireContext().toast("Wooops ${it.error}")
             }
         }
     }
