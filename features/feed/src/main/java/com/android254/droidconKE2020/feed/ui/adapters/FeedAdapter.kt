@@ -6,59 +6,46 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.paging.DifferCallback
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.android254.droidconKE2020.core.models.FeedUIModel
 import com.android254.droidconKE2020.feed.R
+import com.android254.droidconKE2020.feed.databinding.ItemFeedsBinding
 import com.android254.droidconKE2020.feed.models.Feed
+import com.android254.droidconKE2020.feed.utils.DiffUtilCallBack
 import kotlinx.android.synthetic.main.item_feeds.view.*
 
-class FeedAdapter(private val onSharedClicked: (Feed) -> Unit) :
-    RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
-
-    private val feeds = mutableListOf<Feed>()
+class FeedAdapter(private val onSharedClicked: (FeedUIModel) -> Unit) :
+    PagingDataAdapter<FeedUIModel, FeedAdapter.FeedViewHolder>(DiffUtilCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_feeds, parent, false)
-        return FeedViewHolder(view)
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemFeedsBinding.inflate(inflater)
+        return FeedViewHolder(binding)
     }
-
-    override fun getItemCount(): Int = feeds.size
 
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
-        val feed = feeds[position]
-        holder.bindFeed(feed)
+        getItem(position)?.let { holder.bindFeed(it) }
     }
 
-    fun updateData(list: List<Feed>) {
-        feeds.clear()
-        feeds.addAll(list)
-        notifyDataSetChanged()
-    }
+    inner class FeedViewHolder(private val binding : ItemFeedsBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    inner class FeedViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val content: TextView
-        val image: ImageView
-        val time: TextView
-        val shareButton: ImageButton
-
-        init {
-            content = view.content
-            image = view.image
-            time = view.time
-            shareButton = view.shareBtn
-        }
-
-        fun bindFeed(feed: Feed) {
-            feed.let {
-                content.text = it.content
-                image.load(it.imageUrl) {
+        fun bindFeed(feed: FeedUIModel) {
+            with(feed){
+                binding.content.text = content
+                binding.image.load(imageUrl) {
                     transformations(RoundedCornersTransformation(12f))
                 }
-                time.text = it.time
+                binding.time.text = time
+                binding.shareBtn.setOnClickListener {
+                    onSharedClicked.invoke(this)
+                }
             }
-            shareButton.setOnClickListener {
-                onSharedClicked.invoke(feed)
+            feed.let {
+
             }
         }
     }
