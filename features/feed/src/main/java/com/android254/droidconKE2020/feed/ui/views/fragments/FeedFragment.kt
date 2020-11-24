@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.android254.droidconKE2020.feed.R
 import com.android254.droidconKE2020.feed.databinding.FragmentFeedBinding
+import com.android254.droidconKE2020.feed.di.feedModule
 import com.android254.droidconKE2020.feed.ui.adapters.FeedAdapter
 import com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -42,16 +43,16 @@ class FeedFragment : Fragment() {
         val binding = FragmentFeedBinding.bind(view)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        val onSharedClicked: (Feed) -> Unit = {
-            navController(this).navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
-        }
-        val adapter = FeedAdapter(onSharedClicked)
-        binding.feedsList.adapter = adapter
-        viewModel.feeds.observe(
-            viewLifecycleOwner,
-            Observer {
-                adapter.updateData(it)
-            }
-        )
+//        val onSharedClicked: (Feed) -> Unit = {
+//            navController(this).navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
+//        }
+//        val adapter = FeedAdapter(onSharedClicked)
+//        binding.feedsList.adapter = adapter
+//        viewModel.feeds.observe(
+//            viewLifecycleOwner,
+//            Observer {
+//                adapter.updateData(it)
+//            }
+//        )
     }
 }
