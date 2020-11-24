@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.android254.droidconKE2020.feed.ui.views.FeedViewModel" />
+            type="com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel" />
 
         <import type="android.view.View" />
     </data>

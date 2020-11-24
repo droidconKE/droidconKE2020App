@@ -38,7 +38,7 @@
 
     <dialog
         android:id="@+id/shareFragment"
-        android:name="com.android254.droidconKE2020.feed.ui.views.ShareFragment"
+        android:name="com.android254.droidconKE2020.feed.ui.views.fragments.ShareFragment"
         android:label="Share Dialog"
         app:moduleName="feed"
         tools:layout="@layout/fragment_share" />

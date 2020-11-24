@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.feed.ui.views
+package com.android254.droidconKE2020.feed.ui.views.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,8 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.android254.droidconKE2020.feed.R
 import com.android254.droidconKE2020.feed.databinding.FragmentFeedBinding
+import com.android254.droidconKE2020.feed.ui.adapters.FeedAdapter
+import com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 

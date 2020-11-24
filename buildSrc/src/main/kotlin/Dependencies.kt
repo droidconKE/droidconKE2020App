@@ -46,6 +46,7 @@ object Versions {
     const val firebaseAnalytics = "18.0.0"
     const val firebaseCrashlytics = "17.2.2"
     const val googleServices = "4.3.1"
+    const val truth = "1.0.1"
 
     // Paging 3.0
     const val paging = "3.0.0-alpha09"
@@ -164,6 +165,7 @@ object TestLibraries {
     const val fragment = "androidx.fragment:fragment-testing:${Versions.fragmentsTesting}"
     const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
     const val mockServer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
+    const val truth = "com.google.truth:truth:${Versions.truth}"
 }
 
 object BuildModules {

@@ -2,7 +2,7 @@ package com.android254.droidconKE2020.feed
 
 import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android254.droidconKE2020.feed.ui.views.FeedViewModel
+import com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel
 import com.android254.droidconKE2020.feed.ui.views.getOrAwaitValue
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.InjectMockKs

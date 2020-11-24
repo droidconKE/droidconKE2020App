@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.feed.ui.views
+package com.android254.droidconKE2020.feed.ui.viewmodels
 
 import android.content.Context
 import androidx.arch.core.util.Function
@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.android254.droidconKE2020.feed.R
+import com.android254.droidconKE2020.feed.models.Feed
 
 class FeedViewModel(private val context: Context) : ViewModel() {
     val feeds = MutableLiveData<List<Feed>>()

@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.feed.ui.views
+package com.android254.droidconKE2020.feed.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.android254.droidconKE2020.feed.R
+import com.android254.droidconKE2020.feed.models.Feed
 import kotlinx.android.synthetic.main.item_feeds.view.*
 
 class FeedAdapter(private val onSharedClicked: (Feed) -> Unit) :
