@@ -25,4 +25,5 @@
     <string name="text_mins_number">56</string>
     <string name="text_hrs_label">Hrs</string>
     <string name="text_hours_number">1</string>
+    <string name="text_retry">Retry</string>
 </resources>

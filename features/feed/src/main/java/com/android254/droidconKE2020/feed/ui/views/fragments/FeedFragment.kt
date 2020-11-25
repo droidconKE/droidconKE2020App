@@ -17,6 +17,7 @@ import com.android254.droidconKE2020.feed.R
 import com.android254.droidconKE2020.feed.databinding.FragmentFeedBinding
 import com.android254.droidconKE2020.feed.di.feedModule
 import com.android254.droidconKE2020.feed.ui.adapters.FeedAdapter
+import com.android254.droidconKE2020.feed.ui.adapters.FeedsLoadingAdapter
 import com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel
 import com.android254.droidconKE2020.repository.repoModule
 import kotlinx.coroutines.flow.collectLatest
@@ -65,6 +66,9 @@ class FeedFragment : Fragment() {
             findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
         }
         binding.feedsList.adapter = feedAdapter
+        binding.feedsList.adapter = feedAdapter.withLoadStateFooter(
+            footer = FeedsLoadingAdapter {feedAdapter.retry()}
+        )
         feedAdapter.addLoadStateListener { loadState ->
             binding.feedsList.isVisible = loadState.refresh is LoadState.NotLoading
             binding.noFeeds.isVisible = loadState.refresh is LoadState.Error
