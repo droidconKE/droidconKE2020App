@@ -11,16 +11,17 @@ import com.android254.droidconKE2020.feed.R
 import org.hamcrest.Matcher
 
 class FeedScreen : Screen<FeedScreen>() {
-    val noFeeds = KTextView { withId(R.id.noFeeds)}
-    val progressBar = KProgressBar { withId(R.id.progressBar)}
+    val noFeeds = KTextView { withId(R.id.noFeeds) }
+    val progressBar = KProgressBar { withId(R.id.progressBar) }
     val feedsList = KRecyclerView(
-            { withId(R.id.feedsList) },
-    itemTypeBuilder = {
-        itemType(::FeedItem)
-    })
+        { withId(R.id.feedsList) },
+        itemTypeBuilder = {
+            itemType(::FeedItem)
+        }
+    )
 }
 
-class FeedItem(parent: Matcher<View>): KRecyclerItem<FeedItem>(parent) {
+class FeedItem(parent: Matcher<View>) : KRecyclerItem<FeedItem>(parent) {
     val feedImage = KImageView { withId(R.id.image) }
     val feedContent = KTextView { withId(R.id.content) }
     val feedTime = KTextView { withId(R.id.time) }

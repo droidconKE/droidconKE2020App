@@ -5,15 +5,17 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun String.toDate(): Date? {
-    val dateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss",Locale.getDefault())
-    return try {
-        dateFormatter.parse(this)
+fun String.formattedDate(): String? {
+    var date: Date? = null
+    var formattedDate: String? = null
+    try {
+        date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(this)
     } catch (e: ParseException) {
         null
     }
-}
-fun Long.formattedDate() : String {
-    return DateUtils.getRelativeTimeSpanString(this,System.currentTimeMillis(),DateUtils.SECOND_IN_MILLIS)
-        .toString()
+    date?.let {
+        formattedDate = DateUtils.getRelativeTimeSpanString(it.time, System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS)
+            .toString()
+    }
+    return formattedDate
 }

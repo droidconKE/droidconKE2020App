@@ -6,21 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.android254.droidconKE2020.core.utils.toast
-import com.android254.droidconKE2020.feed.R
 import com.android254.droidconKE2020.feed.databinding.FragmentFeedBinding
 import com.android254.droidconKE2020.feed.di.feedModule
 import com.android254.droidconKE2020.feed.ui.adapters.FeedAdapter
 import com.android254.droidconKE2020.feed.ui.adapters.FeedsLoadingAdapter
 import com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel
 import com.android254.droidconKE2020.repository.repoModule
-import kotlinx.coroutines.flow.collectLatest
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
@@ -30,7 +25,7 @@ private fun injectFeature() = loadFeature
 class FeedFragment : Fragment() {
     private val viewModel: FeedViewModel by viewModel()
     lateinit var feedAdapter: FeedAdapter
-    private var _binding : FragmentFeedBinding? = null
+    private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +62,7 @@ class FeedFragment : Fragment() {
         }
         binding.feedsList.adapter = feedAdapter
         binding.feedsList.adapter = feedAdapter.withLoadStateFooter(
-            footer = FeedsLoadingAdapter {feedAdapter.retry()}
+            footer = FeedsLoadingAdapter { feedAdapter.retry() }
         )
         feedAdapter.addLoadStateListener { loadState ->
             binding.feedsList.isVisible = loadState.refresh is LoadState.NotLoading

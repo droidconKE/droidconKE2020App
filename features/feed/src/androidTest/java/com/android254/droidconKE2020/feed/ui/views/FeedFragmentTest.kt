@@ -1,7 +1,5 @@
 package com.android254.droidconKE2020.feed.ui.views
 
-import androidx.fragment.app.testing.FragmentScenario
-import androidx.fragment.app.testing.FragmentScenario.launchInContainer
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -23,23 +21,22 @@ import com.android254.droidconKE2020.R as AppR
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class FeedFragmentTest : KoinTest {
-    lateinit var feedViewModel : FeedViewModel
+    lateinit var feedViewModel: FeedViewModel
     private val feedRepository = mockk<FeedRepository>()
 
     @Before
-    fun setup (){
+    fun setup() {
         declare {
             feedViewModel = FeedViewModel(feedRepository)
         }
     }
     @Test
-    fun testProgressBar_IsDisplayed_whenFeeds_AreLoading(){
+    fun testProgressBar_IsDisplayed_whenFeeds_AreLoading() {
         every { feedRepository.getFeed() } returns emptyFlow()
         launchFragmentInContainer<FeedFragment>(themeResId = AppR.style.Theme_DroidConKe)
-        onScreen<FeedScreen>{
+        onScreen<FeedScreen> {
             noFeeds.isDisplayed()
         }
         idle(3000)
-
     }
 }

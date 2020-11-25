@@ -90,7 +90,6 @@ dependencies {
     implementation(project(BuildModules.Libraries.Repository))
     testImplementation(project(BuildModules.Libraries.App, "testDependencies"))
     testImplementation(project(BuildModules.Libraries.Test))
-
 }
 
 configurations.all {

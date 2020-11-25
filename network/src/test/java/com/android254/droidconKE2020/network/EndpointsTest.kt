@@ -72,7 +72,9 @@ class EndpointsTest : KoinTest {
 
     @Test
     fun testGetFeed() = runBlocking {
-        server.enqueue(MockResponse().setBody("""{
+        server.enqueue(
+            MockResponse().setBody(
+                """{
   "data": [
     {
       "title": "Test",
@@ -94,12 +96,14 @@ class EndpointsTest : KoinTest {
       "previous_page_url": null
     }
   }
-}"""))
+}"""
+            )
+        )
         server.start()
         declare {
             server.url("/")
         }
         val feed = service.feed.fetchFeeds()
-        assertThat(feed.feedItems,`is`(sampleFeed))
+        assertThat(feed.feedItems, `is`(sampleFeed))
     }
 }

@@ -155,7 +155,7 @@ exceptions:
   ThrowingNewInstanceOfSameException:
     active: true
   TooGenericExceptionCaught:
-    active: true
+    active: false
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     exceptionNames:
       - ArrayIndexOutOfBoundsException
@@ -484,7 +484,7 @@ style:
     active: true
   ReturnCount:
     active: true
-    max: 2
+    max: 4
     excludedFunctions: "equals"
     excludeLabeled: false
     excludeReturnFromLambda: true

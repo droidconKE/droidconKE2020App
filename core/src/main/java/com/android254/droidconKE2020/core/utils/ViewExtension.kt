@@ -20,6 +20,6 @@ fun View.getParentActivity(): Activity? {
     return null
 }
 
-fun Context.toast(message : String){
-    Toast.makeText(this,message, Toast.LENGTH_SHORT).show()
+fun Context.toast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }

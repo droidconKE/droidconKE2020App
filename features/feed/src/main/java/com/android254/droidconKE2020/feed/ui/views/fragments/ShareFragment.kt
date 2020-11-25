@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import com.android254.droidconKE2020.feed.R
-import com.android254.droidconKE2020.feed.ui.views.fragments.RoundedBottomSheetFragment
 import kotlinx.android.synthetic.main.fragment_share.*
 
 class ShareFragment : RoundedBottomSheetFragment() {

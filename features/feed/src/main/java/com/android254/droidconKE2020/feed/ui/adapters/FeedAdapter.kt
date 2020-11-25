@@ -1,20 +1,13 @@
 package com.android254.droidconKE2020.feed.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.paging.DifferCallback
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.android254.droidconKE2020.core.models.FeedUIModel
-import com.android254.droidconKE2020.feed.R
 import com.android254.droidconKE2020.feed.databinding.ItemFeedsBinding
-import com.android254.droidconKE2020.feed.models.Feed
 import com.android254.droidconKE2020.feed.utils.DiffUtilCallBack
 import kotlinx.android.synthetic.main.item_feeds.view.*
 
@@ -31,10 +24,10 @@ class FeedAdapter(private val onSharedClicked: (FeedUIModel) -> Unit) :
         getItem(position)?.let { holder.bindFeed(it) }
     }
 
-    inner class FeedViewHolder(private val binding : ItemFeedsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class FeedViewHolder(private val binding: ItemFeedsBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindFeed(feed: FeedUIModel) {
-            with(feed){
+            with(feed) {
                 binding.content.text = content
                 binding.image.load(imageUrl) {
                     transformations(RoundedCornersTransformation(12f))
@@ -45,7 +38,6 @@ class FeedAdapter(private val onSharedClicked: (FeedUIModel) -> Unit) :
                 }
             }
             feed.let {
-
             }
         }
     }

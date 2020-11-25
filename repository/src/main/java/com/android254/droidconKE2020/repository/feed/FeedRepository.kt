@@ -5,11 +5,10 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.android254.droidconKE2020.core.models.FeedUIModel
 import com.android254.droidconKE2020.network.ApiService
-import com.android254.droidconKE2020.network.responses.FeedItem
 import kotlinx.coroutines.flow.Flow
 
 interface FeedRepository {
-    fun getFeed() : Flow<PagingData<FeedUIModel>>
+    fun getFeed(): Flow<PagingData<FeedUIModel>>
 }
 
 class FeedRepositoryImpl(private val apiService: ApiService) : FeedRepository {
@@ -19,8 +18,7 @@ class FeedRepositoryImpl(private val apiService: ApiService) : FeedRepository {
                 pageSize = 10,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = {FeedPagingSource(apiService = apiService)}
+            pagingSourceFactory = { FeedPagingSource(apiService = apiService) }
         ).flow
     }
-
 }

@@ -5,7 +5,6 @@ import io.mockk.impl.annotations.InjectMockKs
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Assert.assertNotNull
-import org.junit.Assert.assertNull
 import org.junit.Test
 
 class SessionDetailViewModelTest : BaseViewModelTest() {
@@ -41,7 +40,6 @@ class SessionDetailViewModelTest : BaseViewModelTest() {
         )
     }
 
-
     @Test
     fun `test whether click speaker live data contains a speaker id when a user clicks a speaker name`() {
         sessionDetailViewModel.onClickSpeaker(1001)
@@ -57,6 +55,6 @@ class SessionDetailViewModelTest : BaseViewModelTest() {
     @Test
     fun `test navigate back live data is set to false after user has navigated back`() {
         sessionDetailViewModel.onNavigatedBack()
-        assertThat(sessionDetailViewModel.navigateBack.getOrAwaitValue(),`is`(false))
+        assertThat(sessionDetailViewModel.navigateBack.getOrAwaitValue(), `is`(false))
     }
 }

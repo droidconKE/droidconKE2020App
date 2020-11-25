@@ -24,9 +24,9 @@ class AuthInterceptor(private val sharedPref: Preferences) : Interceptor {
         builder.addHeader("Accept", "application/json")
         builder.addHeader("Api-Authorization-Key", BuildConfig.API_KEY)
 
-//        if (accessToken.isNotEmpty()) {
-            builder.addHeader("Authorization", "Bearer HY15oVDIwDOhOuU4YmZfROMnOD0Ww8W2GHtVWI9W8N5NUJuH0x7hHnu1sNFioQYIHLVP13iidBXVsvc9")
-//        }
+        if (accessToken.isNotEmpty()) {
+            builder.addHeader("Authorization", "Bearer $accessToken")
+        }
 
         val newRequest = builder.build()
 

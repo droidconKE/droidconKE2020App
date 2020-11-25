@@ -12,7 +12,7 @@ import org.junit.Test
 
 class FeedViewModelTest : BaseViewModelTest() {
     private val feedRepository = mockk<FeedRepository>()
-    private lateinit var feedViewModel : FeedViewModel
+    private lateinit var feedViewModel: FeedViewModel
 
     @Before
     fun setup() {
@@ -20,13 +20,11 @@ class FeedViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test feeds are fetched`(){
+    fun `test feeds are fetched`() {
         coEvery { feedRepository.getFeed() } returns flowOf()
         feedViewModel.getFeeds()
-        coVerify {  feedRepository.getFeed() }
+        coVerify { feedRepository.getFeed() }
         // Investigate why this always brings Observer never received any value
         // feedViewModel.getFeeds().test().assertHasValue()
-
     }
-
 }

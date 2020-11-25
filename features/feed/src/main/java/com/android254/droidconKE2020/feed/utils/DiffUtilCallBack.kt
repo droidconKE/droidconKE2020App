@@ -9,6 +9,6 @@ class DiffUtilCallBack : DiffUtil.ItemCallback<FeedUIModel>() {
     }
 
     override fun areContentsTheSame(oldItem: FeedUIModel, newItem: FeedUIModel): Boolean {
-       return oldItem == newItem
+        return oldItem == newItem
     }
 }
