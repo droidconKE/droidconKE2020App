@@ -1,5 +1,6 @@
 package com.android254.droidconKE2020.network
 
+import com.android254.droidconKE2020.network.utils.await
 import okhttp3.FormBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -13,7 +14,7 @@ class GoogleService {
             level = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor.Level.BODY
             } else {
-                HttpLoggingInterceptor.Level.NONE
+                HttpLoggingInterceptor.Level.BODY
             }
         }
         val client = OkHttpClient.Builder()

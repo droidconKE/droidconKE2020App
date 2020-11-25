@@ -23,7 +23,7 @@ android {
     localProperties.load(FileInputStream(rootProject.file("local.properties")))
 
     buildTypes {
-        val apiKey = localProperties.getProperty("apiKey", "Missing api key")
+        val apiKey = localProperties.getProperty("apiKey")
         this.forEach {
             it.buildConfigField("String", "API_KEY", "\"${apiKey}\"")
         }
@@ -54,18 +54,22 @@ dependencies {
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
     implementation(project(BuildModules.Libraries.Core))
+
+    // Unit Tests
     testImplementation(TestLibraries.junit4)
     testImplementation(TestLibraries.mockServer)
     testImplementation(TestLibraries.koin)
     testImplementation(TestLibraries.coroutines)
     testImplementation(TestLibraries.mockk)
+
+    // UI Tests
     androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.espresso)
 
     // Retrofit
     api(Libraries.retrofit)
-    implementation(Libraries.gsonConverter)
-    implementation(Libraries.loggingInterceptor)
+    api(Libraries.gsonConverter)
+    api(Libraries.loggingInterceptor)
 
     // Koin
     implementation(Libraries.koinAndroid)

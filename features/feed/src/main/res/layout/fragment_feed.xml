@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.android254.droidconKE2020.feed.ui.views.FeedViewModel" />
+            type="com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel" />
 
         <import type="android.view.View" />
     </data>
@@ -34,12 +34,21 @@
             android:fontFamily="@font/roboto"
             android:text="@string/no_feeds_found"
             android:gravity="center"
-            android:visibility="@{viewModel.blank ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

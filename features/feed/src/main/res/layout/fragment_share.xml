@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/colorBackground"
     android:layout_height="wrap_content"
-    tools:context=".ui.views.ShareFragment">
+    tools:context=".ui.views.fragments.ShareFragment">
 
     <ImageButton
         android:id="@+id/shareIcon"
@@ -15,7 +15,7 @@
         android:layout_marginTop="32dp"
         android:background="@null"
         android:contentDescription="@string/share_icon"
-        android:tint="@color/colorAquaMarine"
+        app:tint="@color/colorAquaMarine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_share" />

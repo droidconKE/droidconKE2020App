@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.feed.ui.views
+package com.android254.droidconKE2020.feed.ui.views.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

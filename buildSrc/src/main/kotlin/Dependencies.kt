@@ -22,18 +22,11 @@ object Versions {
     const val googeButton = "1.1.0"
     const val googlePlayServices = "17.0.0"
     const val coroutinePlayServices = "1.3.9"
-
-    const val junit4 = "4.13.1"
-    const val testRunner = "1.1.0"
-    const val rules = "1.1.0"
-    const val espresso = "3.3.0"
-
     const val annotation = "1.2.0-alpha01"
-    const val mockk = "1.10.2"
     const val safeArgsPlugin = "2.2.1"
     const val archCore = "2.1.0"
     const val core = "1.3.1-alpha02"
-    const val fragmentsTesting = "1.3.0-beta01"
+
     const val kakao = "2.4.0"
     const val flexBox = "2.0.1"
     const val browser = "1.3.0-beta01"
@@ -42,10 +35,25 @@ object Versions {
     const val navVersion = "2.3.1"
     const val fakeit = "1.0.2"
     const val gradleVersionsPlugin = "0.36.0"
+
+    // Firebase
     const val firebasePlugin = "2.1.0"
     const val firebaseAnalytics = "18.0.0"
     const val firebaseCrashlytics = "17.2.2"
     const val googleServices = "4.3.1"
+
+    // Tests
+    const val truth = "1.0.1"
+    const val liveDataTesting = "1.1.2"
+    const val mockk = "1.10.2"
+    const val fragmentsTesting = "1.3.0-beta01"
+    const val junit4 = "4.13.1"
+    const val testRunner = "1.1.0"
+    const val rules = "1.1.0"
+    const val espresso = "3.3.0"
+
+    // Paging 3.0
+    const val paging = "3.0.0-alpha09"
 }
 
 object BuildPlugins {
@@ -125,6 +133,9 @@ object Libraries {
         "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
     const val firebaseCrashlytics =
         "com.google.firebase:firebase-crashlytics:${Versions.firebaseCrashlytics}"
+
+    // Paging 3.0
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
 }
 
 object APIs {
@@ -158,6 +169,10 @@ object TestLibraries {
     const val fragment = "androidx.fragment:fragment-testing:${Versions.fragmentsTesting}"
     const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
     const val mockServer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
+    const val truth = "com.google.truth:truth:${Versions.truth}"
+    const val coroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val liveDataTesting = "com.jraska.livedata:testing-ktx:${Versions.liveDataTesting}"
 }
 
 object BuildModules {

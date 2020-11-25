@@ -46,7 +46,11 @@ dependencies {
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
+
+    // Unit Tests
     testImplementation(TestLibraries.junit4)
+
+    // UI Tests
     androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.espresso)
 

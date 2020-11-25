@@ -1,6 +1,10 @@
-package com.android254.droidconKE2020.network
+package com.android254.droidconKE2020.network.di
 
-import com.android254.droidconKE2020.network.di.Constants.BASE_URL
+import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.BuildConfig
+import com.android254.droidconKE2020.network.GoogleService
+import com.android254.droidconKE2020.network.utils.Constants.BASE_URL
+import com.android254.droidconKE2020.network.utils.AuthInterceptor
 import com.google.gson.GsonBuilder
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrl
@@ -35,7 +39,7 @@ val networkModule = module {
             level = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor.Level.BODY
             } else {
-                HttpLoggingInterceptor.Level.NONE
+                HttpLoggingInterceptor.Level.BODY
             }
         }
     }

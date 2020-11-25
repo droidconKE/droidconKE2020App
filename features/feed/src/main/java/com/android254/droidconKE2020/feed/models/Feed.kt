@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.feed.ui.views
+package com.android254.droidconKE2020.feed.models
 
 import com.android254.droidconKE2020.feed.R
 
