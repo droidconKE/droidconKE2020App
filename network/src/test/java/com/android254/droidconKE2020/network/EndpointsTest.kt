@@ -114,7 +114,7 @@ class EndpointsTest : KoinTest {
         declare {
             server.url("/")
         }
-        val message = service.eventFeedback.sendEventFeedback("Awesome",4)
+        val message = service.eventFeedback.sendEventFeedback("Awesome", 4)
         assertThat(message.body()!!.message, `is`("Feedback sent successfully, Thank you"))
     }
 }

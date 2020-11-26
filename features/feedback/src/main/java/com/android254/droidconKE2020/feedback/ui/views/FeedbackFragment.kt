@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.feedback.databinding.FragmentFeedbackBinding
 import com.android254.droidconKE2020.feedback.di.feedbackModule
@@ -19,11 +18,10 @@ import org.koin.core.context.loadKoinModules
 private val loadFeature by lazy { loadKoinModules(listOf(feedbackModule, repoModule)) }
 private fun injectFeature() = loadFeature
 
-class FeedbackFragment : Fragment(){
+class FeedbackFragment : Fragment() {
     private val eventFeedbackViewModel: EventFeedbackViewModel by viewModel()
     private var _binding: FragmentFeedbackBinding? = null
     private val binding get() = _binding!!
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +40,7 @@ class FeedbackFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        eventFeedbackViewModel.submitFeedback.observe(viewLifecycleOwner){ submitFeedbackResponse ->
+        eventFeedbackViewModel.submitFeedback.observe(viewLifecycleOwner) { submitFeedbackResponse ->
             handleResponse(submitFeedbackResponse)
         }
 
@@ -58,7 +56,7 @@ class FeedbackFragment : Fragment(){
     private fun handleResponse(submitFeedbackResponse: Data<String>?) {
         binding.mainLayout.visibility = View.VISIBLE
         binding.progressBar.visibility = View.GONE
-        when(submitFeedbackResponse){
+        when (submitFeedbackResponse) {
             is Data.Success -> {
                 requireContext().toast(submitFeedbackResponse.data)
             }
@@ -67,15 +65,14 @@ class FeedbackFragment : Fragment(){
     }
 
     private fun submitEventFeedback(feedback: String, rating: Int) {
-        if (isValidInputs(feedback, rating)){
+        if (isValidInputs(feedback, rating)) {
             eventFeedbackViewModel.sendEventFeedback(feedback, rating)
-        }else{
+        } else {
             requireContext().toast("Please enter you feedback")
         }
-
     }
 
-    private fun isValidInputs(feedback: String, rating: Int) : Boolean{
+    private fun isValidInputs(feedback: String, rating: Int): Boolean {
         var isValid = false
         !TextUtils.isEmpty(feedback)
         isValid = rating > 0

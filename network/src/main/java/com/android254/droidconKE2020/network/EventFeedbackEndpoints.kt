@@ -11,7 +11,7 @@ interface EventFeedbackEndpoints {
     @FormUrlEncoded
     @POST("events/droidconke2021-957/feedback")
     suspend fun sendEventFeedback(
-        @Field("feedback") feedback : String,
-        @Field("rating") rating : Int
-    ) : Response<Message>
+        @Field("feedback") feedback: String,
+        @Field("rating") rating: Int
+    ): Response<Message>
 }

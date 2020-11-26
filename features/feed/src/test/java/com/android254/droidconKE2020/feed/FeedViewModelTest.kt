@@ -3,6 +3,7 @@ package com.android254.droidconKE2020.feed
 import com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel
 import com.android254.droidconKE2020.repository.feed.FeedRepository
 import com.android254.droidconKE2020.test_utils.BaseViewModelTest
+import com.jraska.livedata.test
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -25,6 +26,6 @@ class FeedViewModelTest : BaseViewModelTest() {
         feedViewModel.getFeeds()
         coVerify { feedRepository.getFeed() }
         // Investigate why this always brings Observer never received any value
-        // feedViewModel.getFeeds().test().assertHasValue()
+        feedViewModel.getFeeds().test().assertHasValue()
     }
 }
