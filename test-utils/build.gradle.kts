@@ -35,6 +35,8 @@ dependencies {
     api(TestLibraries.testRunner)
     api(TestLibraries.espresso)
     api(TestLibraries.annotation)
+    api(TestLibraries.coroutinesTest)
+    api(TestLibraries.liveDataTesting)
 }
 
 configurations.all {

@@ -60,4 +60,6 @@ dependencies {
     implementation(Libraries.koinExt)
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
+    // Paging 3.0
+    api(Libraries.paging)
 }

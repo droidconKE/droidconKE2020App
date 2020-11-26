@@ -1,36 +1,31 @@
 package com.android254.droidconKE2020.feed
 
-import android.content.Context
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android254.droidconKE2020.feed.ui.views.FeedViewModel
-import com.android254.droidconKE2020.feed.ui.views.getOrAwaitValue
-import io.mockk.MockKAnnotations
-import io.mockk.impl.annotations.InjectMockKs
-import io.mockk.impl.annotations.MockK
-import org.hamcrest.CoreMatchers.`is`
-import org.junit.Assert.assertThat
+import com.android254.droidconKE2020.feed.ui.viewmodels.FeedViewModel
+import com.android254.droidconKE2020.repository.feed.FeedRepository
+import com.android254.droidconKE2020.test_utils.BaseViewModelTest
+import com.jraska.livedata.test
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
+import kotlinx.coroutines.flow.flowOf
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
-class FeedViewModelTest {
-
-    @get:Rule
-    val instantRule = InstantTaskExecutorRule()
-
-    @MockK(relaxed = true)
-    lateinit var context: Context
-
-    @InjectMockKs
-    lateinit var viewModel: FeedViewModel
+class FeedViewModelTest : BaseViewModelTest() {
+    private val feedRepository = mockk<FeedRepository>()
+    private lateinit var feedViewModel: FeedViewModel
 
     @Before
     fun setup() {
-        MockKAnnotations.init(this)
+        feedViewModel = FeedViewModel(feedRepository)
     }
 
     @Test
-    fun `test blank is not shown`() {
-        assertThat(viewModel.blank.getOrAwaitValue(), `is`(false))
+    fun `test feeds are fetched`() {
+        coEvery { feedRepository.getFeed() } returns flowOf()
+        feedViewModel.getFeeds()
+        coVerify { feedRepository.getFeed() }
+        // Investigate why this always brings Observer never received any value
+        feedViewModel.getFeeds().test().assertHasValue()
     }
 }

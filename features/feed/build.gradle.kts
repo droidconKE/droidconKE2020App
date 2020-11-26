@@ -70,8 +70,7 @@ android {
     defaultConfig {
         minSdkVersion(AndroidSDK.min)
         targetSdkVersion(AndroidSDK.target)
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.android254.droidconKE2020.test_utils.KoinRunner"
     }
 
     compileOptions {
@@ -86,11 +85,11 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(project(":app"))
-
-    testImplementation(project(":app", "testDependencies"))
-
-//    androidTestImplementation(project(":test-utils"))
+    implementation(project(BuildModules.Libraries.App))
+    implementation(project(BuildModules.Libraries.Core))
+    implementation(project(BuildModules.Libraries.Repository))
+    testImplementation(project(BuildModules.Libraries.App, "testDependencies"))
+    testImplementation(project(BuildModules.Libraries.Test))
 }
 
 configurations.all {
