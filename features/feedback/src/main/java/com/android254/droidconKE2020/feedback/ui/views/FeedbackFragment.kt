@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.feedback.databinding.FragmentFeedbackBinding
 import com.android254.droidconKE2020.feedback.di.feedbackModule
 import com.android254.droidconKE2020.feedback.ui.viewmodels.EventFeedbackViewModel
+import com.android254.droidconKE2020.repository.Data
 import com.android254.droidconKE2020.repository.repoModule
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
@@ -40,18 +42,31 @@ class FeedbackFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        eventFeedbackViewModel.submitFeedback.observe(viewLifecycleOwner){ message ->
-            requireContext().toast(message)
+        eventFeedbackViewModel.submitFeedback.observe(viewLifecycleOwner){ submitFeedbackResponse ->
+            handleResponse(submitFeedbackResponse)
         }
 
         binding.btnSubmitFeedback.setOnClickListener {
             val feedback = binding.etFeedback.text.toString()
-            val rating = binding.eventRatingBar.rating.toString()
+            val rating = binding.eventRatingBar.rating.toInt()
+            binding.mainLayout.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
             submitEventFeedback(feedback, rating)
         }
     }
 
-    private fun submitEventFeedback(feedback: String, rating: String) {
+    private fun handleResponse(submitFeedbackResponse: Data<String>?) {
+        binding.mainLayout.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.GONE
+        when(submitFeedbackResponse){
+            is Data.Success -> {
+                requireContext().toast(submitFeedbackResponse.data)
+            }
+            is Data.Error -> requireContext().toast(submitFeedbackResponse.exception.toString())
+        }
+    }
+
+    private fun submitEventFeedback(feedback: String, rating: Int) {
         if (isValidInputs(feedback, rating)){
             eventFeedbackViewModel.sendEventFeedback(feedback, rating)
         }else{
@@ -60,11 +75,10 @@ class FeedbackFragment : Fragment(){
 
     }
 
-    private fun isValidInputs(feedback: String, rating: String) : Boolean{
+    private fun isValidInputs(feedback: String, rating: Int) : Boolean{
         var isValid = false
         !TextUtils.isEmpty(feedback)
-        isValid = !TextUtils.isEmpty(rating)
-
+        isValid = rating > 0
         return isValid
     }
 }

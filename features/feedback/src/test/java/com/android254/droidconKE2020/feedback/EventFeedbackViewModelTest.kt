@@ -13,7 +13,7 @@ import org.junit.Test
 
 class EventFeedbackViewModelTest : BaseViewModelTest() {
     private val eventFeedbackRepository = mockk<EventFeedbackRepository>()
-    lateinit var eventFeedbackViewModel: EventFeedbackViewModel
+    private lateinit var eventFeedbackViewModel: EventFeedbackViewModel
 
     @Before
     fun setup(){
@@ -22,10 +22,10 @@ class EventFeedbackViewModelTest : BaseViewModelTest() {
 
     @Test
     fun `test event feedback is submitted successfully`(){
-        coEvery { eventFeedbackRepository.sendEventFeedback("Awesome", "5") } returns Data.Success("Feedback sent successfully, Thank you")
-        eventFeedbackViewModel.sendEventFeedback("Awesome", "5")
-        coVerify { eventFeedbackViewModel.sendEventFeedback("Awesome", "5") }
-        eventFeedbackViewModel.submitFeedback.test().assertValue("Feedback sent successfully, Thank you")
+        coEvery { eventFeedbackRepository.sendEventFeedback("Awesome", 5) } returns Data.Success("Feedback sent successfully, Thank you")
+        eventFeedbackViewModel.sendEventFeedback("Awesome", 5)
+        coVerify { eventFeedbackViewModel.sendEventFeedback("Awesome", 5) }
+        eventFeedbackViewModel.submitFeedback.test().assertValue(Data.Success("Feedback sent successfully, Thank you"))
 
     }
 }

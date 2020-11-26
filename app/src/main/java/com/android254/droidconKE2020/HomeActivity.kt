@@ -13,8 +13,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.ext.android.inject
 
 class HomeActivity : AppCompatActivity() {
-    val sharedPrefs: Preferences by inject()
-
+    private val sharedPrefs: Preferences by inject()
     lateinit var toolbar: DynamicToolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {

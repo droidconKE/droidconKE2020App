@@ -4,11 +4,11 @@ import com.android254.droidconKE2020.network.ApiService
 import com.android254.droidconKE2020.repository.Data
 
 interface EventFeedbackRepository {
-    suspend fun sendEventFeedback(feedback : String, rating : String) : Data<String>
+    suspend fun sendEventFeedback(feedback : String, rating : Int) : Data<String>
 }
 
 class EventFeedbackRepositoryImpl(private val apiService: ApiService) : EventFeedbackRepository {
-    override suspend fun sendEventFeedback(feedback: String, rating: String): Data<String> {
+    override suspend fun sendEventFeedback(feedback: String, rating: Int): Data<String> {
         return try {
             val response = apiService.eventFeedback.sendEventFeedback(feedback, rating)
             when{
