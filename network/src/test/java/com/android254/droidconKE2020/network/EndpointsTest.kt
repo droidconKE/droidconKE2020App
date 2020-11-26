@@ -106,4 +106,15 @@ class EndpointsTest : KoinTest {
         val feed = service.feed.fetchFeeds()
         assertThat(feed.feedItems, `is`(sampleFeed))
     }
+
+    @Test
+    fun testSendEventFeedback() = runBlocking {
+        server.enqueue(MockResponse().setBody("""{"message": "Feedback sent successfully, Thank you"}"""))
+        server.start()
+        declare {
+            server.url("/")
+        }
+        val message = service.eventFeedback.sendEventFeedback("Awesome","4")
+        assertThat(message.body()!!.message, `is`("Feedback sent successfully, Thank you"))
+    }
 }
