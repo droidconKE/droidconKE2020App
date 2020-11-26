@@ -24,7 +24,7 @@ class EventFeedbackViewModelTest : BaseViewModelTest() {
     fun `test event feedback is submitted successfully`() {
         coEvery { eventFeedbackRepository.sendEventFeedback("Awesome", 5) } returns Data.Success("Feedback sent successfully, Thank you")
         eventFeedbackViewModel.sendEventFeedback("Awesome", 5)
-        coVerify { eventFeedbackViewModel.sendEventFeedback("Awesome", 5) }
+        coVerify { eventFeedbackRepository.sendEventFeedback("Awesome", 5) }
         eventFeedbackViewModel.submitFeedback.test().assertValue(Data.Success("Feedback sent successfully, Thank you"))
     }
 }
