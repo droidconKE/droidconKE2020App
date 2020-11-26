@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class EventFeedbackViewModel(private val eventFeedbackRepository  : EventFeedbackRepository) : ViewModel() {
     private var _submitFeedback = MutableLiveData<String>()
-    private val submitFeedback get() = _submitFeedback
+    val submitFeedback get() = _submitFeedback
 
     fun sendEventFeedback(feedback : String, rating : String){
         viewModelScope.launch {
