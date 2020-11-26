@@ -16,10 +16,11 @@
         android:text="@string/cheers"
         android:textSize="@dimen/eighteen_sp" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etFeedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="top|left"
+        android:gravity="top|start"
         android:padding="20dp"
         android:layout_marginLeft="@dimen/thirty_dp"
         android:layout_marginRight="@dimen/thirty_dp"
@@ -43,6 +44,7 @@
         android:layout_height="wrap_content">
 
         <RatingBar
+            android:id="@+id/eventRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
