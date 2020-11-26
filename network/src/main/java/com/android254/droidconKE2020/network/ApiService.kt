@@ -6,4 +6,5 @@ class ApiService(retrofit: Retrofit) {
     val events = retrofit.create(EventEndpoints::class.java)
     val auth = retrofit.create(AuthEndpoints::class.java)
     val feed = retrofit.create(FeedEndpoints::class.java)
+    val eventFeedback = retrofit.create(EventFeedbackEndpoints::class.java)
 }
