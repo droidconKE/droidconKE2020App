@@ -48,6 +48,7 @@ class DaySessionsViewModel : ViewModel() {
             sessionStartTime = "9:30 AM",
             sessionEndTime = "10:30 AM",
             sessionTimeZone = "AM"
+
         ),
         DummySession(
             sessionSpeaker = "Chris Banes",
@@ -91,8 +92,9 @@ class DaySessionsViewModel : ViewModel() {
     }
 
     fun onSessionItemSaved() {
-        Log.d("Saved", "Test")
-        _saveSessionItem.value = DummySession(0L,"","","",
-            "","","","",false)
+        _saveSessionItem.value = DummySession(
+            0L, "", "", "",
+            "", "", "", "", false
+        )
     }
 }

@@ -28,6 +28,12 @@ allprojects {
         }
     }
 }
+buildscript {
+    val kotlin_version by extra("1.4.10")
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+}
 subprojects {
     apply(plugin = BuildPlugins.dektPlugin)
     detekt {

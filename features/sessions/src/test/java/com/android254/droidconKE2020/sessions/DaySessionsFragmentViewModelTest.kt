@@ -7,7 +7,7 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Assert.assertNull
 import org.junit.Test
 
-class DaySessionsViewModelTest : BaseViewModelTest() {
+class DaySessionsFragmentViewModelTest : BaseViewModelTest() {
 
     @InjectMockKs
     lateinit var daySessionsViewModel: DaySessionsViewModel

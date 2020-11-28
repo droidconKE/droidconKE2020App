@@ -1,9 +1,11 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -41,6 +43,14 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         binding.filterLayout.setOnClickListener {
             findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToFilterBottomSheet())
         }
+
+        binding.switch1.setOnCheckedChangeListener { _, _ ->
+
+            Toast.makeText(requireContext(), "Toast", Toast.LENGTH_LONG).show()
+            Log.d("lets", "See")
+            getBookMarkedSessions()
+            observeBookMarkedSessions()
+        }
     }
 
     private fun observeDaySessions() {
@@ -58,11 +68,24 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         sessionsViewModel.getDaySessions()
     }
 
+    private fun getBookMarkedSessions(){
+        sessionsViewModel.getBookMarkedSessions()
+    }
+
+    private fun observeBookMarkedSessions(){
+        sessionsViewModel.bookmarkedSessions.observe(
+            viewLifecycleOwner, Observer{
+                Log.d("Come", "on")
+                Log.d("Saved", "Sessions $it")
+            }
+        )
+    }
+
     private fun setUpTabs(daySessions: List<DaySession>) {
         sessionsTabAdapter = SessionsTabAdapter(childFragmentManager, requireContext())
         daySessions.forEach { daySession ->
             sessionsTabAdapter.addFragment(
-                DaySessions.newInstance(daySession.dayText),
+                DaySessionsFragment.newInstance(daySession.dayText),
                 daySession.dayText,
                 daySession.date
             )

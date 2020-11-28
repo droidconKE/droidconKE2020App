@@ -20,12 +20,9 @@ import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.DaySessionsViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
-import com.android254.droidconKE2020.R as AppR
 
-/**
- * A simple [Fragment] subclass.
- */
-class DaySessions : Fragment(R.layout.fragment_day_sessions) {
+
+class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions) {
 
     private fun injectFeatures() = loadModules
     private val daySessionsViewModel: DaySessionsViewModel by viewModel()
@@ -76,7 +73,6 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
             }
         )
     }
-    // Looks like what I'm looking for
     private fun observeSaveSessionItem() {
         daySessionsViewModel.saveSessionItem.observe(
             viewLifecycleOwner,
@@ -94,9 +90,7 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
         )
     }
 
-    //TODO: Find out why The app is crashing when I try to bookmark a session. This was fixed
     private fun setUpRvSessions(sessions: List<DummySession>) {
-        Log.d("Testing 1", "Saving sessions")
         val sessionsAdapter = SessionsAdapter(
             sessions = sessions,
             saveSessionListener = SaveSessionListener { session, view ->
@@ -113,7 +107,7 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
                     session.isSessionSaved = true
                     (view as ImageView).setImageDrawable(
                         resources.getDrawable(
-                            AppR.drawable.ic_star,
+                            R.drawable.ic_star,
                             null
                         )
                     )
@@ -125,13 +119,12 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
         )
         binding.rvSessions.adapter = sessionsAdapter
     }
-// End of what I'm looking for
     private fun getDaySessions() {
         daySessionsViewModel.getDaySessions(arguments?.getString("day").orEmpty())
     }
 
     companion object {
-        fun newInstance(day: String): DaySessions = DaySessions().also {
+        fun newInstance(day: String): DaySessionsFragment = DaySessionsFragment().also {
             val args = Bundle()
             args.putString("day", day)
             it.arguments = args

@@ -28,7 +28,7 @@ internal class SessionsAdapter(
     override fun onBindViewHolder(holder: SessionsViewHolder, position: Int) =
         holder.bind(sessions[position])
 
-    internal class SessionsViewHolder(
+    internal class SessionsViewHolder               (
         private val itemSessionBinding: ItemSessionBinding,
         private val onSessionClickListener: SessionClickListener,
         private val onSaveSessionListener: SaveSessionListener

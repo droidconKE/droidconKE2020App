@@ -7,5 +7,5 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="8dp"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:context=".ui.views.DaySessions"
+    tools:context=".ui.views.DaySessionsFragment"
     tools:listitem="@layout/item_session" />
