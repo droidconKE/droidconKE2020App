@@ -2,7 +2,6 @@ package com.android254.droidconKE2020.sessions.ui.views
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +19,7 @@ import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.DaySessionsViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
+import com.android254.droidconKE2020.R as AppR
 
 
 class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions) {
@@ -36,6 +36,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions) {
     ): View? {
         _binding = FragmentDaySessionsBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,11 +69,11 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions) {
                             sessionId
                         )
                     findNavController().navigate(sessionsFragmentDirections)
-
                 }
             }
         )
     }
+
     private fun observeSaveSessionItem() {
         daySessionsViewModel.saveSessionItem.observe(
             viewLifecycleOwner,
@@ -107,7 +108,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions) {
                     session.isSessionSaved = true
                     (view as ImageView).setImageDrawable(
                         resources.getDrawable(
-                            R.drawable.ic_star,
+                            AppR.drawable.ic_star,
                             null
                         )
                     )
@@ -119,6 +120,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions) {
         )
         binding.rvSessions.adapter = sessionsAdapter
     }
+
     private fun getDaySessions() {
         daySessionsViewModel.getDaySessions(arguments?.getString("day").orEmpty())
     }

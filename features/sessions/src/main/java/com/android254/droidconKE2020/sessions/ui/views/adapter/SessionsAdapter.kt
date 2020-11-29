@@ -2,6 +2,7 @@ package com.android254.droidconKE2020.sessions.ui.views.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.sessions.R
@@ -42,4 +43,6 @@ internal class SessionsAdapter(
             }
         }
     }
+
+    // TODO find out how to set the saved star
 }

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -12,12 +13,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionsBinding
-import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsTabAdapter
+import com.android254.droidconKE2020.sessions.ui.views.adapter.*
+import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.models.DaySession
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionsViewModel
+import kotlinx.android.synthetic.main.fragment_day_sessions.*
 import kotlinx.android.synthetic.main.fragment_sessions.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding as FragmentDaySessionsBinding1
 
 internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
     private lateinit var sessionsTabAdapter: SessionsTabAdapter
@@ -40,25 +44,57 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         super.onViewCreated(view, savedInstanceState)
         observeDaySessions()
         getDaySessions()
+        observeNavigateToSessionDetail()
         binding.filterLayout.setOnClickListener {
             findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToFilterBottomSheet())
         }
 
-        binding.switch1.setOnCheckedChangeListener { _, _ ->
-
-            Toast.makeText(requireContext(), "Toast", Toast.LENGTH_LONG).show()
-            Log.d("lets", "See")
-            getBookMarkedSessions()
-            observeBookMarkedSessions()
+        binding.switch1.setOnCheckedChangeListener { _, isChecked->
+            if(isChecked){
+                getBookMarkedSessions()
+                observeBookMarkedSessions()
+                Toast.makeText(requireContext(), "Test", Toast.LENGTH_LONG).show()
+            }
+            //TODO: Fix this later
+//            else{
+//                observeDaySessions()
+//                getDaySessions()
+//                Toast.makeText(requireContext(), "Test2", Toast.LENGTH_LONG).show()
+//            }
         }
     }
 
+    //TODO: Customize accordingly
+    private fun setUpRvSessions(sessions: List<DummySession>) {
+        val sessionsAdapter = SessionsAdapter(
+            sessions = sessions,
+            saveSessionListener = SaveSessionListener { session, view -> },
+            sessionClickListener = SessionClickListener {
+                sessionId -> sessionsViewModel.onSessionItemClicked(sessionId = sessionId)
+            }
+        )
+        FragmentDaySessionsBinding1.bind(rvSessions).root.adapter = sessionsAdapter
+    }
     private fun observeDaySessions() {
         sessionsViewModel.daySessions.observe(
             viewLifecycleOwner,
             Observer { daySessions ->
                 if (daySessions.isNotEmpty()) {
                     setUpTabs(daySessions)
+                }
+            }
+        )
+    }
+    private fun observeNavigateToSessionDetail() {
+        sessionsViewModel.sessionId.observe(
+            viewLifecycleOwner,
+            Observer { sessionId ->
+                sessionId?.let {
+                    val sessionsFragmentDirections =
+                        SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment(
+                            sessionId
+                        )
+                    findNavController().navigate(sessionsFragmentDirections)
                 }
             }
         )
@@ -74,9 +110,8 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
 
     private fun observeBookMarkedSessions(){
         sessionsViewModel.bookmarkedSessions.observe(
-            viewLifecycleOwner, Observer{
-                Log.d("Come", "on")
-                Log.d("Saved", "Sessions $it")
+            viewLifecycleOwner, Observer{sessions ->
+                setUpRvSessions(sessions)
             }
         )
     }
