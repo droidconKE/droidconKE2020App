@@ -1,7 +1,7 @@
 package com.android254.droidconKE2020.sessions
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionsViewModel
+import com.android254.droidconKE2020.sessions.ui.viewmodel.SessionsViewModel
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.InjectMockKs
 import org.hamcrest.CoreMatchers.`is`

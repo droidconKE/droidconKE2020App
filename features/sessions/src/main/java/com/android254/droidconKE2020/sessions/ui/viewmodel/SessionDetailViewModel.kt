@@ -1,9 +1,9 @@
-package com.android254.droidconKE2020.sessions.ui.views.viewmodel
+package com.android254.droidconKE2020.sessions.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android254.droidconKE2020.sessions.ui.views.models.DummySessionDetail
+import com.android254.droidconKE2020.sessions.models.DummySessionDetail
 
 class SessionDetailViewModel : ViewModel() {
 

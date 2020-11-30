@@ -12,18 +12,16 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding
-import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
-import com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener
-import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionClickListener
-import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
-import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
-import com.android254.droidconKE2020.sessions.ui.views.viewmodel.DaySessionsViewModel
+import com.android254.droidconKE2020.sessions.ui.adapter.DummySession
+import com.android254.droidconKE2020.sessions.ui.adapter.SaveSessionListener
+import com.android254.droidconKE2020.sessions.ui.adapter.SessionClickListener
+import com.android254.droidconKE2020.sessions.ui.adapter.SessionsAdapter
+import com.android254.droidconKE2020.sessions.di.loadModules
+import com.android254.droidconKE2020.sessions.ui.viewmodel.DaySessionsViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.android254.droidconKE2020.R as AppR
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class DaySessions : Fragment(R.layout.fragment_day_sessions) {
 
     private fun injectFeatures() = loadModules
@@ -35,7 +33,7 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDaySessionsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -52,7 +50,7 @@ class DaySessions : Fragment(R.layout.fragment_day_sessions) {
     private fun observeDaySessions() {
         daySessionsViewModel.daySessions.observe(
             viewLifecycleOwner,
-            Observer { sessions ->
+            { sessions ->
                 if (sessions.isNotEmpty()) {
                     setUpRvSessions(sessions)
                 }

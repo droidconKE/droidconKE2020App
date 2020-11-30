@@ -3,8 +3,8 @@ package com.android254.droidconKE2020.sessions
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
-import com.android254.droidconKE2020.sessions.ui.views.models.DummySessionDetail
+import com.android254.droidconKE2020.sessions.ui.adapter.DummySession
+import com.android254.droidconKE2020.sessions.models.DummySessionDetail
 import io.mockk.MockKAnnotations
 import org.junit.Before
 import org.junit.Rule

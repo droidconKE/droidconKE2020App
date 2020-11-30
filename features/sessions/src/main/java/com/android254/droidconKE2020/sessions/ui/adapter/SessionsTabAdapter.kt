@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.sessions.ui.views.adapter
+package com.android254.droidconKE2020.sessions.ui.adapter
 
 import android.content.Context
 import android.graphics.Color

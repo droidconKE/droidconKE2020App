@@ -1,6 +1,6 @@
 package com.android254.droidconKE2020.sessions
 
-import com.android254.droidconKE2020.sessions.ui.views.viewmodel.DaySessionsViewModel
+import com.android254.droidconKE2020.sessions.ui.viewmodel.DaySessionsViewModel
 import io.mockk.impl.annotations.InjectMockKs
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat

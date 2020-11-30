@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.android254.droidconKE2020.sessions.R
-import com.android254.droidconKE2020.sessions.ui.views.models.DummySessionDetail
+import com.android254.droidconKE2020.sessions.models.DummySessionDetail
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 internal class ShareSessionBottomFragment() : BottomSheetDialogFragment() {

@@ -1,9 +1,9 @@
-package com.android254.droidconKE2020.sessions.ui.views.viewmodel
+package com.android254.droidconKE2020.sessions.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android254.droidconKE2020.sessions.ui.views.models.DaySession
+import com.android254.droidconKE2020.sessions.models.DaySession
 
 class SessionsViewModel : ViewModel() {
     private val _daySessions = MutableLiveData<List<DaySession>>()

@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.sessions.ui.views.models
+package com.android254.droidconKE2020.sessions.models
 
 import kotlin.random.Random
 

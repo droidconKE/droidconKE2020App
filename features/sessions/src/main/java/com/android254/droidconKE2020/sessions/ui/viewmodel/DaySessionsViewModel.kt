@@ -1,10 +1,10 @@
-package com.android254.droidconKE2020.sessions.ui.views.viewmodel
+package com.android254.droidconKE2020.sessions.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
+import com.android254.droidconKE2020.sessions.ui.adapter.DummySession
 
 class DaySessionsViewModel : ViewModel() {
     val daySessions = MediatorLiveData<List<DummySession>>()

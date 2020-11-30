@@ -10,8 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionDetailBinding
-import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
-import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionDetailViewModel
+import com.android254.droidconKE2020.sessions.di.loadModules
+import com.android254.droidconKE2020.sessions.ui.viewmodel.SessionDetailViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.android254.droidconKE2020.R as AppR
 

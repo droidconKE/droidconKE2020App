@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionsBinding
-import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsTabAdapter
-import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
-import com.android254.droidconKE2020.sessions.ui.views.models.DaySession
-import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionsViewModel
+import com.android254.droidconKE2020.sessions.ui.adapter.SessionsTabAdapter
+import com.android254.droidconKE2020.sessions.di.loadModules
+import com.android254.droidconKE2020.sessions.models.DaySession
+import com.android254.droidconKE2020.sessions.ui.viewmodel.SessionsViewModel
 import kotlinx.android.synthetic.main.fragment_sessions.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -27,7 +26,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSessionsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -42,7 +41,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
     private fun observeDaySessions() {
         sessionsViewModel.daySessions.observe(
             viewLifecycleOwner,
-            Observer { daySessions ->
+            { daySessions ->
                 if (daySessions.isNotEmpty()) {
                     setUpTabs(daySessions)
                 }
