@@ -61,6 +61,7 @@ dependencies {
     testImplementation(TestLibraries.koin)
     testImplementation(TestLibraries.coroutines)
     testImplementation(TestLibraries.mockk)
+    testImplementation(TestLibraries.truth)
 
     // UI Tests
     androidTestImplementation(TestLibraries.testRunner)

@@ -117,4 +117,16 @@ class EndpointsTest : KoinTest {
         val message = service.eventFeedback.sendEventFeedback("Awesome", 4)
         assertThat(message.body()!!.message, `is`("Feedback sent successfully, Thank you"))
     }
+
+    @Test
+    fun testFetchSessionsSchedule() = runBlocking {
+        server.enqueue(MockResponse().setBody(getJson("json/session_response.json")))
+        server.start()
+        declare {
+            server.url("/")
+        }
+        val session = service.sessionSchedule.fetchSchedule().body()!!
+        assertThat(session.sessionDays.dayOneSessions[0].title, `is`(sampleSession.title))
+        assertThat(session.sessionDays.dayOneSessions[0].slug, `is`(sampleSession.slug))
+    }
 }
