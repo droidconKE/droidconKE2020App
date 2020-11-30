@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.network.responses
+package com.android254.droidconKE2020.core.models
 
 
 import com.google.gson.annotations.Expose

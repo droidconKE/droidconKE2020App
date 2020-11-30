@@ -6,7 +6,7 @@
     <data>
         <variable
             name="sessionDetailViewModel"
-            type="com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionDetailViewModel" />
+            type="com.android254.droidconKE2020.sessions.ui.viewmodel.SessionDetailViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

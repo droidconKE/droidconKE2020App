@@ -39,18 +39,18 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
     }
 
     private fun observeDaySessions() {
-        sessionsViewModel.daySessions.observe(
-            viewLifecycleOwner,
-            { daySessions ->
-                if (daySessions.isNotEmpty()) {
-                    setUpTabs(daySessions)
-                }
-            }
-        )
+//        sessionsViewModel.daySessions.observe(
+//            viewLifecycleOwner,
+//            { daySessions ->
+//                if (daySessions.isNotEmpty()) {
+//                    setUpTabs(daySessions)
+//                }
+//            }
+//        )
     }
 
     private fun getDaySessions() {
-        sessionsViewModel.getDaySessions()
+//        sessionsViewModel.getDaySessions()
     }
 
     private fun setUpTabs(daySessions: List<DaySession>) {

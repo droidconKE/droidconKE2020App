@@ -7,15 +7,15 @@
 
         <variable
             name="session"
-            type="com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession" />
+            type="com.android254.droidconKE2020.sessions.ui.adapter.DummySession" />
 
         <variable
             name="sessionClickListener"
-            type="com.android254.droidconKE2020.sessions.ui.views.adapter.SessionClickListener" />
+            type="com.android254.droidconKE2020.sessions.ui.adapter.SessionClickListener" />
 
         <variable
             name="saveSessionListener"
-            type="com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener" />
+            type="com.android254.droidconKE2020.sessions.ui.adapter.SaveSessionListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -146,7 +146,7 @@
                 android:layout_height="16dp"
                 android:layout_marginTop="4dp"
                 android:contentDescription="@string/android_speaker_icon"
-                android:tint="@color/colorGreen"
+                app:tint="@color/colorGreen"
                 app:layout_constraintStart_toStartOf="@+id/textViewSessionDuration"
                 app:layout_constraintTop_toBottomOf="@+id/textViewSessionDuration"
                 app:srcCompat="@drawable/ic_android_black_24dp" />

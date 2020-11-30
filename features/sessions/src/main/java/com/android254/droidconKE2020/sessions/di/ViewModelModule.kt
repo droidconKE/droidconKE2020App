@@ -9,15 +9,9 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val viewModelsModule: Module = module {
-    viewModel<DaySessionsViewModel> {
-        DaySessionsViewModel()
-    }
-    viewModel<SessionsViewModel> {
-        SessionsViewModel()
-    }
-    viewModel<SessionDetailViewModel> {
-        SessionDetailViewModel()
-    }
+    viewModel { DaySessionsViewModel() }
+    viewModel { SessionsViewModel(get()) }
+    viewModel { SessionDetailViewModel() }
 }
 
 val loadModules by lazy {

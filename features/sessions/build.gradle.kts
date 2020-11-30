@@ -21,8 +21,9 @@ android {
 }
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(project(":app"))
-    implementation(project(":core"))
+    implementation(project(BuildModules.Libraries.App))
+    implementation(project(BuildModules.Libraries.Core))
+    implementation(project(BuildModules.Libraries.Repository))
     implementation(Libraries.constraintLayout)
     implementation(Libraries.coil)
     implementation(Libraries.shapedImageView)
@@ -35,7 +36,6 @@ dependencies {
     implementation(Libraries.koinViewModel)
 
     // Test
-//    testImplementation(project(":test-utils"))
     testImplementation(project(":app", "testDependencies"))
 }
 

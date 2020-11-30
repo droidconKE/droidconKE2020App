@@ -1,20 +1,10 @@
-package com.android254.droidconKE2020.network
+package com.android254.droidconKE2020.sessions
 
+import com.android254.droidconKE2020.core.models.SessionDays
 import com.android254.droidconKE2020.core.models.SessionItem
-import com.android254.droidconKE2020.network.responses.FeedItem
+import com.android254.droidconKE2020.core.models.Sessions
 
-val sampleFeed = listOf(
-    FeedItem(
-        title = "Test",
-        topic = "droidconweb",
-        body = "Good one",
-        createdAt = "2020-03-19 18:45:49",
-        image = "http://localhost:8000/upload/event/feeds/dangyntvmaet8jgjpg.jpg",
-        url = "https://droidcon.co.ke"
-    )
-)
-
-val sampleSession =
+val testSessions = listOf(
     SessionItem(
         "#7F9337",
         "#7F9337",
@@ -37,3 +27,12 @@ val sampleSession =
         "08:00:00",
         "To Inject or not inject - Dependency injection in a Kotlin world",
     )
+)
+val testSessionResponse = Sessions(
+    sessionDays = SessionDays(
+        dayOneSessions = testSessions,
+        dayTwoSessions = testSessions,
+        dayThreeSessions = testSessions
+    ),
+
+)
