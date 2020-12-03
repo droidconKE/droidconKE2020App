@@ -137,7 +137,7 @@ class EndpointsTest : KoinTest {
         declare {
             server.url("/")
         }
-        val message = service.sessionFeedback.submitSessionFeedback("android-architecture-1584106972","Awesome", 4)
+        val message = service.sessionFeedback.submitSessionFeedback("android-architecture-1584106972", "Awesome", 4)
         assertThat(message.body()!!.message, `is`("Feedback sent successfully, Thank you"))
     }
 }

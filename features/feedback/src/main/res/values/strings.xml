@@ -8,4 +8,5 @@
     <string name="type_here">Type here..</string>
     <string name="rating">Rating</string>
     <string name="submit_feedback">Submit Feedback</string>
+    <string name="text_session_feedback">"Kindly give us your thoughts about this session "</string>
 </resources>

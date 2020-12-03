@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="sessionTitle"
+            type="String" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -7,16 +13,28 @@
 
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:id="@+id/tvsessionTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/thirty_dp"
         android:layout_marginTop="@dimen/thirty_dp"
-        android:text="@string/cheers"
+        android:text="@{sessionTitle}"
+        tools:text="@string/title_sessions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/thirty_dp"
+        android:layout_marginBottom="@dimen/thirty_dp"
+        android:text="@string/text_session_feedback"
         android:textSize="@dimen/eighteen_sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvsessionTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -99,3 +117,4 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="textView,etFeedback,tvRatingLabel,sessionRatingBar, btnSubmitFeedback"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -21,7 +21,7 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
     private var _binding: FragmentSessionDetailBinding? = null
     private val binding get() = _binding!!
     private val sessionsViewModel: SessionsViewModel by sharedViewModel()
-    lateinit var sessionUiModel : SessionUIModel
+    lateinit var sessionUiModel: SessionUIModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +37,7 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sessionsViewModel.sessionUIModel.observe(viewLifecycleOwner){ sessionModel ->
+        sessionsViewModel.sessionUIModel.observe(viewLifecycleOwner) { sessionModel ->
             sessionUiModel = sessionModel
         }
 
@@ -45,7 +45,7 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
             findNavController().navigateUp()
         }
         binding.textViewFeedback.setOnClickListener {
-            findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToSessionFeedbackFragment(sessionUiModel.sessionSlug))
+            findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSessionFeedbackFragment(sessionUiModel))
         }
     }
 }

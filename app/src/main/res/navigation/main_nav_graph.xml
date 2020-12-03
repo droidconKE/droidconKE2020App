@@ -63,9 +63,6 @@
         <action
             android:id="@+id/action_sessionsFragment_to_filterBottomSheet"
             app:destination="@id/filterBottomSheet"/>
-        <action
-            android:id="@+id/action_sessionsFragment_to_sessionFeedbackFragment"
-            app:destination="@id/sessionFeedbackFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -123,6 +120,9 @@
         <argument
             android:name="sessionUIModel"
             app:argType="com.android254.droidconKE2020.core.models.SessionUIModel" />
+        <action
+            android:id="@+id/action_sessionDetailsFragment_to_sessionFeedbackFragment"
+            app:destination="@id/sessionFeedbackFragment" />
     </fragment>
     <dialog
         android:id="@+id/authDialog"
@@ -148,8 +148,8 @@
         app:moduleName="feedback"
         android:label="Session Feedback" >
         <argument
-            android:name="sessionSlug"
-            app:argType="string" />
+            android:name="sessionUIModel"
+            app:argType="com.android254.droidconKE2020.core.models.SessionUIModel" />
     </fragment>
 
 </navigation>

@@ -12,9 +12,8 @@ interface SessionFeedbackEndpoints {
     @FormUrlEncoded
     @POST("events/droidconke2021-957/feedback/sessions/{session_slug}")
     suspend fun submitSessionFeedback(
-        @Path("session_slug") sessionSlug : String,
+        @Path("session_slug") sessionSlug: String,
         @Field("feedback") feedback: String,
         @Field("rating") rating: Int
-    ) : Response<Message>
-
+    ): Response<Message>
 }

@@ -15,5 +15,5 @@ val repoModule = module {
     single<FeedRepository> { FeedRepositoryImpl(get()) }
     single<EventFeedbackRepository> { EventFeedbackRepositoryImpl(get()) }
     single<SessionRepository> { SessionRepositoryImpl(get()) }
-    single<SessionFeedbackRepository> {SessionFeedbackRepositoryImpl(get())}
+    single<SessionFeedbackRepository> { SessionFeedbackRepositoryImpl(get()) }
 }
