@@ -129,4 +129,16 @@ class EndpointsTest : KoinTest {
         assertThat(session.sessionDays.dayOneSessions[0].title, `is`(sampleSession.title))
         assertThat(session.sessionDays.dayOneSessions[0].slug, `is`(sampleSession.slug))
     }
+
+    @Test
+    fun testGetSpeakers() = runBlocking {
+        server.enqueue(MockResponse().setBody(getJson("json/speaker_response.json")))
+        server.start()
+        declare {
+            server.url("/")
+        }
+        val speakers = service.speakers.getSpeakers()
+        assertThat(speakers.speakers.size, `is`(3))
+        assertThat(speakers.speakers[0].name, `is`(sampleSpeaker.name))
+    }
 }

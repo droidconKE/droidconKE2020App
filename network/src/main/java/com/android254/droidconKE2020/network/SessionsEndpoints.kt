@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface SessionsEndpoints {
 
-    @GET("events/droidconke2021-957/schedule")
+    @GET("events/${Constants.DROIDCON_EVENT}/schedule")
     suspend fun fetchSchedule(
         @Query("grouped") isGrouped: Boolean = true
     ): Response<Sessions>
