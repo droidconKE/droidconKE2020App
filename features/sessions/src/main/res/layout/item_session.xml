@@ -6,23 +6,20 @@
     <data>
 
         <variable
-            name="session"
-            type="com.android254.droidconKE2020.sessions.ui.adapter.DummySession" />
+            name="sessionUIModel"
+            type="com.android254.droidconKE2020.core.models.SessionUIModel" />
 
         <variable
-            name="sessionClickListener"
-            type="com.android254.droidconKE2020.sessions.ui.adapter.SessionClickListener" />
+            name="sessionsClickListener"
+            type="com.android254.droidconKE2020.sessions.ui.adapter.SessionsClickListener" />
 
-        <variable
-            name="saveSessionListener"
-            type="com.android254.droidconKE2020.sessions.ui.adapter.SaveSessionListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewSession"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> sessionClickListener.onClick(session)}"
+        android:onClick="@{() -> sessionsClickListener.onSessionClick(sessionUIModel)}"
         app:cardCornerRadius="@dimen/cardRadius"
         app:cardElevation="@dimen/cardElevation"
         app:cardUseCompatPadding="true"
@@ -42,7 +39,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_slab_bold"
-                android:text="@{session.sessionStartTime.replace(`AM`,``)}"
+                android:text="@{sessionUIModel.sessionStartTime}"
                 android:textColor="@color/colorPurple"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_slab_bold"
-                android:text="@{session.sessionTimeZone}"
+                android:text="@{sessionUIModel.sessionStartTimeSuffix}"
                 android:textColor="@color/colorPurple"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/textViewSessionStartTime"
@@ -67,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
                 android:fontFamily="@font/roboto_slab_bold"
-                android:text="@{session.sessionTitle}"
+                android:text="@{sessionUIModel.sessionTitle}"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="@dimen/sessionTitleFontSize"
                 app:layout_constraintEnd_toStartOf="@+id/imageViewStarSession"
@@ -82,8 +79,10 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="@{session.sessionDescription}"
+                android:text="@{sessionUIModel.sessionDescription}"
                 android:textSize="14sp"
+                android:maxLines="4"
+                android:ellipsize="end"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textViewSessionTitle"
                 app:layout_constraintTop_toBottomOf="@+id/textViewSessionTitle"
@@ -95,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto"
-                android:text="@{session.sessionStartTime + `-` + session.sessionEndTime}"
+                android:text="@{sessionUIModel.sessionDuration}"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/textViewSessionDescription"
                 app:layout_constraintTop_toBottomOf="@+id/textViewSessionDescription"
@@ -117,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/roboto"
-                android:text="@{session.sessionVenue}"
+                android:text="@{sessionUIModel.sessionVenue}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/view"
                 app:layout_constraintStart_toEndOf="@+id/view"
@@ -132,7 +131,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/roboto"
-                android:text="@{session.sessionSpeaker}"
+                android:text="@{sessionUIModel.sessionSpeakers[0].speakerName}"
                 android:textColor="@color/colorGreen"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -158,11 +157,11 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="12dp"
                 android:contentDescription="@string/star_session"
-                android:onClick="@{(v) -> saveSessionListener.onSave(session,v)}"
+                android:onClick="@{(v) -> sessionsClickListener.onSessionSave(sessionUIModel, view)}"
                 app:layout_constraintBottom_toBottomOf="@+id/textViewSessionTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textViewSessionTitle"
-                app:srcCompat="@drawable/ic_star_outline" />
+                android:src="@{sessionUIModel.bookmarked ? @drawable/ic_star_filled : @drawable/ic_star_outline}" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

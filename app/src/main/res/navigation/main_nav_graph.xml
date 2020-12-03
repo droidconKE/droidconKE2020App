@@ -113,12 +113,13 @@
         <action
             android:id="@+id/action_sessionDetailsFragment_to_SpeakerDetailsFragment"
             app:destination="@id/speakerDetailsFragment" />
-        <argument
-            android:name="sessionId"
-            app:argType="long" />
         <action
             android:id="@+id/action_sessionDetailsFragment_to_sessionsFragment"
             app:destination="@id/sessionsFragment" />
+
+        <argument
+            android:name="sessionUIModel"
+            app:argType="com.android254.droidconKE2020.core.models.SessionUIModel" />
     </fragment>
     <dialog
         android:id="@+id/authDialog"

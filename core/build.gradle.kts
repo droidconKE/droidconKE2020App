@@ -63,6 +63,6 @@ dependencies {
     // Paging 3.0
     api(Libraries.paging)
 
-    //GSON
+    // GSON
     implementation(Libraries.gsonConverter)
 }
