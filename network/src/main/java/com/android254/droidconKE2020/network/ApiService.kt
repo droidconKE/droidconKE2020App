@@ -8,4 +8,5 @@ class ApiService(retrofit: Retrofit) {
     val feed = retrofit.create(FeedEndpoints::class.java)
     val eventFeedback = retrofit.create(EventFeedbackEndpoints::class.java)
     val sessionSchedule = retrofit.create(SessionsEndpoints::class.java)
+    val sessionFeedback = retrofit.create(SessionFeedbackEndpoints::class.java)
 }
