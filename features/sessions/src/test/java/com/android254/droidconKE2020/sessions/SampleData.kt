@@ -15,8 +15,10 @@ val testSessions = listOf(
         false,
         emptyList(),
         0,
+        "Dependency_injection",
         "",
         "08:45 AM",
-        "AM"
+        "AM",
+
     )
 )

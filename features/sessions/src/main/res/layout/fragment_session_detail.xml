@@ -279,6 +279,19 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionTitle"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
 
+                <TextView
+                    android:id="@+id/textViewFeedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/feedbackLabelMargin"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    android:text="@string/text_submit_session_feedback"
+                    android:textColor="?android:attr/colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_goneMarginTop="@dimen/fab_margin"
+                    app:layout_constraintStart_toStartOf="@+id/textViewSpeakerDescription"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSpeakerDescription" />
+
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -294,7 +307,7 @@
                     app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewSpeakerDescription"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewFeedback"
                     app:tint="@null" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

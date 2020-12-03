@@ -4,4 +4,5 @@
     <dimen name="dimenSessionItem">4dp</dimen>
     <dimen name="dimen_filter_title_font_size">18sp</dimen>
     <dimen name="filterButtonCornerRadius">20dp</dimen>
+    <dimen name="feedbackLabelMargin">32dp</dimen>
 </resources>
