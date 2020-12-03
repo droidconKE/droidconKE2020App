@@ -50,22 +50,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-        <RatingBar
-            android:id="@+id/eventRatingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:numStars="5"
-            android:progressBackgroundTint="@color/colorLightGrey"
-            android:outlineAmbientShadowColor="@color/colorGrey"
-            android:progressTint="@color/colorGold"
-            android:textAlignment="center"
-            android:stepSize="1"
-            android:rating="1"
-            android:gravity="center_horizontal"
-            app:layout_constraintTop_toBottomOf="@id/tvRatingLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+    <RatingBar
+        android:id="@+id/sessionRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/colorLightGrey"
+        android:outlineAmbientShadowColor="@color/colorGrey"
+        android:progressTint="@color/colorGold"
+        android:textAlignment="center"
+        android:stepSize="1"
+        android:rating="1"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvRatingLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/btnSubmitFeedback"
@@ -78,7 +78,7 @@
         android:paddingRight="@dimen/ten_dp"
         android:drawableRight="@drawable/ic_send"
         android:drawableTint="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/eventRatingBar"
+        app:layout_constraintTop_toBottomOf="@id/sessionRatingBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
@@ -97,5 +97,5 @@
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="textView,etFeedback,tvRatingLabel,eventRatingBar, btnSubmitFeedback"/>
+        app:constraint_referenced_ids="textView,etFeedback,tvRatingLabel,sessionRatingBar, btnSubmitFeedback"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
