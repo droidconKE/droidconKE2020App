@@ -3,7 +3,7 @@ package com.android254.droidconKE2020.repository.feed
 import androidx.paging.PagingSource
 import com.android254.droidconKE2020.core.models.FeedUIModel
 import com.android254.droidconKE2020.network.ApiService
-import com.android254.droidconKE2020.repository.mappers.toFeedUIModels
+import com.android254.droidconKE2020.repository.mappers.toFeedUIModel
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -14,7 +14,9 @@ class FeedPagingSource(private val apiService: ApiService) : PagingSource<Int, F
         val position = params.key ?: PAGE_NUMBER
         return try {
             val response = apiService.feed.fetchFeeds(params.loadSize)
-            val feeds = response.feedItems.toFeedUIModels()
+            val feeds = response.feedItems.map { feedItem ->
+                feedItem.toFeedUIModel()
+            }
             LoadResult.Page(
                 data = feeds,
                 prevKey = if (position == PAGE_NUMBER) null else position - 1,

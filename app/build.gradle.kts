@@ -8,6 +8,7 @@ plugins {
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.ktlintPlugin)
     id(BuildPlugins.firebasePlugin)
+    id(BuildPlugins.kotlinKapt)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)

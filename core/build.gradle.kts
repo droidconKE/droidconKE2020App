@@ -62,4 +62,7 @@ dependencies {
     implementation(Libraries.koinViewModel)
     // Paging 3.0
     api(Libraries.paging)
+
+    // GSON
+    implementation(Libraries.gsonConverter)
 }

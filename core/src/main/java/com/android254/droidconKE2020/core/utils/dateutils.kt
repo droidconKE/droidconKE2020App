@@ -19,3 +19,13 @@ fun String.formattedDate(): String? {
     }
     return formattedDate
 }
+
+fun String.toDate(): String {
+    val parser = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    val formatter = SimpleDateFormat("HH:mm a", Locale.getDefault())
+    return formatter.format(parser.parse(this))
+}
+
+fun String.sessionStartTimeSuffix(): String {
+    return this.substringAfterLast(" ")
+}

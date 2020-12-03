@@ -151,7 +151,7 @@
                 android:layout_marginStart="16dp"
                 android:contentDescription="@string/filter"
                 android:src="@drawable/ic_filter_outline"
-                android:tint="@color/colorGreen"
+                app:tint="@color/colorGreen"
                 app:layout_constraintBottom_toBottomOf="@+id/textView18"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView18" />

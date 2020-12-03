@@ -4,12 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.Session
-import com.android254.droidconKE2020.home.ui.views.HomeFragmentDirections
 import kotlinx.android.synthetic.main.home_item_session.view.*
 import com.android254.droidconKE2020.R as appR
 
@@ -63,9 +61,9 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
         }
 
         private fun onSessionClicked(sessionId: Long) {
-            val sessionDetailsAction =
-                HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(sessionId)
-            view.findNavController().navigate(sessionDetailsAction)
+//            val sessionDetailsAction =
+//                HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(sessionId)
+//            view.findNavController().navigate(sessionDetailsAction)
         }
     }
 }
