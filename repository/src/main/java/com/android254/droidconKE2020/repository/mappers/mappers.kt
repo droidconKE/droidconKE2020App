@@ -28,6 +28,7 @@ fun SessionItem.toSessionUIModel(): SessionUIModel = SessionUIModel(
         speaker.toSpeakerUIModel()
     },
     sessionId = this.id,
+    sessionSlug = this.slug,
     sessionImage = this.sessionImage ?: "",
     sessionStartTime = this.startDateTime.toDate(),
     sessionStartTimeSuffix = this.startDateTime.toDate().sessionStartTimeSuffix()

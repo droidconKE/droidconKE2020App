@@ -131,6 +131,17 @@ class EndpointsTest : KoinTest {
     }
 
     @Test
+    fun testSubmitSessionFeedback() = runBlocking {
+        server.enqueue(MockResponse().setBody("""{"message": "Feedback sent successfully, Thank you"}"""))
+        server.start()
+        declare {
+            server.url("/")
+        }
+        val message = service.sessionFeedback.submitSessionFeedback("android-architecture-1584106972", "Awesome", 4)
+        assertThat(message.body()!!.message, `is`("Feedback sent successfully, Thank you"))
+    }
+
+    @Test
     fun testGetSpeakers() = runBlocking {
         server.enqueue(MockResponse().setBody(getJson("json/speaker_response.json")))
         server.start()

@@ -13,6 +13,7 @@ data class SessionUIModel(
     var isBookmarked: Boolean = false,
     val sessionSpeakers: List<SpeakerUIModel>,
     val sessionId: Int,
+    val sessionSlug: String,
     val sessionImage: String,
     val sessionStartTime: String,
     val sessionStartTimeSuffix: String

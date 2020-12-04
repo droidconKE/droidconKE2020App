@@ -31,7 +31,7 @@ class DynamicToolbar @JvmOverloads constructor(
         when (destination) {
             R.id.homeFragment, R.id.authDialog -> setHomeToolbar()
             R.id.feedFragment -> setFeedToolbar()
-            R.id.feedBackFragment -> setFeedbackToolbar(destinationName)
+            R.id.feedBackFragment, R.id.sessionFeedbackFragment -> setFeedbackToolbar(destinationName)
             else -> removeAllViews()
         }
     }
