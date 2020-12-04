@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "name": "Charles Muchene",
+      "tagline": "SenseiDev",
+      "biography": "Lead Mobile Engineer at a motorcycle ride sharing company in Kampala, Uganda. Freshly brewed café latte does the magic. :D",
+      "avatar": "https://sessionize.com/image?f=b8c9f0300f2d7242f78c4df95bf297f4,400,400,1,0,79-31e3-4c9c-88fe-30d51990bf64.08ff2466-3b86-4bb5-9292-b4b493df6e6f.JPG",
+      "twitter": "https://twitter.com/charlesmuchene",
+      "facebook": null,
+      "linkedin": null,
+      "instagram": null,
+      "blog": null,
+      "company_website": "http://www.safeboda.com"
+    },
+    {
+      "name": "Clare Mburu",
+      "tagline": "CTO,BabyPie",
+      "biography": "A passionate technology enthusiast, Android Web applications developer, community lover",
+      "avatar": "https://sessionize.com/image?f=df156e6bac7b2939d702bff0f158b079,400,400,1,0,1f-e683-41e9-9310-ad43170d265c.2e3da599-e070-4753-a169-cd35f5577464.jpg",
+      "twitter": "https://twitter.com/Mburuclare?s=09",
+      "facebook": null,
+      "linkedin": null,
+      "instagram": null,
+      "blog": null,
+      "company_website": null
+    },
+    {
+      "name": "Danny Preussler",
+      "tagline": "Head of Mobile, sporttotal.tv",
+      "biography": "Danny built mobile applications for companies like Viacom, Groupon, eBay and Alcatel. He is a Google Developer Expert for Android Kotlin. Before Android he was part of the Blackberry developer community, teaching unit testing for java mobile platforms\r\n",
+      "avatar": "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png",
+      "twitter": "https://twitter.com/PreusslerBerlin",
+      "facebook": null,
+      "linkedin": null,
+      "instagram": null,
+      "blog": "https://medium.com/@dpreussler",
+      "company_website": "http://www.sporttotal.tv/"
+    }
+  ]
+}

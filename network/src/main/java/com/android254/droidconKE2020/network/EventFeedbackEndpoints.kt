@@ -9,7 +9,7 @@ import retrofit2.http.POST
 interface EventFeedbackEndpoints {
 
     @FormUrlEncoded
-    @POST("events/droidconke2021-957/feedback")
+    @POST("events/${Constants.DROIDCON_EVENT}/feedback")
     suspend fun sendEventFeedback(
         @Field("feedback") feedback: String,
         @Field("rating") rating: Int

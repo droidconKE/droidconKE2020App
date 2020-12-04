@@ -17,5 +17,6 @@
     <string name="copy_icon">Copy icon</string>
 
     <string name="search_speaker_hint">Search A Speaker</string>
+    <string name="no_speakers_found">No speakers found</string>
 
 </resources>

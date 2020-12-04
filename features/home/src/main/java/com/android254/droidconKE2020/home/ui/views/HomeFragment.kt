@@ -81,9 +81,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun onSpeakerClicked(speakerId: Int) {
-        val action =
-            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment(2)
-        findNavController().navigate(action)
+//        val action =
+//            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment(2)
+//        findNavController().navigate(action)
     }
 
     private fun launchBrowser(webUrl: String) {

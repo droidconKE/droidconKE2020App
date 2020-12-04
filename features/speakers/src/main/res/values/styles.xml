@@ -14,4 +14,16 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <style name="Widget.Speakers.Button.Retry" parent="Widget.MaterialComponents.Button.OutlinedButton.Icon">
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textSize">12sp</item>
+        <item name="iconSize">14sp</item>
+        <item name="iconTint">?attr/colorOnSurface</item>
+        <item name="iconPadding">16dp</item>
+        <item name="strokeColor">?attr/colorOnSurface</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
 </resources>

@@ -93,8 +93,8 @@
         tools:layout="@layout/fragment_speaker_details">
 
         <argument
-            android:name="speakerId"
-            app:argType="integer" />
+            android:name="speaker"
+            app:argType="com.android254.droidconKE2020.core.models.SpeakerUIModel" />
 
     </fragment>
     <fragment

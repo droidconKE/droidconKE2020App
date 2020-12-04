@@ -8,6 +8,8 @@ import com.android254.droidconKE2020.repository.feedback.SessionFeedbackReposito
 import com.android254.droidconKE2020.repository.feedback.SessionFeedbackRepositoryImpl
 import com.android254.droidconKE2020.repository.sessions.SessionRepository
 import com.android254.droidconKE2020.repository.sessions.SessionRepositoryImpl
+import com.android254.droidconKE2020.repository.speakers.SpeakerRepository
+import com.android254.droidconKE2020.repository.speakers.SpeakerRepositoryImpl
 import org.koin.dsl.module
 
 val repoModule = module {
@@ -16,4 +18,5 @@ val repoModule = module {
     single<EventFeedbackRepository> { EventFeedbackRepositoryImpl(get()) }
     single<SessionRepository> { SessionRepositoryImpl(get()) }
     single<SessionFeedbackRepository> { SessionFeedbackRepositoryImpl(get()) }
+    single<SpeakerRepository> { SpeakerRepositoryImpl(get()) }
 }

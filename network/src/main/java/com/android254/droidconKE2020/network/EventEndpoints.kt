@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface EventEndpoints {
 
-    @GET("events/droidconke2020-645/sponsors")
+    @GET("events/${Constants.DROIDCON_EVENT}/sponsors")
     suspend fun getSponsors(): Sponsors
 }

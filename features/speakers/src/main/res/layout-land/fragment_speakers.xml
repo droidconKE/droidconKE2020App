@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="goBack"
             type="android.view.View.OnClickListener" />
@@ -71,7 +73,7 @@
                             android:adjustViewBounds="true"
                             android:onClick="@{goBack}"
                             android:src="@drawable/ic_left_outline"
-                            android:tint="?colorOnSurface"
+                            app:tint="?colorOnSurface"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +85,6 @@
                             android:onClick="@{openProfile}"
                             android:scaleType="fitXY"
                             android:src="@drawable/ic_sign_in_icon"
-                            android:tint="?colorOnSurface"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -95,7 +96,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize"
                     android:layout_gravity="bottom"
-                    android:background="@drawable/background_toolbar">
+                    android:background="@drawable/background_toolbar"
+                    android:focusableInTouchMode="true">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -117,7 +119,7 @@
                             android:padding="@dimen/toolbarContentMargin"
                             android:scaleType="fitXY"
                             android:src="@drawable/ic_search_outline"
-                            android:tint="?colorOnSurface"
+                            app:tint="?colorOnSurface"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -132,37 +134,68 @@
                             android:maxLines="1"
                             android:layout_marginEnd="@dimen/cardMarginHorizontal"
                             android:layout_marginStart="@dimen/cardMarginHorizontal"
-                            android:text='@={speakersViewModel.searchPhrase}'
                             app:layout_constraintEnd_toStartOf="@id/imgLogo"
                             app:layout_constraintStart_toEndOf="@id/imgSearch" />
 
                         <ImageView
                             android:id="@+id/imgLogo"
-                            droidconLogoImageResource="@{speakersViewModel.searchPhrase.empty}"
                             android:layout_width="@dimen/toolbarIconSize"
                             android:layout_height="@dimen/toolbarIconSize"
                             android:layout_marginEnd="@dimen/toolbarContentMargin"
-                            android:onClick="@{speakersViewModel.searchPhrase.empty ? initiateEasterEgg : clearSearch }"
                             android:padding="@dimen/toolbarContentMargin"
                             android:scaleType="fitXY"
+                            android:clickable="true"
+                            android:focusable="true"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:src="@drawable/ic_droidcon_logo" />
+                            android:onClick="@{clearSearch}"
+                            android:src="@drawable/ic_danger_outline"
+                            android:visibility="@{speakersViewModel.hasSearchTerm ? View.VISIBLE : View.GONE}"
+                            app:tint="?colorOnSurface" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.appcompat.widget.Toolbar>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvSpeakers"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            app:spanCount="2"
-            tools:listitem="@layout/item_speaker" />
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSpeakers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/item_speaker" />
+
+            <TextView
+                android:id="@+id/noSpeakers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="@string/no_speakers_found"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
