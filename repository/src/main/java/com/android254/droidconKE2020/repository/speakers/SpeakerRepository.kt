@@ -9,13 +9,12 @@ import kotlinx.coroutines.flow.Flow
 
 interface SpeakerRepository {
 
-    suspend fun fetchSpeakers(): Flow<PagingData<SpeakerUIModel>>
-
+    fun fetchSpeakers(): Flow<PagingData<SpeakerUIModel>>
 }
 
 class SpeakerRepositoryImpl(private val apiService: ApiService) : SpeakerRepository {
 
-    override suspend fun fetchSpeakers(): Flow<PagingData<SpeakerUIModel>> {
+    override fun fetchSpeakers(): Flow<PagingData<SpeakerUIModel>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 10,

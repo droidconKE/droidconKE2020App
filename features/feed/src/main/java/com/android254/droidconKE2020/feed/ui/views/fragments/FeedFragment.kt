@@ -47,7 +47,6 @@ class FeedFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         initAdapter()
-        getFeeds()
 
         viewModel.getFeeds().observe(viewLifecycleOwner) { pagingData ->
             lifecycleScope.launchWhenStarted {
@@ -60,7 +59,6 @@ class FeedFragment : Fragment() {
         feedAdapter = FeedAdapter {
             findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToShareFragment())
         }
-        binding.feedsList.adapter = feedAdapter
         binding.feedsList.adapter = feedAdapter.withLoadStateFooter(
             footer = FeedsLoadingAdapter { feedAdapter.retry() }
         )
@@ -77,10 +75,6 @@ class FeedFragment : Fragment() {
                 requireContext().toast("Wooops ${it.error}")
             }
         }
-    }
-
-    private fun getFeeds() {
-        viewModel.getFeeds()
     }
 
     override fun onDestroyView() {

@@ -15,7 +15,7 @@
 
         <variable
             name="speaker"
-            type="com.android254.droidconKE2020.speakers.models.Speaker" />
+            type="com.android254.droidconKE2020.core.models.SpeakerUIModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -28,7 +28,7 @@
 
             <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
                 android:id="@+id/imgContainer"
-                imageUrl="@{speaker.imageUrl}"
+                imageUrl="@{speaker.speakerAvatar}"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_margin="6dp"
@@ -48,7 +48,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto"
                 android:maxLines="1"
-                android:text="@{speaker.name}"
+                android:text="@{speaker.speakerName}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintBottom_toTopOf="@id/tvRole"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -61,38 +61,36 @@
                 android:id="@+id/tvRole"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_work_18dp"
                 android:drawablePadding="@dimen/rvSpeakerItemMargin"
-                android:drawableTint="@color/colorOnSurface"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto"
-                android:maxLines="1"
-                android:paddingEnd="@dimen/rvSpeakerItemMargin"
-                android:text="@{speaker.work}"
+                android:maxLines="2"
+                android:text="@{speaker.speakerTagLine}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 app:layout_constraintBottom_toTopOf="@id/cgSkills"
-                app:layout_constraintEnd_toStartOf="@id/tvCompany"
+                app:drawableStartCompat="@drawable/ic_work_18dp"
                 app:layout_constraintStart_toStartOf="@id/tvName"
                 app:layout_constraintTop_toBottomOf="@id/tvName"
+                app:layout_constraintEnd_toEndOf="parent"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
                 android:id="@+id/tvCompany"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_company_18dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:drawablePadding="@dimen/rvSpeakerItemMargin"
-                android:drawableTint="@color/colorOnSurface"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto"
-                android:maxLines="1"
-                android:paddingEnd="@dimen/rvSpeakerItemMargin"
-                android:text="@{speaker.company}"
+                android:maxLines="2"
+                android:text="@{speaker.speakerCompany}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                app:layout_constraintBottom_toBottomOf="@id/tvRole"
+                app:drawableStartCompat="@drawable/ic_company_18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvRole"
-                app:layout_constraintTop_toTopOf="@id/tvRole"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvRole"
                 tools:text="@tools:sample/lorem" />
 
             <com.google.android.material.chip.ChipGroup

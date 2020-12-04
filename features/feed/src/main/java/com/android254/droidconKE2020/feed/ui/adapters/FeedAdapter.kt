@@ -9,7 +9,6 @@ import coil.transform.RoundedCornersTransformation
 import com.android254.droidconKE2020.core.models.FeedUIModel
 import com.android254.droidconKE2020.feed.databinding.ItemFeedsBinding
 import com.android254.droidconKE2020.feed.utils.DiffUtilCallBack
-import kotlinx.android.synthetic.main.item_feeds.view.*
 
 class FeedAdapter(private val onSharedClicked: (FeedUIModel) -> Unit) :
     PagingDataAdapter<FeedUIModel, FeedAdapter.FeedViewHolder>(DiffUtilCallBack()) {

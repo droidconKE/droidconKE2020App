@@ -39,14 +39,14 @@ data class Room(
 )
 
 data class Speaker(
-    @Expose @SerializedName("avatar") val avatar: String,
-    @Expose @SerializedName("biography") val biography: String,
-    @Expose @SerializedName("blog") val blog: String,
+    @Expose @SerializedName("avatar") val avatar: String?,
+    @Expose @SerializedName("biography") val biography: String?,
+    @Expose @SerializedName("blog") val blog: String?,
     @Expose @SerializedName("company_website") val companyWebsite: String?,
-    @Expose @SerializedName("facebook") val facebook: String,
-    @Expose @SerializedName("instagram") val instagram: String,
-    @Expose @SerializedName("linkedin") val linkedin: String,
+    @Expose @SerializedName("facebook") val facebook: String?,
+    @Expose @SerializedName("instagram") val instagram: String?,
+    @Expose @SerializedName("linkedin") val linkedin: String?,
     @Expose @SerializedName("name") val name: String,
-    @Expose @SerializedName("tagline") val tagline: String,
-    @Expose @SerializedName("twitter") val twitter: String
+    @Expose @SerializedName("tagline") val tagline: String?,
+    @Expose @SerializedName("twitter") val twitter: String?
 )

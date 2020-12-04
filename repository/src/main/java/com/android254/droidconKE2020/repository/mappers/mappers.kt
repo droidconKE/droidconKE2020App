@@ -1,6 +1,8 @@
 package com.android254.droidconKE2020.repository.mappers
 
-import com.android254.droidconKE2020.core.models.*
+import com.android254.droidconKE2020.core.models.FeedUIModel
+import com.android254.droidconKE2020.core.models.SessionUIModel
+import com.android254.droidconKE2020.core.models.SpeakerUIModel
 import com.android254.droidconKE2020.core.utils.formattedDate
 import com.android254.droidconKE2020.core.utils.sessionStartTimeSuffix
 import com.android254.droidconKE2020.core.utils.toDate
@@ -34,10 +36,10 @@ fun SessionItem.toSessionUIModel(): SessionUIModel = SessionUIModel(
 
 fun Speaker.toSpeakerUIModel(): SpeakerUIModel =
     SpeakerUIModel(
-        speakerAvatar = this.avatar,
-        speakerBio = this.biography,
-        speakerTwitterProfile = this.twitter,
-        speakerTagLine = this.tagline,
+        speakerAvatar = this.avatar ?: "",
+        speakerBio = this.biography ?: "No bio",
+        speakerTwitterProfile = this.twitter ?: "",
+        speakerTagLine = this.tagline ?: "",
         speakerCompany = this.companyWebsite ?: "No Company",
         speakerName = this.name
     )
