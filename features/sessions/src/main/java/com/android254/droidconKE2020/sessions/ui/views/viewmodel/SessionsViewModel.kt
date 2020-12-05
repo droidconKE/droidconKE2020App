@@ -39,8 +39,8 @@ class SessionsViewModel : ViewModel() {
         _sessionId.value = sessionId
     }
 
-    fun onRemoveSavedSession(sessionId: DummySession){
-
+    fun onRemoveSavedSession(session: DummySession){
+        _removedSessionItem.value = session
     }
 
     private fun generateAllSessions() = listOf(

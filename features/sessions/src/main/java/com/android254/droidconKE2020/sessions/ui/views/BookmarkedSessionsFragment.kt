@@ -6,16 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.android254.droidconKE2020.sessions.R
+import com.android254.droidconKE2020.sessions.databinding.FragmentBookmarkedSessionsBinding
+import com.android254.droidconKE2020.sessions.databinding.FragmentSessionsBinding
 
 
 class BookmarkedSessionsFragment : Fragment() {
+    private var _binding: FragmentBookmarkedSessionsBinding? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bookmarked_sessions, container, false)
+        _binding = FragmentBookmarkedSessionsBinding.inflate(inflater, container, false)
+        return _binding!!.root
     }
 
 

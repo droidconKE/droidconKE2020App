@@ -1,11 +1,9 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -14,7 +12,6 @@ import androidx.viewpager.widget.ViewPager
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionsBinding
 import com.android254.droidconKE2020.sessions.ui.views.adapter.*
-import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.models.DaySession
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionsViewModel
@@ -49,32 +46,26 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
             findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToFilterBottomSheet())
         }
 
-        binding.switch1.setOnCheckedChangeListener { _, isChecked->
-            if(isChecked){
-                getBookMarkedSessions()
-                observeBookMarkedSessions()
-                Toast.makeText(requireContext(), "Test", Toast.LENGTH_LONG).show()
-            }
-            //TODO: Fix this later
-//            else{
-//                observeDaySessions()
-//                getDaySessions()
-//                Toast.makeText(requireContext(), "Test2", Toast.LENGTH_LONG).show()
-//            }
+        binding.switch1.setOnCheckedChangeListener { _, isChecked ->
+            // TODO: Evaluate for ischecked or not
+            findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToBookmarkedSessionsFragment())
         }
     }
 
-    //TODO: Customize accordingly
+    // TODO: Remove unused methods
     private fun setUpRvSessions(sessions: List<DummySession>) {
         val sessionsAdapter = SessionsAdapter(
             sessions = sessions,
-            saveSessionListener = SaveSessionListener { session, view -> },
-            sessionClickListener = SessionClickListener {
-                sessionId -> sessionsViewModel.onSessionItemClicked(sessionId = sessionId)
+            saveSessionListener = SaveSessionListener { session, view ->
+                session.isSessionSaved = false
+            },
+            sessionClickListener = SessionClickListener { sessionId ->
+                sessionsViewModel.onSessionItemClicked(sessionId = sessionId)
             }
         )
         FragmentDaySessionsBinding1.bind(rvSessions).root.adapter = sessionsAdapter
     }
+
     private fun observeDaySessions() {
         sessionsViewModel.daySessions.observe(
             viewLifecycleOwner,
@@ -85,6 +76,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
             }
         )
     }
+
     private fun observeNavigateToSessionDetail() {
         sessionsViewModel.sessionId.observe(
             viewLifecycleOwner,
@@ -104,14 +96,14 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         sessionsViewModel.getDaySessions()
     }
 
-    private fun getBookMarkedSessions(){
+    private fun getBookMarkedSessions() {
         sessionsViewModel.getBookMarkedSessions()
     }
 
-    private fun observeBookMarkedSessions(){
+    private fun observeBookMarkedSessions() {
         sessionsViewModel.bookmarkedSessions.observe(
-            viewLifecycleOwner, Observer{sessions ->
-                setUpRvSessions(sessions)
+            viewLifecycleOwner, Observer { sessions ->
+               // setUpRvSessions(sessions)
             }
         )
     }
@@ -201,9 +193,9 @@ class ZoomOutPageTransformer : ViewPager.PageTransformer {
 
                     // Fade the page relative to its size.
                     alpha = (
-                        MIN_ALPHA +
-                            (((scaleFactor - MIN_SCALE) / (1 - MIN_SCALE)) * (1 - MIN_ALPHA))
-                        )
+                            MIN_ALPHA +
+                                    (((scaleFactor - MIN_SCALE) / (1 - MIN_SCALE)) * (1 - MIN_ALPHA))
+                            )
                 }
                 else -> { // (1,+Infinity]
                     // This page is way off-screen to the right.

@@ -63,6 +63,9 @@
         <action
             android:id="@+id/action_sessionsFragment_to_filterBottomSheet"
             app:destination="@id/filterBottomSheet"/>
+        <action
+            android:id="@+id/action_sessionsFragment_to_bookmarkedSessionsFragment"
+            app:destination="@id/bookmarkedSessionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -138,5 +141,11 @@
             app:destination="@+id/sessionsFragment"
             />
     </fragment>
+    <fragment
+        android:id="@+id/bookmarkedSessionsFragment"
+        android:name="com.android254.droidconKE2020.sessions.ui.views.BookmarkedSessionsFragment"
+        android:label="Bookmarked"
+        app:moduleName="sessions"
+        tools:layout="@layout/fragment_bookmarked_sessions" />
 
 </navigation>
