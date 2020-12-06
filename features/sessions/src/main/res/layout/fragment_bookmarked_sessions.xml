@@ -23,6 +23,17 @@
                 android:layout_height="wrap_content"
                 app:layout_collapseMode="parallax"
                 android:id="@+id/layout1">
+                <ImageButton
+                    android:id="@+id/imageViewBackNavigation"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/back_button"
+                    android:src="@drawable/ic_arrow_back_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
                     android:id="@+id/imageViewAppIcon"
@@ -71,15 +82,26 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPagerSessions"
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/viewPagerSessions"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView1" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSessions_saved_sessions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:context=".ui.views.BookmarkedSessionsFragment"
+        tools:listitem="@layout/item_session"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_saved_sessions"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -53,18 +53,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
     }
 
     // TODO: Remove unused methods
-    private fun setUpRvSessions(sessions: List<DummySession>) {
-        val sessionsAdapter = SessionsAdapter(
-            sessions = sessions,
-            saveSessionListener = SaveSessionListener { session, view ->
-                session.isSessionSaved = false
-            },
-            sessionClickListener = SessionClickListener { sessionId ->
-                sessionsViewModel.onSessionItemClicked(sessionId = sessionId)
-            }
-        )
-        FragmentDaySessionsBinding1.bind(rvSessions).root.adapter = sessionsAdapter
-    }
+
 
     private fun observeDaySessions() {
         sessionsViewModel.daySessions.observe(
@@ -97,15 +86,15 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
     }
 
     private fun getBookMarkedSessions() {
-        sessionsViewModel.getBookMarkedSessions()
+        //sessionsViewModel.getBookMarkedSessions()
     }
 
     private fun observeBookMarkedSessions() {
-        sessionsViewModel.bookmarkedSessions.observe(
-            viewLifecycleOwner, Observer { sessions ->
-               // setUpRvSessions(sessions)
-            }
-        )
+//        sessionsViewModel.bookmarkedSessions.observe(
+//            viewLifecycleOwner, Observer { sessions ->
+//               // setUpRvSessions(sessions)
+//            }
+//        )
     }
 
     private fun setUpTabs(daySessions: List<DaySession>) {
