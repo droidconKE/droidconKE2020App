@@ -45,4 +45,20 @@ class SessionsViewModelTest : BaseViewModelTest() {
         coVerify { sessionRepository.fetchSessionsSchedule("Day 1") }
         sessionsViewModel.showToast.test().assertValue("Error Occurred")
     }
+
+    @Test
+    fun `test a session is bookmarked`() {
+        coEvery { sessionRepository.changeBookmarkStatus(1) } returns Data.Success("Bookmarked")
+        sessionsViewModel.changeBookmarkStatus(1)
+        coVerify { sessionRepository.changeBookmarkStatus(1) }
+        sessionsViewModel.isSessionBookmarked.test().assertValue("Bookmarked")
+    }
+
+    @Test
+    fun `test a session is removed from bookmarks`() {
+        coEvery { sessionRepository.changeBookmarkStatus(1) } returns Data.Success("Bookmark Removed")
+        sessionsViewModel.changeBookmarkStatus(1)
+        coVerify { sessionRepository.changeBookmarkStatus(1) }
+        sessionsViewModel.isSessionBookmarked.test().assertValue("Bookmark Removed")
+    }
 }

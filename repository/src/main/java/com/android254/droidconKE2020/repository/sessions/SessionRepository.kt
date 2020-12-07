@@ -8,6 +8,8 @@ import com.android254.droidconKE2020.repository.mappers.toSessionUIModel
 interface SessionRepository {
 
     suspend fun fetchSessionsSchedule(day: String): Data<List<SessionUIModel>>
+
+    suspend fun changeBookmarkStatus(sessionId: Int): Data<String>
 }
 
 class SessionRepositoryImpl(private val apiService: ApiService) : SessionRepository {
@@ -44,6 +46,18 @@ class SessionRepositoryImpl(private val apiService: ApiService) : SessionReposit
                         }
                     }
                 }
+                else -> Data.Error(response.message())
+            }
+        } catch (exception: Exception) {
+            Data.Error(exception.message)
+        }
+    }
+
+    override suspend fun changeBookmarkStatus(sessionId: Int): Data<String> {
+        val response = apiService.sessionSchedule.changeBookmarkStatus(sessionId)
+        return try {
+            when {
+                response.isSuccessful -> Data.Success(response.body()!!.message)
                 else -> Data.Error(response.message())
             }
         } catch (exception: Exception) {

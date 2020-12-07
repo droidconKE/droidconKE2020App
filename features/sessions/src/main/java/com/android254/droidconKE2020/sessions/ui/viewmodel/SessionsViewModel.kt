@@ -15,6 +15,7 @@ class SessionsViewModel(private val sessionsRepository: SessionRepository) : Vie
     private var _sessionUIModel = MutableLiveData<SessionUIModel>()
     val sessionUIModel get() = _sessionUIModel
     val showToast = SingleLiveEvent<String>()
+    val isSessionBookmarked = SingleLiveEvent<String>()
 
     fun fetchSessions(day: String) {
         viewModelScope.launch {
@@ -31,5 +32,14 @@ class SessionsViewModel(private val sessionsRepository: SessionRepository) : Vie
 
     fun setSession(sessionUIModel: SessionUIModel) {
         _sessionUIModel.value = sessionUIModel
+    }
+
+    fun changeBookmarkStatus(sessionId: Int) {
+        viewModelScope.launch {
+            when (val value = sessionsRepository.changeBookmarkStatus(sessionId)) {
+                is Data.Success -> isSessionBookmarked.postValue(value.data)
+                is Data.Error -> isSessionBookmarked.postValue(value.exception.toString())
+            }
+        }
     }
 }

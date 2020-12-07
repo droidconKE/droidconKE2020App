@@ -1,7 +1,6 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,7 +48,9 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
         }
         sessionsViewModel.showToast.observe(viewLifecycleOwner) { errorMessage ->
             requireContext().toast(errorMessage)
-            Log.d("Error", errorMessage)
+        }
+        sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner) { isSessionBookmarked ->
+            requireContext().toast(isSessionBookmarked)
         }
     }
 
@@ -77,6 +78,8 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     }
 
     override fun onSessionSave(sessionUIModel: SessionUIModel, view: View) {
-        requireContext().toast(sessionUIModel.sessionDescription)
+        sessionUIModel.isBookmarked = !sessionUIModel.isBookmarked
+        binding.rvSessions.adapter?.notifyDataSetChanged()
+        sessionsViewModel.changeBookmarkStatus(sessionUIModel.sessionId)
     }
 }

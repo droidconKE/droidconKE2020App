@@ -152,4 +152,15 @@ class EndpointsTest : KoinTest {
         assertThat(speakers.speakers.size, `is`(3))
         assertThat(speakers.speakers[0].name, `is`(sampleSpeaker.name))
     }
+
+    @Test
+    fun testChangeBookmarkStatus() = runBlocking {
+        server.enqueue(MockResponse().setBody("""{"message": "Bookmarked"}"""))
+        server.start()
+        declare {
+            server.url("/")
+        }
+        val message = service.sessionSchedule.changeBookmarkStatus(1).body()!!
+        assertThat(message.message, `is`("Bookmarked"))
+    }
 }
