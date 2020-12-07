@@ -15,7 +15,7 @@ interface SessionsEndpoints {
         @Query("grouped") isGrouped: Boolean = true
     ): Response<Sessions>
 
-    @POST("events/${Constants.DROIDCON_EVENT}/bookmark_schedule{sessionId}")
+    @POST("events/${Constants.DROIDCON_EVENT}/bookmark_schedule/{sessionId}")
     suspend fun changeBookmarkStatus(
         @Path("sessionId") sessionId : Int
     ): Response<Message>

@@ -4,6 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View" />
+        <variable
+            name="onSpeakerClick"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="isSessionBookmarked"
+            type="Boolean" />
+        <variable
+            name="bookmarkSession"
+            type="android.view.View.OnClickListener" />
         <variable
             name="sessionsViewModel"
             type="com.android254.droidconKE2020.sessions.ui.viewmodel.SessionsViewModel" />
@@ -238,6 +248,7 @@
                     android:text="@{sessionsViewModel.sessionUIModel.sessionSpeakers[0].speakerName}"
                     android:textColor="@color/colorGreen"
                     android:textSize="16sp"
+                    android:onClick="@{onSpeakerClick}"
                     app:layout_constraintStart_toStartOf="@+id/imageViewSpeakerIcon"
                     app:layout_constraintTop_toBottomOf="@+id/textViewSpeakerTitle"
                     tools:text="Greg Fawson" />
@@ -247,10 +258,11 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:contentDescription="@string/image"
+                    android:onClick="@{bookmarkSession}"
                     app:layout_constraintBottom_toBottomOf="@+id/textViewSpeaker"
                     app:layout_constraintEnd_toEndOf="@+id/materialCardViewSessionDetails"
                     app:layout_constraintTop_toTopOf="@+id/textViewSpeakerTitle"
-                    app:srcCompat="@drawable/ic_star_outline" />
+                    android:src="@{isSessionBookmarked ? @drawable/ic_star_filled : @drawable/ic_star_outline}"  />
 
                 <TextView
                     android:id="@+id/textViewDescriptionTitle"

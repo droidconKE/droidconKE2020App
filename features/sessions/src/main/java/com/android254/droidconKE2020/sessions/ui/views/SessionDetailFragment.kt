@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.core.models.SessionUIModel
+import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionDetailBinding
 import com.android254.droidconKE2020.sessions.di.loadModules
@@ -37,15 +38,32 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sessionsViewModel.sessionUIModel.observe(viewLifecycleOwner) { sessionModel ->
-            sessionUiModel = sessionModel
-        }
-
+        observeSessionDetails()
         binding.imgBack.setOnClickListener {
             findNavController().navigateUp()
         }
         binding.textViewFeedback.setOnClickListener {
             findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSessionFeedbackFragment(sessionUiModel))
+        }
+        binding.setBookmarkSession {
+            sessionUiModel.isBookmarked = !sessionUiModel.isBookmarked
+            binding.isSessionBookmarked = sessionUiModel.isBookmarked
+            sessionsViewModel.changeBookmarkStatus(sessionUiModel.sessionId)
+        }
+        binding.setOnSpeakerClick {
+            findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSpeakerDetailsFragment(sessionUiModel.sessionSpeakers[0]))
+        }
+
+
+    }
+
+    private fun observeSessionDetails() {
+        sessionsViewModel.sessionUIModel.observe(viewLifecycleOwner) { sessionModel ->
+            sessionUiModel = sessionModel
+            binding.isSessionBookmarked = sessionUiModel.isBookmarked
+        }
+        sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner){ isSessionBookmarked ->
+            requireContext().toast(isSessionBookmarked)
         }
     }
 }
