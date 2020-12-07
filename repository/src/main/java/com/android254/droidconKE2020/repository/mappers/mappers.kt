@@ -1,12 +1,14 @@
 package com.android254.droidconKE2020.repository.mappers
 
 import com.android254.droidconKE2020.core.models.FeedUIModel
+import com.android254.droidconKE2020.core.models.OrganizerUIModel
 import com.android254.droidconKE2020.core.models.SessionUIModel
 import com.android254.droidconKE2020.core.models.SpeakerUIModel
 import com.android254.droidconKE2020.core.utils.formattedDate
 import com.android254.droidconKE2020.core.utils.sessionStartTimeSuffix
 import com.android254.droidconKE2020.core.utils.toDate
 import com.android254.droidconKE2020.network.responses.FeedItem
+import com.android254.droidconKE2020.network.responses.OrganizerItem
 import com.android254.droidconKE2020.network.responses.SessionItem
 import com.android254.droidconKE2020.network.responses.Speaker
 
@@ -43,4 +45,11 @@ fun Speaker.toSpeakerUIModel(): SpeakerUIModel =
         speakerTagLine = this.tagline ?: "",
         speakerCompany = this.companyWebsite ?: "No Company",
         speakerName = this.name
+    )
+
+fun OrganizerItem.toOrganizerUIModel() : OrganizerUIModel =
+    OrganizerUIModel(
+        organizerName = this.name,
+        organizerAvatar = this.photo,
+        organizerTagLine = this.tagline
     )
