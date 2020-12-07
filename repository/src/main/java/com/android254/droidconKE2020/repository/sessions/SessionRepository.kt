@@ -9,7 +9,7 @@ interface SessionRepository {
 
     suspend fun fetchSessionsSchedule(day: String): Data<List<SessionUIModel>>
 
-    suspend fun changeBookmarkStatus(sessionId : Int) : Data<String>
+    suspend fun changeBookmarkStatus(sessionId: Int): Data<String>
 }
 
 class SessionRepositoryImpl(private val apiService: ApiService) : SessionRepository {
@@ -56,12 +56,11 @@ class SessionRepositoryImpl(private val apiService: ApiService) : SessionReposit
     override suspend fun changeBookmarkStatus(sessionId: Int): Data<String> {
         val response = apiService.sessionSchedule.changeBookmarkStatus(sessionId)
         return try {
-            when{
+            when {
                 response.isSuccessful -> Data.Success(response.body()!!.message)
                 else -> Data.Error(response.message())
             }
-
-        } catch (exception: Exception){
+        } catch (exception: Exception) {
             Data.Error(exception.message)
         }
     }

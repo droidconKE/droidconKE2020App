@@ -17,6 +17,6 @@ interface SessionsEndpoints {
 
     @POST("events/${Constants.DROIDCON_EVENT}/bookmark_schedule/{sessionId}")
     suspend fun changeBookmarkStatus(
-        @Path("sessionId") sessionId : Int
+        @Path("sessionId") sessionId: Int
     ): Response<Message>
 }

@@ -50,11 +50,11 @@ fun printResults(desc: TestDescriptor, result: TestResult) {
     if (desc.parent != null) {
         val output = result.run {
             "Results: $resultType (" +
-                    "$testCount tests, " +
-                    "$successfulTestCount successes, " +
-                    "$failedTestCount failures, " +
-                    "$skippedTestCount skipped" +
-                    ")"
+                "$testCount tests, " +
+                "$successfulTestCount successes, " +
+                "$failedTestCount failures, " +
+                "$skippedTestCount skipped" +
+                ")"
         }
         val testResultLine = "|  $output  |"
         val repeatLength = testResultLine.length

@@ -53,8 +53,6 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
         binding.setOnSpeakerClick {
             findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSpeakerDetailsFragment(sessionUiModel.sessionSpeakers[0]))
         }
-
-
     }
 
     private fun observeSessionDetails() {
@@ -62,7 +60,7 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
             sessionUiModel = sessionModel
             binding.isSessionBookmarked = sessionUiModel.isBookmarked
         }
-        sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner){ isSessionBookmarked ->
+        sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner) { isSessionBookmarked ->
             requireContext().toast(isSessionBookmarked)
         }
     }

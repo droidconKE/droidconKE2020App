@@ -34,9 +34,9 @@ class SessionsViewModel(private val sessionsRepository: SessionRepository) : Vie
         _sessionUIModel.value = sessionUIModel
     }
 
-    fun changeBookmarkStatus(sessionId : Int){
+    fun changeBookmarkStatus(sessionId: Int) {
         viewModelScope.launch {
-            when(val value = sessionsRepository.changeBookmarkStatus(sessionId)){
+            when (val value = sessionsRepository.changeBookmarkStatus(sessionId)) {
                 is Data.Success -> isSessionBookmarked.postValue(value.data)
                 is Data.Error -> isSessionBookmarked.postValue(value.exception.toString())
             }

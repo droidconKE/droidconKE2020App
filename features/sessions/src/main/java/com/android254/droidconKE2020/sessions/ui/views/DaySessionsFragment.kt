@@ -1,7 +1,6 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,7 +49,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
         sessionsViewModel.showToast.observe(viewLifecycleOwner) { errorMessage ->
             requireContext().toast(errorMessage)
         }
-        sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner){ isSessionBookmarked ->
+        sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner) { isSessionBookmarked ->
             requireContext().toast(isSessionBookmarked)
         }
     }

@@ -47,7 +47,7 @@ class SessionsViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test a session is bookmarked`(){
+    fun `test a session is bookmarked`() {
         coEvery { sessionRepository.changeBookmarkStatus(1) } returns Data.Success("Bookmarked")
         sessionsViewModel.changeBookmarkStatus(1)
         coVerify { sessionRepository.changeBookmarkStatus(1) }
@@ -55,7 +55,7 @@ class SessionsViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test a session is removed from bookmarks`(){
+    fun `test a session is removed from bookmarks`() {
         coEvery { sessionRepository.changeBookmarkStatus(1) } returns Data.Success("Bookmark Removed")
         sessionsViewModel.changeBookmarkStatus(1)
         coVerify { sessionRepository.changeBookmarkStatus(1) }
