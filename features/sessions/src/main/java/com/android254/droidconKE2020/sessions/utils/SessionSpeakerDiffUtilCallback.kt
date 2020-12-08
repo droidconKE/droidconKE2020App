@@ -9,5 +9,4 @@ class SessionSpeakerDiffUtilCallback : DiffUtil.ItemCallback<SpeakerUIModel>() {
 
     override fun areContentsTheSame(oldItem: SpeakerUIModel, newItem: SpeakerUIModel): Boolean =
         oldItem == newItem
-
 }

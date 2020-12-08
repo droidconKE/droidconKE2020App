@@ -9,9 +9,9 @@ import com.android254.droidconKE2020.sessions.databinding.SessionItemSpeakerBind
 import com.android254.droidconKE2020.sessions.utils.SessionSpeakerDiffUtilCallback
 
 typealias OnSpeakerClick = (SpeakerUIModel) -> Unit
-class SessionSpeakersAdapter(private val onSpeakerClick: OnSpeakerClick) : ListAdapter<SpeakerUIModel,SessionSpeakersAdapter.SessionSpeakerViewHolder>(SessionSpeakerDiffUtilCallback()) {
+class SessionSpeakersAdapter(private val onSpeakerClick: OnSpeakerClick) : ListAdapter<SpeakerUIModel, SessionSpeakersAdapter.SessionSpeakerViewHolder>(SessionSpeakerDiffUtilCallback()) {
 
-    class SessionSpeakerViewHolder(private val binding : SessionItemSpeakerBinding, private val onSpeakerClick: OnSpeakerClick): RecyclerView.ViewHolder(binding.root){
+    class SessionSpeakerViewHolder(private val binding: SessionItemSpeakerBinding, private val onSpeakerClick: OnSpeakerClick) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: SpeakerUIModel) {
             binding.speakerUIModel = item
             binding.executePendingBindings()
@@ -19,7 +19,6 @@ class SessionSpeakersAdapter(private val onSpeakerClick: OnSpeakerClick) : ListA
                 onSpeakerClick(item)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionSpeakerViewHolder {
