@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="com.android254.droidconKE2020.about.ui.viewmodel.AboutViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView

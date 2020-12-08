@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="organizerViewModel"
-            type="com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel" />
+            name="organizerUIModel"
+            type="com.android254.droidconKE2020.core.models.OrganizerUIModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -132,10 +133,11 @@
                     app:cardElevation="@dimen/card_elevation">
 
                     <ImageView
-                        android:id="@+id/img_frank"
+                        android:id="@+id/imgOrganizerAvatar"
                         android:layout_width="@dimen/team_icon_cardview_dimens"
                         android:layout_height="@dimen/team_icon_cardview_dimens"
                         android:layout_margin="@dimen/team_icon_cardview_margin"
+                        app:organizerImage="@{organizerUIModel.organizerAvatar}"
                         android:background="@drawable/franktamre" />
                 </com.google.android.material.card.MaterialCardView>
 
@@ -143,7 +145,8 @@
                     android:id="@+id/txtOrganizerName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/organizer_name"
+                    tools:text="@string/organizer_name"
+                    app:mutableText="@{organizerUIModel.organizerName}"
                     android:fontFamily="@font/roboto_slab_bold"
                     android:textColor="@color/colorOrganizerName"
                     android:textSize="@dimen/about_heading_text_size"
@@ -155,7 +158,8 @@
                     android:id="@+id/txtOrganizerTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/organizerTitle"
+                    tools:text="@string/organizerTitle"
+                    app:mutableText="@{organizerUIModel.organizerTagLine}"
                     android:fontFamily="@font/roboto"
                     android:textColor="@color/colorDarkGrey"
                     android:textSize="@dimen/team_name_txt_size"
@@ -169,7 +173,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/roboto"
-                    android:text="@string/organizerCompany"
+                    tools:text="@string/organizerCompany"
+                    app:mutableText="@{organizerUIModel.organizerTagLine}"
                     android:textColor="@color/colorDarkGrey"
                     android:textSize="@dimen/team_name_txt_size"
                     app:layout_constraintStart_toEndOf="@id/organizerCardview"
@@ -179,7 +184,8 @@
                     android:id="@+id/txtOrganizerRole"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/organizer_role"
+                    tools:text="@string/organizer_role"
+                    app:mutableText="@{organizerUIModel.organizerTagLine}"
                     android:layout_marginTop="30dp"
                     android:textSize="@dimen/about_content_text_size"
                     android:fontFamily="@font/roboto"
@@ -192,7 +198,7 @@
                     android:layout_height="16dp"
                     android:layout_marginTop="6dp"
                     android:contentDescription="@string/twitter_icon"
-                    android:tint="@color/colorAquaMarine"
+                    app:tint="@color/colorAquaMarine"
                     android:src="@drawable/ic_twitter"
                     app:layout_constraintStart_toStartOf="@id/txtOrganizerRole"
                     app:layout_constraintEnd_toStartOf="@id/tvTopTwitterHandle"
@@ -203,7 +209,8 @@
                     android:id="@+id/tvTopTwitterHandle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/organizer_twitter_handle"
+                    tools:text="@string/organizer_twitter_handle"
+                    app:mutableText="@{organizerUIModel.organizerName}"
                     android:textColor="@color/colorPurple"
                     android:textSize="@dimen/medium_textsize"
                     app:layout_constraintTop_toTopOf="@id/imgTwitter"
@@ -229,7 +236,8 @@
                     android:layout_marginTop="@dimen/margin_bottom_about_page_content"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/roboto_light"
-                    android:text="@string/organizer_bio"
+                    app:mutableText="@{organizerUIModel.organizerTagLine}"
+                    tools:text="@string/organizer_bio"
                     android:textSize="@dimen/about_content_text_size"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/tvOrganizerBioLabel"
@@ -266,7 +274,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/fab_margin"
                         android:fontFamily="@font/roboto"
-                        android:text="@string/organizer_twitter_handle"
+                        tools:text="@string/organizer_twitter_handle"
+                        app:mutableText="@{organizerUIModel.organizerTagLine}"
                         android:textColor="@color/colorAquaMarine"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/copyIcon"

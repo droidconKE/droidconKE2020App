@@ -1,19 +1,13 @@
 package com.android254.droidconKE2020.about.ui.viewmodel
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import com.android254.droidconKE2020.about.testOrganisers
-import com.android254.droidconKE2020.about.ui.views.Organizer
 import com.android254.droidconKE2020.repository.Data
 import com.android254.droidconKE2020.repository.organizers.OrganizersRepository
 import com.android254.droidconKE2020.test_utils.BaseViewModelTest
 import com.jraska.livedata.test
 import io.mockk.*
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-
-import org.junit.Rule
 
 /**
  * 09/04/20

@@ -3,7 +3,6 @@ package com.android254.droidconKE2020.about.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android254.droidconKE2020.about.ui.views.Organizer
 import com.android254.droidconKE2020.core.models.OrganizerUIModel
 import com.android254.droidconKE2020.core.utils.SingleLiveEvent
 import com.android254.droidconKE2020.repository.Data

@@ -102,7 +102,11 @@
         android:name="com.android254.droidconKE2020.about.ui.views.OrganizerDetailsFragment"
         android:label="Organizers"
         app:moduleName="about"
-        tools:layout="@layout/fragment_organizer_details" />
+        tools:layout="@layout/fragment_organizer_details" >
+        <argument
+            android:name="organizerUIModel"
+            app:argType="com.android254.droidconKE2020.core.models.OrganizerUIModel" />
+    </fragment>
 
     <fragment
         android:id="@+id/sessionDetailsFragment"
