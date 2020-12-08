@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface OrganizersEndpoints {
 
     @GET("organizers/${Constants.DROIDCON_SLUG}/team")
-    suspend fun fetchOrganizers() : Response<Organizers>
+    suspend fun fetchOrganizers(): Response<Organizers>
 }

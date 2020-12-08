@@ -21,7 +21,7 @@ private fun injectFeature() = loadFeature
 class AboutFragment : Fragment(R.layout.fragment_about) {
     private var _binding: FragmentAboutBinding? = null
     private val binding get() = _binding!!
-    private val organizersViewModel : OrganizerViewModel by viewModel()
+    private val organizersViewModel: OrganizerViewModel by viewModel()
     private lateinit var organizerAdapter: OrganizerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        organizerAdapter= OrganizerAdapter {organizerUIModel ->
+        organizerAdapter = OrganizerAdapter { organizerUIModel ->
             val organizerDetailsDirections =
                 AboutFragmentDirections.actionAboutFragmentToOrganizerDetailsFragment(organizerUIModel)
             findNavController().navigate(organizerDetailsDirections)
@@ -48,12 +48,10 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         organizersViewModel.fetchOrganizers()
         observeOrganizers()
         binding.organizersList.adapter = organizerAdapter
-
-
     }
 
     private fun observeOrganizers() {
-        organizersViewModel.organizers.observe(viewLifecycleOwner){organizers ->
+        organizersViewModel.organizers.observe(viewLifecycleOwner) { organizers ->
             organizerAdapter.submitList(organizers)
         }
     }

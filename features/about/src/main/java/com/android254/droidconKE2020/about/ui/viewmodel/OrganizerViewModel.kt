@@ -17,10 +17,9 @@ class OrganizerViewModel(private val organizersRepository: OrganizersRepository)
     val organizers = _organizers
     val showToast = SingleLiveEvent<String>()
 
-
-    fun fetchOrganizers(){
+    fun fetchOrganizers() {
         viewModelScope.launch {
-            when(val value = organizersRepository.fetchOrganizers()){
+            when (val value = organizersRepository.fetchOrganizers()) {
                 is Data.Success -> _organizers.postValue(value.data)
                 is Data.Error -> showToast.postValue(value.exception.toString())
             }

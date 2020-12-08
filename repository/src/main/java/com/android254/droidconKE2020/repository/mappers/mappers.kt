@@ -47,7 +47,7 @@ fun Speaker.toSpeakerUIModel(): SpeakerUIModel =
         speakerName = this.name
     )
 
-fun OrganizerItem.toOrganizerUIModel() : OrganizerUIModel =
+fun OrganizerItem.toOrganizerUIModel(): OrganizerUIModel =
     OrganizerUIModel(
         organizerName = this.name,
         organizerAvatar = this.photo,

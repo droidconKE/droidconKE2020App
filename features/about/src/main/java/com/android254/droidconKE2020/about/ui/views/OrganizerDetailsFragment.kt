@@ -12,8 +12,6 @@ import androidx.navigation.fragment.navArgs
 import com.android254.droidconKE2020.about.R
 import com.android254.droidconKE2020.about.databinding.FragmentOrganizerDetailsBinding
 import com.android254.droidconKE2020.about.di.loadModules
-import com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
 
 private fun injectFeatures() = loadModules
 

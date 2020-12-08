@@ -4,8 +4,8 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class OrganizerUIModel (
-    val organizerName : String,
-    val organizerAvatar : String,
-    val organizerTagLine : String
-    ) : Parcelable
+data class OrganizerUIModel(
+    val organizerName: String,
+    val organizerAvatar: String,
+    val organizerTagLine: String
+) : Parcelable

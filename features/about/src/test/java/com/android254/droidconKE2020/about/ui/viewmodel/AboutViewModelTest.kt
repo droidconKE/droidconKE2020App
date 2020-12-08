@@ -17,12 +17,12 @@ class AboutViewModelTest : BaseViewModelTest() {
     lateinit var organizersViewModel: OrganizerViewModel
 
     @Before
-    fun setup(){
+    fun setup() {
         organizersViewModel = OrganizerViewModel(organizersRepository)
     }
 
     @Test
-    fun `test organizers are fetched successfully`(){
+    fun `test organizers are fetched successfully`() {
         coEvery { organizersRepository.fetchOrganizers() } returns Data.Success(testOrganisers)
         organizersViewModel.fetchOrganizers()
         coVerify { organizersRepository.fetchOrganizers() }
@@ -30,12 +30,10 @@ class AboutViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test toast is shown when error occurs when fetching organizers`(){
+    fun `test toast is shown when error occurs when fetching organizers`() {
         coEvery { organizersRepository.fetchOrganizers() } returns Data.Error("An error occurred")
         organizersViewModel.fetchOrganizers()
         coVerify { organizersRepository.fetchOrganizers() }
         organizersViewModel.showToast.test().assertValue("An error occurred")
     }
-
-
 }

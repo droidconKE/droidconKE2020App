@@ -15,7 +15,7 @@ fun loadImage(imageView: ShapedImageView, imageUrl: String) {
 }
 
 @BindingAdapter("organizerImage")
-fun loadOrganizerImage(imageView: ImageView, imageUrl: String){
+fun loadOrganizerImage(imageView: ImageView, imageUrl: String) {
     imageView.load(imageUrl)
 }
 
