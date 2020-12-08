@@ -11,7 +11,7 @@ import org.koin.dsl.module
  */
 val aboutModule = module {
     viewModel { AboutViewModel() }
-    viewModel { OrganizerViewModel() }
+    viewModel { OrganizerViewModel(get()) }
 }
 
 val loadModules by lazy {

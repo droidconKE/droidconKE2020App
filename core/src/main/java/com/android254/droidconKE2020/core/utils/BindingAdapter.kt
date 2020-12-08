@@ -8,10 +8,15 @@ import coil.load
 import coil.transform.RoundedCornersTransformation
 
 @BindingAdapter("imageUrl")
-fun loadImage(imageView: ShapedImageView, imageUrl: String?) {
+fun loadImage(imageView: ShapedImageView, imageUrl: String) {
     imageView.load(imageUrl) {
         transformations(RoundedCornersTransformation(12f))
     }
+}
+
+@BindingAdapter("organizerImage")
+fun loadOrganizerImage(imageView: ImageView, imageUrl: String){
+    imageView.load(imageUrl)
 }
 
 @BindingAdapter("rectImageUrl")

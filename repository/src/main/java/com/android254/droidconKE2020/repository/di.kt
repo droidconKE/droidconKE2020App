@@ -6,6 +6,8 @@ import com.android254.droidconKE2020.repository.feedback.EventFeedbackRepository
 import com.android254.droidconKE2020.repository.feedback.EventFeedbackRepositoryImpl
 import com.android254.droidconKE2020.repository.feedback.SessionFeedbackRepository
 import com.android254.droidconKE2020.repository.feedback.SessionFeedbackRepositoryImpl
+import com.android254.droidconKE2020.repository.organizers.OrganizersRepository
+import com.android254.droidconKE2020.repository.organizers.OrganizersRepositoryImpl
 import com.android254.droidconKE2020.repository.sessions.SessionRepository
 import com.android254.droidconKE2020.repository.sessions.SessionRepositoryImpl
 import com.android254.droidconKE2020.repository.speakers.SpeakerRepository
@@ -19,4 +21,5 @@ val repoModule = module {
     single<SessionRepository> { SessionRepositoryImpl(get()) }
     single<SessionFeedbackRepository> { SessionFeedbackRepositoryImpl(get()) }
     single<SpeakerRepository> { SpeakerRepositoryImpl(get()) }
+    single<OrganizersRepository> { OrganizersRepositoryImpl(get()) }
 }
