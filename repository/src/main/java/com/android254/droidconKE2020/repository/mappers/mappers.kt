@@ -33,7 +33,8 @@ fun SessionItem.toSessionUIModel(): SessionUIModel = SessionUIModel(
     sessionSlug = this.slug,
     sessionImage = this.sessionImage ?: "",
     sessionStartTime = this.startDateTime.toDate(),
-    sessionStartTimeSuffix = this.startDateTime.toDate().sessionStartTimeSuffix()
+    sessionStartTimeSuffix = this.startDateTime.toDate().sessionStartTimeSuffix(),
+    sessionFormat = this.sessionFormat
 
 )
 

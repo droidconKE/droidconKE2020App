@@ -16,7 +16,8 @@ data class SessionUIModel(
     val sessionSlug: String,
     val sessionImage: String,
     val sessionStartTime: String,
-    val sessionStartTimeSuffix: String
+    val sessionStartTimeSuffix: String,
+    val sessionFormat : String
 ) : Parcelable
 
 @Parcelize

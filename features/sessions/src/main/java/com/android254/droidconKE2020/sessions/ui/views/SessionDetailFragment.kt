@@ -11,6 +11,7 @@ import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionDetailBinding
 import com.android254.droidconKE2020.sessions.di.loadModules
+import com.android254.droidconKE2020.sessions.ui.adapter.SessionSpeakersAdapter
 import com.android254.droidconKE2020.sessions.ui.viewmodel.SessionsViewModel
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
@@ -23,6 +24,7 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
     private val binding get() = _binding!!
     private val sessionsViewModel: SessionsViewModel by sharedViewModel()
     lateinit var sessionUiModel: SessionUIModel
+    private lateinit var sessionSpeakersAdapter: SessionSpeakersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +40,11 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sessionSpeakersAdapter = SessionSpeakersAdapter { speakerUIModel ->
+            findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSpeakerDetailsFragment(speakerUIModel))
+        }
+        binding.rvSessionSpeakers.adapter = sessionSpeakersAdapter
+
         observeSessionDetails()
         binding.imgBack.setOnClickListener {
             findNavController().navigateUp()
@@ -50,15 +57,13 @@ class SessionDetailFragment : Fragment(R.layout.fragment_session_detail) {
             binding.isSessionBookmarked = sessionUiModel.isBookmarked
             sessionsViewModel.changeBookmarkStatus(sessionUiModel.sessionId)
         }
-        binding.setOnSpeakerClick {
-            findNavController().navigate(SessionDetailFragmentDirections.actionSessionDetailsFragmentToSpeakerDetailsFragment(sessionUiModel.sessionSpeakers[0]))
-        }
     }
 
     private fun observeSessionDetails() {
         sessionsViewModel.sessionUIModel.observe(viewLifecycleOwner) { sessionModel ->
             sessionUiModel = sessionModel
             binding.isSessionBookmarked = sessionUiModel.isBookmarked
+            sessionSpeakersAdapter.submitList(sessionModel.sessionSpeakers)
         }
         sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner) { isSessionBookmarked ->
             requireContext().toast(isSessionBookmarked)
