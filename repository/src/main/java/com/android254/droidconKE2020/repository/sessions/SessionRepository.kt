@@ -14,8 +14,8 @@ interface SessionRepository {
 
 class SessionRepositoryImpl(private val apiService: ApiService) : SessionRepository {
     override suspend fun fetchSessionsSchedule(day: String): Data<List<SessionUIModel>> {
-        val response = apiService.sessionSchedule.fetchSchedule()
         return try {
+            val response = apiService.sessionSchedule.fetchSchedule()
             when {
                 response.isSuccessful -> {
                     val data = response.body()!!

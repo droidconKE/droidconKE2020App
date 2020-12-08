@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="organizerViewModel"
-            type="com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel" />
+            name="organizerUIModel"
+            type="com.android254.droidconKE2020.core.models.OrganizerUIModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +32,7 @@
                 android:layout_width="@dimen/team_icon_cardview_dimens"
                 android:layout_height="@dimen/team_icon_cardview_dimens"
                 android:layout_margin="@dimen/team_icon_cardview_margin"
-                app:imageSrc="@{organizerViewModel.getOrganizerImage()}"/>
+                app:organizerImage="@{organizerUIModel.organizerAvatar}"/>
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
@@ -42,7 +42,7 @@
             android:fontFamily="@font/roboto"
             android:textColor="@color/colorOnBackground"
             android:textSize="@dimen/team_name_txt_size"
-            app:mutableText="@{organizerViewModel.getOrganizerName()}"
+            app:mutableText="@{organizerUIModel.organizerName}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/organizer_cardview"/>
@@ -54,7 +54,7 @@
             android:fontFamily="@font/roboto"
             android:textColor="@color/colorDarkGrey"
             android:textSize="@dimen/team_title_txt_size"
-            app:mutableText="@{organizerViewModel.getOrganizerTitle()}"
+            app:mutableText="@{organizerUIModel.organizerTagLine}"
             app:layout_constraintTop_toBottomOf="@id/organizer_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

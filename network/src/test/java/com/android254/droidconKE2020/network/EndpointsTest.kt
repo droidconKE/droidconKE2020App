@@ -163,4 +163,15 @@ class EndpointsTest : KoinTest {
         val message = service.sessionSchedule.changeBookmarkStatus(1).body()!!
         assertThat(message.message, `is`("Bookmarked"))
     }
+
+    @Test
+    fun testFetchOrganizers() = runBlocking {
+        server.enqueue(MockResponse().setBody(getJson("json/organizers_response.json")))
+        server.start()
+        declare {
+            server.url("/")
+        }
+        val organizers = service.organizers.fetchOrganizers().body()!!
+        assertThat(organizers.organizers.size, `is`(2))
+    }
 }
