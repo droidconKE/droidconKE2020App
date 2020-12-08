@@ -19,6 +19,6 @@ val testSessions = listOf(
         "",
         "08:45 AM",
         "AM",
-
+        "Regular Session"
     )
 )
