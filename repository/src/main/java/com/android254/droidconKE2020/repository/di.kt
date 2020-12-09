@@ -22,4 +22,5 @@ val repoModule = module {
     single<SessionFeedbackRepository> { SessionFeedbackRepositoryImpl(get()) }
     single<SpeakerRepository> { SpeakerRepositoryImpl(get()) }
     single<OrganizersRepository> { OrganizersRepositoryImpl(get()) }
+    single<EventRepository> { EventRepositoryImpl(get()) }
 }
