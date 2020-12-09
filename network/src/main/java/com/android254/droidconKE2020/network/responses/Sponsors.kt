@@ -4,10 +4,10 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Sponsors(
-    @Expose @SerializedName("data") val data: List<SponsorResponse>
+    @Expose @SerializedName("data") val data: List<SponsorItem>
 )
 
-data class SponsorResponse(
+data class SponsorItem(
     @Expose @SerializedName("name") val name: String,
     @Expose @SerializedName("tagline") val tagLine: String,
     @Expose @SerializedName("link") val link: String,

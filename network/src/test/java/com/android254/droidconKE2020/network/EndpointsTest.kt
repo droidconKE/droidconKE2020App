@@ -45,7 +45,8 @@ class EndpointsTest : KoinTest {
             server.url("/")
         }
         val sponsors = service.events.getSponsors()
-        assertThat(sponsors.data.size, `is`(1))
+        val data = sponsors.body()!!.data
+        assertThat(data.size, `is`(1))
     }
 
     @Test
