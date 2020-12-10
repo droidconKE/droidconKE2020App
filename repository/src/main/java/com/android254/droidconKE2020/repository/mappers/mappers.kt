@@ -46,7 +46,11 @@ fun OrganizerItem.toOrganizerUIModel(): OrganizerUIModel =
     OrganizerUIModel(
         organizerName = this.name,
         organizerAvatar = this.photo,
-        organizerTagLine = this.tagline
+        organizerTagLine = this.tagline,
+        organizerBio = this.bio,
+        organizerDesignation = this.designation,
+        organizerTwitterHandle = this.twitterHandle,
+        organizerType = this.type
     )
 
 fun SponsorItem.toSponsorUIModel(): SponsorUIModel =

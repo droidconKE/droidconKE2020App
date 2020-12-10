@@ -6,6 +6,11 @@ val testOrganisers = listOf(
     OrganizerUIModel(
         "John Doe",
         "https://api.droidcon.co.ke/upload/org_team/apppng.png",
-        "Designer @ TheDesin"
+        "Designer @ TheDesin",
+        "Android Developer",
+        "Android Developer",
+        "wangerekaharun",
+        "Individual"
+
     )
 )

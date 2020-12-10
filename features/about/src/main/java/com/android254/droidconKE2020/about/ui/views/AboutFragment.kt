@@ -9,8 +9,10 @@ import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.about.R
 import com.android254.droidconKE2020.about.databinding.FragmentAboutBinding
 import com.android254.droidconKE2020.about.di.aboutModule
+import com.android254.droidconKE2020.about.ui.adapters.CompanyOrganizersAdapter
 import com.android254.droidconKE2020.about.ui.adapters.OrganizerAdapter
 import com.android254.droidconKE2020.about.ui.viewmodel.OrganizerViewModel
+import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.repository.repoModule
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
@@ -23,6 +25,7 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
     private val binding get() = _binding!!
     private val organizersViewModel: OrganizerViewModel by viewModel()
     private lateinit var organizerAdapter: OrganizerAdapter
+    private lateinit var companyOrganizerAdapter: CompanyOrganizersAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,14 +48,20 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
                 AboutFragmentDirections.actionAboutFragmentToOrganizerDetailsFragment(organizerUIModel)
             findNavController().navigate(organizerDetailsDirections)
         }
+        companyOrganizerAdapter = CompanyOrganizersAdapter()
+        binding.organizersList.adapter = organizerAdapter
+        binding.rvCompanyOrganizers.adapter = companyOrganizerAdapter
         organizersViewModel.fetchOrganizers()
         observeOrganizers()
-        binding.organizersList.adapter = organizerAdapter
     }
 
     private fun observeOrganizers() {
         organizersViewModel.organizers.observe(viewLifecycleOwner) { organizers ->
-            organizerAdapter.submitList(organizers)
+            organizerAdapter.submitList(organizers.filter { it.organizerType == "individual" })
+            companyOrganizerAdapter.submitList(organizers.filter { it.organizerType == "company" })
+        }
+        organizersViewModel.showToast.observe(viewLifecycleOwner) { errorMessage ->
+            requireContext().toast(errorMessage)
         }
     }
 

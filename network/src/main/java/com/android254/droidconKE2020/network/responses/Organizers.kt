@@ -13,5 +13,9 @@ data class OrganizerItem(
     @Expose @SerializedName("name") val name: String,
     @Expose @SerializedName("photo") val photo: String,
     @Expose @SerializedName("tagline") val tagline: String,
-    @Expose @SerializedName("type") val type: String
+    @Expose @SerializedName("type") val type: String,
+    @Expose @SerializedName("twitter_handle") val twitterHandle: String,
+    @Expose @SerializedName("designation") val designation: String,
+    @Expose @SerializedName("bio") val bio: String,
+
 )
