@@ -10,7 +10,7 @@ val testOrganisers = listOf(
         "Android Developer",
         "Android Developer",
         "wangerekaharun",
-
+        "Individual"
 
     )
 )

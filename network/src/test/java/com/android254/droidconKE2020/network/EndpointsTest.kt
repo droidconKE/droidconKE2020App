@@ -173,6 +173,6 @@ class EndpointsTest : KoinTest {
             server.url("/")
         }
         val organizers = service.organizers.fetchOrganizers().body()!!
-        assertThat(organizers.organizers.size, `is`(2))
+        assertThat(organizers.organizers.size, `is`(3))
     }
 }

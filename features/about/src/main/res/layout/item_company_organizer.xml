@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="organizerUIModel"
+            type="com.android254.droidconKE2020.core.models.OrganizerUIModel" />
+    </data>
+
+    <ImageView
+        android:id="@+id/imgOrganizer"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_margin="8dp"
+        app:organizerImage="@{organizerUIModel.organizerAvatar}" />
+</layout>
+
+

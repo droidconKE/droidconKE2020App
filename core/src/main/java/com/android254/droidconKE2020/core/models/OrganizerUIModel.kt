@@ -9,6 +9,7 @@ data class OrganizerUIModel(
     val organizerAvatar: String,
     val organizerTagLine: String,
     val organizerBio: String,
-    val organizerDesignation : String,
-    val organizerTwitterHandle : String
+    val organizerDesignation: String,
+    val organizerTwitterHandle: String,
+    val organizerType: String
 ) : Parcelable
