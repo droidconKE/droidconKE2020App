@@ -1,7 +1,7 @@
 package com.android254.droidconKE2020.repository.sessions
 
 import com.android254.droidconKE2020.core.models.SessionUIModel
-import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.api.ApiService
 import com.android254.droidconKE2020.repository.Data
 import com.android254.droidconKE2020.repository.mappers.toSessionUIModel
 

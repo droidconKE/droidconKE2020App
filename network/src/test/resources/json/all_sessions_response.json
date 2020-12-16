@@ -1,0 +1,471 @@
+{
+  "data": [
+    {
+      "title": "Retrofiti: A Pragmatic Approach to using Retrofit in Android",
+      "description": "This session is codelab covering some of the best practices and recommended approaches to building an application using the retrofit library.",
+      "slug": "retrofiti-a-pragmatic-approach-to-using-retrofit-in-android-1583941090",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Roger Taracha",
+          "tagline": "TheDancerCodes",
+          "biography": "Roger Taracha is a Software Engineer by profession who also loves the Arts. \r\n\r\nWhen he isn't writing code or mentoring software developers, you can find him throwing down on the dance floor.\r\nHence his alias, TheDancerCodes.\r\n\r\nHe is currently a Learning Facilitator and Lead Android Engineer at Andela Kenya where he drives teams of software developers (junior and senior) to rapidly develop great software products. \r\n\r\nHe also supports the learning and professional development of dozens of Africa's most talented software developers every day.",
+          "avatar": "https://sessionize.com/image?f=b365d37c5064aa5ca332ca036b08f6ec,400,400,1,0,aa-600e-4800-bfee-afe74104c8e8.6708c35c-8578-40f1-aa56-d8991598d826.jpg",
+          "twitter": "https://twitter.com/TheDancerCodes",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@thedancercodes",
+          "company_website": "https://andela.com/"
+        }
+      ]
+    },
+    {
+      "title": "Jetpack: An Overview",
+      "description": "During Google IO 2018, the Android team announced Jetpack, a set of libraries, tools and architectural guidance to help make it quick and easy to build great Android apps. Jetpack includes the previously existing Architecture Components and adds many libraries and tools that make development easier across a wide range of areas. In this session, we'll go through the available libraries and APIs and discuss how they can make development easier, faster and more intuitive.",
+      "slug": "jetpack-an-overview-1583941090",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Eston Karumbi",
+          "tagline": "Android Developer",
+          "biography": "Developer, learner, wanderer, DIY auto mechanic.",
+          "avatar": "https://sessionize.com/image?f=f0a21786344cb927ecf4ca9f6b8cd10e,400,400,1,0,a3-ce70-41a6-b987-2afe691f0864.0311c9f2-10e0-41af-82f4-c660e307c405.jpg",
+          "twitter": "https://twitter.com/doc2dev",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "React Native for Android",
+      "description": "W̶r̶i̶t̶e̶ O̶n̶c̶e̶, ̶R̶u̶n̶ ̶E̶v̶e̶r̶y̶w̶h̶e̶r̶e̶.\r\nLearn once, Write Everywhere",
+      "slug": "react-native-for-android-1583941090",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Kitavi  Joseph",
+          "tagline": "Software Engineer, Andela",
+          "biography": "Dandiest Developer.\r\nSoftware Developer at Andela Kenya. Changing the world using Python and JavaScript.\r\nDabbling in Machine Learning along the way.",
+          "avatar": "https://sessionize.com/image?f=b51b56d3d048e7af45f1142d6cdca288,400,400,1,0,91-f4c1-4f58-9608-7efc2abfbe00.740ae8ed-bb9b-472d-8548-31ba62535784.jpg",
+          "twitter": "https://twitter.com/sirjmkitavi",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://sirjmkitavi.ml/gui/",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Creating Machine Learning On Android",
+      "description": "Showing how to integrate machine learning witj android",
+      "slug": "creating-machine-learning-on-android-1583941090",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Beginner",
+      "speakers": [
+        {
+          "name": "Felicity Mecha",
+          "tagline": "Community lead: AI Saturdays",
+          "biography": "https://docs.google.com/document/d/1pK_Uc9e198XpWciHpIGTJGQPmrxWvFqcXhnycbEV4JQ/edit?usp=sharing",
+          "avatar": "https://sessionize.com/image?f=588b7f4625a7720791231dc231ce307d,400,400,1,0,31238721-9237-4151-b9a4-f8bdcabdcd82.jpg",
+          "twitter": "https://twitter.com/fliquestarr",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@felicitymecha",
+          "company_website": "https://nurture.ai/ai-saturdays"
+        }
+      ]
+    },
+    {
+      "title": "Android Things",
+      "description": "Beginner codelab on Android Things to introduce developers to IoT through Android Things. The codelab will focus on getting started with Android Things. Developers will learn how to get set up with Android Things and create simple project on Android Things.\r\nDuring the codelab we will have a talk and Q & A session.\r\n",
+      "slug": "android-things-1583941090",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Beginner",
+      "speakers": [
+        {
+          "name": "Harun Wangereka",
+          "tagline": "Android Developer @ Apps:Lab",
+          "biography": "Android Developer @ Apps:Lab",
+          "avatar": "https://sessionize.com/image?f=09c1ef0e52f210e9569380a9dc1ccbda,400,400,1,0,cf-9587-423b-bd2e-415e6757286c.b33d8d6e-1f94-4765-a797-255efc34390d.jpg",
+          "twitter": "https://twitter.com/wangerekaharun",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@harunwangereka",
+          "company_website": "https://appslab.co.ke/"
+        },
+        {
+          "name": "Marvin Collins",
+          "tagline": "Apps:Lab KE",
+          "biography": "Computer scientist. Founder, Android and Web developer @AppsLab_KE. Passionate about impacting tech communities.",
+          "avatar": "https://sessionize.com/image?f=00eb07bde80694ca290dede281ee7f1b,400,400,1,0,4e-6670-4c7d-a3e6-34016679ec69.36f5d972-015d-40c3-8e6e-83087fd6dd3f.jpg",
+          "twitter": "https://twitter.com/marvin_hosea",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "http://geekstalkthursday.co.ke/",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Android Jetpack",
+      "description": "Deep dive into android Jetpack",
+      "slug": "android-jetpack-1583941090",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Beginner",
+      "speakers": [
+        {
+          "name": "Valentine Rutto",
+          "tagline": "Android developer ,Sendy",
+          "biography": "Android developer | fashion model |paperback Reader. ",
+          "avatar": "https://sessionize.com/image?f=5d712dd6290ec1fd6aca7a459629da71,400,400,1,0,ef-1877-483c-91da-970cd6c8faf1.d7115fc4-84cd-4f92-8851-25991c8ac86b.jpg",
+          "twitter": "http://twitter.com/valentinerutto",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@valentinerutto",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Async Operations with Kotlin Coroutines",
+      "description": "In Android application development, we live in an asynchronous world, operations such as API calls, DB queries and heavy background computation are prevalent in most applications.\r\nThe UI thread, which is responsible for UI updates and receiving user input events cannot be used to perform these operations.\r\n\r\nThe android framework has bundled with it different options for performing such long running operation in a background thread, some of which include AsyncTask, IntentService and plain old java Thread. Each of these above listed approaches come with their own drawbacks and as a result, third party approaches have also been tried. RxJava, which is the most popular of these libraries, while it does a good job in scheduling operations in the background, switching threads and composing operations, it comes with a major drawback which is its steep learning curve.\r\n\r\nThe advent of Kotlin and its increase popularity in Android application development, provides us with yet another option for running background operations with coroutines.  In this talk, we will be learning about what coroutines are, why coroutines and how to use them in android applications.\r\n",
+      "slug": "async-operations-with-kotlin-coroutines-1583941090",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Mayowa Adegeye",
+          "tagline": "Member of Technical Staff at Careem Networks GmbH",
+          "biography": "Mayowa Adegeye is a Computer Science graduate, with 4 years experience developing Android applications. I have worked with companies in Nigeria and Bangkok. Currently, I work with acompany called Careem Networks GmbH in Berlin, which is a car hailing company headquartered in Dubai. ",
+          "avatar": "https://sessionize.com/image?f=554b00c990e8591fd290ae061997789e,400,400,1,0,de-e676-42a7-93cd-729761d39d28.6d2d18cb-0180-4dc5-b986-32382e50dc99.jpg",
+          "twitter": "http://twitter.com/mayojava",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "GraphQL on Android",
+      "description": "RESTful APIs vs GraphQL for data loading architecture ",
+      "slug": "graphql-on-android-1583941090",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Emmanuel Mutua",
+          "tagline": "manuh.__",
+          "biography": "Emmanuel Mutua is a student at the Jomo Kenyatta University of Agriculture and Technology, an Open Source Enthusiast and a big time Android Lover! ",
+          "avatar": "https://sessionize.com/image?f=1f5ca806890a2a4096f39b9f3af992b0,400,400,1,0,28-1f4c-43bf-9baa-ad7735ef2f1c.702e7eb2-2eb4-4a2c-92c8-bd52f9c78bfa.jpg",
+          "twitter": "https://twitter.com/manuh_254",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": "http://www.lishabora.com/"
+        }
+      ]
+    },
+    {
+      "title": "To Inject or not inject - Dependency injection in a Kotlin world",
+      "description": "Dependency Injection via frameworks like Dagger were present in most modern Android projects.\r\nBut then Kotlin happened. And since then a bunch of new libraries like Koin or Kodein appeared. Developers are even writing articles how to do DI without any framework.\r\nSome argue that those don’t even offer real dependency injection. Let’s look at that argument and compare the approaches.\r\nSo, is there something wrong with Dagger & co. in Kotlin? Are they obsolete? What are the alternatives? Let’s dive in.",
+      "slug": "to-inject-or-not-inject-dependency-injection-in-a-kotlin-world-1583941090",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Danny Preussler",
+          "tagline": "Head of Mobile, sporttotal.tv",
+          "biography": "Danny built mobile applications for companies like Viacom, Groupon, eBay and Alcatel. He is a Google Developer Expert for Android Kotlin. Before Android he was part of the Blackberry developer community, teaching unit testing for java mobile platforms\r\n",
+          "avatar": "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png",
+          "twitter": "https://twitter.com/PreusslerBerlin",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@dpreussler",
+          "company_website": "http://www.sporttotal.tv/"
+        }
+      ]
+    },
+    {
+      "title": "Continuous Integration on Android",
+      "description": "This talk will cover a foundational skill important to every Android developer and project, continuous integration. Building software at every change is an important principle in the delivery of high quality software. Great CI does more than just testing if software builds. Automatically running tests, checking for lint issues and code style conformance are additional pipeline steps that insure the quality of your work product. And why stop there? Distribute your app to a small group of testers and to the masses through the Play store, automatically, on every code change. How? Come to this session to learn the tools and tricks that allow continuous integration to guarantee quality in your Android work, no matter how small or large your audience might be.",
+      "slug": "continuous-integration-on-android-1583941090",
+      "session_format": "Regular Session",
+      "session_level": "Beginner",
+      "speakers": [
+        {
+          "name": "Stephen Ebichondo",
+          "tagline": "I see dead code",
+          "biography": "Over 10 years of software development experience including high transactional enterprise banking applications, with team leadership and mentoring experience. Expert in full System Development Life Cycle (SDLC). Has the ability to understand and transform complex business requirements into software, ensuring applications are delivered on time, to specification, are scalable, performance optimised and maintainable. A highly motivated individual who is always learning, able to work to tight deadlines, and who can communicate effectively with technical peers as well as business users. Someone who encourages learning and the sharing of ideas and is always open to new ways of working.",
+          "avatar": "https://sessionize.com/image?f=d8d4178f2e70cdcc225a4c5870958483,400,400,1,0,2207c70b-605d-4144-91ec-705452a97945.jpg",
+          "twitter": "https://twitter.com/sebichondo",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Code Build Ship",
+      "description": "DevOps has been a buzzword since a 2008. But how does it apply to Android development?",
+      "slug": "code-build-ship-1583941089",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Advanced",
+      "speakers": [
+        {
+          "name": "Michael Bukachi",
+          "tagline": "'Movement in the shadows'",
+          "biography": "4th year student pursuing Applied Computer Science at Daystar University.",
+          "avatar": "https://sessionize.com/image?f=1d52e9249bf4af74e73739a10a9fe1a6,400,400,1,0,85-112f-40a4-9839-9974f6b11a67.e1832d1f-9443-4995-bb09-1d5eb1913427.JPG",
+          "twitter": "https://twitter.com/michaelbukachi",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": "https://farmdrive.co.ke/"
+        },
+        {
+          "name": "Nathanael Mkaya",
+          "tagline": "Novice:Order of the Green Droid",
+          "biography": "Aspiring Software Engineer with a passion for Android, Kotlin, Rust, Golang. ",
+          "avatar": "https://sessionize.com/image?f=2773c479066f2bc7fd7ee73bfaed586e,400,400,1,0,c96eac54-f222-4bf6-b873-8f55fb18e7ca.jpg",
+          "twitter": "https://twitter.com/nathanmkaya",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@nathanmkaya",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Constraint Layout 2.0",
+      "description": "This session will cover the new features in ConstraintLayout 2.0, as well as the latest functionality added in Android Studio design tools, highlighting how to effectively take advantage of them for designing, prototyping, and building a graphical user interface application.",
+      "slug": "constraint-layout-20-1583941089",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Beginner",
+      "speakers": [
+        {
+          "name": "Thomas Kioko",
+          "tagline": "Introverted Coder turned stand-up chameleon",
+          "biography": "I tend to think of myself as a simple guy who loves what he does. I’ve specialized in Mobile Application Development, and I mostly focus on simplicity, ergonomics, responsive design. UX and problem solving are central to everything I do.",
+          "avatar": "https://sessionize.com/image?f=14aabd2518de7b8755c4ee5ea7b6226b,400,400,1,0,9a-d3a1-4614-b3cb-5ce9a835b3dc.4f5f6633-3705-4227-b974-0a8cbc45216a.JPG",
+          "twitter": "https://twitter.com/code_wizard",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "http://thomaskioko.com/",
+          "company_website": "https://www.thomaskioko.com/"
+        }
+      ]
+    },
+    {
+      "title": "Integrating Mpesa Payments on Android Apps",
+      "description": "I will use the session to demonstrate how one can leverage the Mpesa api while developing commercial/subscription apps .",
+      "slug": "integrating-mpesa-payments-on-android-apps-1583941089",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Kevin Mulugu",
+          "tagline": "Software developer at Homepesa Sacco",
+          "biography": "I am a full stack developer with more focus on Android Development, API Development and Mpesa integration. I am also a Kaspersky system engineer.",
+          "avatar": "https://sessionize.com/image?f=584075943375463b0f5210f3eaea770d,400,400,1,0,48-fe49-4ac2-9aca-d097f500b186.af24353d-16f4-48a5-86dc-58117beffaa0.png",
+          "twitter": "https://twitter.com/kevvoh_",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://mlg.co.ke",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "No Internet? No Problem!",
+      "description": "At Off Grid Electric our mission is to power homes across rural Africa with affordable, solar energy. In order to do that we need to provide our employees with tools that work both on and offline. So how did we do it? In this talk, learn about the techniques we employed to provide a unique online-offline experience in our Android applications. We’ll discuss the overall architecture, third party libraries used, and some of the challenges that we faced. As more and more users come online in various parts of the world it makes sense for companies to begin exploring how they can modify their applications to be more network-friendly. This talk will get you headed in the right direction!",
+      "slug": "no-internet-no-problem-1583941089",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Moyinoluwa Adeyemi",
+          "tagline": "Android Developer at Offgrid Electric",
+          "biography": "Moyinoluwa is an Android Developer who enjoys exploring the latest technologies in Android Development. She loves sharing her knowledge by writing on Medium. She also cares a lot about building apps that look good and work well on all devices.",
+          "avatar": "https://sessionize.com/image?f=231bafdb800ec9d882eec6580fc97f9b,400,400,1,0,6b-241d-4d1b-a67d-b5c89ef258e1.557c848a-271b-45dd-8020-e77fbc7dbcb1.jpg",
+          "twitter": "https://twitter.com/moyheen",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://moyinoluwa.dev/",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Software craftmanship - Becoming a better android developer",
+      "description": "This talk is all about becoming a better software engineer/android engineer. It covers some of the basic skills/habits we overlook as we learn coding that might cost us in the long term in our journey to become a solid software engineer. This call will be about calling out mediocrity and finding ways to be better at our craft as software engineers. ",
+      "slug": "software-craftmanship-becoming-a-better-android-developer-1583941089",
+      "session_format": "Regular Session",
+      "session_level": "Beginner",
+      "speakers": [
+        {
+          "name": "Seth Kigen.",
+          "tagline": "Systems Architect @ Twigafoods. ",
+          "biography": "Coder, Maker & breaker of things.\r\n",
+          "avatar": "https://sessionize.com/image?f=be829eb41c4ec0d45ca7c855ecef269f,400,400,1,0,1a-8b84-4c47-b0e6-1fcc5595ec6f.c213136b-8252-4310-a0ff-a2d30881049f.jpg",
+          "twitter": "http://twitter.com/kigen",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "http://sekiki.wordpress.com/",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Data Binding and Kotlin",
+      "description": "In this session, I will go through the fundamentals of Android Data Binding that helps developers bind UI components to data sources and more. This session will also be in Kotlin where I will briefly show some nice features about the language which can be adopted when using the Data Binding Library. The talk will show how Data Binding fits as a library in Android Jetpack architecture component. This session will also show developers how Data Binding plays nicely with other Android Architecture Components to design robust apps. It will also cover bits of how to keep your UI code separate from the business logic code.",
+      "slug": "data-binding-and-kotlin-1583941089",
+      "session_format": "Regular Session",
+      "session_level": "Beginner",
+      "speakers": [
+        {
+          "name": "Eton Otieno",
+          "tagline": "Code Zilla",
+          "biography": "I am currently a student at Kenyatta University pursuing a degree in Telecommunication and Information Technology. I have a one year experience in Android app development and the journey has been great so far. from the many meetups I have attended, I have gained knowledge and I believe that the best way to give back to the community is to share what I have learnt. My interests lie in learning new tools and libraries that helps developers increase their productivity and make work easier and more fun.",
+          "avatar": "https://sessionize.com/image?f=7a4c845c2b7ae049becca1ea8335e693,400,400,1,0,f8-2bc7-4db2-9b5e-09e1bcb7ba2a.03b3abeb-d6e0-482c-8262-863edf6122c9.jpg",
+          "twitter": "https://twitter.com/etonotieno",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "http://etonotieno.hashnode.dev",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Android City:On the walls of Kotlin Street",
+      "description": "Using Kotlin for Android development has grown in popularity over the last year. Even to those who are not currently using it, the value proposition of the language immediately resonates. There already are a lot of introductory talks to the language and its extensions for use on Android. This talk will cover advancing the usage and design patterns of the language for Android development to solve larger problems. While the content is targeted at mobile development, there will be value for all Java developers interested in Kotlin.\r\nPrior knowledge or use of Kotlin is not required to attend this talk. Some concepts of the language will be used without introduction but they are intuitive and/or quickly learned. Even if you don’t fully understand every language concept on which each example is built, the resulting functionality will be clear.\r\n\r\nSections\r\n- Signs on Kotlin Street(What is Kotlin all about?)\r\n- Why we need Kotlin\r\n- Examples(using code snippets)\r\n- Demo of apps running on kotlin\r\n-The future of Kotlin(in mobile, web and machine learning)\r\n-Short Quiz\r\n-Q/A\r\n",
+      "slug": "android-cityon-the-walls-of-kotlin-street-1583941089",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Temidayo Adefioye",
+          "tagline": "geekofthrones",
+          "biography": "Temidayo is a software engineer and an open source advocate with a keen interest in mobile app development, web applications and data science. He is currently a Local Community Ambassador at Andela Learning Community with Google.\r\n\r\nHe maintains diylaw.ng and babymigo and contributes to many more open source projects. In 2014 he had the opportunity to represent his country and Africa as a whole at Microsoft Headquarters for a software contest. In 2015, He was invited by Microsoft to be a Judge at break into code challenge for students across the world.\r\n\r\nTemidayo currently enjoys working full-time for DIYLaw Technologies, the makers of diylaw.ng. He started writing software for fun and friends in 2011 after his mum bought him his first computer, an Hp 620 laptop, and he's been delivering commerical software since 2015.",
+          "avatar": "https://sessionize.com/image?f=0497abe1cc5b9d0b315b6301eddca003,400,400,1,0,8c-c53c-4553-9e9f-7d22ff55e350.1aa5442f-c7ac-45a2-8a85-d810958f700b.jpg",
+          "twitter": "http://twitter.com/temidjoy",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@temidjoy",
+          "company_website": "http://swiftsynq.com"
+        }
+      ]
+    },
+    {
+      "title": "Cloud Firestore - Getting Started",
+      "description": "Cloud Firestore, Firebase's new flagship NoSQL database for mobile app development improves on the successes of the Realtime Database with a new, more intuitive data model. Cloud Firestore also features richer, faster queries and scales better than the Realtime Database. This session discusses how you can integrate it into mobile apps and benefit from these improvements.",
+      "slug": "cloud-firestore-getting-started-1583941089",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Otieno Rowland",
+          "tagline": "Android Hoax Slayer",
+          "biography": "Rowland is an Software Engineer and mentor. He has been crafting apps for 5 years now and has gathered a lot of experience in those years. In his free time, he likes riding a bike around his hood, and occasionally takes his dog pet for a stroll.",
+          "avatar": "https://sessionize.com/image?f=03336bfcbc489eb0fe537d7e271e7d64,400,400,1,0,45-6488-47f0-b262-7ce4085d0b5d.8ddd355b-125c-48ae-9bb1-090819b39a0a.jpg",
+          "twitter": "https://twitter.com/rowlandoti",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://www.linkedin.com/in/rowlandoti/",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Transforming Ideas With Flutter",
+      "description": "With billions of apps on the Playstore, a new standard from users on how a good app should look like and feel like is taking shape. How can we transform traditional UI/UX requirements into amazing tangible experiences using flutter?",
+      "slug": "transforming-ideas-with-flutter-1583941089",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Dennis Riungu",
+          "tagline": "Google Developer Group Kenya, Country mentor",
+          "biography": "Dennis Riungu is a full stack software engineer consulting for eShare Ltd, UK, developing some of the world's most critical Entity Management software. Most of his time is spent on Angular, Node.js and .NET core.\r\n\r\nDennis also serves as the country mentor for Google Developer Groups in Kenya, helping developers get their hands on the best tools from Google to use in the development like Firebase, Flutter, GCP, etc.\r\n\r\nDennis loves to shine at Go Karting ☺️",
+          "avatar": "https://sessionize.com/image?f=b56c9dcc4a0b8d95789aa183cd8a681b,400,400,1,0,c4e7a808-6e3f-4cdf-a06e-a6ac70a0a9c8.jpg",
+          "twitter": "https://twitter.com/denpalrius",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": null
+        },
+        {
+          "name": "Roina Ochieng",
+          "tagline": "Developer Relations Associate at Africa's Talking",
+          "biography": "Roina Ochieng is a 23 year old woman in tech based in Nairobi, Kenya. Having studied Computer Science and Informatics in Strathmore University, she’s a programmer with experience with developer communities. She’s the lead of the Nairobi chapter of the Google Developer Group. With exposure to the local start-up dynamics in Kenya and Eastern Africa. Her stack is a cocktail of everything Android and Angular JS, Ruby, Python, ASP .NET. Having worked with startups for years now, she is passionate about the power of collaboration to change communities. She is currently working with the leading Pan-African developer company, Africa’s Talking as a developer success advocate  where she oversees how the company supports African developer ecosystem through innovative connective technology.\r\n",
+          "avatar": "https://sessionize.com/image?f=86d12de4d0e4866a6f74eed38cc296fa,400,400,1,0,b5-f726-4b2f-bea5-3df868d2e105.a72446bd-b13f-4d1f-9795-56ebc4bcd027.jpg",
+          "twitter": "https://twitter.com/roinochieng",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://roinaochieng.wordpress.com/",
+          "company_website": null
+        }
+      ]
+    },
+    {
+      "title": "Understanding your builds",
+      "description": "Gradle is the preferred build system for Android. This session will  cover basic Gradle concepts in relation to building an Android app and some custom tasks you can integrate into the build system for your apps.",
+      "slug": "understanding-your-builds-1583941089",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "speakers": [
+        {
+          "name": "Charles Muchene",
+          "tagline": "SenseiDev",
+          "biography": "Lead Mobile Engineer at a motorcycle ride sharing company in Kampala, Uganda. Freshly brewed café latte does the magic. :D",
+          "avatar": "https://sessionize.com/image?f=b8c9f0300f2d7242f78c4df95bf297f4,400,400,1,0,79-31e3-4c9c-88fe-30d51990bf64.08ff2466-3b86-4bb5-9292-b4b493df6e6f.JPG",
+          "twitter": "https://twitter.com/charlesmuchene",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": "http://www.safeboda.com"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "paginator": {
+      "count": 23,
+      "per_page": "20",
+      "current_page": 1,
+      "next_page": "http://localhost:8000/api/v1/events/droidconke2019-444/sessions?per_page=20&page=2",
+      "has_more_pages": true,
+      "next_page_url": "http://localhost:8000/api/v1/events/droidconke2019-444/sessions?per_page=20&page=2",
+      "previous_page_url": null
+    }
+  }
+}

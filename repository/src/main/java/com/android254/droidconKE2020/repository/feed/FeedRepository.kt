@@ -4,7 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.android254.droidconKE2020.core.models.FeedUIModel
-import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.api.ApiService
 import kotlinx.coroutines.flow.Flow
 
 interface FeedRepository {

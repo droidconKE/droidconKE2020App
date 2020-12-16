@@ -1,5 +1,6 @@
-package com.android254.droidconKE2020.network
+package com.android254.droidconKE2020.network.api
 
+import com.android254.droidconKE2020.network.endpoints.*
 import retrofit2.Retrofit
 
 class ApiService(retrofit: Retrofit) {

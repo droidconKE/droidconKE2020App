@@ -1,8 +1,8 @@
 package com.android254.droidconKE2020.repository
 
 import com.android254.droidconKE2020.core.Preferences
-import com.android254.droidconKE2020.network.ApiService
-import com.android254.droidconKE2020.network.GoogleService
+import com.android254.droidconKE2020.network.api.ApiService
+import com.android254.droidconKE2020.network.api.GoogleService
 import com.android254.droidconKE2020.network.payloads.GoogleToken
 import retrofit2.HttpException
 import java.io.IOException

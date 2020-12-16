@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.network
+package com.android254.droidconKE2020.network.endpoints
 
 import com.android254.droidconKE2020.network.payloads.GoogleToken
 import com.android254.droidconKE2020.network.responses.AccessToken
