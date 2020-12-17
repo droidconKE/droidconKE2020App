@@ -12,14 +12,15 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.models.SessionUIModel
+import com.android254.droidconKE2020.core.models.SponsorUIModel
 import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeModule
 import com.android254.droidconKE2020.home.domain.Speaker
-import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.ui.viewmodel.HomeViewModel
+import com.android254.droidconKE2020.home.utils.EmailConstants
 import com.android254.droidconKE2020.repository.repoModule
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
@@ -94,10 +95,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         webPages.launchInAppBrowser(webUrl)
     }
 
-    private fun sendEmail(addresses: Array<String>, subject: String) {
+    private fun sendEmail(addresses: String, subject: String) {
         val intent = Intent(Intent.ACTION_SENDTO).apply {
             type = "message/rfc822"
-            val uriText = "mailto:${addresses.joinToString(",")}?subject=$subject"
+            val uriText = "mailto:$addresses?subject=$subject"
             data = Uri.parse(uriText)
         }
         if (intent.resolveActivity(requireContext().packageManager) != null) startActivity(intent)
@@ -203,13 +204,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSponsors() {
+        homeViewModel.fetchSponsors()
         binding.tvBecomeSponsor.setOnClickListener {
-            sendEmail(homeViewModel.becomeSponsorEmails, homeViewModel.becomeSponsorSubject)
+            sendEmail(EmailConstants.SPONSORSHIP_EMAIL, EmailConstants.SPONSORSHIP_SUBJECT)
         }
-
-        val onSponsorClicked: (Sponsor) -> Unit = { launchBrowser(it.website) }
-
-        // ToDo: Merge two adapters to use a single list using MergeAdapter
+        val onSponsorClicked: (SponsorUIModel) -> Unit = { launchBrowser(it.link) }
         val goldAdapter = GoldSponsorAdapter(onSponsorClicked)
         binding.rvGoldSponsors.adapter = goldAdapter
         binding.rvGoldSponsors.layoutManager = FlexboxLayoutManager(requireContext()).also {
@@ -225,26 +224,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             it.flexWrap = FlexWrap.WRAP
             it.justifyContent = JustifyContent.SPACE_EVENLY
         }
-
-        homeViewModel.sponsors.observe(
-            viewLifecycleOwner,
-            Observer { sponsors ->
-                sponsors?.let {
-                    val goldSponsors = mutableListOf<Sponsor>()
-                    val otherSponsors = mutableListOf<Sponsor>()
-
-                    sponsors.forEach { if (it.isGold) goldSponsors.add(it) else otherSponsors.add(it) }
-
-                    goldAdapter.submitList(goldSponsors)
-                    otherAdapter.submitList(otherSponsors)
-                }
-            }
-        )
-        homeViewModel.retrieveSponsors()
+        homeViewModel.sponsors.observe(viewLifecycleOwner) { sponsors ->
+            goldAdapter.submitList(sponsors)
+            otherAdapter.submitList(sponsors)
+        }
     }
 
     private fun showOrganizers() {
-
         val adapter = OrganizerAdapter()
         binding.organizersList.adapter = adapter
         binding.organizersList.suppressLayout(true)
