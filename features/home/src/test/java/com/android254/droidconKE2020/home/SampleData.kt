@@ -1,6 +1,7 @@
 package com.android254.droidconKE2020.home
 
 import com.android254.droidconKE2020.core.models.SessionUIModel
+import com.android254.droidconKE2020.core.models.SponsorUIModel
 
 val testSessions = listOf(
     SessionUIModel(
@@ -20,5 +21,14 @@ val testSessions = listOf(
         "08:45 AM",
         "AM",
         "Regular Session"
+    )
+)
+
+val testSponsors = listOf(
+    SponsorUIModel(
+        "Google",
+        "Google is Google",
+        "google.com",
+        "https://api.droidcon.co.ke/upload/org_team/apppng.png"
     )
 )

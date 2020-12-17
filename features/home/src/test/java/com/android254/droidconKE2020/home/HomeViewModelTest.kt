@@ -3,6 +3,7 @@ package com.android254.droidconKE2020.home
 import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
 import com.android254.droidconKE2020.home.ui.viewmodel.*
 import com.android254.droidconKE2020.repository.Data
+import com.android254.droidconKE2020.repository.EventRepository
 import com.android254.droidconKE2020.repository.sessions.SessionRepository
 import com.android254.droidconKE2020.test_utils.BaseViewModelTest
 import com.jraska.livedata.test
@@ -17,12 +18,12 @@ class HomeViewModelTest : BaseViewModelTest() {
     private lateinit var homeViewModel: HomeViewModel
     private val promoRepo = mockk<FakePromotionRepository>()
     private val speakerRepo = mockk<FakeSpeakerRepository>()
-    private val sponsorRepo = mockk<FakeSponsorRepository>()
+    private val eventRepository = mockk<EventRepository>()
     private val organizerRepo = mockk<FakeOrganizerRepository>()
 
     @Before
     fun before() {
-        homeViewModel = HomeViewModel(promoRepo, sessionsRepository, speakerRepo, sponsorRepo, organizerRepo)
+        homeViewModel = HomeViewModel(promoRepo, sessionsRepository, speakerRepo, eventRepository, organizerRepo)
     }
 
     @After
@@ -52,28 +53,18 @@ class HomeViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test that a the sponsor registration email addresses and subject exists`() {
-        println("Action: Retrieving Become Sponsor email parameters")
-        println("Expected: Array of emails addresses")
-        println("Expected: String of email subject")
-
-        val emails: Array<String>? = homeViewModel.becomeSponsorEmails
-        println("Value: ${emails?.joinToString(",")}")
-
-        val subject: String? = homeViewModel.becomeSponsorSubject
-        println("Value: $subject")
-
-        Assert.assertFalse(emails.isNullOrEmpty())
-        Assert.assertFalse(subject.isNullOrBlank())
-
-        println("######## \n")
-    }
-
-    @Test
     fun `test show toast has value when error occurs`() {
         coEvery { sessionsRepository.fetchAllSessions() } returns Data.Error("Error Occurred")
         homeViewModel.fetchAllSessions()
         coVerify { sessionsRepository.fetchAllSessions() }
         homeViewModel.showToast.test().assertValue("Error Occurred")
+    }
+
+    @Test
+    fun `test that sponsors are fetched successfully`() {
+        coEvery { eventRepository.fetchSponsors() } returns Data.Success(testSponsors)
+        homeViewModel.fetchSponsors()
+        coVerify { eventRepository.fetchSponsors() }
+        homeViewModel.sponsors.test().assertHasValue()
     }
 }
