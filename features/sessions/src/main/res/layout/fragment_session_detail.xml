@@ -15,8 +15,8 @@
             name="bookmarkSession"
             type="android.view.View.OnClickListener" />
         <variable
-            name="sessionsViewModel"
-            type="com.android254.droidconKE2020.sessions.ui.viewmodel.SessionsViewModel" />
+            name="sessionUIModel"
+            type="com.android254.droidconKE2020.core.models.SessionUIModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
-                    android:text="@{sessionsViewModel.sessionUIModel.sessionDuration}"
+                    android:text="@{sessionUIModel.sessionDuration}"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -52,7 +52,7 @@
                     android:layout_marginTop="32dp"
                     android:drawableStart="@drawable/ic_directions"
                     android:drawablePadding="4dp"
-                    android:text="@{sessionsViewModel.sessionUIModel.sessionVenue}"
+                    android:text="@{sessionUIModel.sessionVenue}"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@+id/chipSessionLevel"
                     app:layout_constraintStart_toEndOf="@+id/textViewSessionTime"
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:clickable="false"
-                    android:text="@{ `#` + sessionsViewModel.sessionUIModel.sessionLevel}"
+                    android:text="@{ `#` + sessionUIModel.sessionLevel}"
                     android:textColor="@color/colorOnSessionLevelBackground"
                     app:chipBackgroundColor="@color/colorSessionLevelBackground"
                     app:layout_constraintBottom_toBottomOf="@+id/textViewSessionVenue"
@@ -123,7 +123,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:shape_mode="circle"
-                            imageUrl="@{sessionsViewModel.sessionUIModel.sessionSpeakers[0].speakerAvatar}"
+                            imageUrl="@{sessionUIModel.sessionSpeakers[0].speakerAvatar}"
                             android:src="@drawable/greg">
 
                         </cn.gavinliu.android.lib.shapedimageview.ShapedImageView>
@@ -136,7 +136,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="@font/roboto_slab_bold"
-                            android:text="@{sessionsViewModel.sessionUIModel.sessionFormat}"
+                            android:text="@{sessionUIModel.sessionFormat}"
                             android:textColor="@android:color/black"
                             android:textSize="16sp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -151,7 +151,7 @@
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="@font/roboto_slab_bold"
-                            android:text="@{sessionsViewModel.sessionUIModel.sessionTitle}"
+                            android:text="@{sessionUIModel.sessionTitle}"
                             android:maxLines="2"
                             android:ellipsize="end"
                             android:textColor="@color/colorPurple"
@@ -167,7 +167,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="@{sessionsViewModel.sessionUIModel.sessionSpeakers[0].speakerName}"
+                            android:text="@{sessionUIModel.sessionSpeakers[0].speakerName}"
                             android:textColor="@android:color/black"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -183,7 +183,7 @@
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="24dp"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="@{sessionsViewModel.sessionUIModel.sessionSpeakers[0].speakerCompany}"
+                            android:text="@{sessionUIModel.sessionSpeakers[0].speakerCompany}"
                             android:textColor="@color/colorBlack"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -285,7 +285,7 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/roboto"
                     android:lineSpacingExtra="4dp"
-                    android:text="@{sessionsViewModel.sessionUIModel.sessionDescription}"
+                    android:text="@{sessionUIModel.sessionDescription}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionTitle"

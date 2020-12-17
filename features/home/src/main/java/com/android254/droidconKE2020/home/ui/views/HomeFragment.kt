@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.android254.droidconKE2020.core.di.browserModule
+import com.android254.droidconKE2020.core.models.SessionUIModel
 import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
@@ -18,7 +19,8 @@ import com.android254.droidconKE2020.home.di.homeModule
 import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.domain.Sponsor
 import com.android254.droidconKE2020.home.ui.adapters.*
-import com.android254.droidconKE2020.home.viewmodel.HomeViewModel
+import com.android254.droidconKE2020.home.ui.viewmodel.HomeViewModel
+import com.android254.droidconKE2020.repository.repoModule
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -32,16 +34,17 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 private val loadFeature by lazy {
-    loadKoinModules(listOf(homeModule, browserModule))
+    loadKoinModules(listOf(homeModule, browserModule, repoModule))
 }
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun injectFeature() = loadFeature
-
     private val homeViewModel: HomeViewModel by viewModel()
-
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val sessionsAdapter = SessionAdapter {
+        onSessionClicked(it)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +55,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -155,29 +158,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSessionsList() {
+        homeViewModel.fetchAllSessions()
         binding.viewSessionsBtn.setOnClickListener { viewAllSessionsClicked() }
-
-        val adapter = SessionAdapter()
-        binding.sessionsList.adapter = adapter
+        binding.sessionsList.adapter = sessionsAdapter
         binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(30))
-
-        homeViewModel.sessionList.observe(
-            viewLifecycleOwner,
-            Observer { sessions ->
-                if (sessions == null) {
-                    binding.sessionCountChip.visibility = View.GONE
-
-                    // ToDo: Show shimmer effect. No need to hide since this will always be available
-                } else {
-                    binding.sessionCountChip.visibility = View.VISIBLE
-                    val totalSessions = "+${sessions.size}"
-                    binding.sessionCountChip.text = totalSessions
-                    adapter.updateData(sessions)
-                }
+        homeViewModel.sessions.observe(viewLifecycleOwner) { sessions ->
+            sessionsAdapter.submitList(sessions)
+            if (sessions.isEmpty()) {
+                binding.sessionCountChip.visibility = View.GONE
+            } else {
+                binding.sessionCountChip.visibility = View.VISIBLE
+                val totalSessions = "+${sessions.size}"
+                binding.sessionCountChip.text = totalSessions
             }
-        )
-
-        homeViewModel.retrieveSessionList()
+        }
     }
 
     private fun showSpeakersList() {
@@ -267,6 +261,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         )
 
         homeViewModel.retrieveOrganizerList()
+    }
+
+    private fun onSessionClicked(sessionUIModel: SessionUIModel) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(sessionUIModel))
     }
 
     override fun onDestroyView() {

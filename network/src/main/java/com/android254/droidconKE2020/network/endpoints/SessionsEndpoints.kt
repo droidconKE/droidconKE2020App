@@ -1,5 +1,6 @@
 package com.android254.droidconKE2020.network.endpoints
 
+import com.android254.droidconKE2020.network.responses.AllSessions
 import com.android254.droidconKE2020.network.utils.ApiConstants
 import com.android254.droidconKE2020.network.responses.Message
 import com.android254.droidconKE2020.network.responses.Sessions
@@ -21,8 +22,6 @@ interface SessionsEndpoints {
         @Path("sessionId") sessionId: Int
     ): Response<Message>
 
-    @GET("events/${ApiConstants.DROIDCON_EVENT}/sessions")
-    suspend fun fetchSessions(
-        @Query("per_page") pageSize : Int = 10
-    ): Response<Sessions>
+    @GET("events/${ApiConstants.DROIDCON_EVENT}/schedule")
+    suspend fun fetchSessions(): Response<AllSessions>
 }

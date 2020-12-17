@@ -184,6 +184,7 @@ class EndpointsTest : KoinTest {
         declare {
             server.url("/")
         }
-        val sessions
+        val sessions = service.sessionSchedule.fetchSessions().body()!!
+        assertThat(sessions.sessions.size, `is`(8))
     }
 }

@@ -1,42 +1,32 @@
 package com.android254.droidconKE2020.home.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import com.android254.droidconKE2020.home.R
-import com.android254.droidconKE2020.home.domain.Session
-import kotlinx.android.synthetic.main.home_item_session.view.*
+import com.android254.droidconKE2020.core.models.SessionUIModel
+import com.android254.droidconKE2020.home.databinding.HomeItemSessionBinding
+import com.android254.droidconKE2020.home.utils.SessionsDiffUtilsCallback
 import com.android254.droidconKE2020.R as appR
 
-class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() {
+typealias OnSessionClick = (SessionUIModel) -> Unit
+class SessionAdapter(private val onSessionClick: OnSessionClick) : ListAdapter<SessionUIModel, SessionAdapter.SessionViewHolder>(SessionsDiffUtilsCallback()) {
 
-    private val sessions = mutableListOf<Session>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.home_item_session, parent, false)
-        return SessionViewHolder(view)
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = HomeItemSessionBinding.inflate(inflater, parent, false)
+        return SessionViewHolder(binding, onSessionClick)
     }
-
-    override fun getItemCount(): Int = sessions.size
 
     override fun onBindViewHolder(holder: SessionViewHolder, position: Int) {
-        val session = sessions[position]
-        holder.bindSession(session, position)
+        getItem(position)?.let { holder.bindSession(it, position) }
     }
 
-    fun updateData(list: List<Session>) {
-        sessions.clear()
-        sessions.addAll(list)
-        notifyDataSetChanged()
-    }
+    inner class SessionViewHolder(private val binding: HomeItemSessionBinding, private val onSessionClick: OnSessionClick) : RecyclerView.ViewHolder(binding.root) {
 
-    inner class SessionViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-
-        fun bindSession(session: Session, position: Int) {
-            view.sessionImg.apply {
+        fun bindSession(session: SessionUIModel, position: Int) {
+            binding.sessionImg.apply {
                 val colorId = if (position % 2 == 0) {
                     appR.color.colorBermudaFaded
                 } else {
@@ -47,23 +37,9 @@ class SessionAdapter : RecyclerView.Adapter<SessionAdapter.SessionViewHolder>() 
                 setBackgroundColor(bgColor)
             }
             with(session) {
-                view.imgAvatar.load(speaker.imageUrl)
-                view.tvSessionTitle.text = "$title:"
-                view.tvSessionDescription.text = description
-                view.tvSpeakerName.text = speaker.name
-                view.tvSpeakerDelegation.text =
-                    "${speaker.work}${if (!speaker.company.isBlank()) ", " + speaker.company else ""}"
-                view.time.text = time
-                view.room.text = room
-                view.description.text = description
-                view.rootView.setOnClickListener { onSessionClicked(id) }
+                binding.sessionUIModel = this
+                binding.root.setOnClickListener { onSessionClick(this) }
             }
-        }
-
-        private fun onSessionClicked(sessionId: Long) {
-//            val sessionDetailsAction =
-//                HomeFragmentDirections.actionHomeFragmentToSessionDetailsFragment(sessionId)
-//            view.findNavController().navigate(sessionDetailsAction)
         }
     }
 }

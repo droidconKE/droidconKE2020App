@@ -73,7 +73,6 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     }
 
     override fun onSessionClick(sessionUIModel: SessionUIModel) {
-        sessionsViewModel.setSession(sessionUIModel)
         findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment(sessionUIModel))
     }
 

@@ -4,5 +4,5 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class AllSessions(
-    @Expose @SerializedName("data") val sessions : List<SessionItem>
+    @Expose @SerializedName("data") val sessions: List<SessionItem>
 )
