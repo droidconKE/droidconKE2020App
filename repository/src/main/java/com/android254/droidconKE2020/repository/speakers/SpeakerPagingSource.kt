@@ -2,7 +2,7 @@ package com.android254.droidconKE2020.repository.speakers
 
 import androidx.paging.PagingSource
 import com.android254.droidconKE2020.core.models.SpeakerUIModel
-import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.api.ApiService
 import com.android254.droidconKE2020.repository.mappers.toSpeakerUIModel
 import retrofit2.HttpException
 import java.io.IOException

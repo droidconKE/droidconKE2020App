@@ -1,5 +1,6 @@
-package com.android254.droidconKE2020.network
+package com.android254.droidconKE2020.network.api
 
+import com.android254.droidconKE2020.network.BuildConfig
 import com.android254.droidconKE2020.network.utils.await
 import okhttp3.FormBody
 import okhttp3.OkHttpClient

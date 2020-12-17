@@ -1,7 +1,7 @@
 package com.android254.droidconKE2020.repository.sessions
 
 import com.android254.droidconKE2020.core.models.SessionUIModel
-import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.api.ApiService
 import com.android254.droidconKE2020.repository.Data
 import com.android254.droidconKE2020.repository.mappers.toSessionUIModel
 
@@ -10,6 +10,8 @@ interface SessionRepository {
     suspend fun fetchSessionsSchedule(day: String): Data<List<SessionUIModel>>
 
     suspend fun changeBookmarkStatus(sessionId: Int): Data<String>
+
+    suspend fun fetchAllSessions(): Data<List<SessionUIModel>>
 }
 
 class SessionRepositoryImpl(private val apiService: ApiService) : SessionRepository {
@@ -54,10 +56,26 @@ class SessionRepositoryImpl(private val apiService: ApiService) : SessionReposit
     }
 
     override suspend fun changeBookmarkStatus(sessionId: Int): Data<String> {
-        val response = apiService.sessionSchedule.changeBookmarkStatus(sessionId)
         return try {
+            val response = apiService.sessionSchedule.changeBookmarkStatus(sessionId)
             when {
                 response.isSuccessful -> Data.Success(response.body()!!.message)
+                else -> Data.Error(response.message())
+            }
+        } catch (exception: Exception) {
+            Data.Error(exception.message)
+        }
+    }
+
+    override suspend fun fetchAllSessions(): Data<List<SessionUIModel>> {
+        return try {
+            val response = apiService.sessionSchedule.fetchSessions()
+            when {
+                response.isSuccessful -> Data.Success(
+                    response.body()!!.sessions.map { sessionItem ->
+                        sessionItem.toSessionUIModel()
+                    }
+                )
                 else -> Data.Error(response.message())
             }
         } catch (exception: Exception) {

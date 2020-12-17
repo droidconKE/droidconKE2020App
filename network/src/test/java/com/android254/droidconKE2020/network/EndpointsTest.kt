@@ -1,5 +1,6 @@
 package com.android254.droidconKE2020.network
 
+import com.android254.droidconKE2020.network.api.ApiService
 import com.android254.droidconKE2020.network.di.networkModule
 import com.android254.droidconKE2020.network.payloads.GoogleToken
 import kotlinx.coroutines.runBlocking
@@ -174,5 +175,16 @@ class EndpointsTest : KoinTest {
         }
         val organizers = service.organizers.fetchOrganizers().body()!!
         assertThat(organizers.organizers.size, `is`(3))
+    }
+
+    @Test
+    fun testFetchAllSessions() = runBlocking {
+        server.enqueue(MockResponse().setBody(getJson("json/all_sessions_response.json")))
+        server.start()
+        declare {
+            server.url("/")
+        }
+        val sessions = service.sessionSchedule.fetchSessions().body()!!
+        assertThat(sessions.sessions.size, `is`(8))
     }
 }

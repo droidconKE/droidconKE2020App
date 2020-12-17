@@ -1,0 +1,312 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "To Inject or not inject - Dependency injection in a Kotlin world",
+      "description": "Dependency Injection via frameworks like Dagger were present in most modern Android projects.\r\nBut then Kotlin happened. And since then a bunch of new libraries like Koin or Kodein appeared. Developers are even writing articles how to do DI without any framework.\r\nSome argue that those don’t even offer real dependency injection. Let’s look at that argument and compare the approaches.\r\nSo, is there something wrong with Dagger & co. in Kotlin? Are they obsolete? What are the alternatives? Let’s dive in.",
+      "slug": "to-inject-or-not-inject-dependency-injection-in-a-kotlin-world-1605037969",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "session_image": null,
+      "backgroundColor": "#7F9337",
+      "borderColor": "#7F9337",
+      "is_serviceSession": 0,
+      "is_bookmarked": false,
+      "start_date_time": "2021-05-06 08:00:00",
+      "start_time": "08:00:00",
+      "end_date_time": "2021-05-06 08:45:00",
+      "end_time": "08:45:00",
+      "speakers": [
+        {
+          "name": "Danny Preussler",
+          "tagline": "Head of Mobile, sporttotal.tv",
+          "biography": "Danny built mobile applications for companies like Viacom, Groupon, eBay and Alcatel. He is a Google Developer Expert for Android Kotlin. Before Android he was part of the Blackberry developer community, teaching unit testing for java mobile platforms\r\n",
+          "avatar": "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png",
+          "twitter": "https://twitter.com/PreusslerBerlin",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@dpreussler",
+          "company_website": "http://www.sporttotal.tv/"
+        }
+      ],
+      "rooms": [
+        {
+          "title": "Room A",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Android Things",
+      "description": "Beginner codelab on Android Things to introduce developers to IoT through Android Things. The codelab will focus on getting started with Android Things. Developers will learn how to get set up with Android Things and create simple project on Android Things.\r\nDuring the codelab we will have a talk and Q & A session.\r\n",
+      "slug": "android-things-1605037969",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Beginner",
+      "session_image": null,
+      "backgroundColor": "#2F65CB",
+      "borderColor": "#2F65CB",
+      "is_serviceSession": 0,
+      "is_bookmarked": false,
+      "start_date_time": "2021-05-06 08:45:00",
+      "start_time": "08:45:00",
+      "end_date_time": "2021-05-06 09:30:00",
+      "end_time": "09:30:00",
+      "speakers": [
+        {
+          "name": "Harun Wangereka",
+          "tagline": "Android Developer @ Apps:Lab",
+          "biography": "Android Developer @ Apps:Lab",
+          "avatar": "https://sessionize.com/image?f=09c1ef0e52f210e9569380a9dc1ccbda,400,400,1,0,cf-9587-423b-bd2e-415e6757286c.b33d8d6e-1f94-4765-a797-255efc34390d.jpg",
+          "twitter": "https://twitter.com/wangerekaharun",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@harunwangereka",
+          "company_website": "https://appslab.co.ke/"
+        },
+        {
+          "name": "Marvin Collins",
+          "tagline": "Apps:Lab KE",
+          "biography": "Computer scientist. Founder, Android and Web developer @AppsLab_KE. Passionate about impacting tech communities.",
+          "avatar": "https://sessionize.com/image?f=00eb07bde80694ca290dede281ee7f1b,400,400,1,0,4e-6670-4c7d-a3e6-34016679ec69.36f5d972-015d-40c3-8e6e-83087fd6dd3f.jpg",
+          "twitter": "https://twitter.com/marvin_hosea",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "http://geekstalkthursday.co.ke/",
+          "company_website": null
+        }
+      ],
+      "rooms": [
+        {
+          "title": "Room B",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Retrofiti: A Pragmatic Approach to using Retrofit in Android",
+      "description": "This session is codelab covering some of the best practices and recommended approaches to building an application using the retrofit library.",
+      "slug": "retrofiti-a-pragmatic-approach-to-using-retrofit-in-android-1605037969",
+      "session_format": "Codelab / Workshop",
+      "session_level": "Intermediate",
+      "session_image": null,
+      "backgroundColor": "#2F65CB",
+      "borderColor": "#2F65CB",
+      "is_serviceSession": 0,
+      "is_bookmarked": false,
+      "start_date_time": "2021-05-06 09:30:00",
+      "start_time": "09:30:00",
+      "end_date_time": "2021-05-06 10:15:00",
+      "end_time": "10:15:00",
+      "speakers": [
+        {
+          "name": "Roger Taracha",
+          "tagline": "TheDancerCodes",
+          "biography": "Roger Taracha is a Software Engineer by profession who also loves the Arts. \r\n\r\nWhen he isn't writing code or mentoring software developers, you can find him throwing down on the dance floor.\r\nHence his alias, TheDancerCodes.\r\n\r\nHe is currently a Learning Facilitator and Lead Android Engineer at Andela Kenya where he drives teams of software developers (junior and senior) to rapidly develop great software products. \r\n\r\nHe also supports the learning and professional development of dozens of Africa's most talented software developers every day.",
+          "avatar": "https://sessionize.com/image?f=b365d37c5064aa5ca332ca036b08f6ec,400,400,1,0,aa-600e-4800-bfee-afe74104c8e8.6708c35c-8578-40f1-aa56-d8991598d826.jpg",
+          "twitter": "https://twitter.com/TheDancerCodes",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://medium.com/@thedancercodes",
+          "company_website": "https://andela.com/"
+        }
+      ],
+      "rooms": [
+        {
+          "title": "Room C",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Jetpack: An Overview",
+      "description": "During Google IO 2018, the Android team announced Jetpack, a set of libraries, tools and architectural guidance to help make it quick and easy to build great Android apps. Jetpack includes the previously existing Architecture Components and adds many libraries and tools that make development easier across a wide range of areas. In this session, we'll go through the available libraries and APIs and discuss how they can make development easier, faster and more intuitive.",
+      "slug": "jetpack-an-overview-1605037969",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "session_image": null,
+      "backgroundColor": "#9B9B9B",
+      "borderColor": "#9B9B9B",
+      "is_serviceSession": 0,
+      "is_bookmarked": false,
+      "start_date_time": "2021-05-07 08:00:00",
+      "start_time": "08:00:00",
+      "end_date_time": "2021-05-07 08:45:00",
+      "end_time": "08:45:00",
+      "speakers": [
+        {
+          "name": "Eston Karumbi",
+          "tagline": "Android Developer",
+          "biography": "Developer, learner, wanderer, DIY auto mechanic.",
+          "avatar": "https://sessionize.com/image?f=f0a21786344cb927ecf4ca9f6b8cd10e,400,400,1,0,a3-ce70-41a6-b987-2afe691f0864.0311c9f2-10e0-41af-82f4-c660e307c405.jpg",
+          "twitter": "https://twitter.com/doc2dev",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": null
+        }
+      ],
+      "rooms": [
+        {
+          "title": "Room A",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "No Internet? No Problem!",
+      "description": "At Off Grid Electric our mission is to power homes across rural Africa with affordable, solar energy. In order to do that we need to provide our employees with tools that work both on and offline. So how did we do it? In this talk, learn about the techniques we employed to provide a unique online-offline experience in our Android applications. We’ll discuss the overall architecture, third party libraries used, and some of the challenges that we faced. As more and more users come online in various parts of the world it makes sense for companies to begin exploring how they can modify their applications to be more network-friendly. This talk will get you headed in the right direction!",
+      "slug": "no-internet-no-problem-1605037969",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "session_image": null,
+      "backgroundColor": "#161A14",
+      "borderColor": "#161A14",
+      "is_serviceSession": 0,
+      "is_bookmarked": false,
+      "start_date_time": "2021-05-07 08:45:00",
+      "start_time": "08:45:00",
+      "end_date_time": "2021-05-07 09:30:00",
+      "end_time": "09:30:00",
+      "speakers": [
+        {
+          "name": "Moyinoluwa Adeyemi",
+          "tagline": "Android Developer at Offgrid Electric",
+          "biography": "Moyinoluwa is an Android Developer who enjoys exploring the latest technologies in Android Development. She loves sharing her knowledge by writing on Medium. She also cares a lot about building apps that look good and work well on all devices.",
+          "avatar": "https://sessionize.com/image?f=231bafdb800ec9d882eec6580fc97f9b,400,400,1,0,6b-241d-4d1b-a67d-b5c89ef258e1.557c848a-271b-45dd-8020-e77fbc7dbcb1.jpg",
+          "twitter": "https://twitter.com/moyheen",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://moyinoluwa.dev/",
+          "company_website": null
+        }
+      ],
+      "rooms": [
+        {
+          "title": "Room B",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "React Native for Android",
+      "description": "W̶r̶i̶t̶e̶ O̶n̶c̶e̶, ̶R̶u̶n̶ ̶E̶v̶e̶r̶y̶w̶h̶e̶r̶e̶.\r\nLearn once, Write Everywhere",
+      "slug": "react-native-for-android-1605037969",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "session_image": "https://api.droidcon.co.ke/upload/sessions/SAFRqJtRnz. jpeg",
+      "backgroundColor": "#9B9B9B",
+      "borderColor": "#9B9B9B",
+      "is_serviceSession": 0,
+      "is_bookmarked": false,
+      "start_date_time": "2021-05-07 09:30:00",
+      "start_time": "09:30:00",
+      "end_date_time": "2021-05-07 10:15:00",
+      "end_time": "10:15:00",
+      "speakers": [
+        {
+          "name": "Kitavi  Joseph",
+          "tagline": "Software Engineer, Andela",
+          "biography": "Dandiest Developer.\r\nSoftware Developer at Andela Kenya. Changing the world using Python and JavaScript.\r\nDabbling in Machine Learning along the way.",
+          "avatar": "https://sessionize.com/image?f=b51b56d3d048e7af45f1142d6cdca288,400,400,1,0,91-f4c1-4f58-9608-7efc2abfbe00.740ae8ed-bb9b-472d-8548-31ba62535784.jpg",
+          "twitter": "https://twitter.com/sirjmkitavi",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://sirjmkitavi.ml/gui/",
+          "company_website": null
+        }
+      ],
+      "rooms": [
+        {
+          "title": "Room C",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Integrating Mpesa Payments on Android Apps",
+      "description": "I will use the session to demonstrate how one can leverage the Mpesa api while developing commercial/subscription apps .",
+      "slug": "integrating-mpesa-payments-on-android-apps-1605037969",
+      "session_format": "Regular Session",
+      "session_level": "Intermediate",
+      "session_image": null,
+      "backgroundColor": "#9B9B9B",
+      "borderColor": "#9B9B9B",
+      "is_serviceSession": 0,
+      "is_bookmarked": false,
+      "start_date_time": "2021-05-08 08:00:00",
+      "start_time": "08:00:00",
+      "end_date_time": "2021-05-08 08:45:00",
+      "end_time": "08:45:00",
+      "speakers": [
+        {
+          "name": "Kevin Mulugu",
+          "tagline": "Software developer at Homepesa Sacco",
+          "biography": "I am a full stack developer with more focus on Android Development, API Development and Mpesa integration. I am also a Kaspersky system engineer.",
+          "avatar": "https://sessionize.com/image?f=584075943375463b0f5210f3eaea770d,400,400,1,0,48-fe49-4ac2-9aca-d097f500b186.af24353d-16f4-48a5-86dc-58117beffaa0.png",
+          "twitter": "https://twitter.com/kevvoh_",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": "https://mlg.co.ke",
+          "company_website": null
+        }
+      ],
+      "rooms": [
+        {
+          "title": "Room A",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Continuous Integration on Android",
+      "description": "This talk will cover a foundational skill important to every Android developer and project, continuous integration. Building software at every change is an important principle in the delivery of high quality software. Great CI does more than just testing if software builds. Automatically running tests, checking for lint issues and code style conformance are additional pipeline steps that insure the quality of your work product. And why stop there? Distribute your app to a small group of testers and to the masses through the Play store, automatically, on every code change. How? Come to this session to learn the tools and tricks that allow continuous integration to guarantee quality in your Android work, no matter how small or large your audience might be.",
+      "slug": "continuous-integration-on-android-1605037969",
+      "session_format": "Regular Session",
+      "session_level": "Beginner",
+      "session_image": null,
+      "backgroundColor": "#D16935",
+      "borderColor": "#D16935",
+      "is_serviceSession": 0,
+      "is_bookmarked": false,
+      "start_date_time": "2021-05-08 09:30:00",
+      "start_time": "09:30:00",
+      "end_date_time": "2021-05-08 10:15:00",
+      "end_time": "10:15:00",
+      "speakers": [
+        {
+          "name": "Stephen Ebichondo",
+          "tagline": "I see dead code",
+          "biography": "Over 10 years of software development experience including high transactional enterprise banking applications, with team leadership and mentoring experience. Expert in full System Development Life Cycle (SDLC). Has the ability to understand and transform complex business requirements into software, ensuring applications are delivered on time, to specification, are scalable, performance optimised and maintainable. A highly motivated individual who is always learning, able to work to tight deadlines, and who can communicate effectively with technical peers as well as business users. Someone who encourages learning and the sharing of ideas and is always open to new ways of working.",
+          "avatar": "https://sessionize.com/image?f=d8d4178f2e70cdcc225a4c5870958483,400,400,1,0,2207c70b-605d-4144-91ec-705452a97945.jpg",
+          "twitter": "https://twitter.com/sebichondo",
+          "facebook": null,
+          "linkedin": null,
+          "instagram": null,
+          "blog": null,
+          "company_website": null
+        }
+      ],
+      "rooms": [
+        {
+          "title": "Room C",
+          "id": 3
+        }
+      ]
+    }
+  ]
+}

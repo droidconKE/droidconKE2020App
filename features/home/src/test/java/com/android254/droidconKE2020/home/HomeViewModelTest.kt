@@ -1,62 +1,33 @@
 package com.android254.droidconKE2020.home
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android254.droidconKE2020.home.di.homeModule
 import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
-import com.android254.droidconKE2020.home.viewmodel.*
-import io.mockk.MockKAnnotations
+import com.android254.droidconKE2020.home.ui.viewmodel.*
+import com.android254.droidconKE2020.repository.Data
+import com.android254.droidconKE2020.repository.sessions.SessionRepository
+import com.android254.droidconKE2020.test_utils.BaseViewModelTest
+import com.jraska.livedata.test
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
 import org.junit.*
-import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
-import org.koin.test.KoinTest
-import org.koin.test.inject
 
-class HomeViewModelTest : KoinTest {
-
-    @get:Rule
-    val instantTask = InstantTaskExecutorRule()
+class HomeViewModelTest : BaseViewModelTest() {
+    private val sessionsRepository = mockk<SessionRepository>()
+    private lateinit var homeViewModel: HomeViewModel
+    private val promoRepo = mockk<FakePromotionRepository>()
+    private val speakerRepo = mockk<FakeSpeakerRepository>()
+    private val sponsorRepo = mockk<FakeSponsorRepository>()
+    private val organizerRepo = mockk<FakeOrganizerRepository>()
 
     @Before
     fun before() {
-        startKoin { modules(homeModule) }
-        MockKAnnotations.init(this)
+        homeViewModel = HomeViewModel(promoRepo, sessionsRepository, speakerRepo, sponsorRepo, organizerRepo)
     }
 
     @After
     fun after() {
         stopKoin()
-    }
-
-    private val homeViewModel: HomeViewModel by inject()
-
-    private val promoRepo: FakePromotionRepository by inject()
-    private val sessionRepo: FakeSessionRepository by inject()
-    private val speakerRepo: FakeSpeakerRepository by inject()
-    private val sponsorRepo: FakeSponsorRepository by inject()
-    private val organizerRepo: FakeOrganizerRepository by inject()
-
-    @Test
-    fun `test that a promotion is retrieved when checkForNewPromo() is called`() {
-        println("Action: Retrieving promotion without calling checkForNewPromo()")
-        println("Expected: Null")
-
-        var promo = homeViewModel.activePromo.getOrAwaitValue()
-        println("Value: $promo")
-
-        Assert.assertNull(promo)
-
-        homeViewModel.checkForNewPromo()
-        println("Action: Retrieving promotion after calling checkForNewPromo()")
-
-        val expectedPromo = promoRepo.activePromo.getOrAwaitValue()
-        println("Expected: $expectedPromo")
-
-        promo = homeViewModel.activePromo.getOrAwaitValue()
-        println("Value: $promo")
-
-        Assert.assertEquals(promo, expectedPromo)
-
-        println("######## \n")
     }
 
     @Test
@@ -73,57 +44,11 @@ class HomeViewModelTest : KoinTest {
     }
 
     @Test
-    fun `test that sessions are retrieved when retrieveSessionList() is called`() {
-        println("Action: Retrieving sessions")
-        homeViewModel.retrieveSessionList()
-
-        val expectedResults = sessionRepo.sessions.getOrAwaitValue()
-        println("Expected: $expectedResults")
-
-        val sessions = homeViewModel.sessionList.getOrAwaitValue()
-        println("Value: $sessions")
-
-        Assert.assertEquals(sessions, expectedResults)
-
-        println("######## \n")
-    }
-
-    @Test
-    fun `test that keynote speaker retrieved has attribute isKeynoteSpeaker set to true`() {
-        println("Action: Retrieving keynote speaker")
-        homeViewModel.retrieveSpeakerList()
-
-        val expectedSpeaker = speakerRepo.keynoteSpeaker.getOrAwaitValue()
-        println("Expected: $expectedSpeaker")
-        println("Expected: isKeynoteSpeaker = true ")
-
-        val speaker = homeViewModel.keynoteSpeaker.getOrAwaitValue()
-        println("Value: $speaker")
-        Assert.assertEquals(speaker, expectedSpeaker)
-
-        println("Value: isKeynoteSpeaker = ${speaker?.isKeynoteSpeaker}")
-        Assert.assertTrue(speaker?.isKeynoteSpeaker ?: false)
-
-        println("######## \n")
-    }
-
-    @Test
-    fun `test that session speakers are retrieved when retrieveSpeakerList() is called`() {
-        println("Action: Retrieving session speaker")
-        homeViewModel.retrieveSpeakerList()
-
-        val expectedResults = speakerRepo.sessionSpeakers.getOrAwaitValue()
-        println("Expected: $expectedResults")
-
-        val speakers = homeViewModel.speakerList.getOrAwaitValue()
-        println("Value: $speakers")
-
-        Assert.assertEquals(speakers, expectedResults)
-
-        // Ensure Keynote speaker doesn't show up in session speakers
-        speakers?.forEach { Assert.assertFalse(it.isKeynoteSpeaker) }
-
-        println("######## \n")
+    fun `test that sessions are fetched successfully`() {
+        coEvery { sessionsRepository.fetchAllSessions() } returns Data.Success(testSessions)
+        homeViewModel.fetchAllSessions()
+        coVerify { sessionsRepository.fetchAllSessions() }
+        homeViewModel.sessions.test().assertHasValue()
     }
 
     @Test
@@ -145,34 +70,10 @@ class HomeViewModelTest : KoinTest {
     }
 
     @Test
-    fun `test that sponsors are retrieved when retrieveSponsors() is called`() {
-        println("Action: Retrieving sponsors")
-        homeViewModel.retrieveSponsors()
-
-        val expectedResults = sponsorRepo.sponsors.getOrAwaitValue()
-        println("Expected: $expectedResults")
-
-        val sponsors = homeViewModel.sponsors.getOrAwaitValue()
-        println("Value: $sponsors")
-
-        Assert.assertEquals(sponsors, expectedResults)
-
-        println("######## \n")
-    }
-
-    @Test
-    fun `test that organizers are retrieved when retrieveOrganizerList() is called`() {
-        println("Action: Retrieving organizers")
-        homeViewModel.retrieveOrganizerList()
-
-        val expectedResults = organizerRepo.organizers.getOrAwaitValue()
-        println("Expected: $expectedResults")
-
-        val organizers = homeViewModel.organizerList.getOrAwaitValue()
-        println("Value: $organizers")
-
-        Assert.assertEquals(organizers, expectedResults)
-
-        println("######## \n")
+    fun `test show toast has value when error occurs`() {
+        coEvery { sessionsRepository.fetchAllSessions() } returns Data.Error("Error Occurred")
+        homeViewModel.fetchAllSessions()
+        coVerify { sessionsRepository.fetchAllSessions() }
+        homeViewModel.showToast.test().assertValue("Error Occurred")
     }
 }

@@ -1,7 +1,7 @@
 package com.android254.droidconKE2020.repository
 
 import com.android254.droidconKE2020.core.models.SponsorUIModel
-import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.api.ApiService
 import com.android254.droidconKE2020.repository.mappers.toSponsorUIModel
 
 interface EventRepository {

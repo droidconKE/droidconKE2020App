@@ -1,8 +1,8 @@
 package com.android254.droidconKE2020.network.di
 
-import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.api.ApiService
 import com.android254.droidconKE2020.network.BuildConfig
-import com.android254.droidconKE2020.network.GoogleService
+import com.android254.droidconKE2020.network.api.GoogleService
 import com.android254.droidconKE2020.network.utils.Constants.BASE_URL
 import com.android254.droidconKE2020.network.utils.AuthInterceptor
 import com.google.gson.GsonBuilder

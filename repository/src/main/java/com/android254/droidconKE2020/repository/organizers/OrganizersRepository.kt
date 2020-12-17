@@ -1,7 +1,7 @@
 package com.android254.droidconKE2020.repository.organizers
 
 import com.android254.droidconKE2020.core.models.OrganizerUIModel
-import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.api.ApiService
 import com.android254.droidconKE2020.repository.Data
 import com.android254.droidconKE2020.repository.mappers.toOrganizerUIModel
 

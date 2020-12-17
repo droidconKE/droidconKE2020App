@@ -1,6 +1,6 @@
 package com.android254.droidconKE2020.repository.feedback
 
-import com.android254.droidconKE2020.network.ApiService
+import com.android254.droidconKE2020.network.api.ApiService
 import com.android254.droidconKE2020.repository.Data
 
 interface SessionFeedbackRepository {

@@ -1,19 +1,34 @@
-package com.android254.droidconKE2020.home.viewmodel
+package com.android254.droidconKE2020.home.ui.viewmodel
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.android254.droidconKE2020.core.models.SessionUIModel
+import com.android254.droidconKE2020.core.utils.SingleLiveEvent
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.domain.*
 import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
-import com.github.javafaker.Faker
+import com.android254.droidconKE2020.repository.Data
+import com.android254.droidconKE2020.repository.sessions.SessionRepository
+import kotlinx.coroutines.launch
 
 class HomeViewModel(
     private val promotionRepository: FakePromotionRepository,
-    private val sessionRepository: FakeSessionRepository,
+    private val sessionRepository: SessionRepository,
     private val speakerRepository: FakeSpeakerRepository,
     private val sponsorRepository: FakeSponsorRepository,
     private val organizerRepository: FakeOrganizerRepository
 ) : ViewModel() {
+    private var _sessions = MutableLiveData<List<SessionUIModel>>()
+    val sessions get() = _sessions
+    val showToast = SingleLiveEvent<String>()
+
+    fun fetchAllSessions() {
+        viewModelScope.launch {
+            when (val value = sessionRepository.fetchAllSessions()) {
+                is Data.Success -> _sessions.postValue(value.data)
+                is Data.Error -> showToast.postValue(value.exception.toString())
+            }
+        }
+    }
 
     /**
      * Promotion stuff
@@ -28,15 +43,6 @@ class HomeViewModel(
      * CFP stuff
      * */
     val callForSpeakerUrl: String get() = "https://sessionize.com/droidconke"
-
-    /**
-     * Session stuff
-     * */
-    val sessionList get() = sessionRepository.sessions
-
-    fun retrieveSessionList() {
-        sessionRepository.refreshSessions()
-    }
 
     /**
      * Speaker stuff
@@ -79,34 +85,6 @@ class FakePromotionRepository {
         val dummyImgResource = "${R.drawable.black_friday_twitter}"
         val dummyWebUrl = "https://mookh.com/event/droidconke2020/"
         activePromo.postValue(Promotion(dummyImgResource, dummyWebUrl, 0))
-    }
-}
-
-class FakeSessionRepository {
-    private val db = mutableListOf<Session>()
-    val sessions = MutableLiveData<List<Session>>()
-
-    fun refreshSessions() {
-        db.clear()
-
-        for (i in 0 until 10) {
-            db.add(
-                Session(
-                    id = i.toLong(),
-                    title = if (i == 0) "KeyNote" else if (i % 2 == 0) "Kotlin Garbage Collection" else "Yet Another Architecture",
-                    description = "Some short description",
-                    room = "Room $i",
-                    time = "10:5$i",
-                    imageUrl = "${R.drawable.dummy_session_image}",
-                    speaker = Speaker(
-                        name = "Don Felker",
-                        work = "Software Developer / Podcast Host",
-                        imageUrl = Faker().avatar().image()
-                    )
-                )
-            )
-        }
-        sessions.postValue(db)
     }
 }
 
