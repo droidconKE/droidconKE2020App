@@ -5,9 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.about.databinding.ItemOrganizerBinding
-import com.android254.droidconKE2020.about.utils.OrganizersDiffUtilsCallback
+import com.android254.droidconKE2020.core.diffutils.OrganizersDiffUtilsCallback
 import com.android254.droidconKE2020.core.models.OrganizerUIModel
-import kotlinx.android.synthetic.main.item_organizer.view.*
 
 typealias ClickListener = (OrganizerUIModel) -> Unit
 

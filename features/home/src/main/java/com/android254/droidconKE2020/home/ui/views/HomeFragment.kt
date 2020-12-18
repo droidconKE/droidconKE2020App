@@ -14,6 +14,7 @@ import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.models.SessionUIModel
 import com.android254.droidconKE2020.core.models.SponsorUIModel
 import com.android254.droidconKE2020.core.utils.WebPages
+import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeModule
@@ -46,6 +47,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val sessionsAdapter = SessionAdapter {
         onSessionClicked(it)
     }
+    private val organizerAdapter = OrganizerAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,6 +72,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showSpeakersList()
         showSponsors()
         showOrganizers()
+        showError()
+    }
+
+    private fun showError() {
+        homeViewModel.showToast.observe(viewLifecycleOwner) { errorMesage ->
+            requireContext().toast(errorMesage)
+        }
     }
 
     private fun viewAllSessionsClicked() {
@@ -231,22 +240,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showOrganizers() {
-        val adapter = OrganizerAdapter()
-        binding.organizersList.adapter = adapter
-        binding.organizersList.suppressLayout(true)
-
-        homeViewModel.organizerList.observe(
-            viewLifecycleOwner,
-            Observer { organizers ->
-                if (organizers == null) {
-                    // ToDo: Show shimmer effect. No need to hide since this will always be available
-                } else {
-                    adapter.updateData(organizers)
-                }
-            }
-        )
-
-        homeViewModel.retrieveOrganizerList()
+        homeViewModel.fetchOrganizers()
+        binding.organizersList.adapter = organizerAdapter
+        homeViewModel.organizers.observe(viewLifecycleOwner) { organizers ->
+            organizerAdapter.submitList(organizers.filter { it.organizerType == "company" })
+        }
     }
 
     private fun onSessionClicked(sessionUIModel: SessionUIModel) {

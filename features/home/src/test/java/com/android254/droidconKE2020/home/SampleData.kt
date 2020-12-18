@@ -1,5 +1,6 @@
 package com.android254.droidconKE2020.home
 
+import com.android254.droidconKE2020.core.models.OrganizerUIModel
 import com.android254.droidconKE2020.core.models.SessionUIModel
 import com.android254.droidconKE2020.core.models.SponsorUIModel
 
@@ -30,5 +31,18 @@ val testSponsors = listOf(
         "Google is Google",
         "google.com",
         "https://api.droidcon.co.ke/upload/org_team/apppng.png"
+    )
+)
+
+val testOrganisers = listOf(
+    OrganizerUIModel(
+        "John Doe",
+        "https://api.droidcon.co.ke/upload/org_team/apppng.png",
+        "Designer @ TheDesin",
+        "Android Developer",
+        "Android Developer",
+        "wangerekaharun",
+        "Individual"
+
     )
 )

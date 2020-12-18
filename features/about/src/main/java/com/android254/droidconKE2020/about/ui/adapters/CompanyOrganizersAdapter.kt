@@ -5,10 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.about.databinding.ItemCompanyOrganizerBinding
-import com.android254.droidconKE2020.about.utils.OrganizersDiffUtilsCallback
+import com.android254.droidconKE2020.core.diffutils.OrganizersDiffUtilsCallback
 import com.android254.droidconKE2020.core.models.OrganizerUIModel
 
-class CompanyOrganizersAdapter : ListAdapter<OrganizerUIModel, CompanyOrganizersAdapter.CompanyOrganizerViewHolder>(OrganizersDiffUtilsCallback()) {
+class CompanyOrganizersAdapter : ListAdapter<OrganizerUIModel, CompanyOrganizersAdapter.CompanyOrganizerViewHolder>(
+    OrganizersDiffUtilsCallback()
+) {
 
     class CompanyOrganizerViewHolder(private val binding: ItemCompanyOrganizerBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindOrganizer(organizer: OrganizerUIModel) {

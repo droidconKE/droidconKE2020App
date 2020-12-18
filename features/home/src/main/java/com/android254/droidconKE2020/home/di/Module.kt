@@ -8,6 +8,5 @@ import org.koin.dsl.module
 val homeModule = module {
     viewModel { HomeViewModel(get(), get(), get(), get(), get()) }
     single { FakePromotionRepository() }
-    single { FakeOrganizerRepository() }
     single { FakeSpeakerRepository() }
 }
