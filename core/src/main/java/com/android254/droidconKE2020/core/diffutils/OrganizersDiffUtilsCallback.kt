@@ -1,4 +1,4 @@
-package com.android254.droidconKE2020.about.utils
+package com.android254.droidconKE2020.core.diffutils
 
 import androidx.recyclerview.widget.DiffUtil
 import com.android254.droidconKE2020.core.models.OrganizerUIModel

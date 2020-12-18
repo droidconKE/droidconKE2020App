@@ -4,6 +4,7 @@ import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
 import com.android254.droidconKE2020.home.ui.viewmodel.*
 import com.android254.droidconKE2020.repository.Data
 import com.android254.droidconKE2020.repository.EventRepository
+import com.android254.droidconKE2020.repository.organizers.OrganizersRepository
 import com.android254.droidconKE2020.repository.sessions.SessionRepository
 import com.android254.droidconKE2020.test_utils.BaseViewModelTest
 import com.jraska.livedata.test
@@ -19,7 +20,7 @@ class HomeViewModelTest : BaseViewModelTest() {
     private val promoRepo = mockk<FakePromotionRepository>()
     private val speakerRepo = mockk<FakeSpeakerRepository>()
     private val eventRepository = mockk<EventRepository>()
-    private val organizerRepo = mockk<FakeOrganizerRepository>()
+    private val organizerRepo = mockk<OrganizersRepository>()
 
     @Before
     fun before() {
@@ -49,7 +50,7 @@ class HomeViewModelTest : BaseViewModelTest() {
         coEvery { sessionsRepository.fetchAllSessions() } returns Data.Success(testSessions)
         homeViewModel.fetchAllSessions()
         coVerify { sessionsRepository.fetchAllSessions() }
-        homeViewModel.sessions.test().assertHasValue()
+        homeViewModel.sessions.test().assertValue(testSessions)
     }
 
     @Test
@@ -65,6 +66,13 @@ class HomeViewModelTest : BaseViewModelTest() {
         coEvery { eventRepository.fetchSponsors() } returns Data.Success(testSponsors)
         homeViewModel.fetchSponsors()
         coVerify { eventRepository.fetchSponsors() }
-        homeViewModel.sponsors.test().assertHasValue()
+        homeViewModel.sponsors.test().assertValue(testSponsors)
+    }
+    @Test
+    fun `test organizers are fetched successfully`() {
+        coEvery { organizerRepo.fetchOrganizers() } returns Data.Success(testOrganisers)
+        homeViewModel.fetchOrganizers()
+        coVerify { organizerRepo.fetchOrganizers() }
+        homeViewModel.organizers.test().assertValue(testOrganisers)
     }
 }
