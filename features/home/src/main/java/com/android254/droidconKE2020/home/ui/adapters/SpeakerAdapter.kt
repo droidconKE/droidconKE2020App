@@ -1,45 +1,39 @@
 package com.android254.droidconKE2020.home.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import com.android254.droidconKE2020.home.R
-import com.android254.droidconKE2020.home.domain.Speaker
-import kotlinx.android.synthetic.main.home_item_speaker.view.*
+import com.android254.droidconKE2020.core.models.SpeakerUIModel
+import com.android254.droidconKE2020.home.databinding.HomeItemSpeakerBinding
+import com.android254.droidconKE2020.home.utils.SpeakerDiffUtilsCallback
 
-class SpeakerAdapter(private var onSpeakerClickedEvent: (Speaker) -> Unit) :
-    RecyclerView.Adapter<SpeakerAdapter.SpeakerViewHolder>() {
+typealias OnSpeakerClicked = (SpeakerUIModel) -> Unit
 
-    private val speakers = mutableListOf<Speaker>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpeakerViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.home_item_speaker, parent, false)
-        return SpeakerViewHolder(view)
+class SpeakerAdapter(private val onSpeakerClicked: OnSpeakerClicked) :
+    ListAdapter<SpeakerUIModel, SpeakerAdapter.SpeakerViewHolder>(SpeakerDiffUtilsCallback()) {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): SpeakerAdapter.SpeakerViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = HomeItemSpeakerBinding.inflate(inflater, parent, false)
+        return SpeakerViewHolder(binding, onSpeakerClicked)
     }
 
-    override fun getItemCount(): Int = speakers.size
-
-    override fun onBindViewHolder(holder: SpeakerViewHolder, position: Int) {
-        val speaker = speakers[position]
-        holder.bindSpeaker(speaker)
+    override fun onBindViewHolder(holder: SpeakerAdapter.SpeakerViewHolder, position: Int) {
+        getItem(position)?.let { holder.bindSpeaker(it) }
     }
 
-    fun updateData(list: List<Speaker>) {
-        speakers.clear()
-        speakers.addAll(list)
-        notifyDataSetChanged()
-    }
+    inner class SpeakerViewHolder(
+        private val binding: HomeItemSpeakerBinding,
+        private val onSpeakerClicked: OnSpeakerClicked
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-    inner class SpeakerViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-
-        fun bindSpeaker(speaker: Speaker) {
+        fun bindSpeaker(speaker: SpeakerUIModel) {
             with(speaker) {
-                view.speakerImg.load(speaker.imageUrl)
-                view.name.text = name
-                itemView.setOnClickListener { onSpeakerClickedEvent.invoke(speaker) }
+                binding.speakerUIModel = this
+                binding.root.setOnClickListener { onSpeakerClicked(this) }
             }
         }
     }

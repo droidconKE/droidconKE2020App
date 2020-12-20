@@ -12,13 +12,13 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.android254.droidconKE2020.core.di.browserModule
 import com.android254.droidconKE2020.core.models.SessionUIModel
+import com.android254.droidconKE2020.core.models.SpeakerUIModel
 import com.android254.droidconKE2020.core.models.SponsorUIModel
 import com.android254.droidconKE2020.core.utils.WebPages
 import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.home.R
 import com.android254.droidconKE2020.home.databinding.FragmentHomeBinding
 import com.android254.droidconKE2020.home.di.homeModule
-import com.android254.droidconKE2020.home.domain.Speaker
 import com.android254.droidconKE2020.home.ui.adapters.*
 import com.android254.droidconKE2020.home.ui.viewmodel.HomeViewModel
 import com.android254.droidconKE2020.home.utils.EmailConstants
@@ -48,6 +48,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         onSessionClicked(it)
     }
     private val organizerAdapter = OrganizerAdapter()
+    private val speakerAdapter = SpeakerAdapter {
+        onSpeakerClicked(it)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,9 +70,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         showPromoCard()
         showCallForSpeakersCard()
-        showKeynoteInfoCard()
         showSessionsList()
-        showSpeakersList()
+        showSpeakers()
         showSponsors()
         showOrganizers()
         showError()
@@ -93,10 +95,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         findNavController().navigate(action)
     }
 
-    private fun onSpeakerClicked(speakerId: Int) {
-//        val action =
-//            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment(2)
-//        findNavController().navigate(action)
+    private fun onSpeakerClicked(speakerUIModel: SpeakerUIModel) {
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToSpeakerDetailsFragment(
+                speakerUIModel
+            )
+        )
     }
 
     private fun launchBrowser(webUrl: String) {
@@ -142,31 +146,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.cfpImage.load(R.drawable.cfp_image)
     }
 
-    private fun showKeynoteInfoCard() {
-        homeViewModel.retrieveSpeakerList()
-
-        homeViewModel.keynoteSpeaker.observe(
-            viewLifecycleOwner,
-            Observer { keynoteSpeaker ->
-                if (keynoteSpeaker == null) {
-                    // ToDo: Show shimmer effect. No need to hide since this will always be available
-                } else {
-                    binding.keynoteSpeakerImg.also {
-                        it.load(keynoteSpeaker.imageUrl)
-                        it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
-                    }
-                    binding.keynoteSpeakerLbl.also {
-                        it.text = keynoteSpeaker.name
-                        it.setOnClickListener { onSpeakerClicked(keynoteSpeaker.id) }
-                    }
-                    binding.keynoteLblBecomeSpeaker.setOnClickListener {
-                        launchBrowser(homeViewModel.callForSpeakerUrl)
-                    }
-                }
-            }
-        )
-    }
-
     private fun showSessionsList() {
         homeViewModel.fetchAllSessions()
         binding.viewSessionsBtn.setOnClickListener { viewAllSessionsClicked() }
@@ -184,32 +163,34 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    private fun showSpeakersList() {
-        binding.viewSpeakersBtn.setOnClickListener { viewAllSpeakersClicked() }
-
-        val onSpeakerClicked: (Speaker) -> Unit = { onSpeakerClicked(it.id) }
-        val adapter = SpeakerAdapter(onSpeakerClicked)
-        binding.speakersList.adapter = adapter
-        binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
-
-        homeViewModel.speakerList.observe(
-            viewLifecycleOwner,
-            Observer
-            { speakers ->
-                if (speakers == null) {
-                    binding.speakersCountChip.visibility = View.GONE
-
-                    // ToDo: Show shimmer effect. No need to hide since this will always be available
-                } else {
-                    binding.speakersCountChip.visibility = View.VISIBLE
-                    val totalSpeakers = "+${speakers.size}"
-                    binding.speakersCountChip.text = totalSpeakers
-                    adapter.updateData(speakers)
-                }
+    private fun showSpeakers() {
+        homeViewModel.speakers.observe(viewLifecycleOwner) { speakers ->
+            speakerAdapter.submitList(speakers)
+            if (speakers.isEmpty()) {
+                binding.speakersCountChip.visibility = View.GONE
+            } else {
+                binding.speakersCountChip.visibility = View.VISIBLE
+                val totalSpeakers = "+${speakers.size}"
+                binding.speakersCountChip.text = totalSpeakers
             }
-        )
-
-        homeViewModel.retrieveSpeakerList()
+        }
+        homeViewModel.keynoteSpeaker.observe(viewLifecycleOwner) { keynoteSpeaker ->
+            binding.keynoteSpeakerImg.also {
+                it.load(keynoteSpeaker.speakerAvatar)
+                it.setOnClickListener { onSpeakerClicked(keynoteSpeaker) }
+            }
+            binding.keynoteSpeakerLbl.also {
+                it.text = keynoteSpeaker.speakerName
+                it.setOnClickListener { onSpeakerClicked(keynoteSpeaker) }
+            }
+            binding.keynoteLblBecomeSpeaker.setOnClickListener {
+                launchBrowser(homeViewModel.callForSpeakerUrl)
+            }
+        }
+        binding.speakersList.adapter = speakerAdapter
+        binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
+        binding.viewSpeakersBtn.setOnClickListener { viewAllSpeakersClicked() }
+        homeViewModel.fetchSpeakers()
     }
 
     private fun showSponsors() {
