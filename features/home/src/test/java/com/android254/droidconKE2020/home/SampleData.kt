@@ -2,6 +2,7 @@ package com.android254.droidconKE2020.home
 
 import com.android254.droidconKE2020.core.models.OrganizerUIModel
 import com.android254.droidconKE2020.core.models.SessionUIModel
+import com.android254.droidconKE2020.core.models.SpeakerUIModel
 import com.android254.droidconKE2020.core.models.SponsorUIModel
 
 val testSessions = listOf(
@@ -44,5 +45,16 @@ val testOrganisers = listOf(
         "wangerekaharun",
         "Individual"
 
+    )
+)
+
+val testSpeakers = listOf(
+    SpeakerUIModel(
+        "https://api.droidcon.co.ke/upload/org_team/apppng.png",
+        "My Bio",
+        "@coolperson",
+        "Wozzap!",
+        "Some Company",
+        "John Doe"
     )
 )

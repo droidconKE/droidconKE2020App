@@ -1,24 +1,28 @@
 package com.android254.droidconKE2020.home
 
-import com.android254.droidconKE2020.home.repositories.FakeSpeakerRepository
-import com.android254.droidconKE2020.home.ui.viewmodel.*
+import com.android254.droidconKE2020.home.ui.viewmodel.FakePromotionRepository
+import com.android254.droidconKE2020.home.ui.viewmodel.HomeViewModel
 import com.android254.droidconKE2020.repository.Data
 import com.android254.droidconKE2020.repository.EventRepository
 import com.android254.droidconKE2020.repository.organizers.OrganizersRepository
 import com.android254.droidconKE2020.repository.sessions.SessionRepository
+import com.android254.droidconKE2020.repository.speakers.SpeakerRepository
 import com.android254.droidconKE2020.test_utils.BaseViewModelTest
 import com.jraska.livedata.test
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import org.junit.*
+import org.junit.After
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
 import org.koin.core.context.stopKoin
 
 class HomeViewModelTest : BaseViewModelTest() {
     private val sessionsRepository = mockk<SessionRepository>()
     private lateinit var homeViewModel: HomeViewModel
     private val promoRepo = mockk<FakePromotionRepository>()
-    private val speakerRepo = mockk<FakeSpeakerRepository>()
+    private val speakerRepo = mockk<SpeakerRepository>()
     private val eventRepository = mockk<EventRepository>()
     private val organizerRepo = mockk<OrganizersRepository>()
 
@@ -68,11 +72,20 @@ class HomeViewModelTest : BaseViewModelTest() {
         coVerify { eventRepository.fetchSponsors() }
         homeViewModel.sponsors.test().assertValue(testSponsors)
     }
+
     @Test
     fun `test organizers are fetched successfully`() {
         coEvery { organizerRepo.fetchOrganizers() } returns Data.Success(testOrganisers)
         homeViewModel.fetchOrganizers()
         coVerify { organizerRepo.fetchOrganizers() }
         homeViewModel.organizers.test().assertValue(testOrganisers)
+    }
+
+    @Test
+    fun `test speakers are fetched successfully`() {
+        coEvery { speakerRepo.fetchSomeSpeakers() } returns Data.Success(testSpeakers)
+        homeViewModel.fetchSpeakers()
+        coVerify { speakerRepo.fetchSomeSpeakers() }
+        homeViewModel.speakers.test().assertValue(testSpeakers)
     }
 }
