@@ -16,6 +16,8 @@ import com.android254.droidconKE2020.repository.EventRepository
 import com.android254.droidconKE2020.repository.organizers.OrganizersRepository
 import com.android254.droidconKE2020.repository.sessions.SessionRepository
 import com.android254.droidconKE2020.repository.speakers.SpeakerRepository
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -38,10 +40,13 @@ class HomeViewModel(
     val keynoteSpeaker: LiveData<SpeakerUIModel> get() = _keynoteSpeaker
 
     fun loadData() = viewModelScope.launch {
-        fetchAllSessions()
-        fetchSponsors()
-        fetchSpeakers()
-        fetchOrganizers()
+        val deferredList = listOf(
+            async { fetchAllSessions() },
+            async { fetchSponsors() },
+            async { fetchSpeakers() },
+            async { fetchOrganizers() }
+        )
+        deferredList.awaitAll()
     }
 
     suspend fun fetchAllSessions() {
