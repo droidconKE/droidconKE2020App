@@ -12,6 +12,7 @@ import com.jraska.livedata.test
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -50,7 +51,7 @@ class HomeViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test that sessions are fetched successfully`() {
+    fun `test that sessions are fetched successfully`() = runBlockingTest {
         coEvery { sessionsRepository.fetchAllSessions() } returns Data.Success(testSessions)
         homeViewModel.fetchAllSessions()
         coVerify { sessionsRepository.fetchAllSessions() }
@@ -58,7 +59,7 @@ class HomeViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test show toast has value when error occurs`() {
+    fun `test show toast has value when error occurs`() = runBlockingTest {
         coEvery { sessionsRepository.fetchAllSessions() } returns Data.Error("Error Occurred")
         homeViewModel.fetchAllSessions()
         coVerify { sessionsRepository.fetchAllSessions() }
@@ -66,7 +67,7 @@ class HomeViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test that sponsors are fetched successfully`() {
+    fun `test that sponsors are fetched successfully`() = runBlockingTest {
         coEvery { eventRepository.fetchSponsors() } returns Data.Success(testSponsors)
         homeViewModel.fetchSponsors()
         coVerify { eventRepository.fetchSponsors() }
@@ -74,7 +75,7 @@ class HomeViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test organizers are fetched successfully`() {
+    fun `test organizers are fetched successfully`() = runBlockingTest {
         coEvery { organizerRepo.fetchOrganizers() } returns Data.Success(testOrganisers)
         homeViewModel.fetchOrganizers()
         coVerify { organizerRepo.fetchOrganizers() }
@@ -82,7 +83,7 @@ class HomeViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test speakers are fetched successfully`() {
+    fun `test speakers are fetched successfully`() = runBlockingTest {
         coEvery { speakerRepo.fetchSomeSpeakers() } returns Data.Success(testSpeakers)
         homeViewModel.fetchSpeakers()
         coVerify { speakerRepo.fetchSomeSpeakers() }

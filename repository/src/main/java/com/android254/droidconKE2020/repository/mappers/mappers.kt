@@ -28,8 +28,8 @@ fun SessionItem.toSessionUIModel(): SessionUIModel = SessionUIModel(
     sessionImage = this.sessionImage ?: "",
     sessionStartTime = this.startDateTime.toDate(),
     sessionStartTimeSuffix = this.startDateTime.toDate().sessionStartTimeSuffix(),
-    sessionFormat = this.sessionFormat
-
+    sessionFormat = this.sessionFormat,
+    isKeynote = this.isKeynote
 )
 
 fun Speaker.toSpeakerUIModel(): SpeakerUIModel =

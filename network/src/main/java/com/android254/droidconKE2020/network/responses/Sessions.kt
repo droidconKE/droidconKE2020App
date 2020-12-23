@@ -22,6 +22,7 @@ data class SessionItem(
     @Expose @SerializedName("id") val id: Int,
     @Expose @SerializedName("is_bookmarked") val isBookmarked: Boolean,
     @Expose @SerializedName("is_serviceSession") val isServiceSession: Int,
+    @Expose @SerializedName("is_keynote") val isKeynote: Boolean,
     @Expose @SerializedName("rooms") val rooms: List<Room>,
     @Expose @SerializedName("session_format") val sessionFormat: String,
     @Expose @SerializedName("session_image") val sessionImage: String?,
