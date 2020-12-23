@@ -75,6 +75,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         showSponsors()
         showOrganizers()
         showError()
+        homeViewModel.loadData()
     }
 
     private fun showError() {
@@ -147,7 +148,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showSessionsList() {
-        homeViewModel.fetchAllSessions()
         binding.viewSessionsBtn.setOnClickListener { viewAllSessionsClicked() }
         binding.sessionsList.adapter = sessionsAdapter
         binding.sessionsList.addItemDecoration(HorizontalSpaceDecoration(30))
@@ -190,11 +190,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.speakersList.adapter = speakerAdapter
         binding.speakersList.addItemDecoration(HorizontalSpaceDecoration(30))
         binding.viewSpeakersBtn.setOnClickListener { viewAllSpeakersClicked() }
-        homeViewModel.fetchSpeakers()
     }
 
     private fun showSponsors() {
-        homeViewModel.fetchSponsors()
         binding.tvBecomeSponsor.setOnClickListener {
             sendEmail(EmailConstants.SPONSORSHIP_EMAIL, EmailConstants.SPONSORSHIP_SUBJECT)
         }
@@ -221,7 +219,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showOrganizers() {
-        homeViewModel.fetchOrganizers()
         binding.organizersList.adapter = organizerAdapter
         homeViewModel.organizers.observe(viewLifecycleOwner) { organizers ->
             organizerAdapter.submitList(organizers.filter { it.organizerType == "company" })

@@ -37,44 +37,47 @@ class HomeViewModel(
     private val _keynoteSpeaker = MutableLiveData<SpeakerUIModel>()
     val keynoteSpeaker: LiveData<SpeakerUIModel> get() = _keynoteSpeaker
 
-    fun fetchAllSessions() {
-        viewModelScope.launch {
-            when (val value = sessionRepository.fetchAllSessions()) {
-                is Data.Success -> _sessions.postValue(value.data)
-                is Data.Error -> showToast.postValue(value.exception.toString())
-            }
-        }
+    fun loadData() = viewModelScope.launch {
+        fetchAllSessions()
+        fetchSponsors()
+        fetchSpeakers()
+        fetchOrganizers()
     }
 
-    fun fetchSponsors() {
-        viewModelScope.launch {
-            when (val value = eventRepository.fetchSponsors()) {
-                is Data.Success -> _sponsors.postValue(value.data)
-                is Data.Error -> showToast.postValue(value.exception.toString())
-            }
-        }
-    }
-
-    fun fetchOrganizers() {
-        viewModelScope.launch {
-            when (val value = organizerRepository.fetchOrganizers()) {
-                is Data.Success -> _organizers.postValue(value.data)
-                is Data.Error -> showToast.postValue(value.exception.toString())
-            }
-        }
-    }
-
-    fun fetchSpeakers() {
-        viewModelScope.launch {
-            when (val value = speakerRepository.fetchSomeSpeakers()) {
-                is Data.Success -> {
-                    _speakers.postValue(value.data)
-                    if (value.data.isNotEmpty()) {
-                        _keynoteSpeaker.postValue(value.data.first())
+    suspend fun fetchAllSessions() {
+        when (val value = sessionRepository.fetchAllSessions()) {
+            is Data.Success -> {
+                _sessions.value = value.data
+                value.data.forEach { sessionUIModel ->
+                    if (sessionUIModel.isKeynote) {
+                        _keynoteSpeaker.value = sessionUIModel.sessionSpeakers.first()
                     }
                 }
-                is Data.Error -> showToast.postValue(value.exception.toString())
             }
+            is Data.Error -> showToast.value = value.exception.toString()
+        }
+    }
+
+    suspend fun fetchSponsors() {
+        when (val value = eventRepository.fetchSponsors()) {
+            is Data.Success -> _sponsors.value = value.data
+            is Data.Error -> showToast.value = value.exception.toString()
+        }
+    }
+
+    suspend fun fetchOrganizers() {
+        when (val value = organizerRepository.fetchOrganizers()) {
+            is Data.Success -> _organizers.value = value.data
+            is Data.Error -> showToast.value = value.exception.toString()
+        }
+    }
+
+    suspend fun fetchSpeakers() {
+        when (val value = speakerRepository.fetchSomeSpeakers()) {
+            is Data.Success -> {
+                _speakers.value = value.data
+            }
+            is Data.Error -> showToast.value = value.exception.toString()
         }
     }
 
