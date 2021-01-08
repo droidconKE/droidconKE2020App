@@ -85,17 +85,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         sessionsViewModel.getDaySessions()
     }
 
-    private fun getBookMarkedSessions() {
-        //sessionsViewModel.getBookMarkedSessions()
-    }
 
-    private fun observeBookMarkedSessions() {
-//        sessionsViewModel.bookmarkedSessions.observe(
-//            viewLifecycleOwner, Observer { sessions ->
-//               // setUpRvSessions(sessions)
-//            }
-//        )
-    }
 
     private fun setUpTabs(daySessions: List<DaySession>) {
         sessionsTabAdapter = SessionsTabAdapter(childFragmentManager, requireContext())

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.sessions.databinding.FragmentBookmarkedSessionsBinding
+import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding
 import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
 import com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener
 import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionClickListener
@@ -15,6 +16,7 @@ import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.BookmarkedSessionsViewModel
 import kotlinx.android.synthetic.main.fragment_bookmarked_sessions.*
+import kotlinx.android.synthetic.main.fragment_day_sessions.*
 import kotlinx.android.synthetic.main.fragment_filter.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -30,7 +32,6 @@ class BookmarkedSessionsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentBookmarkedSessionsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,7 +42,7 @@ class BookmarkedSessionsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         injectFeatures()
         getBookmarkedSessions()
-        //observeBookmarkedSessions()
+        observeBookmarkedSessions()
         onNavigateBack()
         observeBackNavigation()
     }
@@ -89,8 +90,7 @@ class BookmarkedSessionsFragment : Fragment() {
                 //bookmarkedSessionsViewModel.onSessionItemClicked(sessionId = sessionId)
             }
         )
-       // FragmentDaySessionsBinding.bind(rvSessions).root.adapter = sessionsAdapter
-        _binding?.rvSessionsSavedSessions?.adapter = sessionsAdapter
+        binding.rvSessionsSavedSessions.adapter = sessionsAdapter
     }
 
 }

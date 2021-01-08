@@ -5,19 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.views.BookmarkedSessionsFragment">
+    tools:context=".ui.views.BookmarkedSessionsFragment"
+    android:fitsSystemWindows="true">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?colorSurface">
+        android:background="?colorSurface"
+        android:theme="@style/Theme.Sessions.AppBarOverlay">
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,7 +66,8 @@
                 android:layout_height="wrap_content"
                 app:layout_collapseMode="pin"
                 app:layout_constraintTop_toBottomOf="@+id/layout1"
-                android:layout_marginTop="?actionBarSize">
+                android:layout_marginTop="?actionBarSize"
+                android:theme="@style/Theme.Sessions.PopupOverlay">
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
@@ -81,6 +83,7 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
 
 <!--    <androidx.viewpager.widget.ViewPager-->
 <!--        android:id="@+id/viewPagerSessions"-->
@@ -101,7 +104,8 @@
         tools:listitem="@layout/item_session"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_saved_sessions"/>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_saved_sessions"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
