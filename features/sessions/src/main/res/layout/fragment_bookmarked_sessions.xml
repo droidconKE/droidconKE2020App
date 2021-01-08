@@ -16,19 +16,21 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <!--TODO Extract values-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_collapseMode="parallax"
+                android:layout_marginTop="8dp"
                 android:id="@+id/layout1">
                 <ImageButton
                     android:id="@+id/imageViewBackNavigation"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="18dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/back_button"
                     android:src="@drawable/ic_arrow_back_white"
@@ -74,7 +76,7 @@
                     android:layout_height="wrap_content"
                     tools:text="My Sessions"
                     android:text="@string/my_sessions"
-                    android:layout_marginStart="36dp"
+                    android:layout_marginStart="18dp"
                     android:fontFamily="@font/roboto_slab_bold"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="@dimen/sessionTitleFontSize"/>

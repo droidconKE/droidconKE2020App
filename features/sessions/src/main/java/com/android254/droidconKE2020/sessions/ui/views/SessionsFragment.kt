@@ -52,9 +52,6 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         }
     }
 
-    // TODO: Remove unused methods
-
-
     private fun observeDaySessions() {
         sessionsViewModel.daySessions.observe(
             viewLifecycleOwner,
