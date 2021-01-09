@@ -29,17 +29,4 @@ class SessionsViewModel : ViewModel() {
         _daySessions.value = daySessionsList
     }
 
-
-    //TODO remove unused code
-
-    fun onSessionItemClicked(sessionId: Long) {
-        _sessionId.value = sessionId
-    }
-
-    fun onRemoveSavedSession(session: DummySession){
-        _removedSessionItem.value = session
-    }
-
-
-
 }

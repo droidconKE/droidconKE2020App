@@ -82,8 +82,6 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         sessionsViewModel.getDaySessions()
     }
 
-
-
     private fun setUpTabs(daySessions: List<DaySession>) {
         sessionsTabAdapter = SessionsTabAdapter(childFragmentManager, requireContext())
         daySessions.forEach { daySession ->

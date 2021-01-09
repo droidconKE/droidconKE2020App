@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.views.BookmarkedSessionsFragment"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context=".ui.views.BookmarkedSessionsFragment">
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?colorSurface"
         android:theme="@style/Theme.Sessions.AppBarOverlay">
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
@@ -21,11 +22,12 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             <!--TODO Extract values-->
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_collapseMode="parallax"
                 android:layout_marginTop="8dp"
-                android:id="@+id/layout1">
+                app:layout_collapseMode="parallax">
+
                 <ImageButton
                     android:id="@+id/imageViewBackNavigation"
                     android:layout_width="24dp"
@@ -44,10 +46,10 @@
                     android:layout_height="36dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_droidcon_logo"
-                    app:shape_mode="circle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:shape_mode="circle"
                     tools:layout_editor_absoluteY="0dp" />
                 <!-- TODO: The switch should be turned on -->
                 <androidx.appcompat.widget.SwitchCompat
@@ -58,7 +60,8 @@
                     android:theme="@style/SwitchTheme"
                     android:thumb="@drawable/ic_favorite_outline"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:checked="true"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!-- TODO check the margin in between-->
@@ -66,20 +69,47 @@
                 android:id="@+id/toolbar_saved_sessions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_collapseMode="pin"
-                app:layout_constraintTop_toBottomOf="@+id/layout1"
                 android:layout_marginTop="?actionBarSize"
-                android:theme="@style/Theme.Sessions.PopupOverlay">
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                android:theme="@style/Theme.Sessions.PopupOverlay"
+                app:layout_collapseMode="pin">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="My Sessions"
-                    android:text="@string/my_sessions"
-                    android:layout_marginStart="18dp"
-                    android:fontFamily="@font/roboto_slab_bold"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="@dimen/sessionTitleFontSize"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_slab_bold"
+                        android:text="@string/my_sessions"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="@dimen/sessionTitleFontSize"
+                        tools:text="My Sessions"
+                        android:layout_gravity="start"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="16dp"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:soundEffectsEnabled="true"
+                        app:tabGravity="center"
+                        app:tabIndicatorAnimationDuration="2000"
+                        app:tabIndicatorColor="@android:color/transparent"
+                        app:tabMode="scrollable"
+                        app:tabRippleColor="@android:color/transparent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -87,27 +117,15 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/viewPagerSessions"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView1" />-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSessions_saved_sessions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".ui.views.BookmarkedSessionsFragment"
-        tools:listitem="@layout/item_session"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_saved_sessions"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        tools:listitem="@layout/item_session" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
