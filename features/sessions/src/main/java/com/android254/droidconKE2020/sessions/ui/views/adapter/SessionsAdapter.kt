@@ -43,6 +43,4 @@ internal class SessionsAdapter(
             }
         }
     }
-
-    // TODO find out how to set the saved star
 }

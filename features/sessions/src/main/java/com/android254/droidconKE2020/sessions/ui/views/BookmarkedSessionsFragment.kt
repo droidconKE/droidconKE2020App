@@ -71,7 +71,7 @@ class BookmarkedSessionsFragment : Fragment() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val bookmarkedSessionsFragmentDirections =
                     BookmarkedSessionsFragmentDirections.actionBookmarkedSessionsFragmentToSessionsFragment()
-                findNavController().navigate( bookmarkedSessionsFragmentDirections)
+                findNavController().navigate(bookmarkedSessionsFragmentDirections)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
@@ -125,7 +125,7 @@ class BookmarkedSessionsFragment : Fragment() {
             Observer { sessions ->
                 if (!sessions.isNullOrEmpty()) {
                     setUpRvSessions(sessions)
-                }else{
+                } else {
                     binding.noSessionsView.visibility = View.VISIBLE
                 }
             }
@@ -150,7 +150,6 @@ class BookmarkedSessionsFragment : Fragment() {
             viewLifecycleOwner,
             Observer { sessionId ->
                 sessionId?.let {
-                    bookmarkedSessionsViewModel.onSessionDetailNavigated()
                     val bookmarkedSessionsFragmentDirections =
                         BookmarkedSessionsFragmentDirections.actionBookmarkedSessionsFragmentToSessionDetailsFragment(
                             sessionId
@@ -160,6 +159,4 @@ class BookmarkedSessionsFragment : Fragment() {
             }
         )
     }
-
-
 }

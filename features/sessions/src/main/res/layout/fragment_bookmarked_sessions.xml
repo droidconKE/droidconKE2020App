@@ -20,18 +20,17 @@
             android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-            <!--TODO Extract values-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/marginTop"
                 app:layout_collapseMode="parallax">
 
                 <ImageButton
                     android:id="@+id/imageViewBackNavigation"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="@dimen/imageButtonWidth"
+                    android:layout_height="@dimen/imageButtonHeight"
                     android:layout_marginStart="18dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/back_button"
@@ -42,8 +41,8 @@
 
                 <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
                     android:id="@+id/imageViewAppIcon"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="@dimen/imageIconWidth"
+                    android:layout_height="@dimen/imageIconHeight"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_droidcon_logo"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -51,12 +50,11 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:shape_mode="circle"
                     tools:layout_editor_absoluteY="0dp" />
-                <!-- TODO: The switch should be turned on -->
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_saved_sessions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/switchMarginEnd"
                     android:theme="@style/SwitchTheme"
                     android:thumb="@drawable/ic_favorite_outline"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +62,6 @@
                     android:checked="true"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <!-- TODO check the margin in between-->
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_saved_sessions"
                 android:layout_width="match_parent"
@@ -76,11 +73,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="12dp">
+                    android:layout_marginStart="@dimen/layoutMarginStart"
+                    android:layout_marginBottom="@dimen/layoutMarginBottom"
+                    android:layout_marginTop="@dimen/layoutMarginTop">
                     <TextView
-                        android:id="@+id/textView1"
+                        android:id="@+id/titleTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_slab_bold"
@@ -91,7 +88,7 @@
                         android:layout_gravity="start"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="@dimen/titleTvMarginTop"/>
 
                     <com.google.android.material.tabs.TabLayout
                         android:id="@+id/tabLayout"
@@ -107,13 +104,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -121,7 +113,7 @@
         android:id="@+id/rvSessions_saved_sessions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="8dp"
+        android:paddingHorizontal="@dimen/horizontalPadding"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".ui.views.BookmarkedSessionsFragment"
@@ -132,7 +124,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        android:padding="8dp"
+        android:padding="@dimen/horizontalPadding"
         android:text="@string/no_bookmarked_sessions"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
