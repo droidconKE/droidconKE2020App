@@ -150,6 +150,9 @@
         <action
             android:id="@+id/action_bookmarkedSessionsFragment_to_sessionsFragment"
             app:destination="@id/sessionsFragment" />
+        <action
+            android:id="@+id/action_bookmarkedSessionsFragment_to_sessionDetailsFragment"
+            app:destination="@id/sessionDetailsFragment" />
     </fragment>
 
 </navigation>

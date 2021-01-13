@@ -11,8 +11,6 @@ class SessionsViewModel : ViewModel() {
     val daySessions: LiveData<List<DaySession>>
         get() = _daySessions
 
-
-
     private val _sessionId = MutableLiveData<Long>()
     val sessionId: LiveData<Long>
         get() = _sessionId

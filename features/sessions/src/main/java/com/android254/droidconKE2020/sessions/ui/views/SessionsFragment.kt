@@ -47,8 +47,9 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         }
 
         binding.switch1.setOnCheckedChangeListener { _, isChecked ->
-            // TODO: Evaluate for ischecked or not
-            findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToBookmarkedSessionsFragment())
+            if (isChecked){
+                findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToBookmarkedSessionsFragment())
+            }
         }
     }
 

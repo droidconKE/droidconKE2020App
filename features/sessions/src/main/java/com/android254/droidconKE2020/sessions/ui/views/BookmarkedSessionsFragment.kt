@@ -1,7 +1,6 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,26 +8,23 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager.widget.ViewPager
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentBookmarkedSessionsBinding
-import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding
-import com.android254.droidconKE2020.sessions.ui.views.adapter.*
+import com.android254.droidconKE2020.sessions.ui.views.adapter.DummySession
+import com.android254.droidconKE2020.sessions.ui.views.adapter.SaveSessionListener
+import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionClickListener
 import com.android254.droidconKE2020.sessions.ui.views.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.ui.views.di.loadModules
 import com.android254.droidconKE2020.sessions.ui.views.models.DaySession
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.BookmarkedSessionsViewModel
 import com.android254.droidconKE2020.sessions.ui.views.viewmodel.SessionsViewModel
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_bookmarked_sessions.*
 import kotlinx.android.synthetic.main.tab_session.view.*
-
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class BookmarkedSessionsFragment : Fragment() {
     private var _binding: FragmentBookmarkedSessionsBinding? = null
-    private lateinit var sessionsTabAdapter: SessionsTabAdapter
     private val binding get() = _binding!!
     private val bookmarkedSessionsViewModel: BookmarkedSessionsViewModel by viewModel()
     private val sessionsViewModel: SessionsViewModel by viewModel()
@@ -52,13 +48,12 @@ class BookmarkedSessionsFragment : Fragment() {
         observeBookmarkedSessions()
         onNavigateBack()
         observeBackNavigation()
-
+        observeNavigateToSessionDetail()
     }
 
     private fun onNavigateBack(){
         imageViewBackNavigation.setOnClickListener{ _ ->
             bookmarkedSessionsViewModel.onNavigateBack()
-
         }
     }
 
@@ -77,20 +72,19 @@ class BookmarkedSessionsFragment : Fragment() {
                 requireContext().resources.getDrawable(R.drawable.session_card_view_border, null)
             binding.tabLayout.addTab(tabLayout.newTab().setCustomView(tabView))
         }
-        //TODO: what should happen when I click on one of them?
     }
 
     private fun observeDaySessions() {
         sessionsViewModel.daySessions.observe(
             viewLifecycleOwner,
             Observer { daySessions ->
-                Log.d("Sessions", "are $daySessions")
                 if (daySessions.isNotEmpty()) {
                     setUpTabs(daySessions)
                 }
             }
         )
     }
+
     private fun getDaySessions() {
         sessionsViewModel.getDaySessions()
     }
@@ -116,11 +110,12 @@ class BookmarkedSessionsFragment : Fragment() {
         bookmarkedSessionsViewModel.bookmarkedSessions.observe(
             viewLifecycleOwner,
             Observer {sessions ->
-                setUpRvSessions(sessions)
+                if (!sessions.isNullOrEmpty()){
+                    setUpRvSessions(sessions)
+                }
             }
         )
     }
-
     private fun setUpRvSessions(sessions: List<DummySession>) {
         val sessionsAdapter = SessionsAdapter(
             sessions = sessions,
@@ -128,10 +123,24 @@ class BookmarkedSessionsFragment : Fragment() {
                 session.isSessionSaved = false
             },
             sessionClickListener = SessionClickListener { sessionId ->
-                //bookmarkedSessionsViewModel.onSessionItemClicked(sessionId = sessionId)
+                bookmarkedSessionsViewModel.onSessionItemClicked(sessionId = sessionId)
             }
         )
         binding.rvSessionsSavedSessions.adapter = sessionsAdapter
     }
+    private fun observeNavigateToSessionDetail() {
+        bookmarkedSessionsViewModel.navigateToSessionDetail.observe(
+            viewLifecycleOwner,
+            Observer { sessionId ->
+                sessionId?.let {
+                    bookmarkedSessionsViewModel.onSessionDetailNavigated()
+                    val sessionsFragmentDirections =
+                        BookmarkedSessionsFragmentDirections.actionBookmarkedSessionsFragmentToSessionDetailsFragment(sessionId)
+                    findNavController().navigate(sessionsFragmentDirections)
+                }
+            }
+        )
+    }
+
 
 }
