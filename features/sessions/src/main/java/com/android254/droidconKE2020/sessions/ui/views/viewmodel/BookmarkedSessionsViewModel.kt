@@ -39,7 +39,7 @@ class BookmarkedSessionsViewModel: ViewModel() {
         _navigateToSessionDetail.value = 0L
     }
 
-    private fun generateBookmarkedSessions() = listOf(
+    private fun generateBookmarkedSessions() = listOf<DummySession>(
         DummySession(
             sessionSpeaker = "Jabez Magomere",
             sessionTitle = "Coroutines In Depth",

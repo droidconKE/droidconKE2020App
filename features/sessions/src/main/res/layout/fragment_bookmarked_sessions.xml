@@ -127,5 +127,15 @@
         tools:context=".ui.views.BookmarkedSessionsFragment"
         tools:listitem="@layout/item_session" />
 
+    <TextView
+        android:id="@+id/no_sessions_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:padding="8dp"
+        android:text="@string/no_bookmarked_sessions"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
