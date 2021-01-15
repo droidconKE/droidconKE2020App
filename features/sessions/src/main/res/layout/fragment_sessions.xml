@@ -20,11 +20,64 @@
             however it causes the bottom navigationview to be always visible hence the recyclerview
             gets truncated. If you have a way to get both working, kindly feel free to add the fix.
             -->
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="?actionBarSize"
                 app:layout_collapseMode="parallax">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+                            android:id="@+id/imageViewAppIcon"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_droidcon_logo"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shape_mode="circle" />
+
+
+                        <LinearLayout
+                            android:id="@+id/filterLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="16dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_slab"
+                                android:text="@string/filter"
+                                android:textSize="18sp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="24dp"
+                                android:layout_marginStart="2dp"
+                                android:contentDescription="@string/image"
+                                android:src="@drawable/ic_filter_outline"
+                                app:tint="@color/colorPurple" />
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.Toolbar>
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabLayout"
@@ -35,7 +88,7 @@
                     android:background="@android:color/transparent"
                     android:soundEffectsEnabled="true"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar2"
                     app:tabGravity="center"
                     app:tabIndicatorAnimationDuration="2000"
                     app:tabIndicatorColor="@android:color/transparent"
@@ -51,7 +104,7 @@
                     android:theme="@style/SwitchTheme"
                     android:thumb="@drawable/ic_favorite_outline"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+                    app:layout_constraintTop_toBottomOf="@id/toolbar2" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -72,59 +125,6 @@
                     tools:text="@tools:sample/lorem" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar2"
-                android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                app:layout_collapseMode="pin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-                        android:id="@+id/imageViewAppIcon"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_droidcon_logo"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:shape_mode="circle" />
-
-
-                    <LinearLayout
-                        android:id="@+id/filterLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="16dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_slab"
-                            android:text="@string/filter"
-                            android:textSize="18sp" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="24dp"
-                            android:layout_marginStart="2dp"
-                            android:contentDescription="@string/image"
-                            android:src="@drawable/ic_filter_outline"
-                            android:tint="@color/colorPurple" />
-
-                    </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 

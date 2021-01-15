@@ -16,6 +16,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
+      - run: touch local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
@@ -33,6 +34,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
+      - run: touch local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
@@ -50,6 +52,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
+      - run: touch local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
@@ -61,41 +64,42 @@ jobs:
       - name: Unit tests
         run: ./gradlew -Pci --console=plain testDebugUnitTest
 
-  instrumented-tests:
-    name: Instrumentation tests
-    runs-on: macOS-latest
-    if: github.ref == 'refs/heads/develop' || github.event.pull_request.base.ref == 'develop'
-    timeout-minutes: 60
-    strategy:
-      fail-fast: true
-      matrix:
-        api-level: [21, 29]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: gradle/wrapper-validation-action@v1
-      - uses: actions/setup-java@v1
-        with:
-          java-version: 8
-
-      # Ensure .gradle/caches is empty before writing to it.
-      # This helps us stay within Github's cache size limits.
-      # Rename the folder instead of deleting it as it's faster.
-      - name: Clean cache
-        run: mv ~/.gradle/caches ~/.gradle/.invalid_caches
-
-      # Restore the cache.
-      # Intentionally don't set 'restore-keys' so the cache never contains redundant dependencies.
-      - uses: actions/cache@v1
-        with:
-          path: ~/.gradle/caches
-          key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle.kts') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/src/main/kotlin/Library.kt') }}
-
-      - name: Instrumentation tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ matrix.api-level }}
-          arch: x86
-          script: ./gradlew connectedDebugAndroidTest --no-parallel
+  #  instrumented-tests:
+  #    name: Instrumentation tests
+  #    runs-on: macOS-latest
+  #    if: github.ref == 'refs/heads/develop' || github.event.pull_request.base.ref == 'develop'
+  #    timeout-minutes: 60
+  #    strategy:
+  #      fail-fast: true
+  #      matrix:
+  #        api-level: [21, 29]
+  #    steps:
+  #      - uses: actions/checkout@v2
+  #      - run: touch local.properties
+  #      - uses: gradle/wrapper-validation-action@v1
+  #      - uses: actions/setup-java@v1
+  #        with:
+  #          java-version: 8
+  #
+  #      # Ensure .gradle/caches is empty before writing to it.
+  #      # This helps us stay within Github's cache size limits.
+  #      # Rename the folder instead of deleting it as it's faster.
+  #      - name: Clean cache
+  #        run: mv ~/.gradle/caches ~/.gradle/.invalid_caches
+  #
+  #      # Restore the cache.
+  #      # Intentionally don't set 'restore-keys' so the cache never contains redundant dependencies.
+  #      - uses: actions/cache@v1
+  #        with:
+  #          path: ~/.gradle/caches
+  #          key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle.kts') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/src/main/kotlin/Library.kt') }}
+  #
+  #      - name: Instrumentation tests
+  #        uses: reactivecircus/android-emulator-runner@v2
+  #        with:
+  #          api-level: ${{ matrix.api-level }}
+  #          arch: x86
+  #          script: ./gradlew connectedDebugAndroidTest --no-parallel
 
   deploy:
     name: Deploy to PlayStore
@@ -109,6 +113,7 @@ jobs:
           echo "${{ secrets.RELEASE_KEYSTORE }}" > droidconKE.jks.asc
           gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch droidconKE.jks.asc > droidconKE.jks
           echo "${{ secrets.KEYSTORE_PROPERTY_FILE }}" > keystore.properties
+          echo "${{ secrets.GRADLE_LOCAL_PROPERTIES }}" > local.properties
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v1
         with:
@@ -117,6 +122,10 @@ jobs:
         with:
           path: ~/.gradle/caches
           key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle.kts') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/src/main/kotlin/Dependencies.kt') }}
+      - uses: nathanmkaya/android-version-code-update@v0.1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          packageName: com.android254.droidconKE2020
       - name: Build bundle
         run: ./gradlew -Pci --console=plain bundleRelease
 

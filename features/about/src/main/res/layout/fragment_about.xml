@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="com.android254.droidconKE2020.about.ui.viewmodel.AboutViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -95,10 +92,9 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/rl_organizers_margin">
 
-                    <!--                ToDo add other logos once available-->
                     <TextView
                         android:id="@+id/txt_organizers"
                         android:layout_width="wrap_content"
@@ -111,51 +107,20 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/img_ihub"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:background="@drawable/ihub"
-                        app:layout_constraintEnd_toStartOf="@id/img_kotlin_kenya"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCompanyOrganizers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_organizers"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
-
-                    <ImageView
-                        android:id="@+id/img_kotlin_kenya"
-                        android:layout_width="62dp"
-                        android:layout_height="46dp"
-                        android:background="@drawable/kotlin"
-                        app:layout_constraintEnd_toStartOf="@id/img_k"
-                        app:layout_constraintStart_toEndOf="@id/img_ihub"
-                        app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
-
-                    <ImageView
-                        android:id="@+id/img_k"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:background="@drawable/unnamed"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/img_kotlin_kenya"
-                        app:layout_constraintTop_toBottomOf="@id/txt_organizers" />
-
-                    <ImageView
-                        android:id="@+id/img_early_camp"
-                        android:layout_width="18dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/earlycamp"
-                        app:layout_constraintEnd_toStartOf="@id/img_kragt"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/img_ihub" />
+                        android:layout_marginTop="6dp"
+                        tools:listitem="@layout/item_company_organizer"
+                        tools:itemCount="5"
+                        app:spanCount="3"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
 
-                    <ImageView
-                        android:id="@+id/img_kragt"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:background="@drawable/kragtdigital"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/img_early_camp"
-                        app:layout_constraintTop_toBottomOf="@id/img_ihub" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>

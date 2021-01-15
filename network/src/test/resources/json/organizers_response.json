@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "name": "Harun Wangereka",
+      "tagline": "Android Developer",
+      "link": "droidcon.co.ke",
+      "type": "individual",
+      "bio": "Android Developer",
+      "twitter_handle": "wangerekaharun",
+      "designation": "Android Developer",
+      "photo": "https://api.droidcon.co.ke/upload/org_team/apppng.png",
+      "created_at": "2020-12-07 20:21:03"
+    },
+    {
+      "name": "Michael Bukachi",
+      "tagline": "Android Developer",
+      "link": "droidcon.co.ke",
+      "type": "individual",
+      "bio": null,
+      "twitter_handle": null,
+      "designation": null,
+      "photo": "https://api.droidcon.co.ke/upload/org_team/apppng.png",
+      "created_at": "2020-12-07 20:22:19"
+    },
+    {
+      "name": "Emmanuel Magak",
+      "tagline": "Web Developer",
+      "link": "droidcon.co.ke",
+      "type": "individual",
+      "bio": "Awesome Developer",
+      "twitter_handle": "magak",
+      "designation": "Web Developer",
+      "photo": "https://api.droidcon.co.ke/upload/org_team/markpng.png",
+      "created_at": "2020-12-10 15:53:39"
+    }
+  ]
+}

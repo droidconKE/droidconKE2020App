@@ -7,7 +7,7 @@
     <string name="title_about">About</string>
     <string name="title_sessions">Sessions</string>
     <string name="title_auth">Auth</string>
-    <string name="title_speaker">Speaker</string>
+    <string name="title_speaker">Speaker (s)</string>
     <string name="title_feedback">Feedback</string>
     <string name="sign_in">Sign In</string>
     <string name="text_toolbar_image_desc">Toolbar Image</string>
@@ -25,4 +25,5 @@
     <string name="text_mins_number">56</string>
     <string name="text_hrs_label">Hrs</string>
     <string name="text_hours_number">1</string>
+    <string name="text_retry">Retry</string>
 </resources>

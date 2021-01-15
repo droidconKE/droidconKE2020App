@@ -42,10 +42,15 @@ dependencies {
     implementation(project(":network"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(BuildModules.Libraries.Core))
     implementation(Libraries.kotlinStandardLibrary)
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
+
+    // Unit Tests
     testImplementation(TestLibraries.junit4)
+
+    // UI Tests
     androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.espresso)
 

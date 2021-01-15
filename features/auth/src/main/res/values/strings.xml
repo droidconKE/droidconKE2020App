@@ -2,5 +2,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nairobi_image">Nairobi image</string>
+    <string name="droidconke_logo">DroidconKe Logo</string>
+    <string name="sign_out">Sign Out</string>
 
 </resources>

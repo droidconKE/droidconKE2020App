@@ -86,12 +86,15 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(project(":app"))
-    implementation(project(":app", "debugDependencies"))
+    implementation(project(BuildModules.Libraries.App))
+    implementation(project(BuildModules.Libraries.Core))
+    implementation(project(BuildModules.Libraries.Repository))
+    testImplementation(project(BuildModules.Libraries.Test))
     implementation(Libraries.flexBox)
 
     // Test
-    testImplementation(project(":app", "testDependencies"))
+    testImplementation(project(BuildModules.Libraries.App, "testDependencies"))
+    debugImplementation(project(":app", "debugDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
 }
 

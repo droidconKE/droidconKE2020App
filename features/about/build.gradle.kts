@@ -20,19 +20,20 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    (kotlinOptions as org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions).apply {
+    kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(project(":app"))
-    implementation(project(":app", "debugDependencies"))
-    implementation(project(":core"))
+    implementation(project(BuildModules.Libraries.App))
+    implementation(project(BuildModules.Libraries.Core))
+    implementation(project(BuildModules.Libraries.Repository))
+    debugImplementation(project(":app", "debugDependencies"))
 
     // Testing Libraries
-    testImplementation(project(":app", "testDependencies"))
+    testImplementation(project(BuildModules.Libraries.App, "testDependencies"))
     androidTestImplementation(project(":app", "intTestDependencies"))
 }
 

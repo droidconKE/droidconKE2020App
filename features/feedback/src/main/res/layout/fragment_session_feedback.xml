@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="sessionTitle"
+            type="String" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvsessionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/thirty_dp"
+        android:text="@{sessionTitle}"
+        tools:text="@string/title_sessions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/thirty_dp"
+        android:layout_marginBottom="@dimen/thirty_dp"
+        android:text="@string/text_session_feedback"
+        android:textSize="@dimen/eighteen_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvsessionTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|start"
+        android:padding="20dp"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginLeft="@dimen/thirty_dp"
+        android:layout_marginRight="@dimen/thirty_dp"
+        android:background="@drawable/corner_radius"
+        android:hint="@string/type_here"
+        android:inputType="textMultiLine"
+        android:minLines="8"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/tvRatingLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rating"
+        android:paddingTop="@dimen/twenty_dp"
+        android:paddingBottom="20dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/etFeedback"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <RatingBar
+        android:id="@+id/sessionRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/colorLightGrey"
+        android:outlineAmbientShadowColor="@color/colorGrey"
+        android:progressTint="@color/colorGold"
+        android:textAlignment="center"
+        android:stepSize="1"
+        android:rating="1"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvRatingLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnSubmitFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fifty_dp"
+        android:background="@drawable/btn_round_edge"
+        android:text="@string/submit_feedback"
+        android:textColor="@color/colorWhite"
+        android:paddingRight="@dimen/ten_dp"
+        android:drawableRight="@drawable/ic_send"
+        android:drawableTint="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/sessionRatingBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="textView,etFeedback,tvRatingLabel,sessionRatingBar, btnSubmitFeedback"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

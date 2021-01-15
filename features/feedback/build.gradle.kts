@@ -18,12 +18,19 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
     implementation("com.android.support:appcompat-v7:28.0.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(project(":app"))
+    implementation(project(BuildModules.Libraries.App))
+    implementation(project(BuildModules.Libraries.Core))
+    implementation(project(BuildModules.Libraries.Repository))
+    testImplementation(project(BuildModules.Libraries.App, "testDependencies"))
+    testImplementation(project(BuildModules.Libraries.Test))
     testImplementation(TestLibraries.junit4)
 
     // Koin

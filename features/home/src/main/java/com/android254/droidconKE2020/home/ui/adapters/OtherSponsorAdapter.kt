@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.android254.droidconKE2020.core.models.SponsorUIModel
 import com.android254.droidconKE2020.home.R
-import com.android254.droidconKE2020.home.domain.Sponsor
 
-class OtherSponsorAdapter(private var onSponsorClickedEvent: (Sponsor) -> Unit) :
-    ListAdapter<Sponsor, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
+class OtherSponsorAdapter(private var onSponsorClickedEvent: (SponsorUIModel) -> Unit) :
+    ListAdapter<SponsorUIModel, RecyclerView.ViewHolder>(SponsorDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view =
@@ -30,20 +30,20 @@ class OtherSponsorAdapter(private var onSponsorClickedEvent: (Sponsor) -> Unit) 
         RecyclerView.ViewHolder(view) {
         private val imgSponsor: AppCompatImageView = view.findViewById(R.id.imgSponsor)
 
-        fun bind(item: Sponsor) {
+        fun bind(item: SponsorUIModel) {
             imgSponsor.also {
-                it.load(item.imageUrl)
+                it.load(item.logo)
                 it.setOnClickListener { onSponsorClickedEvent.invoke(item) }
             }
         }
     }
 
-    class SponsorDiffCallback : DiffUtil.ItemCallback<Sponsor>() {
+    class SponsorDiffCallback : DiffUtil.ItemCallback<SponsorUIModel>() {
 
-        override fun areItemsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean =
-            oldItem.id == newItem.id
+        override fun areItemsTheSame(oldItem: SponsorUIModel, newItem: SponsorUIModel): Boolean =
+            oldItem.name == newItem.name
 
-        override fun areContentsTheSame(oldItem: Sponsor, newItem: Sponsor): Boolean =
+        override fun areContentsTheSame(oldItem: SponsorUIModel, newItem: SponsorUIModel): Boolean =
             oldItem == newItem
     }
 }

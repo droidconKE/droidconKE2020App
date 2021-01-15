@@ -43,7 +43,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
-    implementation(Libraries.coroutinesLibrary)
+    implementation(Libraries.coroutinesAndroidLibrary)
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
     testImplementation(TestLibraries.junit4)
@@ -60,4 +60,9 @@ dependencies {
     implementation(Libraries.koinExt)
     implementation(Libraries.koinScope)
     implementation(Libraries.koinViewModel)
+    // Paging 3.0
+    api(Libraries.paging)
+
+    // GSON
+    implementation(Libraries.gsonConverter)
 }

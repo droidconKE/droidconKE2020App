@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
@@ -16,8 +19,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
+    val localProperties = Properties()
+    localProperties.load(FileInputStream(rootProject.file("local.properties")))
 
     buildTypes {
+        val apiKey = localProperties.getProperty("apiKey")
+        this.forEach {
+            it.buildConfigField("String", "API_KEY", "\"${apiKey}\"")
+        }
+
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
@@ -40,20 +50,27 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStandardLibrary)
+    implementation(Libraries.coroutinesLibrary)
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
+    implementation(project(BuildModules.Libraries.Core))
+
+    // Unit Tests
     testImplementation(TestLibraries.junit4)
     testImplementation(TestLibraries.mockServer)
     testImplementation(TestLibraries.koin)
     testImplementation(TestLibraries.coroutines)
     testImplementation(TestLibraries.mockk)
+    testImplementation(TestLibraries.truth)
+
+    // UI Tests
     androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.espresso)
 
     // Retrofit
-    implementation(Libraries.retrofit)
-    implementation(Libraries.gsonConverter)
-    implementation(Libraries.loggingInterceptor)
+    api(Libraries.retrofit)
+    api(Libraries.gsonConverter)
+    api(Libraries.loggingInterceptor)
 
     // Koin
     implementation(Libraries.koinAndroid)

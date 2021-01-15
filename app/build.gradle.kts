@@ -8,6 +8,7 @@ plugins {
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.ktlintPlugin)
     id(BuildPlugins.firebasePlugin)
+    id(BuildPlugins.kotlinKapt)
 }
 android {
     compileSdkVersion(AndroidSDK.compile)
@@ -42,7 +43,8 @@ android {
 //                "proguard-rules.pro"
 //            )
 //        }
-//    }
+//    } ToDo uncomment this before pushing online
+
     dynamicFeatures = mutableSetOf(
         BuildModules.Features.Home,
         BuildModules.Features.Feed,
@@ -107,7 +109,8 @@ dependencies {
     api(Libraries.koinScope)
     api(Libraries.koinViewModel)
 
-    implementation(Libraries.googlePlayServices)
+    api(Libraries.googlePlayServices)
+    api(Libraries.googleAuth)
     // Mock data
     api(Libraries.fakeit)
     api(Libraries.firebaseCrashlytics)

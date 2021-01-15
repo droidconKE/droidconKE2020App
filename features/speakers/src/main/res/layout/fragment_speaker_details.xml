@@ -7,7 +7,11 @@
 
         <variable
             name="speaker"
-            type="com.android254.droidconKE2020.speakers.models.Speaker" />
+            type="com.android254.droidconKE2020.core.models.SpeakerUIModel" />
+
+        <variable
+            name="viewModel"
+            type="com.android254.droidconKE2020.speakers.viewmodels.SpeakerDetailsViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -136,7 +140,7 @@
 
                 <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
                     android:id="@+id/circleImageView"
-                    imageUrl="@{speaker.imageUrl}"
+                    imageUrl="@{speaker.speakerAvatar}"
                     android:layout_width="75dp"
                     android:layout_height="76dp"
                     app:layout_constraintBottom_toBottomOf="@id/circleImageViewBg"
@@ -155,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/roboto_slab"
-                    android:text="@{speaker.name}"
+                    android:text="@{speaker.speakerName}"
                     android:textColor="@color/colorPurple"
                     android:textSize="@dimen/textSizeLarge"
                     android:textStyle="bold"
@@ -169,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/roboto"
-                    android:text="@{speaker.work}"
+                    android:text="@{speaker.speakerTagLine}"
                     android:textSize="@dimen/textSizeSmaller"
                     app:layout_constraintEnd_toEndOf="@+id/tvSpeakerBio"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -183,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/roboto"
-                    android:text="@{speaker.company}"
+                    android:text="@{speaker.speakerCompany}"
                     android:textSize="@dimen/textSizeSmaller"
                     app:layout_constraintStart_toEndOf="@id/circleImageViewBg"
                     app:layout_constraintTop_toBottomOf="@+id/tvSpeakerRole"
@@ -204,14 +208,16 @@
 
                 <TextView
                     android:id="@+id/tvTopTwitterHandle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/mediumMargin"
                     android:layout_marginBottom="4dp"
                     android:fontFamily="@font/roboto"
-                    android:text='@{"@"+speaker.socialMedia.twitter}'
+                    android:text='@{viewModel.getHandleFromUrl(speaker.speakerTwitterProfile)}'
                     android:textColor="@color/colorPurple"
                     app:layout_constraintBottom_toBottomOf="@+id/imgTwitter"
+                    app:layout_constraintEnd_toEndOf="@+id/tvSpeakerBio"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/imgTwitter"
                     app:layout_constraintTop_toTopOf="@+id/imgTwitter"
                     tools:text="@string/text_speaker_handle" />
@@ -224,7 +230,7 @@
                     android:layout_marginTop="@dimen/screenMargin"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/roboto"
-                    android:text="@{speaker.bio}"
+                    android:text="@{speaker.speakerBio}"
                     android:textSize="@dimen/textSizeSmall"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -276,7 +282,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/fab_margin"
                         android:fontFamily="@font/roboto"
-                        android:text='@{"@"+speaker.socialMedia.twitter}'
+                        android:text='@{viewModel.getHandleFromUrl(speaker.speakerTwitterProfile)}'
                         android:textColor="@color/colorAquaMarine"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/copyIcon"
@@ -295,6 +301,9 @@
                         android:src="@drawable/ic_copy_outline"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

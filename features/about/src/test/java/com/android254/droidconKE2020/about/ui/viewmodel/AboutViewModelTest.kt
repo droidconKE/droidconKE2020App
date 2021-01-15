@@ -1,54 +1,39 @@
 package com.android254.droidconKE2020.about.ui.viewmodel
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
-import com.android254.droidconKE2020.about.ui.views.Organizer
-import io.mockk.spyk
-import io.mockk.verify
-import org.junit.Assert.*
+import com.android254.droidconKE2020.about.testOrganisers
+import com.android254.droidconKE2020.repository.Data
+import com.android254.droidconKE2020.repository.organizers.OrganizersRepository
+import com.android254.droidconKE2020.test_utils.BaseViewModelTest
+import com.jraska.livedata.test
+import io.mockk.*
 import org.junit.Before
 import org.junit.Test
-
-import org.junit.Rule
 
 /**
  * 09/04/20
  */
-class AboutViewModelTest {
-    @Rule @JvmField
-    val instantExecutorRule = InstantTaskExecutorRule()
-
-    private lateinit var viewModel: AboutViewModel
-
-    private var organizerList = listOf<Organizer>()
-    private lateinit var observer: Observer<List<Organizer>>
+class AboutViewModelTest : BaseViewModelTest() {
+    private val organizersRepository = mockk<OrganizersRepository>()
+    lateinit var organizersViewModel: OrganizerViewModel
 
     @Before
-    fun setUp() {
-        viewModel = AboutViewModel()
-
-        observer = createOrganizersObserver()
-        viewModel.organizers.observeForever(observer)
+    fun setup() {
+        organizersViewModel = OrganizerViewModel(organizersRepository)
     }
 
     @Test
-    fun createDummyData_OrganizerListObserver_VerifiedCorrectly() {
-        viewModel.createDummyData()
-
-        val slots = mutableListOf<List<Organizer>>()
-        verify { observer.onChanged(capture(slots)) }
+    fun `test organizers are fetched successfully`() {
+        coEvery { organizersRepository.fetchOrganizers() } returns Data.Success(testOrganisers)
+        organizersViewModel.fetchOrganizers()
+        coVerify { organizersRepository.fetchOrganizers() }
+        organizersViewModel.organizers.test().assertValue(testOrganisers)
     }
 
     @Test
-    fun createDummyData_OrganizerListIsNotEmpty_VerifiedCorrectly() {
-        viewModel.createDummyData()
-
-        val slots = mutableListOf<List<Organizer>>()
-        verify { observer.onChanged(capture(slots)) }
-
-        organizerList = slots[0]
-        assertTrue(organizerList.isNotEmpty())
+    fun `test toast is shown when error occurs when fetching organizers`() {
+        coEvery { organizersRepository.fetchOrganizers() } returns Data.Error("An error occurred")
+        organizersViewModel.fetchOrganizers()
+        coVerify { organizersRepository.fetchOrganizers() }
+        organizersViewModel.showToast.test().assertValue("An error occurred")
     }
-
-    private fun createOrganizersObserver(): Observer<List<Organizer>> = spyk(Observer {})
 }

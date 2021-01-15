@@ -1,82 +1,50 @@
 package com.android254.droidconKE2020.speakers
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android254.droidconKE2020.speakers.di.speakersModule
-import com.android254.droidconKE2020.speakers.repositories.FakeSpeakerRepository
+import androidx.paging.PagingData
+import com.android254.droidconKE2020.repository.speakers.SpeakerRepository
 import com.android254.droidconKE2020.speakers.viewmodels.SpeakersViewModel
-import io.mockk.MockKAnnotations
-import org.junit.*
-import org.koin.core.context.startKoin
-import org.koin.core.context.stopKoin
-import org.koin.test.KoinTest
-import org.koin.test.inject
+import com.android254.droidconKE2020.test_utils.BaseViewModelTest
+import com.jraska.livedata.test
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
+import kotlinx.coroutines.flow.flowOf
+import org.junit.Before
+import org.junit.Test
 
-class SpeakersViewModelTest : KoinTest {
+class SpeakersViewModelTest : BaseViewModelTest() {
 
-    @get:Rule
-    val instantTask = InstantTaskExecutorRule()
+    private val speakerRepository = mockk<SpeakerRepository>()
+    private lateinit var speakersViewModel: SpeakersViewModel
 
     @Before
     fun before() {
-        startKoin { modules(speakersModule) }
-        MockKAnnotations.init(this)
-    }
-
-    @After
-    fun after() {
-        stopKoin()
-    }
-
-    private val speakerViewModel: SpeakersViewModel by inject()
-
-    private val speakerRepo: FakeSpeakerRepository by inject()
-
-    @Test
-    fun `test that searchPhrase can be modified`() {
-        println("Action: Searching Speaker")
-        val newSearchPhrase = "juma allan"
-        speakerViewModel.searchPhrase.postValue(newSearchPhrase)
-
-        println("Expected: $newSearchPhrase")
-
-        val searchPhrase = speakerViewModel.searchPhrase.getOrAwaitValue()
-        println("Value: $searchPhrase")
-
-        Assert.assertEquals(searchPhrase, newSearchPhrase)
-
-        println("######## \n")
+        speakersViewModel = SpeakersViewModel(speakerRepository)
     }
 
     @Test
-    fun `test that speakers matching a searchPhrase can be retrieved`() {
-        println("Action: Searching a speaker")
-        val searchPhrase = "juma allan"
-        speakerViewModel.retrieveSpeakerList(searchPhrase)
+    fun `test loading of speakers with no search term`() {
+        val data = listOf(sampleSpeaker)
+        every { speakerRepository.fetchSpeakers() } returns flowOf(PagingData.from(data))
 
-        val expectedResults = speakerRepo.sessionSpeakers.getOrAwaitValue()
-        println("Expected: Speakers containing $searchPhrase ($expectedResults")
+        val speakers = speakersViewModel.getSpeakers()
 
-        val speakers = speakerViewModel.speakerList.getOrAwaitValue()
-        println("Value: $speakers")
+        verify { speakerRepository.fetchSpeakers() }
 
-        Assert.assertEquals(speakers, expectedResults)
-
-        println("######## \n")
+        speakers.test().assertHasValue()
     }
 
     @Test
-    fun `test that speakers are retrieved when retrieveSpeakerList() is called`() {
-        println("Action: Retrieving all speakers")
-        speakerViewModel.retrieveSpeakerList(null)
+    fun `test loading of speakers with search term`() {
+        val data = listOf(sampleSpeaker)
+        every { speakerRepository.fetchSpeakers() } returns flowOf(PagingData.from(data))
 
-        val expectedResults = speakerRepo.sessionSpeakers.getOrAwaitValue()
-        println("Expected: All speakers ($expectedResults)")
+        val speakers = speakersViewModel.getSpeakers()
 
-        val speakers = speakerViewModel.speakerList.getOrAwaitValue()
-        println("Value: $speakers")
+        verify { speakerRepository.fetchSpeakers() }
 
-        Assert.assertEquals(speakers, expectedResults)
+        speakersViewModel.searchTerm.value = "charles"
 
-        println("######## \n")
+        speakers.test().assertHasValue()
     }
 }
