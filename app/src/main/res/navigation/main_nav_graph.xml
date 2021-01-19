@@ -63,6 +63,9 @@
         <action
             android:id="@+id/action_sessionsFragment_to_filterBottomSheet"
             app:destination="@id/filterBottomSheet" />
+        <action
+            android:id="@+id/action_sessionsFragment_to_bookmarkedSessionsFragment"
+            app:destination="@id/bookmarkedSessionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"

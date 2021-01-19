@@ -12,6 +12,8 @@ interface SessionRepository {
     suspend fun changeBookmarkStatus(sessionId: Int): Data<String>
 
     suspend fun fetchAllSessions(): Data<List<SessionUIModel>>
+
+    suspend fun fetchBookmarkedSessions():Data<List<SessionUIModel>>
 }
 
 class SessionRepositoryImpl(private val apiService: ApiService) : SessionRepository {
@@ -79,6 +81,22 @@ class SessionRepositoryImpl(private val apiService: ApiService) : SessionReposit
                 else -> Data.Error(response.message())
             }
         } catch (exception: Exception) {
+            Data.Error(exception.message)
+        }
+    }
+
+    override suspend fun fetchBookmarkedSessions(): Data<List<SessionUIModel>> {
+        return  try {
+            val response = apiService.sessionSchedule.fetchBookmarkedSessions()
+            when {
+                response.isSuccessful -> Data.Success(
+                    response.body()!!.sessions.map { session ->
+                        session.toSessionUIModel()
+                    }
+                )
+                else -> Data.Error(response.message())
+            }
+        }catch (exception: Exception){
             Data.Error(exception.message)
         }
     }

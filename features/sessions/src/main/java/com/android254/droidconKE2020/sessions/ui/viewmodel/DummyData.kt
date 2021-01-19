@@ -1,0 +1,103 @@
+package com.android254.droidconKE2020.sessions.ui.viewmodel
+
+import com.android254.droidconKE2020.core.models.SessionUIModel
+
+val alist = listOf<SessionUIModel>(
+    SessionUIModel(
+        sessionDuration = "30 min",
+        sessionVenue = "Room 1",
+        sessionLevel = "Beginner",
+        sessionTitle = "Android 101",
+        sessionDescription = "A.B.C",
+        isBookmarked = false,
+        sessionSpeakers = listOf(),
+        sessionId = 1,
+        sessionSlug = " abc",
+        sessionImage = "none",
+        sessionStartTime = "abc ",
+        sessionStartTimeSuffix = "abc",
+        sessionFormat = "talk",
+        isKeynote = false
+    ),
+    SessionUIModel(
+        sessionDuration = "30 min",
+        sessionVenue = "Room 1",
+        sessionLevel = "Beginner",
+        sessionTitle = "Kotlin 101",
+        sessionDescription = "A.B.C",
+        isBookmarked = true,
+        sessionSpeakers = listOf(),
+        sessionId = 2,
+        sessionSlug = " abc",
+        sessionImage = "none ",
+        sessionStartTime = "abc ",
+        sessionStartTimeSuffix = "abc",
+        sessionFormat = "talk",
+        isKeynote = false
+    ),
+    SessionUIModel(
+        sessionDuration = "30 min",
+        sessionVenue = "Room 1",
+        sessionLevel = "Beginner",
+        sessionTitle = "Jetpack 101",
+        sessionDescription = "A.B.C",
+        isBookmarked = false,
+        sessionSpeakers = listOf(),
+        sessionId = 3,
+        sessionSlug = " abc",
+        sessionImage = "none",
+        sessionStartTime = "abc ",
+        sessionStartTimeSuffix = "abc",
+        sessionFormat = "talk",
+        isKeynote = false
+    ),
+    SessionUIModel(
+        sessionDuration = "30 min",
+        sessionVenue = "Room 1",
+        sessionLevel = "Beginner",
+        sessionTitle = "Koin 101",
+        sessionDescription = "A.B.C",
+        isBookmarked = true,
+        sessionSpeakers = listOf(),
+        sessionId = 4,
+        sessionSlug = " abc",
+        sessionImage = "none",
+        sessionStartTime = "abc ",
+        sessionStartTimeSuffix = "abc",
+        sessionFormat = "talk",
+        isKeynote = false
+    ),
+    SessionUIModel(
+        sessionDuration = "30 min",
+        sessionVenue = "Room 1",
+        sessionLevel = "Beginner",
+        sessionTitle = "Android 101",
+        sessionDescription = "A.B.C",
+        isBookmarked = false,
+        sessionSpeakers = listOf(),
+        sessionId = 5,
+        sessionSlug = " abc",
+        sessionImage = "none",
+        sessionStartTime = "abc ",
+        sessionStartTimeSuffix = "abc",
+        sessionFormat = "talk",
+        isKeynote = false
+    ),
+    SessionUIModel(
+        sessionDuration = "30 min",
+        sessionVenue = "Room 1",
+        sessionLevel = "Beginner",
+        sessionTitle = "Ktor 101",
+        sessionDescription = "A.B.C",
+        isBookmarked = true,
+        sessionSpeakers = listOf(),
+        sessionId = 6,
+        sessionSlug = " abc",
+        sessionImage = "none",
+        sessionStartTime = "abc ",
+        sessionStartTimeSuffix = "abc",
+        sessionFormat = "talk",
+        isKeynote = false
+    ),
+
+)

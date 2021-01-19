@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionsBinding
@@ -34,6 +36,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         injectFeatures()
         super.onViewCreated(view, savedInstanceState)
         setUpTabs(getScheduleDays())
+        goToBookmarkedSessions()
     }
 
     private fun setUpTabs(daySessions: List<DaySession>) {
@@ -86,6 +89,14 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         tab?.let {
             tab.customView = null
             tab.customView = sessionsTabAdapter.getSelectedTabView(position)
+        }
+    }
+
+    private fun goToBookmarkedSessions(){
+        binding.switch1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked){
+                findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToBookmarkedSessionsFragment())
+            }
         }
     }
 }

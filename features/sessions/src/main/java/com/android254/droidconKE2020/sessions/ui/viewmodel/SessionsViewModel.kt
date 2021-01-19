@@ -12,22 +12,25 @@ import kotlinx.coroutines.launch
 class SessionsViewModel(private val sessionsRepository: SessionRepository) : ViewModel() {
     private var _sessions = MutableLiveData<List<SessionUIModel>>()
     val sessions get() = _sessions
+    private var _bookmarkedSessions = MutableLiveData<List<SessionUIModel>>()
+    val bookmarkedSessions get() = _bookmarkedSessions
     private var _sessionUIModel = MutableLiveData<SessionUIModel>()
     val sessionUIModel get() = _sessionUIModel
     val showToast = SingleLiveEvent<String>()
     val isSessionBookmarked = SingleLiveEvent<String>()
 
     fun fetchSessions(day: String) {
-        viewModelScope.launch {
-            when (val value = sessionsRepository.fetchSessionsSchedule(day)) {
-                is Data.Success -> {
-                    _sessions.postValue(value.data)
-                }
-                is Data.Error -> {
-                    showToast.postValue(value.exception.toString())
-                }
-            }
-        }
+        _sessions.postValue(alist)
+//        viewModelScope.launch {
+//            when (val value = sessionsRepository.fetchSessionsSchedule(day)) {
+//                is Data.Success -> {
+//                    _sessions.postValue(value.data)
+//                }
+//                is Data.Error -> {
+//                    showToast.postValue(value.exception.toString())
+//                }
+//            }
+//        }//TODO: Uncomment this before mergeing
     }
 
     fun setSession(sessionUIModel: SessionUIModel) {
@@ -40,6 +43,12 @@ class SessionsViewModel(private val sessionsRepository: SessionRepository) : Vie
                 is Data.Success -> isSessionBookmarked.postValue(value.data)
                 is Data.Error -> isSessionBookmarked.postValue(value.exception.toString())
             }
+        }
+    }
+
+    fun fetchBookMarkedSessions(){
+        viewModelScope.launch {
+
         }
     }
 }
