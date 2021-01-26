@@ -36,22 +36,45 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
         injectFeatures()
         super.onViewCreated(view, savedInstanceState)
         fetchSessions(arguments?.getString("day").orEmpty())
-        observeDaySessions()
+        fetchBookmarkedSessions(arguments?.getString("day").orEmpty())
+        if (parentFragment is BookmarkedSessionsFragment) {
+            observerBookMarkedSessions()
+        } else {
+            observeDaySessions()
+        }
     }
 
     private fun fetchSessions(day: String) {
         sessionsViewModel.fetchSessions(day)
     }
 
+    private fun fetchBookmarkedSessions(day: String) {
+        sessionsViewModel.fetchBookmarkedSessions(day)
+    }
+
+    private fun observerBookMarkedSessions() {
+        sessionsViewModel.bookmarkedSessions.observe(viewLifecycleOwner) { bookmarkedSessions ->
+            if (bookmarkedSessions.isNullOrEmpty()) {
+                binding.noSessionsView.visibility = View.VISIBLE
+                binding.rvSessions.visibility = View.GONE
+            } else {
+                binding.noSessionsView.visibility = View.GONE
+                binding.rvSessions.visibility = View.VISIBLE
+                setUpRvSessions(bookmarkedSessions)
+            }
+        }
+        sessionsViewModel.showToast.observe(viewLifecycleOwner) { errorMsg ->
+            requireContext().toast(errorMsg)
+        }
+
+        sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner) { isSessionBookmarked ->
+            requireContext().toast(isSessionBookmarked)
+        }
+    }
+
     private fun observeDaySessions() {
         sessionsViewModel.sessions.observe(viewLifecycleOwner) { sessions ->
-//            if (parentFragment is BookmarkedSessionsFragment) {
-//
-//                val savedSessions = sessions.filter { it.isBookmarked }
-//                setUpRvSessions(savedSessions)
-//            } else {
-                setUpRvSessions(sessions)
-//            }
+            setUpRvSessions(sessions)
         }
         sessionsViewModel.showToast.observe(viewLifecycleOwner) { errorMessage ->
             requireContext().toast(errorMessage)

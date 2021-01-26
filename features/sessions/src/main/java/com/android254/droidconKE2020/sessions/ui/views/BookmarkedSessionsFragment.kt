@@ -35,7 +35,6 @@ class BookmarkedSessionsFragment : Fragment(){
     private var _binding: FragmentBookmarkedSessionsBinding? = null
     private val binding get() = _binding!!
     private fun injectFeatures() = loadModules
-    private val sessionsViewModel: SessionsViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,10 +48,7 @@ class BookmarkedSessionsFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         injectFeatures()
-        observeSessions()
-//        sessionsViewModel.fetchBookmarkedSessions()
-//        setUpTabs(getScheduleDays())
-
+        setUpTabs(getScheduleDays())
 
         binding.switchSavedSessions.setOnCheckedChangeListener { _, isChecked ->
             if(!isChecked){
@@ -63,13 +59,6 @@ class BookmarkedSessionsFragment : Fragment(){
         binding.imageBackNavigation.setOnClickListener {
             goBackToSessions()
         }
-    }
-
-    private fun observeSessions(){
-        sessionsViewModel.sessions.observe(viewLifecycleOwner, { sessions ->
-           Log.d("Saved sessions", "size, ${sessions.filter { it.isBookmarked }.size}")
-
-        })
     }
 
     private fun setUpTabs(daySessions: List<DaySession>) {
