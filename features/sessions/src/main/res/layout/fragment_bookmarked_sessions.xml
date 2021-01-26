@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout1"
                 android:layout_width="match_parent"
@@ -29,9 +30,9 @@
 
                 <ImageButton
                     android:id="@+id/imageBackNavigation"
-                    android:layout_width="@dimen/imageBtnWidth"
-                    android:layout_height="@dimen/imageBtnHeight"
-                    android:layout_marginStart="@dimen/marginStart"
+                    android:layout_width="@dimen/imageButtonWidth"
+                    android:layout_height="@dimen/imageButtonHeight"
+                    android:layout_marginStart="18dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/back_button"
                     android:src="@drawable/ic_arrow_back_white"
@@ -41,8 +42,8 @@
 
                 <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
                     android:id="@+id/imageViewAppIcon"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="@dimen/imageIconWidth"
+                    android:layout_height="@dimen/imageIconHeight"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_droidcon_logo"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -50,11 +51,12 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:shape_mode="circle"
                     tools:layout_editor_absoluteY="0dp" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_saved_sessions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/switchMarginEnd"
                     android:theme="@style/SwitchTheme"
                     android:thumb="@drawable/ic_favorite_outline"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +64,7 @@
                     android:checked="true"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_saved_sessions"
                 android:layout_width="match_parent"
@@ -77,8 +80,9 @@
                     android:layout_marginStart="@dimen/layout2MarginStart"
                     android:layout_marginBottom="@dimen/layout2MarginBottom"
                     android:layout_marginTop="@dimen/layout2MarginTop">
+
                     <TextView
-                        android:id="@+id/textView1"
+                        android:id="@+id/titleTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_slab_bold"
@@ -89,7 +93,7 @@
                         android:layout_gravity="start"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="@dimen/titleTvMarginTop"/>
 
                     <com.google.android.material.tabs.TabLayout
                         android:id="@+id/tabLayout"
@@ -107,8 +111,8 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerSavedSessions"
         android:layout_width="match_parent"
@@ -119,4 +123,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+    <TextView
+        android:id="@+id/no_sessions_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:padding="@dimen/horizontalPadding"
+        android:text="@string/no_bookmarked_sessions"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

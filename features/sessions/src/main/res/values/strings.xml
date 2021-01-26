@@ -31,5 +31,5 @@
     <string name="nairobi_skyline">Nairobi Skyline</string>
     <string name="my_sessions">My Sessions</string>
     <string name="text_submit_session_feedback">Go to Feedback</string>
-    <string name="noBookmarkedSessions">No Bookmarked Sessions</string>
+    <string name="no_bookmarked_sessions">No Bookmarked Sessions</string>
 </resources>

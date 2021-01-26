@@ -21,6 +21,6 @@
         android:visibility="gone"
         android:gravity="center_horizontal"
         android:layout_marginTop="192dp"
-        android:text="@string/noBookmarkedSessions"
+        android:text="@string/no_bookmarked_sessions"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 </LinearLayout>
