@@ -29,7 +29,7 @@ internal class SessionsAdapter(
     override fun onBindViewHolder(holder: SessionsViewHolder, position: Int) =
         holder.bind(sessions[position])
 
-    internal class SessionsViewHolder               (
+    internal class SessionsViewHolder(
         private val itemSessionBinding: ItemSessionBinding,
         private val onSessionClickListener: SessionsClickListener
     ) : RecyclerView.ViewHolder(itemSessionBinding.root) {
@@ -41,6 +41,4 @@ internal class SessionsAdapter(
             }
         }
     }
-
-    // TODO find out how to set the saved star
 }

@@ -22,28 +22,28 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-//    val keystorePropertiesFile = rootProject.file("keystore.properties")
-//    val keystoreProperties = Properties()
-//    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-//
-//    signingConfigs {
-//        create("release") {
-//            storeFile = file(keystoreProperties.getProperty("storeFile"))
-//            keyAlias = keystoreProperties.getProperty("keyAlias")
-//            keyPassword = keystoreProperties.getProperty("keyPassword")
-//            storePassword = keystoreProperties.getProperty("storePassword")
-//        }
-//    }
-//    buildTypes {
-//        getByName("release") {
-//            isMinifyEnabled = true
-//            signingConfig = signingConfigs.getByName("release")
-//            proguardFiles(
-//                getDefaultProguardFile("proguard-android-optimize.txt"),
-//                "proguard-rules.pro"
-//            )
-//        }
-//    } ToDo uncomment this before pushing online
+    val keystorePropertiesFile = rootProject.file("keystore.properties")
+    val keystoreProperties = Properties()
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+    signingConfigs {
+        create("release") {
+            storeFile = file(keystoreProperties.getProperty("storeFile"))
+            keyAlias = keystoreProperties.getProperty("keyAlias")
+            keyPassword = keystoreProperties.getProperty("keyPassword")
+            storePassword = keystoreProperties.getProperty("storePassword")
+        }
+    }
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("release")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
 
     dynamicFeatures = mutableSetOf(
         BuildModules.Features.Home,
