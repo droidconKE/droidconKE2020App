@@ -61,4 +61,24 @@ class SessionsViewModelTest : BaseViewModelTest() {
         coVerify { sessionRepository.changeBookmarkStatus(1) }
         sessionsViewModel.isSessionBookmarked.test().assertValue("Bookmark Removed")
     }
+
+    @Test
+    fun `test that bookmarked sessions are fetched`() {
+        coEvery { sessionRepository.fetchBookmarkedSessions("Day 1") } returns Data.Success(
+            testBookmarkedSessions
+        )
+        sessionsViewModel.fetchBookmarkedSessions("Day 1")
+        coVerify { sessionRepository.fetchBookmarkedSessions("Day 1") }
+        sessionsViewModel.sessions.test().assertValue(testBookmarkedSessions)
+    }
+
+    @Test
+    fun `test show toast has value when error occurs when fetching bookmarked sessions`() {
+        coEvery { sessionRepository.fetchBookmarkedSessions("Day 1") } returns Data.Error(
+            "Error Occurred"
+        )
+        sessionsViewModel.fetchBookmarkedSessions("Day 1")
+        coVerify { sessionRepository.fetchBookmarkedSessions("Day 1") }
+        sessionsViewModel.showToast.test().assertValue("Error Occurred")
+    }
 }

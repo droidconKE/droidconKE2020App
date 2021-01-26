@@ -153,7 +153,14 @@
         android:name="com.android254.droidconKE2020.sessions.ui.views.BookmarkedSessionsFragment"
         android:label="Bookmarked"
         app:moduleName="sessions"
-        tools:layout="@layout/fragment_bookmarked_sessions"/>
+        tools:layout="@layout/fragment_bookmarked_sessions">
+        <action
+            android:id="@+id/action_bookmarkedSessionsFragment_to_sessionsFragment"
+            app:destination="@id/sessionsFragment" />
+        <action
+            android:id="@+id/action_bookmarkedSessionsFragment_to_sessionDetailsFragment"
+            app:destination="@id/sessionDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/sessionFeedbackFragment"
         android:name="com.android254.droidconKE2020.feedback.ui.views.SessionFeedbackFragment"
