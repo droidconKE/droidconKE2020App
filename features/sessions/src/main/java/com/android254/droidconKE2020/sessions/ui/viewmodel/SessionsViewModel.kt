@@ -13,9 +13,6 @@ class SessionsViewModel(private val sessionsRepository: SessionRepository) : Vie
     private var _sessions = MutableLiveData<List<SessionUIModel>>()
     val sessions get() = _sessions
 
-    private var _bookmarkedSessions = MutableLiveData<List<SessionUIModel>>()
-    val bookmarkedSessions get() = _bookmarkedSessions
-
     private var _sessionUIModel = MutableLiveData<SessionUIModel>()
     val sessionUIModel get() = _sessionUIModel
 
@@ -45,19 +42,6 @@ class SessionsViewModel(private val sessionsRepository: SessionRepository) : Vie
             when (val value = sessionsRepository.changeBookmarkStatus(sessionId)) {
                 is Data.Success -> isSessionBookmarked.postValue(value.data)
                 is Data.Error -> isSessionBookmarked.postValue(value.exception.toString())
-            }
-        }
-    }
-
-    fun fetchBookmarkedSessions(day: String){
-        viewModelScope.launch {
-            when (val value = sessionsRepository.fetchBookmarkedSessions(day)) {
-                is Data.Success -> {
-                        _bookmarkedSessions.postValue(value.data)
-                }
-                is Data.Error -> {
-                    showToast.postValue(value.exception.toString())
-                }
             }
         }
     }

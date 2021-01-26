@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.core.models.SessionUIModel
 import com.android254.droidconKE2020.core.utils.toast
@@ -36,45 +37,28 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
         injectFeatures()
         super.onViewCreated(view, savedInstanceState)
         fetchSessions(arguments?.getString("day").orEmpty())
-        fetchBookmarkedSessions(arguments?.getString("day").orEmpty())
-        if (parentFragment is BookmarkedSessionsFragment) {
-            observerBookMarkedSessions()
-        } else {
-            observeDaySessions()
-        }
+        observeDaySessions()
     }
 
     private fun fetchSessions(day: String) {
         sessionsViewModel.fetchSessions(day)
     }
 
-    private fun fetchBookmarkedSessions(day: String) {
-        sessionsViewModel.fetchBookmarkedSessions(day)
-    }
-
-    private fun observerBookMarkedSessions() {
-        sessionsViewModel.bookmarkedSessions.observe(viewLifecycleOwner) { bookmarkedSessions ->
-            if (bookmarkedSessions.isNullOrEmpty()) {
-                binding.noSessionsView.visibility = View.VISIBLE
-                binding.rvSessions.visibility = View.GONE
-            } else {
-                binding.noSessionsView.visibility = View.GONE
-                binding.rvSessions.visibility = View.VISIBLE
-                setUpRvSessions(bookmarkedSessions)
-            }
-        }
-        sessionsViewModel.showToast.observe(viewLifecycleOwner) { errorMsg ->
-            requireContext().toast(errorMsg)
-        }
-
-        sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner) { isSessionBookmarked ->
-            requireContext().toast(isSessionBookmarked)
-        }
-    }
-
     private fun observeDaySessions() {
         sessionsViewModel.sessions.observe(viewLifecycleOwner) { sessions ->
-            setUpRvSessions(sessions)
+            if (parentFragment is BookmarkedSessionsFragment){
+                val savedSessions = sessions.filter { it.isBookmarked }
+                if (savedSessions.isNullOrEmpty()){
+                    binding.noSessionsView.visibility = View.VISIBLE
+                    binding.rvSessions.visibility = View.GONE
+                }else{
+                    binding.noSessionsView.visibility = View.GONE
+                    binding.rvSessions.visibility = View.VISIBLE
+                    setUpRvSessions(savedSessions)
+                }
+            }else{
+                setUpRvSessions(sessions)
+            }
         }
         sessionsViewModel.showToast.observe(viewLifecycleOwner) { errorMessage ->
             requireContext().toast(errorMessage)
@@ -103,11 +87,16 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     }
 
     override fun onSessionClick(sessionUIModel: SessionUIModel) {
-        findNavController().navigate(
+        var directions: NavDirections = if (parentFragment is BookmarkedSessionsFragment) {
+            BookmarkedSessionsFragmentDirections.actionBookmarkedSessionsFragmentToSessionDetailsFragment(
+                sessionUIModel
+            )
+        }else{
             SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment(
                 sessionUIModel
             )
-        )
+        }
+        findNavController().navigate(directions)
     }
 
     override fun onSessionSave(sessionUIModel: SessionUIModel, view: View) {

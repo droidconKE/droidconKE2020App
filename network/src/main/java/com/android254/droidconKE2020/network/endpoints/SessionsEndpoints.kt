@@ -25,9 +25,4 @@ interface SessionsEndpoints {
     @GET("events/${ApiConstants.DROIDCON_EVENT}/schedule")
     suspend fun fetchSessions(): Response<AllSessions>
 
-    @GET("events/${ApiConstants.DROIDCON_EVENT}/bookmarked_schedule")
-    suspend fun fetchBookMarkedSessions(
-        @Query("grouped") isGrouped: Boolean = true
-    ): Response<Sessions>
-
 }
