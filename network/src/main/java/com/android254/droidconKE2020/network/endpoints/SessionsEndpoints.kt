@@ -24,5 +24,4 @@ interface SessionsEndpoints {
 
     @GET("events/${ApiConstants.DROIDCON_EVENT}/schedule")
     suspend fun fetchSessions(): Response<AllSessions>
-
 }
