@@ -1,12 +1,10 @@
 package com.android254.droidconKE2020.sessions.ui.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.core.models.SessionUIModel
 import com.android254.droidconKE2020.core.utils.toast
@@ -87,7 +85,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     }
 
     override fun onSessionClick(sessionUIModel: SessionUIModel) {
-        var directions: NavDirections = if (parentFragment is BookmarkedSessionsFragment) {
+        val sessionsDirections = if (parentFragment is BookmarkedSessionsFragment) {
             BookmarkedSessionsFragmentDirections.actionBookmarkedSessionsFragmentToSessionDetailsFragment(
                 sessionUIModel
             )
@@ -96,7 +94,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
                 sessionUIModel
             )
         }
-        findNavController().navigate(directions)
+        findNavController().navigate(sessionsDirections)
     }
 
     override fun onSessionSave(sessionUIModel: SessionUIModel, view: View) {

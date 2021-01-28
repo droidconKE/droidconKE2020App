@@ -15,7 +15,6 @@ import com.android254.droidconKE2020.sessions.utils.ZoomOutPageTransformer
 import com.android254.droidconKE2020.sessions.utils.getScheduleDays
 import kotlinx.android.synthetic.main.fragment_bookmarked_sessions.*
 
-
 class BookmarkedSessionsFragment : Fragment() {
     private lateinit var sessionsTabAdapter: SessionsTabAdapter
     private var _binding: FragmentBookmarkedSessionsBinding? = null

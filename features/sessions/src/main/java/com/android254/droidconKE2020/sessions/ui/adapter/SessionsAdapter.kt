@@ -2,7 +2,6 @@ package com.android254.droidconKE2020.sessions.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android254.droidconKE2020.core.models.SessionUIModel

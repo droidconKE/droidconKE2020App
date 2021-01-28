@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionsBinding
-import com.android254.droidconKE2020.sessions.ui.adapter.SessionsTabAdapter
 import com.android254.droidconKE2020.sessions.di.loadModules
 import com.android254.droidconKE2020.sessions.models.DaySession
+import com.android254.droidconKE2020.sessions.ui.adapter.SessionsTabAdapter
 import com.android254.droidconKE2020.sessions.utils.ZoomOutPageTransformer
 import com.android254.droidconKE2020.sessions.utils.getScheduleDays
 import kotlinx.android.synthetic.main.fragment_sessions.*
