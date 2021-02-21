@@ -3,7 +3,6 @@ plugins {
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.ktlintPlugin)
-    id("kotlin-android")
 }
 android {
     compileSdkVersion(AndroidSDK.compile)

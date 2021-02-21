@@ -33,7 +33,6 @@ class AuthInterceptor(private val sharedPref: Preferences) : Interceptor {
         return chain.proceed(newRequest)
     }
 }
-
 /** @see Call.await */
 internal class ContinuationCallback(
     private val call: Call,

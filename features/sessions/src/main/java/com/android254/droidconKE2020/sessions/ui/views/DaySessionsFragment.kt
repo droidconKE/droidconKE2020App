@@ -21,6 +21,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     private val sessionsViewModel: SessionsViewModel by sharedViewModel()
     private var _binding: FragmentDaySessionsBinding? = null
     private val binding get() = _binding!!
+    private var sessionsAdapter: SessionsAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,40 +35,27 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         injectFeatures()
         super.onViewCreated(view, savedInstanceState)
-        fetchSessions(arguments?.getString("day").orEmpty())
         observeDaySessions()
-    }
 
-    private fun fetchSessions(day: String) {
-        sessionsViewModel.fetchSessions(day)
     }
 
     private fun observeDaySessions() {
-        sessionsViewModel.sessions.observe(viewLifecycleOwner) { sessions ->
-            if (parentFragment is BookmarkedSessionsFragment){
-                val savedSessions = sessions.filter { it.isBookmarked }
-                if (savedSessions.isNullOrEmpty()){
-                    binding.noSessionsView.visibility = View.VISIBLE
-                    binding.rvSessions.visibility = View.GONE
-                }else{
-                    binding.noSessionsView.visibility = View.GONE
-                    binding.rvSessions.visibility = View.VISIBLE
-                    setUpRvSessions(savedSessions)
-                }
-            }else{
-                setUpRvSessions(sessions)
-            }
+        sessionsViewModel.filteredSessions.observe(viewLifecycleOwner){ sessions ->
+            setUpRvSessions(sessions)
         }
+
         sessionsViewModel.showToast.observe(viewLifecycleOwner) { errorMessage ->
             requireContext().toast(errorMessage)
         }
+
         sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner) { isSessionBookmarked ->
             requireContext().toast(isSessionBookmarked)
         }
     }
 
+
     private fun setUpRvSessions(sessions: List<SessionUIModel>) {
-        val sessionsAdapter = SessionsAdapter(sessions, this)
+        sessionsAdapter = SessionsAdapter(sessions, this)
         binding.rvSessions.adapter = sessionsAdapter
     }
 
@@ -85,15 +73,9 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     }
 
     override fun onSessionClick(sessionUIModel: SessionUIModel) {
-        val sessionsDirections = if (parentFragment is BookmarkedSessionsFragment) {
-            BookmarkedSessionsFragmentDirections.actionBookmarkedSessionsFragmentToSessionDetailsFragment(
-                sessionUIModel
-            )
-        }else{
-            SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment(
-                sessionUIModel
-            )
-        }
+        val sessionsDirections = SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment(
+            sessionUIModel
+        )
         findNavController().navigate(sessionsDirections)
     }
 
