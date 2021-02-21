@@ -21,10 +21,7 @@ val testSessions = listOf(
         "AM",
         "Regular Session",
         false
-    )
-)
-
-val testBookmarkedSessions = listOf(
+    ),
     SessionUIModel(
         "08:45 AM - 09:45 AM",
         "Room A",

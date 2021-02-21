@@ -40,7 +40,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     }
 
     private fun observeDaySessions() {
-        sessionsViewModel.filteredSessions.observe(viewLifecycleOwner){ sessions ->
+        sessionsViewModel.sessions.observe(viewLifecycleOwner) { sessions ->
             setUpRvSessions(sessions)
         }
 

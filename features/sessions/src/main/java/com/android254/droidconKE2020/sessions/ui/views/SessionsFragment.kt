@@ -22,8 +22,6 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
     private var _binding: FragmentSessionsBinding? = null
     private val binding get() = _binding!!
     private fun injectFeatures() = loadModules
-    private var day = "Day 1"
-    private var showBookmarked = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,17 +36,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         injectFeatures()
         super.onViewCreated(view, savedInstanceState)
         setUpTabs(getScheduleDays())
-        observeDayPosition(getScheduleDays())
-        showBookmarkedSessions()
-    }
-
-    private fun observeDayPosition(daySessions: List<DaySession>) {
-        sessionsViewModel.showBookMarkedSessionsPair.observe(viewLifecycleOwner) { apair ->
-            showBookmarked = apair.first
-            val day = apair.second
-            val position = daySessions.indexOf(daySessions.first{daySession -> (daySession.dayText == day) })
-            highlightTab(position)
-        }
+        setupBookmarkSwitch()
     }
 
     private fun setUpTabs(daySessions: List<DaySession>) {
@@ -85,9 +73,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
                 }
 
                 override fun onPageSelected(position: Int) {
-                    day =  daySessions[position].dayText
-                    sessionsViewModel.showBookMarkedSessionsPair.postValue(Pair(showBookmarked, day))
-
+                    highlightTab(position)
                 }
             }
         )
@@ -109,10 +95,9 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         }
     }
 
-    private fun showBookmarkedSessions() {
+    private fun setupBookmarkSwitch() {
         binding.switch1.setOnCheckedChangeListener { _, isChecked ->
-            val apair = Pair(isChecked, day)
-            sessionsViewModel.showBookMarkedSessionsPair.postValue(apair)
+            sessionsViewModel.showBookmarked = isChecked
         }
     }
 }
