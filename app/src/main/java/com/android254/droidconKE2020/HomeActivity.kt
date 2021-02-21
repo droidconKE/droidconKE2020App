@@ -46,7 +46,7 @@ class HomeActivity : AppCompatActivity() {
             toolbar.onDestinationChanged(destination.id, destination.label as String)
             when (destination.id) {
                 R.id.aboutFragment, R.id.homeFragment, R.id.feedFragment, R.id.sessionsFragment,
-                R.id.bookmarkedSessionsFragment -> {
+                -> {
                     bottomNavigation.visibility = View.VISIBLE
                 }
                 else -> bottomNavigation.visibility = View.GONE
