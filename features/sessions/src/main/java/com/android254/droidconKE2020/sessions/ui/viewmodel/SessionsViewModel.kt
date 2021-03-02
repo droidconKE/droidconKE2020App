@@ -1,6 +1,5 @@
 package com.android254.droidconKE2020.sessions.ui.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,30 +11,35 @@ import kotlinx.coroutines.launch
 
 class SessionsViewModel(private val sessionsRepository: SessionRepository) : ViewModel() {
     private var _sessions = MutableLiveData<List<SessionUIModel>>()
-    val sessions:LiveData<List<SessionUIModel>> get() = _sessions
+    val sessions get() = _sessions
+
     private var _sessionUIModel = MutableLiveData<SessionUIModel>()
-    val sessionUIModel: LiveData<SessionUIModel> get() = _sessionUIModel
+    val sessionUIModel get() = _sessionUIModel
+
     val showToast = SingleLiveEvent<String>()
     val isSessionBookmarked = SingleLiveEvent<String>()
+
+    private val localSessions = mutableListOf<SessionUIModel>()
+
     var showBookmarked = false
 
-
-    fun fetchSessions(day: String) {
-        viewModelScope.launch {
-            val sessions = mutableListOf<SessionUIModel>()
+    suspend fun fetchSessions(day: String) {
+        if (localSessions.isEmpty()) {
             when (val value = sessionsRepository.fetchSessionsSchedule(day)) {
                 is Data.Success -> {
-                    if (showBookmarked) {
-                        sessions.addAll(value.data.filter { sessionUIModel -> sessionUIModel.isBookmarked })
-                    } else {
-                        sessions.addAll(value.data)
-                    }
-                    _sessions.value = sessions
+                    localSessions.addAll(value.data)
                 }
                 is Data.Error -> {
                     showToast.postValue(value.exception.toString())
                 }
             }
+        }
+
+
+        if (showBookmarked) {
+            _sessions.value = localSessions.filter { sessionUIModel -> sessionUIModel.isBookmarked }
+        } else {
+            _sessions.value = localSessions
         }
     }
 
@@ -45,6 +49,7 @@ class SessionsViewModel(private val sessionsRepository: SessionRepository) : Vie
 
     fun changeBookmarkStatus(sessionId: Int) {
         viewModelScope.launch {
+
             when (val value = sessionsRepository.changeBookmarkStatus(sessionId)) {
                 is Data.Success -> isSessionBookmarked.postValue(value.data)
                 is Data.Error -> isSessionBookmarked.postValue(value.exception.toString())
