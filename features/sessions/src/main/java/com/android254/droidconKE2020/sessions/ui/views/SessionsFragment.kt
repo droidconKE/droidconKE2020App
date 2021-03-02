@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager.widget.ViewPager
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentSessionsBinding
@@ -14,6 +15,7 @@ import com.android254.droidconKE2020.sessions.ui.adapter.SessionsTabAdapter
 import com.android254.droidconKE2020.sessions.ui.viewmodel.SessionsViewModel
 import com.android254.droidconKE2020.sessions.utils.ZoomOutPageTransformer
 import com.android254.droidconKE2020.sessions.utils.getScheduleDays
+import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
@@ -22,6 +24,7 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
     private var _binding: FragmentSessionsBinding? = null
     private val binding get() = _binding!!
     private fun injectFeatures() = loadModules
+    private var selectedDay = "Day 1"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +40,9 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
         super.onViewCreated(view, savedInstanceState)
         setUpTabs(getScheduleDays())
         setupBookmarkSwitch()
+        viewLifecycleOwner.lifecycleScope.launch {
+            sessionsViewModel.fetchSessions(selectedDay)
+        }
     }
 
     private fun setUpTabs(daySessions: List<DaySession>) {
@@ -93,11 +99,15 @@ internal class SessionsFragment : Fragment(R.layout.fragment_sessions) {
             tab.customView = null
             tab.customView = sessionsTabAdapter.getSelectedTabView(position)
         }
+        selectedDay = "Day ${position + 1}"
     }
 
     private fun setupBookmarkSwitch() {
         binding.switch1.setOnCheckedChangeListener { _, isChecked ->
             sessionsViewModel.showBookmarked = isChecked
+            viewLifecycleOwner.lifecycleScope.launch {
+                sessionsViewModel.fetchSessions(selectedDay)
+            }
         }
     }
 }

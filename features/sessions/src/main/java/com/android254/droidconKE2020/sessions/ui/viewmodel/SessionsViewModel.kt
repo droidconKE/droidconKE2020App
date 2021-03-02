@@ -19,22 +19,27 @@ class SessionsViewModel(private val sessionsRepository: SessionRepository) : Vie
     val showToast = SingleLiveEvent<String>()
     val isSessionBookmarked = SingleLiveEvent<String>()
 
+    private val localSessions = mutableListOf<SessionUIModel>()
+
     var showBookmarked = false
 
     suspend fun fetchSessions(day: String) {
-        val sessions = mutableListOf<SessionUIModel>()
-        when (val value = sessionsRepository.fetchSessionsSchedule(day)) {
-            is Data.Success -> {
-                if (showBookmarked) {
-                    sessions.addAll(value.data.filter { sessionUIModel -> sessionUIModel.isBookmarked })
-                } else {
-                    sessions.addAll(value.data)
+        if (localSessions.isEmpty()) {
+            when (val value = sessionsRepository.fetchSessionsSchedule(day)) {
+                is Data.Success -> {
+                    localSessions.addAll(value.data)
                 }
-                _sessions.value = sessions
+                is Data.Error -> {
+                    showToast.postValue(value.exception.toString())
+                }
             }
-            is Data.Error -> {
-                showToast.postValue(value.exception.toString())
-            }
+        }
+
+
+        if (showBookmarked) {
+            _sessions.value = localSessions.filter { sessionUIModel -> sessionUIModel.isBookmarked }
+        } else {
+            _sessions.value = localSessions
         }
     }
 
