@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.core.models.SessionUIModel
@@ -37,7 +38,9 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
         injectFeatures()
         super.onViewCreated(view, savedInstanceState)
         observeDaySessions()
-        sessionsViewModel.fetchSessions(arguments?.getString("day").orEmpty())
+        lifecycleScope.launchWhenStarted {
+            sessionsViewModel.fetchSessions(arguments?.getString("day").orEmpty())
+        }
 
     }
 
