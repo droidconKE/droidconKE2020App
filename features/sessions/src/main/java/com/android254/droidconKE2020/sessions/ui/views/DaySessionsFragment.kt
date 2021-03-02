@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.android254.droidconKE2020.core.models.SessionUIModel
 import com.android254.droidconKE2020.core.utils.toast
 import com.android254.droidconKE2020.sessions.R
 import com.android254.droidconKE2020.sessions.databinding.FragmentDaySessionsBinding
-import com.android254.droidconKE2020.sessions.ui.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.di.loadModules
+import com.android254.droidconKE2020.sessions.ui.adapter.SessionsAdapter
 import com.android254.droidconKE2020.sessions.ui.adapter.SessionsClickListener
 import com.android254.droidconKE2020.sessions.ui.viewmodel.SessionsViewModel
 import org.koin.android.viewmodel.ext.android.sharedViewModel
@@ -21,6 +23,7 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     private val sessionsViewModel: SessionsViewModel by sharedViewModel()
     private var _binding: FragmentDaySessionsBinding? = null
     private val binding get() = _binding!!
+    private var sessionsAdapter: SessionsAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,28 +37,30 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         injectFeatures()
         super.onViewCreated(view, savedInstanceState)
-        fetchSessions(arguments?.getString("day").orEmpty())
         observeDaySessions()
-    }
+        lifecycleScope.launchWhenStarted {
+            sessionsViewModel.fetchSessions(arguments?.getString("day").orEmpty())
+        }
 
-    private fun fetchSessions(day: String) {
-        sessionsViewModel.fetchSessions(day)
     }
 
     private fun observeDaySessions() {
         sessionsViewModel.sessions.observe(viewLifecycleOwner) { sessions ->
             setUpRvSessions(sessions)
         }
+
         sessionsViewModel.showToast.observe(viewLifecycleOwner) { errorMessage ->
             requireContext().toast(errorMessage)
         }
+
         sessionsViewModel.isSessionBookmarked.observe(viewLifecycleOwner) { isSessionBookmarked ->
             requireContext().toast(isSessionBookmarked)
         }
     }
 
+
     private fun setUpRvSessions(sessions: List<SessionUIModel>) {
-        val sessionsAdapter = SessionsAdapter(sessions, this)
+        sessionsAdapter = SessionsAdapter(sessions, this)
         binding.rvSessions.adapter = sessionsAdapter
     }
 
@@ -73,7 +78,10 @@ class DaySessionsFragment : Fragment(R.layout.fragment_day_sessions), SessionsCl
     }
 
     override fun onSessionClick(sessionUIModel: SessionUIModel) {
-        findNavController().navigate(SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment(sessionUIModel))
+        val sessionsDirections = SessionsFragmentDirections.actionSessionsFragmentToSessionDetailFragment(
+            sessionUIModel
+        )
+        findNavController().navigate(sessionsDirections)
     }
 
     override fun onSessionSave(sessionUIModel: SessionUIModel, view: View) {

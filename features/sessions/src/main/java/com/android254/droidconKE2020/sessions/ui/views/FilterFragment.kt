@@ -16,6 +16,7 @@ internal class FilterFragment : Fragment() {
     private val topicsTestList = mutableListOf<String>()
     private val sessionTypeList = mutableListOf<String>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

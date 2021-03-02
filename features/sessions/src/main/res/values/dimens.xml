@@ -5,4 +5,22 @@
     <dimen name="dimen_filter_title_font_size">18sp</dimen>
     <dimen name="filterButtonCornerRadius">20dp</dimen>
     <dimen name="feedbackLabelMargin">32dp</dimen>
+    <dimen name="layout1MarginTop">8dp</dimen>
+    <dimen name="imageBtnWidth">24dp</dimen>
+    <dimen name="imageBtnHeight">24dp</dimen>
+    <dimen name="marginStart">18dp</dimen>
+    <dimen name="layout2MarginStart">20dp</dimen>
+    <dimen name="layout2MarginBottom">16dp</dimen>
+    <dimen name="layout2MarginTop">12dp</dimen>
+    <dimen name="horizontalPadding">8dp</dimen>
+    <dimen name="titleTvMarginTop">16dp</dimen>
+    <dimen name="layoutMarginTop">12dp</dimen>
+    <dimen name="layoutMarginBottom">16dp</dimen>
+    <dimen name="layoutMarginStart">20dp</dimen>
+    <dimen name="switchMarginEnd">16dp</dimen>
+    <dimen name="imageIconWidth">36dp</dimen>
+    <dimen name="imageIconHeight">36dp</dimen>
+    <dimen name="imageButtonWidth">24dp</dimen>
+    <dimen name="imageButtonHeight">24dp</dimen>
+    <dimen name="marginTop">8dp</dimen>
 </resources>

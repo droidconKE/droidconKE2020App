@@ -8,6 +8,8 @@ import com.jraska.livedata.test
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
 
@@ -21,13 +23,26 @@ class SessionsViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test that sessions scheduled are fetched`() {
+    fun `test that sessions are fetched`() = runBlockingTest {
         coEvery { sessionRepository.fetchSessionsSchedule("Day 1") } returns Data.Success(
             testSessions
         )
         sessionsViewModel.fetchSessions("Day 1")
+
         coVerify { sessionRepository.fetchSessionsSchedule("Day 1") }
         sessionsViewModel.sessions.test().assertValue(testSessions)
+    }
+
+    @Test
+    fun `test that only bookmarked sessions are fetched`() = runBlockingTest {
+        coEvery { sessionRepository.fetchSessionsSchedule("Day 1") } returns Data.Success(
+            testSessions
+        )
+        sessionsViewModel.showBookmarked = true
+        sessionsViewModel.fetchSessions("Day 1")
+
+        coVerify { sessionRepository.fetchSessionsSchedule("Day 1") }
+        sessionsViewModel.sessions.test().assertValue { it.size == 1 }
     }
 
     @Test
@@ -41,7 +56,9 @@ class SessionsViewModelTest : BaseViewModelTest() {
         coEvery { sessionRepository.fetchSessionsSchedule("Day 1") } returns Data.Error(
             "Error Occurred"
         )
-        sessionsViewModel.fetchSessions("Day 1")
+        runBlocking {
+            sessionsViewModel.fetchSessions("Day 1")
+        }
         coVerify { sessionRepository.fetchSessionsSchedule("Day 1") }
         sessionsViewModel.showToast.test().assertValue("Error Occurred")
     }
@@ -61,4 +78,5 @@ class SessionsViewModelTest : BaseViewModelTest() {
         coVerify { sessionRepository.changeBookmarkStatus(1) }
         sessionsViewModel.isSessionBookmarked.test().assertValue("Bookmark Removed")
     }
+
 }

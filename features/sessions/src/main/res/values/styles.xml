@@ -20,7 +20,6 @@
 
     <style name="Theme.Sessions.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-
     <style name="Theme.Sessions.BottomSheetDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
         </item>

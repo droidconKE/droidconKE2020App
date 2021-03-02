@@ -58,11 +58,11 @@
         tools:layout="@layout/fragment_sessions">
         <action
             android:id="@+id/action_sessionsFragment_to_sessionDetailFragment"
-            app:destination="@id/sessionDetailsFragment"/>
+            app:destination="@id/sessionDetailsFragment" />
 
         <action
             android:id="@+id/action_sessionsFragment_to_filterBottomSheet"
-            app:destination="@id/filterBottomSheet"/>
+            app:destination="@id/filterBottomSheet" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -83,7 +83,7 @@
         tools:layout="@layout/fragment_speakers">
         <action
             android:id="@+id/action_speakersFragment_to_speakerDetailsFragment"
-            app:destination="@id/speakerDetailsFragment"/>
+            app:destination="@id/speakerDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/speakerDetailsFragment"
@@ -102,7 +102,7 @@
         android:name="com.android254.droidconKE2020.about.ui.views.OrganizerDetailsFragment"
         android:label="Organizers"
         app:moduleName="about"
-        tools:layout="@layout/fragment_organizer_details" >
+        tools:layout="@layout/fragment_organizer_details">
         <argument
             android:name="organizerUIModel"
             app:argType="com.android254.droidconKE2020.core.models.OrganizerUIModel" />
@@ -143,14 +143,13 @@
         tools:layout="@layout/fragment_filter">
         <action
             android:id="@+id/action_filterFragment_to_SessionsFragment"
-            app:destination="@+id/sessionsFragment"
-            />
+            app:destination="@+id/sessionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/sessionFeedbackFragment"
         android:name="com.android254.droidconKE2020.feedback.ui.views.SessionFeedbackFragment"
-        app:moduleName="feedback"
-        android:label="Session Feedback" >
+        android:label="Session Feedback"
+        app:moduleName="feedback">
         <argument
             android:name="sessionUIModel"
             app:argType="com.android254.droidconKE2020.core.models.SessionUIModel" />
